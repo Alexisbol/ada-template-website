@@ -1,9 +1,57 @@
 ---
 layout: default
-layout: default
 title: Fed Rate Impact Game
 permalink: /game/
-Pick a sector, company size, and Fed rate event. Hit **Reveal** to see which profile is expected to perform better and why.
+---
+
+<style>
+/* Top navigation bar */
+.top-nav {
+    background: #000;
+    border-bottom: 1px solid #333;
+    position: relative;
+    left: -90px;
+    width: calc(100% + 180px);
+    padding: 0;
+    margin-bottom: 30px;
+}
+.top-nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+.nav-link {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.nav-link:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+.nav-link.active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+</style>
+
+<div class="top-nav">
+    <div class="top-nav-content">
+        <a href="{{ site.baseurl }}/" class="nav-link">Home</a>
+        <a href="{{ site.baseurl }}/other_page" class="nav-link">Analysis</a>
+        <a href="{{ site.baseurl }}/game" class="nav-link active">Interactive</a>
+        <a href="{{ site.github.repository_url }}" class="nav-link" target="_blank">Repository</a>
+    </div>
+</div>
+
 # Fed Rate Impact Game
 
 Pick a sector, company size, and Fed rate event. Hit **Reveal** to see which profile is expected to perform better and why.
