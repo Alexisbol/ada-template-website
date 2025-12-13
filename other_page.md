@@ -46,6 +46,10 @@ layout: default
         <a href="{{ site.baseurl }}/" class="nav-link">Home</a>
         <a href="{{ site.baseurl }}/other_page" class="nav-link active">Analysis</a>
         <a href="{{ site.baseurl }}/game" class="nav-link">Interactive</a>
+        <a href="{{ site.baseurl }}/Beatrice" class="nav-link">Beatrice</a>
+        <a href="{{ site.baseurl }}/Cyriac" class="nav-link">Cyriac</a>
+        <a href="{{ site.baseurl }}/Lucas" class="nav-link">Lucas</a>
+        <a href="{{ site.baseurl }}/Alexis" class="nav-link">Alexis</a>
         <a href="{{ site.github.repository_url }}" class="nav-link" target="_blank">Repository</a>
     </div>
 </div>
