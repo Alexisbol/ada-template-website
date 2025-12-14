@@ -79,13 +79,11 @@ A Third obstacle lied in the fact that we were that so far we were comparing raw
 Once all these obstacles had been tackled we ended up with the complete method for comparing two companies, which can be summarized in the following equation 
 
 > 
-> $ Comp(A, B) = \frac{| \tilde{A} - \tilde{B}|}{\tilde{A} + \tilde{B}}  $ 
+>  ![Octat](assets/img/Lucas/comparability_measure.png)
 >
-> With $\tilde{X}$ the median of the feature considered for the company X during the time window considered 
+> With  ![Octat](assets/img/Lucas/X_tilde.png) the median of the feature considered for the company X during the time window considered 
 >
 
 
 
 ## Case studies
-
- 
