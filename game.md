@@ -89,7 +89,7 @@ permalink: /game/
 #game-container {
   display: flex;
   justify-content: center;
-  margin: 20px auto 50px auto;
+  margin: 10px auto 50px auto;
   font-family: Arial, sans-serif;
 }
 
