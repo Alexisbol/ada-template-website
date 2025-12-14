@@ -92,7 +92,7 @@ The feature created from this conclusion is called Dollar Volume and depends on 
 On a side note, we also defined a feature called Dollar Return as the product between the Return and the Typical price that helps us in the analysis to better quantify the gains or losses of a company in monitary terms.
 
 
-## Relevance of possible Results
+## Relevance of the Results
 
 One key ingredient is missing to the pipeline so far. Everything mentioned combined only offers an automized way to get pairs of companies with the most intersting properties of similarity for our analysis, but it never guarantees the existence of the statistical significance of said properties. What we mean is the fact that we merely sort the pairs based on a similarity and dissimilarity score to get companies the most similar at the beginning and most different at the end of the event, but nothing in the process guarantees that these difference are statistically significative. 
 
