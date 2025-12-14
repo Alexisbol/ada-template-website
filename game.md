@@ -112,10 +112,15 @@ permalink: /game/
   padding: 15px 25px;
   width: 80%;
   border-radius: 15px;
-  max-width: 450px;
+  max-width: 600px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   text-align: center;
-  font-size: 3em;
+}
+
+#question-container p#question-text {
+    font-size: 2em;        
+    font-family: "Georgia", serif; 
+    margin: 0;             
 }
 
 #answers {
