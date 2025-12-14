@@ -85,7 +85,7 @@ you can see here the game :
 <!-- style of the game  -->
 
 <style>
-.game-container {
+#game-container {
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -94,18 +94,19 @@ you can see here the game :
   font-family: Arial, sans-serif;
 }
 
-.character-container img {
+#character-container img {
   width: 100px;
+
 }
 
-.question-container {
+#question-container {
   background: #f0f0f0;
   padding: 20px;
   border-radius: 10px;
   flex-grow: 1;
 }
 
-.answers button {
+#answers button {
   display: block;
   margin: 10px 0;
   padding: 10px 15px;
@@ -117,7 +118,7 @@ you can see here the game :
   color: white;
 }
 
-.answers button:hover {
+#answers button:hover {
   background-color: #0056b3;
 }
 </style>
