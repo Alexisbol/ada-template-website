@@ -79,7 +79,7 @@ A Third obstacle lied in the fact that we were that so far we were comparing raw
 Once all these obstacles had been tackled we ended up with the complete method for comparing two companies, which can be summarized in the following equation 
 
 > 
->  <img src="assets/img/Lucas/comparability_measure.png" height="30em">
+>  <img src="assets/img/Lucas/comparability_measure.png" height="70em">
 >
 > With X̃ the median of the feature considered for the company X during the time window considered 
 >
