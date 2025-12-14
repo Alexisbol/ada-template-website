@@ -63,11 +63,7 @@ A relevant analysis of the impact of the fed rates ask for a relevant difference
  
 ## Comparability Methods 
 
-
-We based our approach of comparability on the features of the dataset, and composite features based on the former.
-
-__maybe put here graphs of the composite__
-
+A first comment goes towards the sectors of the companies. To achieve the relevant analysis that we had in mind, we chose to only consider pairs of companies lying within the same sector. This way the results cannot be biased by between-sectors difference in behaviors. We based the rest of our approach of comparability on the features of the companies 
 
 A first obstacle in the definition of a comparabilty measure lies in the volatility of these features along a time period.
 The solution adopted was therefore to think of a local measure of how similar two companies are on a given small time period. This approach fit our case as we aim to study the impact of localized fed rate events, hence the evolution of the before and after the event for two companies. The idea is then to define a small time window on which we can compare the values of a given feature for both companies.
@@ -85,5 +81,17 @@ Once all these obstacles had been tackled we ended up with the complete method f
 >
 
 
+## Focus on the Features
+
+Given the comparaison method that we had derive, we had to find which feature of a company would best express this notion of comparibility we had in mind. Having already taken care of the sector of the company, the idea of comparability lied intuitively in a notion of "size" of the company. We have already discussed this notion in the part on the size dependent analysis, but as a reminder the idea is here to compare companies of "similar" "size". We have defined this concept of "similar" already what is left is to look into how different features, both given by the dataset and engineered ourseleves could better represent the "size" of a company.
+
+We first considered features like Volume of shares exchanged and Return. Now the latter is already an engineered feature, defined as the percentage of difference between two Closing prices distanced by a given time period (generally for us 21 days). The issue that arised from these features was their lack of complete economical grounding. In fact we can imagine a company that has issued a large amount of consequently cheap shares, which would imply that a large quantity of exchanged shares doesn't necesseraily represent a large amount of money exchanged. Similarly, a big difference in Closing prices in a compay with a low amount of shares issued doesn't necessarily represent an important financial gain or loss. The reader may have realized that one lacks the other offers, the idea is then to combine the notions behind them into composite features that display a more complete economical grounding.
+
+The feature created from this conclusion is called Dollar Volume and depends on a third one called Typical price. The latter is a well known feature used in finance and that is defined as a weighted average of all the prices of a share (Opening, Closing, Highest, Lowest). This feature helps us define a more adaptable and all encompassing notion of price for a company share. We then define our Dollar Volume as the product of the amount of shares traded and the typical price of a share, to get a quantifier of the amount of financial volume traded.
+
+On a side note, we also defined a feature called Dollar Return as the product between the Return and the Typical price that helps us in the analysis to better quantify the gains or losses of a company in monitary terms.
+
 
 ## Case studies
+
+
