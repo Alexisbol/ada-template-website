@@ -68,15 +68,15 @@ you can see here the game :
 
 <div id="game-container">
   <div id="character-container">
-  	<!-- for theinterviewer icon -->
-    <img src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Character" id="character"> 
-  </div>
-  <div id="question-container">
-    <p id="question-text"></p>
-    <div id="answers">
-      <button id="answer1" onclick="choose(0)"></button>
-      <button id="answer2" onclick="choose(1)"></button>
-    </div>
+   <!-- for theinterviewer icon (this one is free of license) -->
+   <img src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Character" id="character"> 
+	<div id="question-container">
+	 <p id="question-text"></p>
+	 <div id="answers">
+	 <button id="answer1" onclick="choose(0)"></button>
+	 <button id="answer2" onclick="choose(1)"></button>
+	</div>
+   </div>
   </div>
 </div>
 
@@ -86,41 +86,59 @@ you can see here the game :
 <!-- style of the game  -->
 
 <style>
+	
 #game-container {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  max-width: 600px;
+  justify-content: center;
   margin: 50px auto;
   font-family: Arial, sans-serif;
 }
 
+#character-container {
+  position: relative;
+  width: 300px; /* bigger image container */
+}
+
 #character-container img {
-  width: 100px;
+  width: 100%;
+  border-radius: 10px;
 }
 
 #question-container {
-  background: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  flex-grow: 1;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent */
+  padding: 15px 20px;
+  border-radius: 15px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#answers {
+  display: flex;
+  justify-content: space-between; /* side by side */
+  margin-top: 10px;
+  gap: 10px;
 }
 
 #answers button {
-  display: block;
-  margin: 10px 0;
-  padding: 10px 15px;
+  flex: 1;
+  padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 1em;
   background-color: #007bff;
   color: white;
+  transition: background 0.2s ease;
 }
 
 #answers button:hover {
   background-color: #0056b3;
 }
+
 </style>
 
 
