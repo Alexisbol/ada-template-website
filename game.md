@@ -89,7 +89,7 @@ permalink: /game/
 #game-container {
   display: flex;
   justify-content: center;
-  margin: 10px auto 50px auto;
+  margin: 0px auto 50px auto;
   font-family: Arial, sans-serif;
 }
 
@@ -108,11 +108,11 @@ permalink: /game/
   top: 60%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(230, 224, 224, 0.9);
   padding: 15px 25px;
   width: 80%;
   border-radius: 15px;
-  max-width: 600px;
+  max-width: 650px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   text-align: center;
 }
