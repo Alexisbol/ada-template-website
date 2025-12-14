@@ -108,7 +108,7 @@ permalink: /game/
   top: 60%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(230, 224, 224, 0.9);
+  background: rgba(235, 235, 235, 0.9);
   padding: 15px 25px;
   width: 80%;
   border-radius: 15px;
