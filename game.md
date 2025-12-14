@@ -68,7 +68,8 @@ you can see here the game :
 
 <div id="game-container">
   <div id="character-container">
-    <img src="assets/img/game/recruiter.png" alt="Character" id="character"> <!-- for the interviewer icon -->
+  	<!-- for theinterviewer icon -->
+    <img src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Character" id="character"> 
   </div>
   <div id="question-container">
     <p id="question-text"></p>
@@ -96,7 +97,6 @@ you can see here the game :
 
 #character-container img {
   width: 100px;
-  border: 2px solid red;
 }
 
 #question-container {
