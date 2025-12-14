@@ -47,7 +47,7 @@ permalink: /game/
     <div class="top-nav-content">
         <a href="{{ site.baseurl }}/" class="nav-link">Home</a>
 		<a href="{{ site.baseurl }}/other_page" class="nav-link">Analysis</a>
-		<a href="{{ site.baseurl }}/game" class="nav-link active">Interactive</a>
+		<a href="{{ site.baseurl }}/game" class="nav-link active">Game</a>
 		<a href="{{ site.baseurl }}/Beatrice" class="nav-link">Beatrice</a>
 		<a href="{{ site.baseurl }}/Cyriac" class="nav-link">Cyriac</a>
 		<a href="{{ site.baseurl }}/Lucas" class="nav-link">Lucas</a>
