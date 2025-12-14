@@ -115,6 +115,7 @@ permalink: /game/
   max-width: 450px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   text-align: center;
+  font-size: 3em;
 }
 
 #answers {
