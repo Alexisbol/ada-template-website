@@ -96,7 +96,7 @@ you can see here the game :
 
 #character-container img {
   width: 100px;
-
+  border: 2px solid red;
 }
 
 #question-container {
