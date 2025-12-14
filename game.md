@@ -58,7 +58,6 @@ permalink: /game/
 
 # Fed Rate Impact Game
 
-you can see here the game : 
 
 <br>
 
@@ -86,7 +85,7 @@ you can see here the game :
 <!-- style of the game  -->
 
 <style>
-	
+
 #game-container {
   display: flex;
   justify-content: center;
@@ -96,7 +95,7 @@ you can see here the game :
 
 #character-container {
   position: relative;
-  width: 300px; /* bigger image container */
+  width: 600px;
 }
 
 #character-container img {
@@ -109,34 +108,36 @@ you can see here the game :
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.85); /* semi-transparent */
-  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 15px 25px;
+  width: 80%;
   border-radius: 15px;
-  max-width: 90%;
+  max-width: 450px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
 #answers {
   display: flex;
   justify-content: space-between; /* side by side */
-  margin-top: 10px;
+  margin-top: 15px;
   gap: 10px;
 }
 
 #answers button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1em;
-  background-color: #007bff;
+  background-color: #408ad8ff;
   color: white;
   transition: background 0.2s ease;
 }
 
 #answers button:hover {
-  background-color: #0056b3;
+  background-color: #2c619aff;
 }
 
 </style>
