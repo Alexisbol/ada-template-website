@@ -1,0 +1,90 @@
+/* Classic Python IDE syntax highlighting */
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+
+/* Comments - green/gray */
+.highlight .c { color: #6a9955; font-style: italic; }
+.highlight .cm { color: #6a9955; font-style: italic; }
+.highlight .cp { color: #6a9955; font-style: italic; }
+.highlight .c1 { color: #6a9955; font-style: italic; }
+.highlight .cs { color: #6a9955; font-style: italic; }
+
+/* Keywords - blue/purple */
+.highlight .k { color: #0000ff; font-weight: bold; }
+.highlight .kc { color: #0000ff; font-weight: bold; }
+.highlight .kd { color: #0000ff; font-weight: bold; }
+.highlight .kn { color: #0000ff; font-weight: bold; }
+.highlight .kp { color: #0000ff; font-weight: bold; }
+.highlight .kr { color: #0000ff; font-weight: bold; }
+.highlight .kt { color: #0000ff; font-weight: bold; }
+
+/* Strings - orange/brown */
+.highlight .s { color: #a31515; }
+.highlight .sb { color: #a31515; }
+.highlight .sc { color: #a31515; }
+.highlight .sd { color: #a31515; }
+.highlight .s1 { color: #a31515; }
+.highlight .s2 { color: #a31515; }
+.highlight .se { color: #a31515; }
+.highlight .sh { color: #a31515; }
+.highlight .si { color: #a31515; }
+.highlight .sx { color: #a31515; }
+.highlight .sr { color: #a31515; }
+.highlight .ss { color: #a31515; }
+
+/* Numbers - green/teal */
+.highlight .m { color: #098658; }
+.highlight .mf { color: #098658; }
+.highlight .mh { color: #098658; }
+.highlight .mi { color: #098658; }
+.highlight .il { color: #098658; }
+.highlight .mo { color: #098658; }
+
+/* Functions - yellow/gold */
+.highlight .nf { color: #795e26; font-weight: normal; }
+.highlight .fm { color: #795e26; font-weight: normal; }
+
+/* Built-in functions - purple */
+.highlight .nb { color: #795e26; }
+
+/* Classes - teal */
+.highlight .nc { color: #267f99; font-weight: bold; }
+.highlight .nn { color: #267f99; }
+
+/* Variables and identifiers */
+.highlight .n { color: #001080; }
+.highlight .na { color: #001080; }
+.highlight .nv { color: #001080; }
+.highlight .no { color: #0000ff; }
+
+/* Operators */
+.highlight .o { color: #000000; }
+.highlight .ow { color: #0000ff; font-weight: bold; }
+.highlight .op { color: #000000; }
+
+/* Punctuation */
+.highlight .p { color: #000000; }
+.highlight .py { color: #000000; }
+
+/* Errors */
+.highlight .err { color: #f00; }
+
+/* Other */
+.highlight .w { color: #bbbbbb; }
+.highlight .gd { color: #000000; background-color: #ffdddd; }
+.highlight .gi { color: #000000; background-color: #ddffdd; }
+.highlight .ge { font-style: italic; }
+.highlight .gr { color: #aa0000; }
+.highlight .gh { color: #999999; }
+.highlight .go { color: #888888; }
+.highlight .gp { color: #555555; }
+.highlight .gs { font-weight: bold; }
+.highlight .gu { color: #aaaaaa; }
+.highlight .gt { color: #aa0000; }
+.highlight .ni { color: #800080; }
+.highlight .ne { color: #990000; font-weight: bold; }
+.highlight .nl { color: #990000; font-weight: bold; }
+.highlight .nt { color: #000080; }
+.highlight .l { color: #098658; }
+.highlight .ld { color: #a31515; }
+.highlight .x { color: #000000; }

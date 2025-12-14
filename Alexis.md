@@ -53,32 +53,115 @@ layout: default
     </div>
 </div>
 
-ALEXIS
+# def fed events (+ parameters in our dataset) (Alexis)
+We want to focus our analysis on specific Federal Reserve interest rate events.
+Specifically, we aim to detect periods in which the Fed rate experiences a **substantial increase or decrease**, followed by a **stable phase lasting a few days**.  
+This allows us to study market behavior during intervals when the interest rate remains constant — ensuring that our observations are not influenced by additional policy changes occurring in the same timeframe.
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+<span style="color:#d40000; font-weight:700;">Positive Fed Event (red)</span>: tightening to slow the economy or curb inflation, then stepping back to let the market absorb the change.
 
-[Link to another page](./another-page.html).
+<span style="color:#008800; font-weight:700;">Negative Fed Event (green)</span>: loosening to stimulate growth or combat a recession.
 
-There should be whitespace between paragraphs.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+<details>
+<summary><strong>Algorithm</strong></summary>
 
-# Header 1
+<p>We created an algorithm to identify such events in our dataset. The <code>identify_fed_rate_signals</code> function detects significant Federal Reserve rate changes with the following parameters:</p>
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+<ul>
+<li><strong>window_size</strong> (28 days): Number of days in the sliding window for baseline calculation</li>
+<li><strong>transition_window</strong> (3 days): Number of days to search ahead for the maximum delta. The day with the largest absolute change will be selected as signal start</li>
+<li><strong>central_metric</strong> ("robust"): Statistical metric to use as the center of the sliding window baseline. Options: 'mean', 'median', or 'robust' (average of mean and median)</li>
+<li><strong>alfa</strong> (0.8): Fraction of standard deviation to define uncertainty range around both the baseline and the delta</li>
+<li><strong>min_delta</strong> (0.2%): Minimum absolute change in Fed rate to qualify as a signal. The entire uncertainty range must be above this threshold</li>
+<li><strong>max_delta</strong> (2%): Maximum absolute change in Fed rate to qualify as a signal. The entire uncertainty range must be below this threshold</li>
+<li><strong>skip_days</strong> (5 days): Number of days to skip after identifying a signal to avoid detecting consecutive related signals</li>
+<li><strong>stability_days</strong> (21 days): Number of days following a signal to check for stability</li>
+<li><strong>stability_fraction</strong> (0.5): Fraction of delta to define the acceptable stability range. E.g., 0.5 means Fed rate can vary by ±50% of the initial change</li>
+</ul>
 
-## Header 2
+</details>
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
 
-### Header 3
+<div style="margin:20px 0; padding:16px; border:1px solid #e0e0e0; border-radius:8px; background:#fafafa; text-align:center;">
+    <div style="font-weight:700; margin-bottom:10px; color:#333;">Fed rate events – hover to play!</div>
+    <img
+        id="fed-gif-player"
+        src="{{ site.baseurl }}/assets/img/fed_rate_event/fed_rate_event_1.png"
+        alt="Fed rate events animation"
+        style="max-width:100%; height:auto; border-radius:6px; border:1px solid #ddd; background:#fff;"
+    />
+    <div style="margin-top:10px; display:flex; justify-content:center; gap:10px;">
+        <button id="fed-prev" style="padding:8px 12px; border:1px solid #ccc; border-radius:4px; background:#fff; cursor:pointer;">◀ Prev</button>
+        <button id="fed-reset" style="padding:8px 12px; border:1px solid #ccc; border-radius:4px; background:#fff; cursor:pointer;">⟲ Reset</button>
+        <button id="fed-next" style="padding:8px 12px; border:1px solid #ccc; border-radius:4px; background:#fff; cursor:pointer;">Next ▶</button>
+    </div>
+</div>
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+<script>
+(function() {
+    const img = document.getElementById('fed-gif-player');
+    if (!img) return;
+
+    const frameCount = 10; // adjust if you have a different number of frames
+    const basePath = '{{ site.baseurl }}/assets/img/fed_rate_event/fed_rate_event_';
+    const frameDuration = 1000; // ms per frame
+    let idx = 1;
+    let timer = null;
+
+    const nextFrame = () => {
+        idx = idx >= frameCount ? 1 : idx + 1; // after last frame, wrap to first
+        img.src = `${basePath}${idx}.png`;
+    };
+
+    const start = () => {
+        if (timer) return;
+        timer = setInterval(nextFrame, frameDuration);
+    };
+
+    const stop = () => {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    };
+
+    img.addEventListener('mouseenter', start);
+    img.addEventListener('mouseleave', stop);
+
+    const updateFrame = () => {
+        img.src = `${basePath}${idx}.png`;
+    };
+
+    const prevBtn = document.getElementById('fed-prev');
+    const nextBtn = document.getElementById('fed-next');
+    const resetBtn = document.getElementById('fed-reset');
+
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        stop();
+        idx = idx === 1 ? frameCount : idx - 1;
+        updateFrame();
+    });
+
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        stop();
+        idx = idx === frameCount ? 1 : idx + 1;
+        updateFrame();
+    });
+
+    if (resetBtn) resetBtn.addEventListener('click', () => {
+        stop();
+        idx = 1;
+        updateFrame();
+    });
+})();
+</script>
+
+### Now we can take a look at all the identified Fed rate events in our dataset
+
+<iframe src="{{ site.baseurl }}/assets/html/fed_signals_interactive.html" width="100%" height="650" frameborder="0"></iframe>
+
+We can indeed see that the algorithm has indentified recession, for example in 2001, 2008 or 2019 where we see a lot of green (negative Fed events) as the Fed was trying to stimulate the economy.
+
+
+
