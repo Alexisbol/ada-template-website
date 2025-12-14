@@ -105,7 +105,7 @@ permalink: /game/
 
 #question-container {
   position: absolute;
-  top: 10%;
+  top: 60%;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.85);
