@@ -53,32 +53,39 @@ layout: default
     </div>
 </div>
 
-Lucas change test 
+One of the questions that we asked ourselves was to study what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./another-page.html).
+## Idea behing the Analysis
 
-There should be whitespace between paragraphs.
+A relevant analysis of the impact of the fed rates ask for a relevant difference in the behavior of the two companies we are focusing on. The idea behind this work therefore lies in defining a comparability measure and finding pairs of companies both strongly comparable before the event, and significantly different after. We can then sort all pairs given this criterion to focus only on the more intersting cases.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+ 
+## Comparability Methods 
 
-# Header 1
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+We based our approach of comparability on the features of the dataset, and composite features based on the former.
 
-## Header 2
+__maybe put here graphs of the composite__
 
-> This is a blockquote following a header.
+
+A first obstacle in the definition of a comparabilty measure lies in the volatility of these features along a time period.
+The solution adopted was therefore to think of a local measure of how similar two companies are on a given small time period. This approach fit our case as we aim to study the impact of localized fed rate events, hence the evolution of the before and after the event for two companies. The idea is then to define a small time window on which we can compare the values of a given feature for both companies.
+
+The issue that arises with this method, and second obstacle, is to account for outliers, meaning localized behaviors of the features that are not inscribed in the global trend of the window. As the idea is to ultimaetely define a similarity metric, that is a number, the idea that we had to nullify the impact of these outliers in theory is to consider the median of the values that the feature takes. Like we said, This approach has the adventage to limit the influence of the outliers when summarizing the behavior of the feature, in opposition to a mean that would be highly reactive to the former.
+
+A Third obstacle lied in the fact that we were that so far we were comparing raw values, without considering the scales of the features. In fact, when dealing with objects that come in a vast diversity like companies, it is important to account for their scale, because what can be a huge change in raw numbers can turn out to be a minor event in the eye of an even bigger company. In that sense, a raw numbers approach would discard any pairs of large scale companies during the sorting. The solution that we adopted was to consider the Bray-Curtis dissimalirity which brings back a difference in raw numbers to the scale of these numbers themselves. 
+
+Once all these obstacles had been tackled we ended up with the complete method for comparing two companies, which can be summarized in the following equation 
+
+> 
+> $ Comp(A, B) = \frac{| \tilde{A} - \tilde{B}|}{\tilde{A} + \tilde{B}}  $ 
 >
-> When something is important enough, you do it even if the odds are not in your favor.
+> With $\tilde{X}$ the median of the feature considered for the company X during the time window considered 
+>
 
-### Header 3
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+
+## Case studies
+
+ 
