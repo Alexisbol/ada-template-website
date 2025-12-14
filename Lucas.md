@@ -103,4 +103,24 @@ These tests allow us to only discuss significant changes in the behavior of the 
 
 ## Case studies
 
+Through the different aspect of this research question we have defined a fully functionning pipeline aiming to produce pairs of companies judged "comparable" along with the significance of this judgement. Nevertheless, the real analysis lies past this pipeline and focuses rather on its product. We thus select the most relevant cases to pursue and analyse what different behaviors from comparable companies can reveal about their functionning. 
 
+
+### Accuracy Inc VS Davita Inc
+
+The first intersting case is that of these two companies, from the Healthcare sector.
+
+
+### Art’s Way manufacturing Co Inc VS Argan Inc
+
+The first intersting case is that of these two companies, from the Industry sector.
+
+
+### Astrotech Corp VS AstraNova Inc
+
+The first intersting case is that of these two companies, from the Technology sector.
+
+
+### Devon Energy Corp VS Murphy Oil Corp
+
+The first intersting case is that of these two companies, from the Energy sector.
