@@ -163,5 +163,38 @@ This allows us to study market behavior during intervals when the interest rate 
 
 We can indeed see that the algorithm has indentified recession, for example in 2001, 2008 or 2019 where we see a lot of green (negative Fed events) as the Fed was trying to stimulate the economy.
 
+# ETF / stock (method & results & graphs & interpretation / intuition)
+
+1. Identify for rate signals (see previous explanation)
+2. Map etf and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
+We only pair the important stocks of an ETF with the stock itself.
+3. for each etf and one of the corresponding stocks, we compute the performance during each fed rate event.
+4. If the etf or the stocks performs better a significant amount of time computed with a binomtest. Than we store the result.
+
+5. Finally we can display the results in a table.
 
 
+<img src="{{ site.baseurl }}/assets/img/etfvsstocksevent_sign.png" alt="Fed Rate Event Results Table" style="max-width:100%; height:auto; border-radius:6px; border:1px solid #ddd; background:#fff;"/>
+
+We can see that when there is a positive fed event (FED rate increase), Stocks tend to react better than ETF. 
+On the contrary, when there is a negative FED event (FED rate decrease), ETF tend to react better.
+
+### Now let's look at inside specific sectors
+
+<img src="{{ site.baseurl }}/assets/img/etfvsstocksevent_negfed_sector.png" alt="Fed Rate Event Results Table" style="max-width:100%; height:auto; border-radius:6px; border:1px solid #ddd; background:#fff;"/>
+
+<img src="{{ site.baseurl }}/assets/img/etfvsstocksevent_posfed_sector.png" alt="Fed Rate Event Results Table" style="max-width:100%; height:auto; border-radius:6px; border:1px solid #ddd; background:#fff;"/>
+
+
+If we look closer on the positive fed event, we can see that Stocks, is clearly wining in Healthcare and industrial sectors, winning in technology, losing in consumer cyclical and clearly losing in financial services.
+
+Now, let’s focus on the Negative fed event. We can see the same trend for Consumer Cyclical Financial Services, Healthcare.
+
+However, for Industrial, ETF are winning, same in technology.
+
+# TODO ADD eplanation...
+
+# ADD last interactive cool plot to see companies reacting well to positive or/and negative FED events.
+## This but interactive
+
+<img src="{{ site.baseurl }}/assets/img/comparaison_fed_event_companies.png" alt="Fed Rate Event Results Table" style="max-width:100%; height:auto; border-radius:6px; border:1px solid #ddd; background:#fff;"/>
