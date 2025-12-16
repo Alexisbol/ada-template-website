@@ -189,11 +189,11 @@ Through the different aspect of this research question we have defined a fully f
   const images = {
     pair1: [
       { label: "feature1", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png"},
-      { label: "feature2", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png"}
+      { label: "feature2", src: "{{ site.baseurl }}/assets/img/Lucas/comparability_measure.png"}
     ],
     pair2: [
       { label: "feature1", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png" },
-      { label: "feature2", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png" }
+      { label: "feature2", src: "{{ site.baseurl }}/assets/img/game/recruiter.png" }
     ]
   };
 
