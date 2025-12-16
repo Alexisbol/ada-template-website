@@ -187,6 +187,7 @@ Through the different aspect of this research question we have defined a fully f
 
 </style>
 
+
 <div class="pair-container">
     <div class="image-configurator">
     <img id="mainImage" alt="Selected image">
@@ -292,10 +293,13 @@ Through the different aspect of this research question we have defined a fully f
   loadCategories();
   loadImages(currentCategory);
   const initialImage = images[currentCategory].find(f => f.label === currentFeatureLabel) || images[currentCategory][0];
-  mainImage.src = images[currentCategory][0].src;
+  mainImage.src = initialImage.src; 
   categoryMenu.querySelector(".menu-header").textContent = currentCategory;
-  imageMenu.querySelector(".menu-header").textContent = images[currentCategory][0].label;
+  imageMenu.querySelector(".menu-header").textContent = initialImage.label; 
+  document.getElementById("pairText").textContent = pairTexts[currentCategory]; 
+
 </script>
+
 
 
 
