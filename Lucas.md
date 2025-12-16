@@ -186,15 +186,14 @@ Through the different aspect of this research question we have defined a fully f
 </div>
 
 <script>
-  // YOUR IMAGES — UNCHANGED PATHS
   const images = {
     pair1: [
-      { label: "feature1", src: "{{ '/assets/img/game/recruiter.png' | relative_url }}"},
-      { label: "feature2", src: "{{ '/assets/img/recruiter.png' | relative_url }}"}
+      { label: "feature1", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png"},
+      { label: "feature2", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png"}
     ],
     pair2: [
       { label: "feature1", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png" },
-      { label: "feature2", src: "assets/img/comparability_mesure.png" }
+      { label: "feature2", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png" }
     ]
   };
 
@@ -207,6 +206,8 @@ Through the different aspect of this research question we have defined a fully f
   const imageContent = imageMenu.querySelector(".menu-content");
 
   let currentCategory = Object.keys(images)[0];
+  let currentFeatureLabel = images[currentCategory][0].label;
+
 
   function closeMenus() {
     categoryMenu.classList.remove("open");
@@ -222,6 +223,11 @@ Through the different aspect of this research question we have defined a fully f
         currentCategory = cat;
         categoryMenu.querySelector(".menu-header").textContent = cat;
         loadImages(cat);
+
+        const img = images[cat].find(f => f.label === currentFeatureLabel) || images[cat][0];
+        mainImage.src = img.src;
+        imageMenu.querySelector(".menu-header").textContent = img.label;
+
         closeMenus();
       };
       categoryContent.appendChild(item);
@@ -234,6 +240,7 @@ Through the different aspect of this research question we have defined a fully f
       const item = document.createElement("div");
       item.textContent = img.label;
       item.onclick = () => {
+        currentFeatureLabel = img.label;
         mainImage.src = img.src;
         imageMenu.querySelector(".menu-header").textContent = img.label;
         closeMenus();
@@ -242,7 +249,7 @@ Through the different aspect of this research question we have defined a fully f
     });
   }
 
-  // Toggle menus
+  
   categoryMenu.querySelector(".menu-header").onclick = e => {
     e.stopPropagation();
     categoryMenu.classList.toggle("open");
@@ -257,9 +264,9 @@ Through the different aspect of this research question we have defined a fully f
 
   document.addEventListener("click", closeMenus);
 
-  // Init
   loadCategories();
   loadImages(currentCategory);
+  const initialImage = images[currentCategory].find(f => f.label === currentFeatureLabel) || images[currentCategory][0];
   mainImage.src = images[currentCategory][0].src;
   categoryMenu.querySelector(".menu-header").textContent = currentCategory;
   imageMenu.querySelector(".menu-header").textContent = images[currentCategory][0].label;
