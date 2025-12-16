@@ -110,6 +110,7 @@ Through the different aspect of this research question we have defined a fully f
 
 
     .image-configurator {
+    position: relative;
     flex: 2;
     max-width: 700px;
     aspect-ratio: 3 / 2;
