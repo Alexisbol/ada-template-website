@@ -189,8 +189,8 @@ Through the different aspect of this research question we have defined a fully f
   // YOUR IMAGES — UNCHANGED PATHS
   const images = {
     pair1: [
-      { label: "feature1", src: "{{ site.baseurl }}/assets/img/recruiter.png" },
-      { label: "feature12", src: "{{ site.baseurl }}/assets/images/recruiter.png" }
+      { label: "feature1", src: "{{ '/assets/img/recruiter.png' | relative_url }}"},
+      { label: "feature2", src: "{{ '/assets/img/recruiter.png' | relative_url }}"}
     ],
     pair2: [
       { label: "feature1", src: "assets/img/X_tilde.png" },
