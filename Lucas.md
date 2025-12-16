@@ -107,111 +107,164 @@ Through the different aspect of this research question we have defined a fully f
 
 
 <style>
-  .image-widget {
-    display: grid;
-    grid-template-columns: 160px 160px 1fr;
-    gap: 10px;
+  .image-configurator {
+    position: relative;
+    width: 700px;
+    max-width: 100%;
+    aspect-ratio: 3 / 2;
     border: 1px solid #ccc;
-    padding: 10px;
-    max-width: 700px;
     font-family: Arial, sans-serif;
+    overflow: hidden;
   }
 
-  .scroll-menu {
-    border: 1px solid #aaa;
-    height: 200px;
-    overflow-y: auto;
-  }
-
-  .scroll-menu button {
+  .image-configurator img {
     width: 100%;
-    padding: 6px;
-    border: none;
-    background: #f4f4f4;
-    cursor: pointer;
-    text-align: left;
-  }
-
-  .scroll-menu button:hover,
-  .scroll-menu button.active {
-    background: #d0d0d0;
-  }
-
-  .image-viewer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #aaa;
+    height: 100%;
+    object-fit: contain;
     background: #fafafa;
   }
 
-  .image-viewer img {
-    max-width: 100%;
-    max-height: 100%;
+  .menu {
+    position: absolute;
+    top: 10px;
+    min-width: 160px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #aaa;
+    z-index: 10;
+  }
+
+  .menu.left { left: 10px; }
+  .menu.right { right: 10px; }
+
+  .menu-header {
+    padding: 6px 8px;
+    cursor: pointer;
+    background: #f4f4f4;
+    user-select: none;
+    font-weight: bold;
+  }
+
+  .menu-header::after {
+    content: "▼";
+    float: right;
+    font-size: 10px;
+  }
+
+  .menu-content {
+    display: none;
+    max-height: 140px;
+    overflow-y: auto;
+    border-top: 1px solid #aaa;
+  }
+
+  .menu-content div {
+    padding: 6px 8px;
+    cursor: pointer;
+  }
+
+  .menu-content div:hover {
+    background: #d0d0d0;
+  }
+
+  .menu.open .menu-content {
+    display: block;
   }
 </style>
 
-<div class="image-widget">
-  <div class="scroll-menu" id="categoryMenu"></div>
-  <div class="scroll-menu" id="imageMenu"></div>
-  <div class="image-viewer">
-    <img id="mainImage" alt="Select an image">
+<div class="image-configurator">
+  <img id="mainImage" alt="Selected image">
+
+  <div class="menu left" id="categoryMenu">
+    <div class="menu-header">Category</div>
+    <div class="menu-content"></div>
+  </div>
+
+  <div class="menu right" id="imageMenu">
+    <div class="menu-header">Image</div>
+    <div class="menu-content"></div>
   </div>
 </div>
 
 <script>
-  // EDIT ONLY THIS DATA
+  // YOUR IMAGES — UNCHANGED PATHS
   const images = {
     Companies: [
-      { label: "pair1", src: "img/recruiter.png" },
-      { label: "pair2", src: "images/recruiter.png" }
+      { label: "pair1", src: "{{ site.baseurl }}/assets/img/recruiter.png" },
+      { label: "pair2", src: "{{ site.baseurl }}/assets/images/recruiter.png" }
     ],
     Feature: [
-      { label: "feature1", src: "img/X_tilde.png" },
-      { label: "feature2", src: "img/comparability_mesure.png" }
+      { label: "feature1", src: "{{ site.baseurl }}/assets/img/X_tilde.png" },
+      { label: "feature2", src: "{{ site.baseurl }}/assets/img/comparability_mesure.png" }
     ]
   };
 
-  const categoryMenu = document.getElementById("categoryMenu");
-  const imageMenu = document.getElementById("imageMenu");
   const mainImage = document.getElementById("mainImage");
 
-  let currentCategory = null;
+  const categoryMenu = document.getElementById("categoryMenu");
+  const imageMenu = document.getElementById("imageMenu");
 
-  function clearActive(menu) {
-    [...menu.children].forEach(btn => btn.classList.remove("active"));
+  const categoryContent = categoryMenu.querySelector(".menu-content");
+  const imageContent = imageMenu.querySelector(".menu-content");
+
+  let currentCategory = Object.keys(images)[0];
+
+  function closeMenus() {
+    categoryMenu.classList.remove("open");
+    imageMenu.classList.remove("open");
   }
 
   function loadCategories() {
-    for (const category in images) {
-      const btn = document.createElement("button");
-      btn.textContent = category;
-      btn.onclick = () => {
-        currentCategory = category;
-        clearActive(categoryMenu);
-        btn.classList.add("active");
-        loadImages(category);
+    categoryContent.innerHTML = "";
+    Object.keys(images).forEach(cat => {
+      const item = document.createElement("div");
+      item.textContent = cat;
+      item.onclick = () => {
+        currentCategory = cat;
+        categoryMenu.querySelector(".menu-header").textContent = cat;
+        loadImages(cat);
+        closeMenus();
       };
-      categoryMenu.appendChild(btn);
-    }
-  }
-
-  function loadImages(category) {
-    imageMenu.innerHTML = "";
-    images[category].forEach(img => {
-      const btn = document.createElement("button");
-      btn.textContent = img.label;
-      btn.onclick = () => {
-        clearActive(imageMenu);
-        btn.classList.add("active");
-        mainImage.src = img.src;
-      };
-      imageMenu.appendChild(btn);
+      categoryContent.appendChild(item);
     });
   }
 
+  function loadImages(category) {
+    imageContent.innerHTML = "";
+    images[category].forEach(img => {
+      const item = document.createElement("div");
+      item.textContent = img.label;
+      item.onclick = () => {
+        mainImage.src = img.src;
+        imageMenu.querySelector(".menu-header").textContent = img.label;
+        closeMenus();
+      };
+      imageContent.appendChild(item);
+    });
+  }
+
+  // Toggle menus
+  categoryMenu.querySelector(".menu-header").onclick = e => {
+    e.stopPropagation();
+    categoryMenu.classList.toggle("open");
+    imageMenu.classList.remove("open");
+  };
+
+  imageMenu.querySelector(".menu-header").onclick = e => {
+    e.stopPropagation();
+    imageMenu.classList.toggle("open");
+    categoryMenu.classList.remove("open");
+  };
+
+  document.addEventListener("click", closeMenus);
+
+  // Init
   loadCategories();
+  loadImages(currentCategory);
+  mainImage.src = images[currentCategory][0].src;
+  categoryMenu.querySelector(".menu-header").textContent = currentCategory;
+  imageMenu.querySelector(".menu-header").textContent = images[currentCategory][0].label;
 </script>
+
 
 
 ### _Accuracy Inc_ VS _Davita Inc_
