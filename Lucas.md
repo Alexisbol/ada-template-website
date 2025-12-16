@@ -113,7 +113,7 @@ Through the different aspect of this research question we have defined a fully f
     position: relative;
     flex: 2;
     max-width: 900px;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 5 / 3;
     }
 
 
@@ -174,7 +174,7 @@ Through the different aspect of this research question we have defined a fully f
     display: flex;
     justify-content: center;
     gap: 30px;              
-    max-width: 1000px;
+    max-width: 1500px;
     margin: 0 auto;
     }
 
