@@ -109,7 +109,7 @@ Through the different aspect of this research question we have defined a fully f
 <style>
   .image-configurator {
     position: relative;
-    width: 700px;
+    width: 1000px;
     max-width: 100%;
     aspect-ratio: 3 / 2;
     border: 1px solid #ccc;
@@ -169,20 +169,37 @@ Through the different aspect of this research question we have defined a fully f
   .menu.open .menu-content {
     display: block;
   }
+
+  .pair-container {
+  display: flex;
+  justify-content: center; 
+  gap: 30px;              
+  max-width: 1000px;
+  margin: 0 auto;          
+}
+
+.pair-text {
+  flex: 1;                
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
 </style>
 
-<div class="image-configurator">
-  <img id="mainImage" alt="Selected image">
-
-  <div class="menu left" id="categoryMenu">
-    <div class="menu-header">Category</div>
-    <div class="menu-content"></div>
-  </div>
-
-  <div class="menu right" id="imageMenu">
-    <div class="menu-header">Image</div>
-    <div class="menu-content"></div>
-  </div>
+<div class="pair-container">
+    <div class="image-configurator">
+    <img id="mainImage" alt="Selected image">
+    <div class="menu left" id="categoryMenu">
+        <div class="menu-header">Category</div>
+        <div class="menu-content"></div>
+    </div>
+    <div class="menu right" id="imageMenu">
+        <div class="menu-header">Image</div>
+        <div class="menu-content"></div>
+    </div>
+    </div>
+    <div class="pair-text" id="pairText">
 </div>
 
 <script>
@@ -196,6 +213,12 @@ Through the different aspect of this research question we have defined a fully f
       { label: "feature2", src: "{{ site.baseurl }}/assets/img/game/recruiter.png" }
     ]
   };
+
+  const pairTexts = {
+  pair1: "pair 1 blabla",
+  pair2: "pair 2 blabla"
+  };
+
 
   const mainImage = document.getElementById("mainImage");
 
@@ -227,6 +250,8 @@ Through the different aspect of this research question we have defined a fully f
         const img = images[cat].find(f => f.label === currentFeatureLabel) || images[cat][0];
         mainImage.src = img.src;
         imageMenu.querySelector(".menu-header").textContent = img.label;
+
+        document.getElementById("pairText").textContent = pairTexts[cat];
 
         closeMenus();
       };
