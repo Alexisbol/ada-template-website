@@ -188,13 +188,13 @@ Through the different aspect of this research question we have defined a fully f
 <script>
   // YOUR IMAGES — UNCHANGED PATHS
   const images = {
-    Companies: [
-      { label: "pair1", src: "{{ site.baseurl }}/assets/img/recruiter.png" },
-      { label: "pair2", src: "{{ site.baseurl }}/assets/images/recruiter.png" }
+    pair1: [
+      { label: "feature1", src: "{{ site.baseurl }}/assets/img/recruiter.png" },
+      { label: "feature12", src: "{{ site.baseurl }}/assets/images/recruiter.png" }
     ],
-    Feature: [
-      { label: "feature1", src: "{{ site.baseurl }}/assets/img/X_tilde.png" },
-      { label: "feature2", src: "{{ site.baseurl }}/assets/img/comparability_mesure.png" }
+    pair2: [
+      { label: "feature1", src: "assets/img/X_tilde.png" },
+      { label: "feature2", src: "assets/img/comparability_mesure.png" }
     ]
   };
 
