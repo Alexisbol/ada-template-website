@@ -106,6 +106,114 @@ These tests allow us to only discuss significant changes in the behavior of the 
 Through the different aspect of this research question we have defined a fully functionning pipeline aiming to produce pairs of companies judged "comparable" along with the significance of this judgement. Nevertheless, the real analysis lies past this pipeline and focuses rather on its product. We thus select the most relevant cases to pursue and analyse what different behaviors from comparable companies can reveal about their functionning. 
 
 
+<style>
+  .image-widget {
+    display: grid;
+    grid-template-columns: 160px 160px 1fr;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 700px;
+    font-family: Arial, sans-serif;
+  }
+
+  .scroll-menu {
+    border: 1px solid #aaa;
+    height: 200px;
+    overflow-y: auto;
+  }
+
+  .scroll-menu button {
+    width: 100%;
+    padding: 6px;
+    border: none;
+    background: #f4f4f4;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .scroll-menu button:hover,
+  .scroll-menu button.active {
+    background: #d0d0d0;
+  }
+
+  .image-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #aaa;
+    background: #fafafa;
+  }
+
+  .image-viewer img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+
+<div class="image-widget">
+  <div class="scroll-menu" id="categoryMenu"></div>
+  <div class="scroll-menu" id="imageMenu"></div>
+  <div class="image-viewer">
+    <img id="mainImage" alt="Select an image">
+  </div>
+</div>
+
+<script>
+  // EDIT ONLY THIS DATA
+  const images = {
+    Companies: [
+      { label: "pair1", src: "img/recruiter.png" },
+      { label: "pair2", src: "images/recruiter.png" }
+    ],
+    Feature: [
+      { label: "feature1", src: "img/X_tilde.png" },
+      { label: "feature2", src: "img/comparability_mesure.png" }
+    ]
+  };
+
+  const categoryMenu = document.getElementById("categoryMenu");
+  const imageMenu = document.getElementById("imageMenu");
+  const mainImage = document.getElementById("mainImage");
+
+  let currentCategory = null;
+
+  function clearActive(menu) {
+    [...menu.children].forEach(btn => btn.classList.remove("active"));
+  }
+
+  function loadCategories() {
+    for (const category in images) {
+      const btn = document.createElement("button");
+      btn.textContent = category;
+      btn.onclick = () => {
+        currentCategory = category;
+        clearActive(categoryMenu);
+        btn.classList.add("active");
+        loadImages(category);
+      };
+      categoryMenu.appendChild(btn);
+    }
+  }
+
+  function loadImages(category) {
+    imageMenu.innerHTML = "";
+    images[category].forEach(img => {
+      const btn = document.createElement("button");
+      btn.textContent = img.label;
+      btn.onclick = () => {
+        clearActive(imageMenu);
+        btn.classList.add("active");
+        mainImage.src = img.src;
+      };
+      imageMenu.appendChild(btn);
+    });
+  }
+
+  loadCategories();
+</script>
+
+
 ### _Accuracy Inc_ VS _Davita Inc_
 
 The first intersting case is that of these two companies, from the Healthcare sector.
