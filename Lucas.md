@@ -107,101 +107,106 @@ Through the different aspect of this research question we have defined a fully f
 
 
 <style>
-  .image-configurator {
-    position: relative;
-    width: 1000px;
-    max-width: 100%;
-    aspect-ratio: 3 / 2;
-    border: 1px solid #ccc;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-  }
 
-  .image-configurator img {
+
+    .image-configurator {
+    flex: 2;
+    max-width: 700px;
+    aspect-ratio: 3 / 2;
+    }
+
+
+    .image-configurator img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     background: #fafafa;
-  }
+    }
 
-  .menu {
+    .menu {
     position: absolute;
     top: 10px;
     min-width: 160px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #aaa;
     z-index: 10;
-  }
+    }
 
-  .menu.left { left: 10px; }
-  .menu.right { right: 10px; }
+    .menu.left { left: 10px; }
+    .menu.right { right: 10px; }
 
-  .menu-header {
+    .menu-header {
     padding: 6px 8px;
     cursor: pointer;
     background: #f4f4f4;
     user-select: none;
     font-weight: bold;
-  }
+    }
 
-  .menu-header::after {
+    .menu-header::after {
     content: "▼";
     float: right;
     font-size: 10px;
-  }
+    }
 
-  .menu-content {
+    .menu-content {
     display: none;
     max-height: 140px;
     overflow-y: auto;
     border-top: 1px solid #aaa;
-  }
+    }
 
-  .menu-content div {
+    .menu-content div {
     padding: 6px 8px;
     cursor: pointer;
-  }
+    }
 
-  .menu-content div:hover {
+    .menu-content div:hover {
     background: #d0d0d0;
-  }
+    }
 
-  .menu.open .menu-content {
+    .menu.open .menu-content {
     display: block;
-  }
+    }
 
-  .pair-container {
-  display: flex;
-  justify-content: center; 
-  gap: 30px;              
-  max-width: 1000px;
-  margin: 0 auto;          
-}
+    .pair-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;              
+    max-width: 1000px;
+    margin: 0 auto;
+    }
 
-.pair-text {
-  flex: 1;                
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  max-width: 300px;
-}
+    .pair-text {
+    flex: 1;
+    max-width: 300px;
+    padding: 15px;
+    border: 1px solid #aaa;
+    background: #f9f9f9;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    }
 
 </style>
 
 
-<div class="pair-container">
-    <div class="image-configurator">
-    <img id="mainImage" alt="Selected image">
-    <div class="menu left" id="categoryMenu">
-        <div class="menu-header">Category</div>
-        <div class="menu-content"></div>
-    </div>
-    <div class="menu right" id="imageMenu">
-        <div class="menu-header">Image</div>
-        <div class="menu-content"></div>
-    </div>
-    </div>
-    <div class="pair-text" id="pairText">
+<div class="pair-widget-container">
+  <div class="pair-container">
+      <div class="image-configurator">
+        <img id="mainImage" alt="Selected image">
+        <div class="menu left" id="categoryMenu">
+            <div class="menu-header">Category</div>
+            <div class="menu-content"></div>
+        </div>
+        <div class="menu right" id="imageMenu">
+            <div class="menu-header">Image</div>
+            <div class="menu-content"></div>
+        </div>
+      </div>
+      <div class="pair-text" id="pairText"></div>
+  </div>
 </div>
+
 
 <script>
   const images = {
