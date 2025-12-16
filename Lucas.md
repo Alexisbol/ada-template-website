@@ -189,11 +189,11 @@ Through the different aspect of this research question we have defined a fully f
   // YOUR IMAGES — UNCHANGED PATHS
   const images = {
     pair1: [
-      { label: "feature1", src: "{{ '/assets/img/recruiter.png' | relative_url }}"},
+      { label: "feature1", src: "{{ '/assets/img/game/recruiter.png' | relative_url }}"},
       { label: "feature2", src: "{{ '/assets/img/recruiter.png' | relative_url }}"}
     ],
     pair2: [
-      { label: "feature1", src: "assets/img/X_tilde.png" },
+      { label: "feature1", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png" },
       { label: "feature2", src: "assets/img/comparability_mesure.png" }
     ]
   };
