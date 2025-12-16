@@ -180,7 +180,7 @@ Through the different aspect of this research question we have defined a fully f
 
     .pair-text {
     flex: 1;
-    max-width: 300px;
+    max-width: 250px;
     padding: 15px;
     border: 1px solid #aaa;
     background: #f9f9f9;
