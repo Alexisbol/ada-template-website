@@ -291,7 +291,11 @@ We see that it consistantly reaches much better normalized returns after the neg
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 
-<!--//{"name": "FTAI","value": 170267128393.2014},-->
+<!--{
+          "name": "FTAI",
+          "value": 170267128393.2014,
+          "company": "Fortress Transportation and Infrastructure Investors LLC Common Shares"
+        },-->
 <script>
 fetch("{{ site.baseurl }}/data/nasdaq_top35.json")
   .then(response => response.json())
@@ -299,11 +303,13 @@ fetch("{{ site.baseurl }}/data/nasdaq_top35.json")
     const labels = [];
     const parents = [];
     const values = [];
+    const customdata = [];
 
     function traverse(node, parent) {
       labels.push(node.name);
       parents.push(parent);
       values.push(node.value || 0);
+      customdata.push(node.company || "");
 
       if (node.children) {
         node.children.forEach(child => traverse(child, node.name));
@@ -323,11 +329,12 @@ fetch("{{ site.baseurl }}/data/nasdaq_top35.json")
       labels: labels,
       parents: parents,
       values: values,
+      customdata: customdata,
       textinfo: "label",
       hovertemplate:
-        "<b>%{label}</b><br>" +
-        "Value: %{value} $<extra></extra>"+
-        "<img src='https://cdn.brandfetch.io/TSLA?c=1idwdMraqBjRGH9xwqh' height='40' /><extra></extra>"
+        "<b>%{label}, %{customdata}</b><br>" +
+        "Value: %{value} $<extra></extra>"
+        //"<img src='https://cdn.brandfetch.io/TSLA?c=1idwdMraqBjRGH9xwqh' height='40' /><extra></extra>"
     }], {  
       margin: { t: 30, l: 0, r: 0, b: 0 }
     });
