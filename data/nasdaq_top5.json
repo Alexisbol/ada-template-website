@@ -1,0 +1,273 @@
+{
+  "name": "NASDAQ",
+  "children": [
+    {
+      "name": "Basic Materials",
+      "children": [
+        {
+          "name": "AA",
+          "value": 80415424.06348367
+        },
+        {
+          "name": "ALB",
+          "value": 35802116.159563325
+        },
+        {
+          "name": "AEM",
+          "value": 30204513.144359406
+        },
+        {
+          "name": "AG",
+          "value": 17317682.687370338
+        },
+        {
+          "name": "AGI",
+          "value": 6603571.903417564
+        }
+      ]
+    },
+    {
+      "name": "Communication Services",
+      "children": [
+        {
+          "name": "AMCX",
+          "value": 39037723.233387664
+        },
+        {
+          "name": "AMC",
+          "value": 17060818.853686973
+        }
+      ]
+    },
+    {
+      "name": "Consumer Cyclical",
+      "children": [
+        {
+          "name": "AAP",
+          "value": 87241619.33889963
+        },
+        {
+          "name": "ADNT",
+          "value": 55096954.231760144
+        },
+        {
+          "name": "AEO",
+          "value": 44453799.062222905
+        },
+        {
+          "name": "ALSN",
+          "value": 38163839.79476095
+        },
+        {
+          "name": "ALV",
+          "value": 26979660.082600348
+        }
+      ]
+    },
+    {
+      "name": "Consumer Defensive",
+      "children": [
+        {
+          "name": "ADM",
+          "value": 57560921.33531779
+        },
+        {
+          "name": "ABEV",
+          "value": 26768859.422989566
+        },
+        {
+          "name": "AFYA",
+          "value": 8593095.404214537
+        },
+        {
+          "name": "AGRO",
+          "value": 3501576.87435557
+        },
+        {
+          "name": "AACG",
+          "value": 1715988.9501103268
+        }
+      ]
+    },
+    {
+      "name": "Energy",
+      "children": [
+        {
+          "name": "AM",
+          "value": 16577913.74043277
+        }
+      ]
+    },
+    {
+      "name": "Financial Services",
+      "children": [
+        {
+          "name": "AIG",
+          "value": 173698795.42851362
+        },
+        {
+          "name": "AC",
+          "value": 108633557.35018833
+        },
+        {
+          "name": "ALL",
+          "value": 98721257.02085349
+        },
+        {
+          "name": "ALLY",
+          "value": 84072123.32737054
+        },
+        {
+          "name": "AFL",
+          "value": 46884528.97668466
+        }
+      ]
+    },
+    {
+      "name": "Healthcare",
+      "children": [
+        {
+          "name": "ABBV",
+          "value": 465527127.15570956
+        },
+        {
+          "name": "AMGN",
+          "value": 281446818.09295297
+        },
+        {
+          "name": "ABT",
+          "value": 123114946.95086671
+        },
+        {
+          "name": "A",
+          "value": 103648093.12285952
+        },
+        {
+          "name": "ALXN",
+          "value": 89425980.86150306
+        }
+      ]
+    },
+    {
+      "name": "Industrials",
+      "children": [
+        {
+          "name": "AAL",
+          "value": 189914232.59963387
+        },
+        {
+          "name": "ALLE",
+          "value": 52925347.62592114
+        },
+        {
+          "name": "AER",
+          "value": 35001090.215473935
+        },
+        {
+          "name": "AGCO",
+          "value": 32634106.836629245
+        },
+        {
+          "name": "ACM",
+          "value": 30770895.8556733
+        }
+      ]
+    },
+    {
+      "name": "Real Estate",
+      "children": [
+        {
+          "name": "AGNC",
+          "value": 50935566.28609544
+        },
+        {
+          "name": "AMH",
+          "value": 36731282.62249496
+        },
+        {
+          "name": "AIV",
+          "value": 22679606.520717613
+        },
+        {
+          "name": "AGNCP",
+          "value": 12237297.060909271
+        },
+        {
+          "name": "AAT",
+          "value": 7495397.703624296
+        }
+      ]
+    },
+    {
+      "name": "Technology",
+      "children": [
+        {
+          "name": "AAPL",
+          "value": 1928687831.9666772
+        },
+        {
+          "name": "AMAT",
+          "value": 222368158.49417877
+        },
+        {
+          "name": "AMD",
+          "value": 216339235.41255704
+        },
+        {
+          "name": "ADBE",
+          "value": 180236692.0223838
+        },
+        {
+          "name": "ACN",
+          "value": 166704670.19887304
+        }
+      ]
+    },
+    {
+      "name": "Unknown",
+      "children": [
+        {
+          "name": "AGN",
+          "value": 157505482.03485265
+        },
+        {
+          "name": "ABC",
+          "value": 74637790.31604177
+        },
+        {
+          "name": "ACIA",
+          "value": 53942738.19698576
+        },
+        {
+          "name": "AAXN",
+          "value": 43329544.94928012
+        },
+        {
+          "name": "ABB",
+          "value": 31857475.69960766
+        }
+      ]
+    },
+    {
+      "name": "Utilities",
+      "children": [
+        {
+          "name": "AES",
+          "value": 43051573.88697478
+        },
+        {
+          "name": "AEE",
+          "value": 39067585.39039991
+        },
+        {
+          "name": "AEP",
+          "value": 37621908.233687505
+        },
+        {
+          "name": "ALE",
+          "value": 3353298.4260886614
+        }
+      ]
+    }
+  ]
+}

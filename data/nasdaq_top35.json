@@ -1,0 +1,2025 @@
+{
+  "name": "NASDAQ",
+  "children": [
+    {
+      "name": "Basic Materials",
+      "children": [
+        {
+          "name": "FCX",
+          "value": 284409608.0674423,
+          "company": "Freeport-McMoRan, Inc. Common Stock"
+        },
+        {
+          "name": "LYB",
+          "value": 202439094.4102858,
+          "company": "LyondellBasell Industries NV Ordinary Shares Class A (Netherlands)"
+        },
+        {
+          "name": "CF",
+          "value": 128482965.04748538,
+          "company": "CF Industries Holdings, Inc. Common Stock"
+        },
+        {
+          "name": "NEM",
+          "value": 116665947.21523786,
+          "company": "Newmont Corporation"
+        },
+        {
+          "name": "DD",
+          "value": 112418244.06396931,
+          "company": "DuPont de Nemours, Inc. Common Stock"
+        },
+        {
+          "name": "MOS",
+          "value": 90879785.0992327,
+          "company": "Mosaic Company (The) Common Stock"
+        },
+        {
+          "name": "AA",
+          "value": 80415424.06348367,
+          "company": "Alcoa Corporation Common Stock "
+        },
+        {
+          "name": "AXTA",
+          "value": 61389721.590842925,
+          "company": "Axalta Coating Systems Ltd. Common Shares"
+        },
+        {
+          "name": "NUE",
+          "value": 56470188.80606841,
+          "company": "Nucor Corporation Common Stock"
+        },
+        {
+          "name": "SHW",
+          "value": 56444084.01939129,
+          "company": "Sherwin-Williams Company (The) Common Stock"
+        },
+        {
+          "name": "APD",
+          "value": 51399380.760202736,
+          "company": "Air Products and Chemicals, Inc. Common Stock"
+        },
+        {
+          "name": "MLM",
+          "value": 50044608.68154719,
+          "company": "Martin Marietta Materials, Inc. Common Stock"
+        },
+        {
+          "name": "BHP",
+          "value": 46536646.57318194,
+          "company": "BHP Group Limited American Depositary Shares (Each representing two Ordinary Shares)"
+        },
+        {
+          "name": "AU",
+          "value": 44250766.66480573,
+          "company": "AngloGold Ashanti Limited Common Stock"
+        },
+        {
+          "name": "PPG",
+          "value": 44170363.86496362,
+          "company": "PPG Industries, Inc. Common Stock"
+        },
+        {
+          "name": "EMN",
+          "value": 41777718.77546186,
+          "company": "Eastman Chemical Company Common Stock"
+        },
+        {
+          "name": "IP",
+          "value": 37544950.86134494,
+          "company": "International Paper Company Common Stock"
+        },
+        {
+          "name": "ALB",
+          "value": 35802116.159563325,
+          "company": "Albemarle Corporation Common Stock"
+        },
+        {
+          "name": "ECL",
+          "value": 34399480.27920323,
+          "company": "Ecolab Inc. Common Stock"
+        },
+        {
+          "name": "AEM",
+          "value": 30204513.144359406,
+          "company": "Agnico Eagle Mines Limited Common Stock"
+        },
+        {
+          "name": "VMC",
+          "value": 28981342.181967445,
+          "company": "Vulcan Materials Company (Holding Company) Common Stock"
+        },
+        {
+          "name": "SEE",
+          "value": 26320410.78656167,
+          "company": "Sealed Air Corporation Common Stock"
+        },
+        {
+          "name": "BLL",
+          "value": 21549289.83976912,
+          "company": "Ball Corporation Common Stock"
+        },
+        {
+          "name": "FMC",
+          "value": 21308632.159424376,
+          "company": "FMC Corporation Common Stock"
+        },
+        {
+          "name": "ASH",
+          "value": 20371306.593802433,
+          "company": "Ashland Global Holdings Inc. Common Stock"
+        },
+        {
+          "name": "AG",
+          "value": 17317682.687370338,
+          "company": "First Majestic Silver Corp. Ordinary Shares (Canada)"
+        },
+        {
+          "name": "IFF",
+          "value": 17284886.033769958,
+          "company": "Internationa Flavors & Fragrances, Inc. Common Stock"
+        },
+        {
+          "name": "BCC",
+          "value": 11616492.646432227,
+          "company": "Boise Cascade, L.L.C. Common Stock"
+        },
+        {
+          "name": "ASIX",
+          "value": 7298525.143501577,
+          "company": "AdvanSix Inc. Common Stock "
+        },
+        {
+          "name": "AGI",
+          "value": 6603571.903417564,
+          "company": "Alamos Gold Inc. Class A Common Shares"
+        },
+        {
+          "name": "BAK",
+          "value": 6251985.502399128,
+          "company": "Braskem SA ADR"
+        },
+        {
+          "name": "B",
+          "value": 3468495.056425902,
+          "company": "Barnes Group, Inc. Common Stock"
+        },
+        {
+          "name": "BCPC",
+          "value": 2315459.2781503145,
+          "company": "Balchem Corporation - Common Stock"
+        },
+        {
+          "name": "AVD",
+          "value": 1211550.2810100508,
+          "company": "American Vanguard Corporation Common Stock ($0.10 Par Value)"
+        },
+        {
+          "name": "AUMN",
+          "value": 707628.7984953303,
+          "company": "Golden Minerals Company Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Communication Services",
+      "children": [
+        {
+          "name": "T",
+          "value": 277295653.3644323,
+          "company": "AT&T Inc."
+        },
+        {
+          "name": "VZ",
+          "value": 224694967.96902153,
+          "company": "Verizon Communications Inc. Common Stock"
+        },
+        {
+          "name": "ATUS",
+          "value": 97813340.51461089,
+          "company": "Altice USA, Inc. Class A Common Stock"
+        },
+        {
+          "name": "AMX",
+          "value": 97319679.51908365,
+          "company": "America Movil, S.A.B. de C.V. American Depository Receipt Series L"
+        },
+        {
+          "name": "ATHM",
+          "value": 48385611.13550178,
+          "company": "Autohome Inc. American Depositary Shares, each representing one class A ordinary share."
+        },
+        {
+          "name": "AMCX",
+          "value": 39037723.233387664,
+          "company": "AMC Networks Inc. - Class A Common Stock"
+        },
+        {
+          "name": "CTL",
+          "value": 35308846.58054705,
+          "company": "CenturyLink, Inc. Common Stock"
+        },
+        {
+          "name": "AMC",
+          "value": 17060818.853686973,
+          "company": "AMC Entertainment Holdings, Inc. Class A Common Stock"
+        },
+        {
+          "name": "FTR",
+          "value": 12041655.096154286,
+          "company": "Frontier Communications Corporation - Common Stock"
+        },
+        {
+          "name": "ANGI",
+          "value": 11225030.214659054,
+          "company": "ANGI Homeservices Inc. - Class A Common Stock"
+        },
+        {
+          "name": "BCE",
+          "value": 9211052.201048354,
+          "company": "BCE, Inc. Common Stock"
+        },
+        {
+          "name": "BATRK",
+          "value": 3783902.065688892,
+          "company": "Liberty Media Corporation - Series C Liberty Braves Common Stock"
+        },
+        {
+          "name": "ATEX",
+          "value": 2210927.536435494,
+          "company": "Anterix Inc. - Common Stock"
+        },
+        {
+          "name": "BATRA",
+          "value": 1565926.5413238388,
+          "company": "Liberty Media Corporation - Series A Liberty Braves Common Stock"
+        },
+        {
+          "name": "ANTE",
+          "value": 1532331.3399418504,
+          "company": "AirNet Technology Inc. - American Depositary Shares, each representing ten ordinary shares"
+        },
+        {
+          "name": "ATNI",
+          "value": 1495369.8934965865,
+          "company": "ATN International, Inc. - Common Stock"
+        },
+        {
+          "name": "BBGI",
+          "value": 139913.35342769514,
+          "company": "Beasley Broadcast Group, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "BHAT",
+          "value": 68161.87230452777,
+          "company": "Blue Hat Interactive Entertainment Technology - Ordinary Shares"
+        }
+      ]
+    },
+    {
+      "name": "Consumer Cyclical",
+      "children": [
+        {
+          "name": "BABA",
+          "value": 2353448967.9873133,
+          "company": "Alibaba Group Holding Limited American Depositary Shares each representing eight Ordinary share"
+        },
+        {
+          "name": "AMZN",
+          "value": 1643714571.5232532,
+          "company": "Amazon.com, Inc. - Common Stock"
+        },
+        {
+          "name": "GM",
+          "value": 381443585.4069092,
+          "company": "General Motors Company Common Stock"
+        },
+        {
+          "name": "CHTR",
+          "value": 280676418.9890425,
+          "company": "Charter Communications, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "CMG",
+          "value": 250597102.8903413,
+          "company": "Chipotle Mexican Grill, Inc. Common Stock"
+        },
+        {
+          "name": "WYNN",
+          "value": 179774754.31090084,
+          "company": "Wynn Resorts, Limited - Common Stock"
+        },
+        {
+          "name": "DIS",
+          "value": 171940803.21207276,
+          "company": "Walt Disney Company (The) Common Stock"
+        },
+        {
+          "name": "EXPE",
+          "value": 143291177.0779649,
+          "company": "Expedia Group, Inc. - Common Stock"
+        },
+        {
+          "name": "MCD",
+          "value": 139118750.5369616,
+          "company": "McDonald's Corporation Common Stock"
+        },
+        {
+          "name": "F",
+          "value": 135731648.6429298,
+          "company": "Ford Motor Company Common Stock"
+        },
+        {
+          "name": "APTV",
+          "value": 129401548.64677525,
+          "company": "Aptiv PLC Ordinary Shares"
+        },
+        {
+          "name": "YUM",
+          "value": 116252829.54931155,
+          "company": "Yum! Brands, Inc."
+        },
+        {
+          "name": "TRIP",
+          "value": 114483523.07414594,
+          "company": "TripAdvisor, Inc. - Common Stock"
+        },
+        {
+          "name": "BBY",
+          "value": 103991347.91142234,
+          "company": "Best Buy Co., Inc. Common Stock"
+        },
+        {
+          "name": "DLPH",
+          "value": 101424356.96743141,
+          "company": "Delphi Technologies PLC Ordinary Shares "
+        },
+        {
+          "name": "UAA",
+          "value": 101079212.91569443,
+          "company": "Under Armour, Inc. Class A Common Stock"
+        },
+        {
+          "name": "AZO",
+          "value": 100558968.62542687,
+          "company": "AutoZone, Inc. Common Stock"
+        },
+        {
+          "name": "MAR",
+          "value": 94753956.54005392,
+          "company": "Marriott International - Class A Common Stock"
+        },
+        {
+          "name": "AAP",
+          "value": 87241619.33889963,
+          "company": "Advance Auto Parts Inc Advance Auto Parts Inc W/I"
+        },
+        {
+          "name": "DISCA",
+          "value": 82571066.92313157,
+          "company": "Discovery, Inc. - Series A Common Stock"
+        },
+        {
+          "name": "CCL",
+          "value": 81496648.66549748,
+          "company": "Carnival Corporation Common Stock"
+        },
+        {
+          "name": "ORLY",
+          "value": 71003931.99134131,
+          "company": "O'Reilly Automotive, Inc. - Common Stock"
+        },
+        {
+          "name": "RCL",
+          "value": 68313474.76764698,
+          "company": "Royal Caribbean Cruises Ltd. Common Stock"
+        },
+        {
+          "name": "ANF",
+          "value": 60696116.16404057,
+          "company": "Abercrombie & Fitch Company Common Stock"
+        },
+        {
+          "name": "LEN",
+          "value": 57871461.797902964,
+          "company": "Lennar Corporation Class A Common Stock"
+        },
+        {
+          "name": "ADNT",
+          "value": 55096954.231760144,
+          "company": "Adient plc Ordinary Shares "
+        },
+        {
+          "name": "GRMN",
+          "value": 51787048.19700953,
+          "company": "Garmin Ltd. - Common Stock"
+        },
+        {
+          "name": "HOG",
+          "value": 50256953.20941568,
+          "company": "Harley-Davidson, Inc. Common Stock"
+        },
+        {
+          "name": "MHK",
+          "value": 49798557.26828427,
+          "company": "Mohawk Industries, Inc. Common Stock"
+        },
+        {
+          "name": "OMC",
+          "value": 46654011.61830539,
+          "company": "Omnicom Group Inc. Common Stock"
+        },
+        {
+          "name": "DISCK",
+          "value": 45676892.05232774,
+          "company": "Discovery, Inc. - Series C Common Stock"
+        },
+        {
+          "name": "PHM",
+          "value": 45300737.09989154,
+          "company": "PulteGroup, Inc. Common Stock"
+        },
+        {
+          "name": "AEO",
+          "value": 44453799.062222905,
+          "company": "American Eagle Outfitters, Inc. Common Stock"
+        },
+        {
+          "name": "BWA",
+          "value": 40243821.097490564,
+          "company": "BorgWarner Inc. Common Stock"
+        },
+        {
+          "name": "TSCO",
+          "value": 39844281.495438874,
+          "company": "Tractor Supply Company - Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Consumer Defensive",
+      "children": [
+        {
+          "name": "PM",
+          "value": 336461575.8613339,
+          "company": "Philip Morris International Inc Common Stock"
+        },
+        {
+          "name": "MDLZ",
+          "value": 195958241.0913466,
+          "company": "Mondelez International, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "PG",
+          "value": 179226505.3301609,
+          "company": "Procter & Gamble Company (The) Common Stock"
+        },
+        {
+          "name": "PEP",
+          "value": 139658543.61934477,
+          "company": "PepsiCo, Inc. - Common Stock"
+        },
+        {
+          "name": "KO",
+          "value": 130195698.76857471,
+          "company": "Coca-Cola Company (The) Common Stock"
+        },
+        {
+          "name": "CVS",
+          "value": 126804375.79868247,
+          "company": "CVS Health Corporation Common Stock"
+        },
+        {
+          "name": "MO",
+          "value": 69291719.43167841,
+          "company": "Altria Group, Inc."
+        },
+        {
+          "name": "KMB",
+          "value": 67503594.93520556,
+          "company": "Kimberly-Clark Corporation Common Stock"
+        },
+        {
+          "name": "CL",
+          "value": 66422283.41567225,
+          "company": "Colgate-Palmolive Company Common Stock"
+        },
+        {
+          "name": "BG",
+          "value": 63820241.88971846,
+          "company": "Bunge Limited Bunge Limited"
+        },
+        {
+          "name": "ADM",
+          "value": 57560921.33531779,
+          "company": "Archer-Daniels-Midland Company Common Stock"
+        },
+        {
+          "name": "MNST",
+          "value": 53346608.24387831,
+          "company": "Monster Beverage Corporation - Common Stock"
+        },
+        {
+          "name": "TSN",
+          "value": 44522220.20109273,
+          "company": "Tyson Foods, Inc. Common Stock"
+        },
+        {
+          "name": "HSY",
+          "value": 34461616.94366437,
+          "company": "The Hershey Company Common Stock"
+        },
+        {
+          "name": "TAP",
+          "value": 28640232.178141687,
+          "company": "Molson Coors Beverage Company Class B Common Stock"
+        },
+        {
+          "name": "ABEV",
+          "value": 26768859.422989566,
+          "company": "Ambev S.A. American Depositary Shares (Each representing 1 Common Share)"
+        },
+        {
+          "name": "CHD",
+          "value": 17967363.82035433,
+          "company": "Church & Dwight Company, Inc. Common Stock"
+        },
+        {
+          "name": "MKC",
+          "value": 17165951.441836804,
+          "company": "McCormick & Company, Incorporated Common Stock"
+        },
+        {
+          "name": "ATGE",
+          "value": 16663594.986915233,
+          "company": "Adtalem Global Education Inc. Common Stock"
+        },
+        {
+          "name": "HRL",
+          "value": 16413126.049970645,
+          "company": "Hormel Foods Corporation Common Stock"
+        },
+        {
+          "name": "BGS",
+          "value": 10857309.595123628,
+          "company": "B&G Foods, Inc. B&G Foods, Inc. Common Stock"
+        },
+        {
+          "name": "AFYA",
+          "value": 8593095.404214537,
+          "company": "Afya Limited - Class A Common Shares"
+        },
+        {
+          "name": "APEI",
+          "value": 5124828.292806717,
+          "company": "American Public Education, Inc. - Common Stock"
+        },
+        {
+          "name": "ANDE",
+          "value": 4860160.057602465,
+          "company": "The Andersons, Inc. - Common Stock"
+        },
+        {
+          "name": "AGRO",
+          "value": 3501576.87435557,
+          "company": "Adecoagro S.A. Common Shares"
+        },
+        {
+          "name": "BEDU",
+          "value": 2827166.614612867,
+          "company": "Bright Scholar Education Holdings Limited American Depositary Shares, each  representing one Class A Ordinary Share"
+        },
+        {
+          "name": "AACG",
+          "value": 1715988.9501103268,
+          "company": "ATA Creativity Global - American Depositary Shares, each representing two common shares"
+        },
+        {
+          "name": "AQB",
+          "value": 342338.3522610495,
+          "company": "AquaBounty Technologies, Inc. - Common Stock"
+        },
+        {
+          "name": "ALCO",
+          "value": 201194.5140071932,
+          "company": "Alico, Inc. - Common Stock"
+        },
+        {
+          "name": "ASPU",
+          "value": 186810.41737140235,
+          "company": "Aspen Group Inc. - Common Stock"
+        },
+        {
+          "name": "AMBO",
+          "value": 90929.9437204749,
+          "company": "Ambow Education Holding Ltd. American Depository Shares, each representing two Class A ordinary shares"
+        },
+        {
+          "name": "ACU",
+          "value": 50733.44940136602,
+          "company": "Acme United Corporation. Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Energy",
+      "children": [
+        {
+          "name": "XOM",
+          "value": 317473940.47586584,
+          "company": "Exxon Mobil Corporation Common Stock"
+        },
+        {
+          "name": "MPC",
+          "value": 243406631.376997,
+          "company": "Marathon Petroleum Corporation Common Stock"
+        },
+        {
+          "name": "KMI",
+          "value": 241366539.15801218,
+          "company": "Kinder Morgan, Inc. Common Stock"
+        },
+        {
+          "name": "PSX",
+          "value": 220059129.44157916,
+          "company": "Phillips 66 Common Stock"
+        },
+        {
+          "name": "CVX",
+          "value": 169579305.08172262,
+          "company": "Chevron Corporation Common Stock"
+        },
+        {
+          "name": "CHK",
+          "value": 153260980.7210563,
+          "company": "Chesapeake Energy Corporation Common Stock"
+        },
+        {
+          "name": "EOG",
+          "value": 144326515.3761927,
+          "company": "EOG Resources, Inc. Common Stock"
+        },
+        {
+          "name": "HAL",
+          "value": 143439887.31404862,
+          "company": "Halliburton Company Common Stock"
+        },
+        {
+          "name": "NOV",
+          "value": 136408286.07064143,
+          "company": "National Oilwell Varco, Inc. Common Stock"
+        },
+        {
+          "name": "CXO",
+          "value": 126704129.0364205,
+          "company": "Concho Resources Inc. Common Stock"
+        },
+        {
+          "name": "VLO",
+          "value": 126432634.05239925,
+          "company": "Valero Energy Corporation Common Stock"
+        },
+        {
+          "name": "OXY",
+          "value": 119613365.29422401,
+          "company": "Occidental Petroleum Corporation Common Stock"
+        },
+        {
+          "name": "DVN",
+          "value": 110345288.9863882,
+          "company": "Devon Energy Corporation Common Stock"
+        },
+        {
+          "name": "APA",
+          "value": 97960924.4717307,
+          "company": "Apache Corporation Common Stock"
+        },
+        {
+          "name": "HES",
+          "value": 86175023.10137558,
+          "company": "Hess Corporation Common Stock"
+        },
+        {
+          "name": "SE",
+          "value": 80930755.19886094,
+          "company": "Sea Limited American Depositary Shares, each representing one Class A Ordinary Share"
+        },
+        {
+          "name": "XEC",
+          "value": 72071331.8792803,
+          "company": "Cimarex Energy Co Common Stock"
+        },
+        {
+          "name": "WMB",
+          "value": 66461241.959588334,
+          "company": "Williams Companies, Inc. (The) Common Stock"
+        },
+        {
+          "name": "AR",
+          "value": 63920792.74043241,
+          "company": "Antero Resources Corporation Common Stock"
+        },
+        {
+          "name": "MRO",
+          "value": 63244263.603144795,
+          "company": "Marathon Oil Corporation Common Stock"
+        },
+        {
+          "name": "SWN",
+          "value": 57332376.56877005,
+          "company": "Southwestern Energy Company Common Stock"
+        },
+        {
+          "name": "COG",
+          "value": 55289273.83401955,
+          "company": "Cabot Oil & Gas Corporation Common Stock"
+        },
+        {
+          "name": "NBL",
+          "value": 47863598.56039949,
+          "company": "Noble Energy Inc. - Common Stock"
+        },
+        {
+          "name": "RRC",
+          "value": 43085231.66017439,
+          "company": "Range Resources Corporation Common Stock"
+        },
+        {
+          "name": "EQT",
+          "value": 33274970.731572647,
+          "company": "EQT Corporation Common Stock"
+        },
+        {
+          "name": "MUR",
+          "value": 29993292.35248202,
+          "company": "Murphy Oil Corporation Common Stock"
+        },
+        {
+          "name": "OKE",
+          "value": 23533549.304526158,
+          "company": "ONEOK, Inc. Common Stock"
+        },
+        {
+          "name": "AM",
+          "value": 16577913.74043277,
+          "company": "Antero Midstream Corporation Common Stock"
+        },
+        {
+          "name": "AROC",
+          "value": 16067538.693993164,
+          "company": "Archrock, Inc. Common Stock"
+        },
+        {
+          "name": "ARLP",
+          "value": 2656299.7377296863,
+          "company": "Alliance Resource Partners, L.P. - Common Units Representing Limited Partnership Interests"
+        },
+        {
+          "name": "AMPY",
+          "value": 1001171.8572970671,
+          "company": "Amplify Energy Corp. Common Stock"
+        },
+        {
+          "name": "BATL",
+          "value": 111250.20227221881,
+          "company": "Battalion Oil Corporation Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Financial Services",
+      "children": [
+        {
+          "name": "BAC",
+          "value": 541471797.9476202,
+          "company": "Bank of America Corporation Common Stock"
+        },
+        {
+          "name": "C",
+          "value": 524201410.4203696,
+          "company": "Citigroup, Inc. Common Stock"
+        },
+        {
+          "name": "JPM",
+          "value": 437475020.9987727,
+          "company": "JP Morgan Chase & Co. Common Stock"
+        },
+        {
+          "name": "WFC",
+          "value": 267432660.0176615,
+          "company": "Wells Fargo & Company Common Stock"
+        },
+        {
+          "name": "MET",
+          "value": 184242626.7478549,
+          "company": "MetLife, Inc. Common Stock"
+        },
+        {
+          "name": "SYF",
+          "value": 176440660.69176966,
+          "company": "Synchrony Financial Common Stock"
+        },
+        {
+          "name": "AIG",
+          "value": 173698795.42851362,
+          "company": "American International Group, Inc. New Common Stock"
+        },
+        {
+          "name": "CME",
+          "value": 161240470.8549588,
+          "company": "CME Group Inc. - Class A Common Stock"
+        },
+        {
+          "name": "COF",
+          "value": 158209138.68464154,
+          "company": "Capital One Financial Corporation Common Stock"
+        },
+        {
+          "name": "PRU",
+          "value": 149033091.55023614,
+          "company": "Prudential Financial, Inc. Common Stock"
+        },
+        {
+          "name": "CFG",
+          "value": 145173667.27114552,
+          "company": "Citizens Financial Group, Inc. Common Stock"
+        },
+        {
+          "name": "AXP",
+          "value": 137283607.33901858,
+          "company": "American Express Company Common Stock"
+        },
+        {
+          "name": "DFS",
+          "value": 130939513.16491294,
+          "company": "Discover Financial Services Common Stock"
+        },
+        {
+          "name": "SCHW",
+          "value": 118493917.82684794,
+          "company": "Charles Schwab Corporation (The) Common Stock"
+        },
+        {
+          "name": "AC",
+          "value": 108633557.35018833,
+          "company": "Associated Capital Group, Inc. Common Stock"
+        },
+        {
+          "name": "ALL",
+          "value": 98721257.02085349,
+          "company": "Allstate Corporation (The) Common Stock"
+        },
+        {
+          "name": "AMP",
+          "value": 96864516.62063411,
+          "company": "Ameriprise Financial, Inc. Common Stock"
+        },
+        {
+          "name": "HIG",
+          "value": 93913915.7157938,
+          "company": "Hartford Financial Services Group, Inc. (The) Common Stock"
+        },
+        {
+          "name": "ETFC",
+          "value": 86639703.7825396,
+          "company": "E*TRADE Financial Corporation - Common Stock"
+        },
+        {
+          "name": "ALLY",
+          "value": 84072123.32737054,
+          "company": "Ally Financial Inc. Common Stock"
+        },
+        {
+          "name": "BK",
+          "value": 74136210.31348936,
+          "company": "The Bank of New York Mellon Corporation Common Stock"
+        },
+        {
+          "name": "PNC",
+          "value": 73533056.8401471,
+          "company": "PNC Financial Services Group, Inc. (The) Common Stock"
+        },
+        {
+          "name": "STT",
+          "value": 73486607.85565057,
+          "company": "State Street Corporation Common Stock"
+        },
+        {
+          "name": "BBD",
+          "value": 73274612.83107562,
+          "company": "Banco Bradesco Sa American Depositary Shares"
+        },
+        {
+          "name": "MCO",
+          "value": 68693678.48598337,
+          "company": "Moody's Corporation Common Stock"
+        },
+        {
+          "name": "AMTD",
+          "value": 65469883.78615023,
+          "company": "TD Ameritrade Holding Corporation - Common Stock"
+        },
+        {
+          "name": "TRV",
+          "value": 60571510.083984725,
+          "company": "The Travelers Companies, Inc. Common Stock"
+        },
+        {
+          "name": "CB",
+          "value": 59995384.98047111,
+          "company": "Chubb Limited  Common Stock"
+        },
+        {
+          "name": "PFG",
+          "value": 52398867.8804817,
+          "company": "Principal Financial Group Inc - Common Stock"
+        },
+        {
+          "name": "NDAQ",
+          "value": 50470317.72084095,
+          "company": "Nasdaq, Inc. - Common Stock"
+        },
+        {
+          "name": "AFL",
+          "value": 46884528.97668466,
+          "company": "AFLAC Incorporated Common Stock"
+        },
+        {
+          "name": "AON",
+          "value": 45799686.54791697,
+          "company": "Aon plc Class A Ordinary Shares (Ireland)"
+        },
+        {
+          "name": "BEN",
+          "value": 45060054.63707348,
+          "company": "Franklin Resources, Inc. Common Stock"
+        },
+        {
+          "name": "AMG",
+          "value": 43764036.03755703,
+          "company": "Affiliated Managers Group, Inc. Common Stock"
+        },
+        {
+          "name": "SPGI",
+          "value": 43647280.54051373,
+          "company": "S&P Global Inc. Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Healthcare",
+      "children": [
+        {
+          "name": "ABBV",
+          "value": 465527127.15570956,
+          "company": "AbbVie Inc. Common Stock"
+        },
+        {
+          "name": "GILD",
+          "value": 297940914.7686451,
+          "company": "Gilead Sciences, Inc. - Common Stock"
+        },
+        {
+          "name": "AMGN",
+          "value": 281446818.09295297,
+          "company": "Amgen Inc. - Common Stock"
+        },
+        {
+          "name": "PFE",
+          "value": 260235277.7953721,
+          "company": "Pfizer, Inc. Common Stock"
+        },
+        {
+          "name": "ANTM",
+          "value": 219981372.1984294,
+          "company": "Anthem, Inc. Common Stock"
+        },
+        {
+          "name": "UNH",
+          "value": 218160788.6211134,
+          "company": "UnitedHealth Group Incorporated Common Stock (DE)"
+        },
+        {
+          "name": "BIIB",
+          "value": 214411693.0073357,
+          "company": "Biogen Inc. - Common Stock"
+        },
+        {
+          "name": "HCA",
+          "value": 185214290.91501418,
+          "company": "HCA Healthcare, Inc. Common Stock"
+        },
+        {
+          "name": "MRK",
+          "value": 180111606.80070582,
+          "company": "Merck & Company, Inc. Common Stock (new)"
+        },
+        {
+          "name": "ZTS",
+          "value": 178699627.46102974,
+          "company": "Zoetis Inc. Class A Common Stock"
+        },
+        {
+          "name": "ISRG",
+          "value": 166328008.92187473,
+          "company": "Intuitive Surgical, Inc. - Common Stock"
+        },
+        {
+          "name": "BMY",
+          "value": 126737373.22793879,
+          "company": "Bristol-Myers Squibb Company Common Stock"
+        },
+        {
+          "name": "ABT",
+          "value": 123114946.95086671,
+          "company": "Abbott Laboratories Common Stock"
+        },
+        {
+          "name": "BSX",
+          "value": 123018707.3373284,
+          "company": "Boston Scientific Corporation Common Stock"
+        },
+        {
+          "name": "BHC",
+          "value": 114574824.63499543,
+          "company": "Bausch Health Companies Inc. Common Stock"
+        },
+        {
+          "name": "LLY",
+          "value": 112870102.52323602,
+          "company": "Eli Lilly and Company Common Stock"
+        },
+        {
+          "name": "ZBH",
+          "value": 112752162.20865251,
+          "company": "Zimmer Biomet Holdings, Inc. Common Stock"
+        },
+        {
+          "name": "A",
+          "value": 103648093.12285952,
+          "company": "Agilent Technologies, Inc. Common Stock"
+        },
+        {
+          "name": "CI",
+          "value": 92213899.27850938,
+          "company": "Cigna Corporation Common Stock"
+        },
+        {
+          "name": "REGN",
+          "value": 90477897.36909443,
+          "company": "Regeneron Pharmaceuticals, Inc. - Common Stock"
+        },
+        {
+          "name": "ALXN",
+          "value": 89425980.86150306,
+          "company": "Alexion Pharmaceuticals, Inc. - Common Stock"
+        },
+        {
+          "name": "EW",
+          "value": 81756171.99554588,
+          "company": "Edwards Lifesciences Corporation Common Stock"
+        },
+        {
+          "name": "TMO",
+          "value": 80195938.23954502,
+          "company": "Thermo Fisher Scientific Inc Common Stock"
+        },
+        {
+          "name": "BAX",
+          "value": 79655237.8155412,
+          "company": "Baxter International Inc. Common Stock"
+        },
+        {
+          "name": "VRTX",
+          "value": 79394184.11663695,
+          "company": "Vertex Pharmaceuticals Incorporated - Common Stock"
+        },
+        {
+          "name": "HUM",
+          "value": 73849523.27697422,
+          "company": "Humana Inc. Common Stock"
+        },
+        {
+          "name": "MYL",
+          "value": 67126240.3574358,
+          "company": "Mylan N.V. - Common Stock"
+        },
+        {
+          "name": "CNC",
+          "value": 65242125.1451394,
+          "company": "Centene Corporation Common Stock"
+        },
+        {
+          "name": "ALGN",
+          "value": 60225311.37869332,
+          "company": "Align Technology, Inc. - Common Stock"
+        },
+        {
+          "name": "DGX",
+          "value": 59112245.54106809,
+          "company": "Quest Diagnostics Incorporated Common Stock"
+        },
+        {
+          "name": "AVTR",
+          "value": 55005475.87049104,
+          "company": "Avantor, Inc. Common Stock"
+        },
+        {
+          "name": "SYK",
+          "value": 54229168.779330395,
+          "company": "Stryker Corporation Common Stock"
+        },
+        {
+          "name": "LH",
+          "value": 54176504.424369775,
+          "company": "Laboratory Corporation of America Holdings Common Stock"
+        },
+        {
+          "name": "DVA",
+          "value": 51831514.86561377,
+          "company": "DaVita Inc. Common Stock"
+        },
+        {
+          "name": "WAT",
+          "value": 51253874.75125641,
+          "company": "Waters Corporation Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Industrials",
+      "children": [
+        {
+          "name": "DAL",
+          "value": 259834112.27742445,
+          "company": "Delta Air Lines, Inc. Common Stock"
+        },
+        {
+          "name": "UPS",
+          "value": 209040676.09233835,
+          "company": "United Parcel Service, Inc. Common Stock"
+        },
+        {
+          "name": "UAL",
+          "value": 200487984.92268077,
+          "company": "United Airlines Holdings, Inc. - Common Stock"
+        },
+        {
+          "name": "AAL",
+          "value": 189914232.59963387,
+          "company": "American Airlines Group, Inc. - Common Stock"
+        },
+        {
+          "name": "BA",
+          "value": 176390124.71793213,
+          "company": "Boeing Company (The) Common Stock"
+        },
+        {
+          "name": "CAT",
+          "value": 121978491.93978672,
+          "company": "Caterpillar, Inc. Common Stock"
+        },
+        {
+          "name": "UNP",
+          "value": 119849511.22571082,
+          "company": "Union Pacific Corporation Common Stock"
+        },
+        {
+          "name": "UTX",
+          "value": 113056349.21231146,
+          "company": "United Technologies Corporation Common Stock"
+        },
+        {
+          "name": "MMM",
+          "value": 110508523.922794,
+          "company": "3M Company Common Stock"
+        },
+        {
+          "name": "LMT",
+          "value": 91964479.7006583,
+          "company": "Lockheed Martin Corporation Common Stock"
+        },
+        {
+          "name": "CSX",
+          "value": 91394381.73599716,
+          "company": "CSX Corporation - Common Stock"
+        },
+        {
+          "name": "HON",
+          "value": 89354021.37502785,
+          "company": "Honeywell International Inc. Common Stock"
+        },
+        {
+          "name": "DE",
+          "value": 86640778.52099784,
+          "company": "Deere & Company Common Stock"
+        },
+        {
+          "name": "ARNC",
+          "value": 84045046.4478167,
+          "company": "Arconic Corporation Common Stock "
+        },
+        {
+          "name": "FLR",
+          "value": 78304914.97790927,
+          "company": "Fluor Corporation Common Stock"
+        },
+        {
+          "name": "NLSN",
+          "value": 76619002.58262432,
+          "company": "Nielsen N.V. Ordinary Shares"
+        },
+        {
+          "name": "NSC",
+          "value": 72343169.8399885,
+          "company": "Norfolk Southern Corporation Common Stock"
+        },
+        {
+          "name": "DHR",
+          "value": 69149179.55868752,
+          "company": "Danaher Corporation Common Stock"
+        },
+        {
+          "name": "LUV",
+          "value": 68914448.33570442,
+          "company": "Southwest Airlines Company Common Stock"
+        },
+        {
+          "name": "GD",
+          "value": 63340709.37684512,
+          "company": "General Dynamics Corporation Common Stock"
+        },
+        {
+          "name": "ARMK",
+          "value": 62418239.6918476,
+          "company": "Aramark Common Stock"
+        },
+        {
+          "name": "FBHS",
+          "value": 61922538.906698994,
+          "company": "Fortune Brands Home & Security, Inc. Common Stock"
+        },
+        {
+          "name": "VRSK",
+          "value": 61702949.83122003,
+          "company": "Verisk Analytics, Inc. - Common Stock"
+        },
+        {
+          "name": "CHRW",
+          "value": 57847517.35371058,
+          "company": "C.H. Robinson Worldwide, Inc. - Common Stock"
+        },
+        {
+          "name": "WM",
+          "value": 57672197.29328129,
+          "company": "Waste Management, Inc. Common Stock"
+        },
+        {
+          "name": "ATI",
+          "value": 56273848.04617556,
+          "company": "Allegheny Technologies Incorporated Common Stock"
+        },
+        {
+          "name": "CMI",
+          "value": 55049932.23981732,
+          "company": "Cummins Inc. Common Stock"
+        },
+        {
+          "name": "ALLE",
+          "value": 52925347.62592114,
+          "company": "Allegion plc Ordinary Shares"
+        },
+        {
+          "name": "ITW",
+          "value": 51447369.03178368,
+          "company": "Illinois Tool Works Inc. Common Stock"
+        },
+        {
+          "name": "XYL",
+          "value": 50113894.19857053,
+          "company": "Xylem Inc. Common Stock New"
+        },
+        {
+          "name": "RSG",
+          "value": 41394172.70290648,
+          "company": "Republic Services, Inc. Common Stock"
+        },
+        {
+          "name": "FAST",
+          "value": 40796064.890359566,
+          "company": "Fastenal Company - Common Stock"
+        },
+        {
+          "name": "PCAR",
+          "value": 40160748.55171578,
+          "company": "PACCAR Inc. - Common Stock"
+        },
+        {
+          "name": "AYI",
+          "value": 38529984.25062246,
+          "company": "Acuity Brands, Inc. "
+        },
+        {
+          "name": "MAS",
+          "value": 38108005.73851314,
+          "company": "Masco Corporation Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Real Estate",
+      "children": [
+        {
+          "name": "AMT",
+          "value": 129844640.38523318,
+          "company": "American Tower Corporation (REIT) Common Stock"
+        },
+        {
+          "name": "SPG",
+          "value": 104388969.30426086,
+          "company": "Simon Property Group, Inc. Common Stock"
+        },
+        {
+          "name": "EQIX",
+          "value": 96749015.93643893,
+          "company": "Equinix, Inc. - Common Stock"
+        },
+        {
+          "name": "CCI",
+          "value": 90849112.76455405,
+          "company": "Crown Castle International Corp. (REIT) Common Stock"
+        },
+        {
+          "name": "DLR",
+          "value": 72466007.65207455,
+          "company": "Digital Realty Trust, Inc. Common Stock"
+        },
+        {
+          "name": "BXP",
+          "value": 59439532.8629491,
+          "company": "Boston Properties, Inc. Common Stock"
+        },
+        {
+          "name": "AVB",
+          "value": 53483373.90892447,
+          "company": "AvalonBay Communities, Inc. Common Stock"
+        },
+        {
+          "name": "EQR",
+          "value": 52260060.52741955,
+          "company": "Equity Residential Common Shares of Beneficial Interest"
+        },
+        {
+          "name": "VTR",
+          "value": 51706162.2630589,
+          "company": "Ventas, Inc. Common Stock"
+        },
+        {
+          "name": "AGNC",
+          "value": 50935566.28609544,
+          "company": "AGNC Investment Corp. - Common Stock"
+        },
+        {
+          "name": "SLG",
+          "value": 39256675.06470333,
+          "company": "SL Green Realty Corp Common Stock"
+        },
+        {
+          "name": "WY",
+          "value": 37523689.262841,
+          "company": "Weyerhaeuser Company Common Stock"
+        },
+        {
+          "name": "HST",
+          "value": 37463444.50842095,
+          "company": "Host Hotels & Resorts, Inc. Common Stock"
+        },
+        {
+          "name": "AMH",
+          "value": 36731282.62249496,
+          "company": "American Homes 4 Rent Common Shares of Beneficial Interest"
+        },
+        {
+          "name": "EXR",
+          "value": 34684664.91400892,
+          "company": "Extra Space Storage Inc Common Stock"
+        },
+        {
+          "name": "O",
+          "value": 32543602.569410328,
+          "company": "Realty Income Corporation Common Stock"
+        },
+        {
+          "name": "ESS",
+          "value": 30832452.260845296,
+          "company": "Essex Property Trust, Inc. Common Stock"
+        },
+        {
+          "name": "VNO",
+          "value": 29178630.290115885,
+          "company": "Vornado Realty Trust Common Stock"
+        },
+        {
+          "name": "ARE",
+          "value": 27691819.14818485,
+          "company": "Alexandria Real Estate Equities, Inc. Common Stock"
+        },
+        {
+          "name": "KIM",
+          "value": 27411061.561076276,
+          "company": "Kimco Realty Corporation Common Stock"
+        },
+        {
+          "name": "MAC",
+          "value": 26372666.275170762,
+          "company": "Macerich Company (The) Common Stock"
+        },
+        {
+          "name": "AIV",
+          "value": 22679606.520717613,
+          "company": "Apartment Investment and Management Company Common Stock"
+        },
+        {
+          "name": "IRM",
+          "value": 21965520.52746303,
+          "company": "Iron Mountain Incorporated (Delaware)Common Stock REIT"
+        },
+        {
+          "name": "APLE",
+          "value": 18713667.248187356,
+          "company": "Apple Hospitality REIT, Inc. Common Shares"
+        },
+        {
+          "name": "MAA",
+          "value": 17226555.15881207,
+          "company": "Mid-America Apartment Communities, Inc. Common Stock"
+        },
+        {
+          "name": "UDR",
+          "value": 15297803.136263652,
+          "company": "UDR, Inc. Common Stock"
+        },
+        {
+          "name": "FRT",
+          "value": 13015681.575904092,
+          "company": "Federal Realty Investment Trust Common Stock"
+        },
+        {
+          "name": "AGNCP",
+          "value": 12237297.060909271,
+          "company": "AGNC Investment Corp. - Depositary Shares Each Representing a 1/1,000th Interest in a Share of 6.125% Series F Fixed-to-Floating Rate Cumulative Redeemable Preferred Stock"
+        },
+        {
+          "name": "ASPS",
+          "value": 10531808.539997544,
+          "company": "Altisource Portfolio Solutions S.A. - Common Stock"
+        },
+        {
+          "name": "ARR",
+          "value": 9433469.136063201,
+          "company": "ARMOUR Residential REIT, Inc."
+        },
+        {
+          "name": "ARI",
+          "value": 8260204.26509852,
+          "company": "Apollo Commercial Real Estate Finance, Inc"
+        },
+        {
+          "name": "AAT",
+          "value": 7495397.703624296,
+          "company": "American Assets Trust, Inc. Common Stock"
+        },
+        {
+          "name": "BDN",
+          "value": 6939786.886168072,
+          "company": "Brandywine Realty Trust Common Stock"
+        },
+        {
+          "name": "ALEX",
+          "value": 5548633.387471947,
+          "company": "Alexander & Baldwin, Inc. Common Stock REIT Holding Company"
+        },
+        {
+          "name": "AGNCO",
+          "value": 4922778.163183197,
+          "company": "AGNC Investment Corp. - Depositary Shares, each representing a 1/1,000th interest in a share of Series E Fixed-to-Floating Cumulative Redeemable Preferred Stock"
+        }
+      ]
+    },
+    {
+      "name": "Technology",
+      "children": [
+        {
+          "name": "FB",
+          "value": 2900035509.291957,
+          "company": "Facebook, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "AAPL",
+          "value": 1928687831.9666772,
+          "company": "Apple Inc. - Common Stock"
+        },
+        {
+          "name": "NFLX",
+          "value": 868506437.8096739,
+          "company": "Netflix, Inc. - Common Stock"
+        },
+        {
+          "name": "INTC",
+          "value": 618002883.2613524,
+          "company": "Intel Corporation - Common Stock"
+        },
+        {
+          "name": "PYPL",
+          "value": 559592209.6168193,
+          "company": "PayPal Holdings, Inc. - Common Stock"
+        },
+        {
+          "name": "BB",
+          "value": 469563407.1381622,
+          "company": "BlackBerry Limited Common Stock"
+        },
+        {
+          "name": "MA",
+          "value": 467790065.8978389,
+          "company": "Mastercard Incorporated Common Stock"
+        },
+        {
+          "name": "EBAY",
+          "value": 464398985.77878904,
+          "company": "eBay Inc. - Common Stock"
+        },
+        {
+          "name": "AVGO",
+          "value": 341442213.0444508,
+          "company": "Broadcom Inc. - Common Stock"
+        },
+        {
+          "name": "FSLR",
+          "value": 258139274.55720648,
+          "company": "First Solar, Inc. - Common Stock"
+        },
+        {
+          "name": "JNPR",
+          "value": 250029593.64916885,
+          "company": "Juniper Networks, Inc. Common Stock"
+        },
+        {
+          "name": "IBM",
+          "value": 232198162.31664968,
+          "company": "International Business Machines Corporation Common Stock"
+        },
+        {
+          "name": "AMAT",
+          "value": 222368158.49417877,
+          "company": "Applied Materials, Inc. - Common Stock"
+        },
+        {
+          "name": "AMD",
+          "value": 216339235.41255704,
+          "company": "Advanced Micro Devices, Inc. - Common Stock"
+        },
+        {
+          "name": "ADBE",
+          "value": 180236692.0223838,
+          "company": "Adobe Inc. - Common Stock"
+        },
+        {
+          "name": "HPE",
+          "value": 173940294.77351096,
+          "company": "Hewlett Packard Enterprise Company Common Stock"
+        },
+        {
+          "name": "ACN",
+          "value": 166704670.19887304,
+          "company": "Accenture plc Class A Ordinary Shares (Ireland)"
+        },
+        {
+          "name": "TXN",
+          "value": 155373363.8414523,
+          "company": "Texas Instruments Incorporated - Common Stock"
+        },
+        {
+          "name": "ANET",
+          "value": 137412565.63558254,
+          "company": "Arista Networks, Inc. Common Stock"
+        },
+        {
+          "name": "CTSH",
+          "value": 136114720.13305342,
+          "company": "Cognizant Technology Solutions Corporation - Class A Common Stock"
+        },
+        {
+          "name": "VRSN",
+          "value": 122711229.91507892,
+          "company": "VeriSign, Inc. - Common Stock"
+        },
+        {
+          "name": "ATVI",
+          "value": 118782033.6633075,
+          "company": "Activision Blizzard, Inc - Common Stock"
+        },
+        {
+          "name": "CTXS",
+          "value": 117572932.5751919,
+          "company": "Citrix Systems, Inc. - Common Stock"
+        },
+        {
+          "name": "AKAM",
+          "value": 111999354.05436201,
+          "company": "Akamai Technologies, Inc. - Common Stock"
+        },
+        {
+          "name": "HPQ",
+          "value": 108418875.85227504,
+          "company": "HP Inc. Common Stock"
+        },
+        {
+          "name": "GLW",
+          "value": 104654857.04655899,
+          "company": "Corning Incorporated Common Stock"
+        },
+        {
+          "name": "WU",
+          "value": 89323454.35758123,
+          "company": "Western Union Company (The) Common Stock"
+        },
+        {
+          "name": "ADS",
+          "value": 84120205.5007334,
+          "company": "Alliance Data Systems Corporation Common Stock"
+        },
+        {
+          "name": "FIS",
+          "value": 82704925.85027209,
+          "company": "Fidelity National Information Services, Inc. Common Stock"
+        },
+        {
+          "name": "ADSK",
+          "value": 78432106.85825202,
+          "company": "Autodesk, Inc. - Common Stock"
+        },
+        {
+          "name": "ADP",
+          "value": 67282438.35500053,
+          "company": "Automatic Data Processing, Inc. - Common Stock"
+        },
+        {
+          "name": "ADI",
+          "value": 66807172.12839028,
+          "company": "Analog Devices, Inc. - Common Stock"
+        },
+        {
+          "name": "TDC",
+          "value": 65155998.231376015,
+          "company": "Teradata Corporation Common Stock"
+        },
+        {
+          "name": "AMBA",
+          "value": 65130755.84043617,
+          "company": "Ambarella, Inc. - Ordinary Shares"
+        },
+        {
+          "name": "ASML",
+          "value": 64711738.2215245,
+          "company": "ASML Holding N.V. - New York Registry Shares"
+        }
+      ]
+    },
+    {
+      "name": "Unknown",
+      "children": [
+        {
+          "name": "SBT",
+          "value": 5626605014.491042,
+          "company": "Sterling Bancorp, Inc. - Common Stock"
+        },
+        {
+          "name": "VNE",
+          "value": 4313366515.28755,
+          "company": "Veoneer, Inc. Common Stock "
+        },
+        {
+          "name": "GOOGL",
+          "value": 2044026103.684978,
+          "company": "Alphabet Inc. - Class A Common Stock"
+        },
+        {
+          "name": "GOOG",
+          "value": 1976485962.0219667,
+          "company": "Alphabet Inc. - Class C Capital Stock"
+        },
+        {
+          "name": "NTB",
+          "value": 1899154292.7511866,
+          "company": "Bank of N.T. Butterfield & Son Limited (The) Voting Ordinary Shares"
+        },
+        {
+          "name": "KTB",
+          "value": 1661041792.6712813,
+          "company": "Kontoor Brands, Inc. Common Stock "
+        },
+        {
+          "name": "TSLA",
+          "value": 1550764597.6527336,
+          "company": "Tesla, Inc.  - Common Stock"
+        },
+        {
+          "name": "ELC",
+          "value": 1507038193.561929,
+          "company": "Entergy Louisiana, Inc. Collateral Trust Mortgage Bonds, 4.875 % Series due September 1, 2066"
+        },
+        {
+          "name": "MSFT",
+          "value": 1096397790.2008042,
+          "company": "Microsoft Corporation - Common Stock"
+        },
+        {
+          "name": "ROKU",
+          "value": 933997071.8443156,
+          "company": "Roku, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "BYND",
+          "value": 830898497.2778765,
+          "company": "Beyond Meat, Inc. - Common stock"
+        },
+        {
+          "name": "UBER",
+          "value": 799089986.0705966,
+          "company": "Uber Technologies, Inc. Common Stock"
+        },
+        {
+          "name": "STG",
+          "value": 788420942.8265635,
+          "company": "Sunlands Technology Group American Depositary Shares, representing Class A ordinary shares"
+        },
+        {
+          "name": "CSCO",
+          "value": 739018459.0493746,
+          "company": "Cisco Systems, Inc. - Common Stock"
+        },
+        {
+          "name": "BIDU",
+          "value": 697791389.2205995,
+          "company": "Baidu, Inc. - American Depositary Shares, each representing one tenth Class A ordinary share"
+        },
+        {
+          "name": "GS",
+          "value": 693537528.2428731,
+          "company": "Goldman Sachs Group, Inc. (The) Common Stock"
+        },
+        {
+          "name": "V",
+          "value": 692957377.2181185,
+          "company": "Visa Inc."
+        },
+        {
+          "name": "TWTR",
+          "value": 687347615.5303282,
+          "company": "Twitter, Inc. Common Stock"
+        },
+        {
+          "name": "NVDA",
+          "value": 585882533.7351403,
+          "company": "NVIDIA Corporation - Common Stock"
+        },
+        {
+          "name": "TVIX",
+          "value": 536845747.79442215,
+          "company": "Credit Suisse AG - VelocityShares Daily 2x VIX Short Term ETN"
+        },
+        {
+          "name": "VXX",
+          "value": 512639705.0341624,
+          "company": "iPath Series B S&P 500 VIX Short-Term Futures ETN"
+        },
+        {
+          "name": "QCOM",
+          "value": 473523378.0466521,
+          "company": "QUALCOMM Incorporated - Common Stock"
+        },
+        {
+          "name": "SQ",
+          "value": 471696340.09146345,
+          "company": "Square, Inc. Class A Common Stock"
+        },
+        {
+          "name": "ORCL",
+          "value": 441376483.5886806,
+          "company": "Oracle Corporation Common Stock"
+        },
+        {
+          "name": "ZM",
+          "value": 410112933.5849382,
+          "company": "Zoom Video Communications, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "BKNG",
+          "value": 387812094.12801063,
+          "company": "Booking Holdings Inc. - Common Stock"
+        },
+        {
+          "name": "JD",
+          "value": 385176294.3100511,
+          "company": "JD.com, Inc. - American Depositary Shares"
+        },
+        {
+          "name": "LYFT",
+          "value": 370204834.38060683,
+          "company": "Lyft, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "SNAP",
+          "value": 368605934.8314886,
+          "company": "Snap Inc. Class A Common Stock"
+        },
+        {
+          "name": "CRM",
+          "value": 315865531.94051147,
+          "company": "Salesforce.com Inc Common Stock"
+        },
+        {
+          "name": "MDIA",
+          "value": 311031730.87626624,
+          "company": "Mediaco Holding Inc. - Class A Common Stock"
+        },
+        {
+          "name": "MU",
+          "value": 307055093.4087062,
+          "company": "Micron Technology, Inc. - Common Stock"
+        },
+        {
+          "name": "WORK",
+          "value": 284665033.32939243,
+          "company": "Slack Technologies, Inc. Class A Common Stock"
+        },
+        {
+          "name": "GE",
+          "value": 282284028.4188971,
+          "company": "General Electric Company Common Stock"
+        }
+      ]
+    },
+    {
+      "name": "Utilities",
+      "children": [
+        {
+          "name": "DUK",
+          "value": 71923692.81017165,
+          "company": "Duke Energy Corporation (Holding Company) Common Stock"
+        },
+        {
+          "name": "FE",
+          "value": 70603004.58156013,
+          "company": "FirstEnergy Corp. Common Stock"
+        },
+        {
+          "name": "SRE",
+          "value": 69689729.48538135,
+          "company": "Sempra Energy Common Stock"
+        },
+        {
+          "name": "SO",
+          "value": 62952525.1545859,
+          "company": "Southern Company (The) Common Stock"
+        },
+        {
+          "name": "EXC",
+          "value": 61701734.143320635,
+          "company": "Exelon Corporation - Common Stock"
+        },
+        {
+          "name": "NEE",
+          "value": 58090735.605910726,
+          "company": "NextEra Energy, Inc. Common Stock"
+        },
+        {
+          "name": "D",
+          "value": 54593224.74368532,
+          "company": "Dominion Energy, Inc. Common Stock"
+        },
+        {
+          "name": "AWK",
+          "value": 49275649.046569854,
+          "company": "American Water Works Company, Inc. Common Stock"
+        },
+        {
+          "name": "AES",
+          "value": 43051573.88697478,
+          "company": "The AES Corporation Common Stock"
+        },
+        {
+          "name": "PCG",
+          "value": 42370288.271046124,
+          "company": "Pacific Gas & Electric Co. Common Stock"
+        },
+        {
+          "name": "AEE",
+          "value": 39067585.39039991,
+          "company": "Ameren Corporation Common Stock"
+        },
+        {
+          "name": "AEP",
+          "value": 37621908.233687505,
+          "company": "American Electric Power Company, Inc. Common Stock"
+        },
+        {
+          "name": "PEG",
+          "value": 36893292.315251336,
+          "company": "Public Service Enterprise Group Incorporated Common Stock"
+        },
+        {
+          "name": "PPL",
+          "value": 36380471.00367434,
+          "company": "PPL Corporation Common Stock"
+        },
+        {
+          "name": "EIX",
+          "value": 33084503.65307994,
+          "company": "Edison International Common Stock"
+        },
+        {
+          "name": "ETR",
+          "value": 30954275.401756693,
+          "company": "Entergy Corporation Common Stock"
+        },
+        {
+          "name": "XEL",
+          "value": 26511306.56052028,
+          "company": "Xcel Energy Inc. - Common Stock"
+        },
+        {
+          "name": "ED",
+          "value": 24839483.7959117,
+          "company": "Consolidated Edison, Inc. Common Stock"
+        },
+        {
+          "name": "WEC",
+          "value": 23087158.124461226,
+          "company": "WEC Energy Group, Inc. Common Stock"
+        },
+        {
+          "name": "CMS",
+          "value": 20907902.274055116,
+          "company": "CMS Energy Corporation Common Stock"
+        },
+        {
+          "name": "CNP",
+          "value": 19616435.66377489,
+          "company": "CenterPoint Energy, Inc (Holding Co) Common Stock"
+        },
+        {
+          "name": "ES",
+          "value": 19064615.724181376,
+          "company": "Eversource Energy (D/B/A) Common Stock"
+        },
+        {
+          "name": "PNW",
+          "value": 13906353.862735113,
+          "company": "Pinnacle West Capital Corporation Common Stock"
+        },
+        {
+          "name": "ATO",
+          "value": 10704307.673394095,
+          "company": "Atmos Energy Corporation Common Stock"
+        },
+        {
+          "name": "LNT",
+          "value": 9954659.32935384,
+          "company": "Alliant Energy Corporation - Common Stock"
+        },
+        {
+          "name": "AVA",
+          "value": 3561032.495102355,
+          "company": "Avista Corporation Common Stock"
+        },
+        {
+          "name": "ALE",
+          "value": 3353298.4260886614,
+          "company": "Allete, Inc."
+        },
+        {
+          "name": "AWR",
+          "value": 1895120.6693787614,
+          "company": "American States Water Company Common Stock"
+        },
+        {
+          "name": "BEP",
+          "value": 1432273.7183794256,
+          "company": "Brookfield Renewable Partners L.P. "
+        },
+        {
+          "name": "AQN",
+          "value": 1242405.8079207547,
+          "company": "Algonquin Power & Utilities Corp. Common Shares"
+        },
+        {
+          "name": "ARTNA",
+          "value": 209321.4512906956,
+          "company": "Artesian Resources Corporation - Class A Non-Voting Common Stock"
+        }
+      ]
+    }
+  ]
+}
