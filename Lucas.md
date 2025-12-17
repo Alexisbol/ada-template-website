@@ -113,7 +113,7 @@ Through the different aspect of this research question we have defined a fully f
     position: relative;
     flex: 2;
     max-width: 900px;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 5 / 3;
     }
 
 
@@ -131,6 +131,8 @@ Through the different aspect of this research question we have defined a fully f
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #aaa;
     z-index: 10;
+    text-align: center;
+    border-radius: 5px;
     }
 
     .menu.left { left: 10px; }
@@ -142,6 +144,7 @@ Through the different aspect of this research question we have defined a fully f
     background: #f4f4f4;
     user-select: none;
     font-weight: bold;
+    border-radius: inherit;
     }
 
     .menu-header::after {
@@ -174,18 +177,19 @@ Through the different aspect of this research question we have defined a fully f
     display: flex;
     justify-content: center;
     gap: 30px;              
-    max-width: 1000px;
+    max-width: 1500px;
     margin: 0 auto;
     }
 
     .pair-text {
     flex: 1;
-    max-width: 250px;
+    max-width: 300px;
     padding: 15px;
     border: 1px solid #aaa;
     background: #f9f9f9;
     font-family: Arial, sans-serif;
     line-height: 1.5;
+    border-radius: 5px;
     }
 
 </style>
