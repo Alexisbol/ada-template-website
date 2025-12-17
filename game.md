@@ -61,6 +61,8 @@ permalink: /game/
 
 <br>
 
+<!-- template of the game -->
+
 <!-- --------------------------------------------------------------------------------------- -->
 
 <!-- html of the game  -->
@@ -155,10 +157,11 @@ permalink: /game/
 
 <script>
   const questions = [
+    // example of a question
   {
-    text: "Welcome to your finance interview! Are you ready?",
-    answers: ["Yes, let's start!", "No, maybe later."],
-    comments: ["Great! Let's begin.", "Come back when ready."]
+    text: "Welcome to your finance interview! Are you ready?", // question
+    answers: ["Yes, let's start!", "No, maybe later."], // answers
+    comments: ["Great! Let's begin.", "Come back when ready."] // comments for each answers
   },
   {
     text: "First question: What is a stock?",
@@ -169,6 +172,12 @@ permalink: /game/
     text: "What's ROI?",
     answers: ["Return on Investment", "Rate of Interest"],
     comments: ["Well done! ROI is Return on Investment.", "Not quite. ROI is Return on Investment."]
+  }
+  // if you want an ending where the game displays an end message here it is : 
+  {
+    text: "The end",
+    answers: [],
+    comments: []
   }
 ];
 
@@ -182,7 +191,6 @@ function updateBubble() {
   const buttons = document.querySelectorAll('#answers button');
 
   if (!waitingForComment) {
-    // show question
     questionText.innerText = q.text;
     buttons.forEach((btn, i) => {
       if (q.answers[i]) {
@@ -194,7 +202,6 @@ function updateBubble() {
       }
     });
   } else {
-    // show comment
     questionText.innerText = q.comments[lastAnswerIndex];
     buttons.forEach((btn, i) => {
       if (i === 0) {
