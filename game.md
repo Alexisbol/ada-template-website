@@ -172,7 +172,7 @@ permalink: /game/
     text: "What's ROI?",
     answers: ["Return on Investment", "Rate of Interest"],
     comments: ["Well done! ROI is Return on Investment.", "Not quite. ROI is Return on Investment."]
-  }
+  },
   // if you want an ending where the game displays an end message here it is : 
   {
     text: "The end",
