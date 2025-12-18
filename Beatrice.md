@@ -255,14 +255,8 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-<div id="fig01" style="width:100%; height:500px;"></div>
-<script>
-fetch("{{ site.baseurl }}/assets/fig_json/fig01.json")
-  .then(r => r.json())
-  .then(fig => {
-    Plotly.newPlot("fig01", fig.data, fig.layout, { responsive: true });
-  });
-</script>
+<div id="fig01" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig01", "{{ site.baseurl }}/assets/fig_json/fig01.json");</script>
 
 <div id="fig02" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig02", "{{ site.baseurl }}/assets/fig_json/fig02.json");</script>
