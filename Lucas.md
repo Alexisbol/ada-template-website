@@ -206,7 +206,7 @@ Through the different aspect of this research question we have defined a fully f
             <div class="menu-content"></div>
         </div>
         <div class="menu right" id="imageMenu">
-            <div class="menu-header">Plot</div>
+            <div class="menu-header">Feature</div>
             <div class="menu-content"></div>
         </div>
       </div>
