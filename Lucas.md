@@ -261,8 +261,9 @@ Through the different aspect of this research question we have defined a fully f
   const categoryContent = categoryMenu.querySelector(".menu-content");
   const imageContent = imageMenu.querySelector(".menu-content");
 
-  let currentCategory = Object.keys(images)[0];
-  let currentFeatureLabel = images[currentCategory][0].label;
+  let currentCategory = Object.keys(plots)[0];
+  let currentFeatureLabel = plots[currentCategory][0].label;
+
 
 
   function closeMenus() {
@@ -272,17 +273,17 @@ Through the different aspect of this research question we have defined a fully f
 
   function loadCategories() {
     categoryContent.innerHTML = "";
-    Object.keys(images).forEach(cat => {
+    Object.keys(plots).forEach(cat => {
       const item = document.createElement("div");
       item.textContent = cat;
       item.onclick = () => {
         currentCategory = cat;
         categoryMenu.querySelector(".menu-header").textContent = cat;
-        loadImages(cat);
+        loadPlots(cat);
 
-        const img = images[cat].find(f => f.label === currentFeatureLabel) || images[cat][0];
-        mainImage.src = img.src;
-        imageMenu.querySelector(".menu-header").textContent = img.label;
+        const plot = plots[cat][0];
+        renderPlotFromJSON(plot.json, plot.title, plot.yRange);
+        imageMenu.querySelector(".menu-header").textContent = plot.label;
 
         document.getElementById("pairText").textContent = pairTexts[cat];
 
@@ -334,7 +335,7 @@ Through the different aspect of this research question we have defined a fully f
   );
  
   categoryMenu.querySelector(".menu-header").textContent = currentCategory;
-  imageMenu.querySelector(".menu-header").textContent = initialImage.label; 
+  imageMenu.querySelector(".menu-header").textContent = initialPlot.label;
   document.getElementById("pairText").textContent = pairTexts[currentCategory]; 
 
 </script>
