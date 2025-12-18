@@ -424,20 +424,26 @@ function renderMplExport(divId, jsonPath) {
             }
           ];
         
-          Plotly.newPlot(divId, traces, {
-            title: d.title || "",
-            xaxis: { title: d.xlabel || "", zeroline: false, showgrid: true, griddash: "dot" },
-            yaxis: { automargin: true, type: "category" },
-            shapes: [{
-              type: "line",
-              x0: d.zero_line ?? 0, x1: d.zero_line ?? 0,
-              y0: -0.5, y1: cats.length - 0.5,
-              line: { color: "black", width: 1, dash: "dash" }
-            }],
-            legend: { orientation: "h", x: 0.5, xanchor: "center", y: -0.22 },
-            margin: { t: 70, b: 110 }   // ✅ espace pour la légende vs xlabel
-          }, { responsive: true });
+        Plotly.newPlot(divId, traces, {
+          title: d.title || "",
+          xaxis: { title: d.xlabel || "" },
+          yaxis: { automargin: true },
         
+          legend: {
+            orientation: "h",
+            x: 0.5,
+            xanchor: "center",
+            y: -0.25   // ⬅ pushes legend below plot
+          },
+        
+          margin: {
+            l: 120,
+            r: 40,
+            t: 60,
+            b: 120     // ⬅ reserve space so legend never overlaps
+          }
+        }, { responsive: true });
+
           return;
         }
             
