@@ -160,13 +160,14 @@ Through the different aspect of this research question we have defined a fully f
     border-top: 1px solid #aaa;
     }
 
-    .menu-content div {
+   .menu-content div {
     padding: 6px 8px;
     cursor: pointer;
+    border-bottom: 1px solid #ccc; 
+    background: #fff; 
     }
-
     .menu-content div:hover {
-    background: #d0d0d0;
+        background: #f0f0f0; 
     }
 
     .menu.open .menu-content {
@@ -216,165 +217,158 @@ Through the different aspect of this research question we have defined a fully f
 <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
 
 <script>
-
-  const pairs = {
-    "ARAY vs DVA": {
-      json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
-      description: "ARAY vs DVA — Healthcare sector"
-    },
-    "AGX vs ARTW": {
-      json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
-      description: "AGX vs ARTW — Industry sector"
-    },
-    "ASTC vs ALOT": {
-      json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
-      description: "ASTC vs ALOT — Technology sector"
-    },
-    "DVN vs MUR": {
-      json: "{{ site.baseurl }}/data/(DVN,MUR).json",
-      description: "DVN vs MUR — Energy sector"
-    }
-  };
-
-
-  const categoryMenu = document.getElementById("categoryMenu");
-  const imageMenu = document.getElementById("imageMenu");
-  const categoryContent = categoryMenu.querySelector(".menu-content");
-  const imageContent = imageMenu.querySelector(".menu-content");
-  const pairText = document.getElementById("pairText");
-
-
-  let currentPairLabel = Object.keys(pairs)[0];
-  let currentFeature = null;
-  let currentJSON = null;
-
-
-  async function loadJSON(path) {
-    const res = await fetch(path);
-    return await res.json();
+const pairs = {
+  "ARAY vs DVA": {
+    json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
+    description: "ARAY vs DVA — Healthcare sector"
+  },
+  "AGX vs ARTW": {
+    json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
+    description: "AGX vs ARTW — Industry sector"
+  },
+  "ASTC vs ALOT": {
+    json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
+    description: "ASTC vs ALOT — Technology sector"
+  },
+  "DVN vs MUR": {
+    json: "{{ site.baseurl }}/data/(DVN,MUR).json",
+    description: "DVN vs MUR — Energy sector"
   }
+};
 
-  function fedEventShape(json) {
-    return {
-      type: "rect",
-      xref: "x",
-      yref: "paper",
-      x0: json.fed_event.start,
-      x1: json.fed_event.end,
-      y0: 0,
-      y1: 1,
-      fillcolor: "rgba(255,0,0,0.15)",
-      line: { width: 0 }
+const categoryMenu = document.getElementById("categoryMenu");
+const imageMenu = document.getElementById("imageMenu");
+const categoryContent = categoryMenu.querySelector(".menu-content");
+const imageContent = imageMenu.querySelector(".menu-content");
+const pairText = document.getElementById("pairText");
+
+let currentPairLabel = Object.keys(pairs)[0];
+let currentFeature = null;
+let currentJSON = null;
+
+async function loadJSON(path) {
+  const res = await fetch(path);
+  return await res.json();
+}
+
+function fedEventShape(json) {
+  return {
+    type: "rect",
+    xref: "x",
+    yref: "paper",
+    x0: json.fed_event.start,
+    x1: json.fed_event.end,
+    y0: 0,
+    y1: 1,
+    fillcolor: "rgba(255,0,0,0.15)",
+    line: { width: 0 }
+  };
+}
+
+function plotFeature(json, feature) {
+  if (!json || !feature) return;
+  
+  const dates = Object.keys(json.data).sort();
+  const [t1, t2] = json.pair;
+
+  const y1 = dates.map(d => json.data[d][feature][t1]);
+  const y2 = dates.map(d => json.data[d][feature][t2]);
+  const fedY = dates.map(d => json.data[d].Fed_rate);
+
+  const shapes = [ fedEventShape(json) ];
+
+  Plotly.react("mainPlot", [
+    { x: dates, y: y1, mode: "lines", name: t1, line: { color: "orange" } },
+    { x: dates, y: y2, mode: "lines", name: t2, line: { color: "blue" } },
+    { x: dates, y: fedY, mode: "lines", name: "Fed Rate", line: { color: "green" } }
+  ], {
+    title: `${feature} — ${t1} vs ${t2}`,
+    yaxis: { title: feature },
+    shapes: shapes,
+    margin: { t: 50 },
+    legend: { orientation: "h" }
+  });
+}
+
+function closeMenus() {
+  categoryMenu.classList.remove("open");
+  imageMenu.classList.remove("open");
+}
+
+function loadPairs() {
+  categoryContent.innerHTML = "";
+
+  Object.entries(pairs).forEach(([label, cfg]) => {
+    const item = document.createElement("div");
+    item.textContent = label;
+
+    item.onclick = async () => {
+      currentPairLabel = label;
+      categoryMenu.querySelector(".menu-header").textContent = label;
+      pairText.textContent = cfg.description;
+
+      currentJSON = await loadJSON(cfg.json);
+      loadFeatures(currentJSON);
+
+      closeMenus();
     };
-  }
 
-  function plotFeature(json, feature) {
-    const dates = Object.keys(json.data).sort();
-    const [t1, t2] = json.pair;
+    categoryContent.appendChild(item);
+  });
+}
 
-    const y1 = dates.map(d => json.data[d][feature][t1]);
-    const y2 = dates.map(d => json.data[d][feature][t2]);
-    const fedY = dates.map(d => json.data[d].Fed_rate);
+function loadFeatures(json) {
+  imageContent.innerHTML = "";
 
+  json.features.forEach((feature, i) => {
+    const item = document.createElement("div");
+    item.textContent = feature;
 
-    const shapes = [ fedEventShape(json) ];
+    item.onclick = () => {
+      currentFeature = feature;
+      imageMenu.querySelector(".menu-header").textContent = feature;
+      plotFeature(json, feature);
+      closeMenus();
+    };
 
-    Plotly.react("mainPlot", [
-        { x: dates, y: y1, mode: "lines", name: t1, line: { color: "orange" } },
-        { x: dates, y: y2, mode: "lines", name: t2, line: { color: "blue" } },
-        { x: dates, y: fedY, mode: "lines", name: "Fed Rate", line: {color: "green" } }
-    ], {
-        title: `${feature} — ${t1} vs ${t2}`,
-        yaxis: { title: feature },
-        shapes: shapes,
-        margin: { t: 50 },
-        legend: { orientation: "h" }
-    });
-  }
+    imageContent.appendChild(item);
 
+    // Automatically plot the first feature
+    if (i === 0) {
+      currentFeature = feature;
+      imageMenu.querySelector(".menu-header").textContent = feature;
+      plotFeature(json, feature);
+    }
+  });
+}
 
-  function closeMenus() {
-    categoryMenu.classList.remove("open");
-    imageMenu.classList.remove("open");
-  }
+categoryMenu.querySelector(".menu-header").onclick = e => {
+  e.stopPropagation();
+  categoryMenu.classList.toggle("open");
+  imageMenu.classList.remove("open");
+};
 
-  function loadPairs() {
-    categoryContent.innerHTML = "";
+imageMenu.querySelector(".menu-header").onclick = e => {
+  e.stopPropagation();
+  imageMenu.classList.toggle("open");
+  categoryMenu.classList.remove("open");
+};
 
-    Object.entries(pairs).forEach(([label, cfg]) => {
-      const item = document.createElement("div");
-      item.textContent = label;
+document.addEventListener("click", closeMenus);
 
-      item.onclick = async () => {
-        currentPairLabel = label;
-        categoryMenu.querySelector(".menu-header").textContent = label;
-        pairText.textContent = cfg.description;
+// Initialization
+(async function init() {
+  loadPairs();
 
-        currentJSON = await loadJSON(cfg.json);
-        loadFeatures(currentJSON);
+  const firstPair = pairs[currentPairLabel];
+  categoryMenu.querySelector(".menu-header").textContent = currentPairLabel;
+  pairText.textContent = firstPair.description;
 
-        closeMenus();
-      };
-
-      categoryContent.appendChild(item);
-    });
-  }
-
-
-  function loadFeatures(json) {
-    imageContent.innerHTML = "";
-
-    json.features.forEach((feature, i) => {
-      const item = document.createElement("div");
-      item.textContent = feature;
-
-      item.onclick = () => {
-        currentFeature = feature;
-        imageMenu.querySelector(".menu-header").textContent = feature;
-        plotFeature(json, feature);
-        closeMenus();
-      };
-
-      imageContent.appendChild(item);
-
-      if (i === 0) {
-        currentFeature = feature;
-        imageMenu.querySelector(".menu-header").textContent = feature;
-        plotFeature(json, feature);
-      }
-    });
-  }
-
-
-  categoryMenu.querySelector(".menu-header").onclick = e => {
-    e.stopPropagation();
-    categoryMenu.classList.toggle("open");
-    imageMenu.classList.remove("open");
-  };
-
-  imageMenu.querySelector(".menu-header").onclick = e => {
-    e.stopPropagation();
-    imageMenu.classList.toggle("open");
-    categoryMenu.classList.remove("open");
-  };
-
-  document.addEventListener("click", closeMenus);
-
-
-  (async function init() {
-    loadPairs();
-
-    const firstPair = pairs[currentPairLabel];
-    categoryMenu.querySelector(".menu-header").textContent = currentPairLabel;
-    pairText.textContent = firstPair.description;
-
-    currentJSON = await loadJSON(firstPair.json);
-    loadFeatures(currentJSON);
-  })();
+  currentJSON = await loadJSON(firstPair.json);
+  loadFeatures(currentJSON);
+})();
 
 </script>
-
-
 
 
 ### _Accuracy Inc_ VS _Davita Inc_
