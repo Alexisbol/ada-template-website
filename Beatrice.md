@@ -223,7 +223,45 @@ function renderMplExport(divId, jsonPath) {
           return;
         }
 
+        
+        // scatter with text labels + zero lines (fig07 style)
+        if (d.type === "dataframe" && d.kind === "scatter_labels_zero") {
+          const trace = {
+            x: d.x,
+            y: d.y,
+            type: "scatter",
+            mode: "markers+text",
+            text: d.labels,
+            textposition: "top center",
+            marker: { size: 10 },
+            hovertemplate: "%{text}<br>x=%{x:.4f}<br>y=%{y:.4f}<extra></extra>"
+          };
+        
+          Plotly.newPlot(divId, [trace], {
+            title: d.title || "",
+            xaxis: { title: d.xlabel || "" },
+            yaxis: { title: d.ylabel || "" },
+            shapes: [
+              { // vertical x=0
+                type: "line",
+                x0: d.zero_x ?? 0, x1: d.zero_x ?? 0,
+                y0: Math.min(...d.y), y1: Math.max(...d.y),
+                line: { color: "black", width: 1 }
+              },
+              { // horizontal y=0
+                type: "line",
+                x0: Math.min(...d.x), x1: Math.max(...d.x),
+                y0: d.zero_y ?? 0, y1: d.zero_y ?? 0,
+                line: { color: "black", width: 1 }
+              }
+            ]
+          }, { responsive: true });
+        
+          return;
+        }
 
+
+        
 
         
       /* =======================
