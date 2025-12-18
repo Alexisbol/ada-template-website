@@ -196,23 +196,25 @@ Through the different aspect of this research question we have defined a fully f
 </style>
 
 
-
 <div class="pair-widget-container">
   <div class="pair-container">
-      <div class="image-configurator">
-        <div id="mainPlot" style="width:100%; height:100%;"></div>
-        <div class="menu left" id="categoryMenu">
-            <div class="menu-header">Category</div>
-            <div class="menu-content"></div>
-        </div>
-        <div class="menu right" id="imageMenu">
-            <div class="menu-header">Plot</div>
-            <div class="menu-content"></div>
-        </div>
-      </div>
       <div class="pair-text" id="pairText"></div>
+      <div class="menu-bar">
+          <div class="menu left" id="categoryMenu">
+              <div class="menu-header">Category</div>
+              <div class="menu-content"></div>
+          </div>
+          <div class="menu right" id="imageMenu">
+              <div class="menu-header">Feature</div>
+              <div class="menu-content"></div>
+          </div>
+      </div>
+      <div class="image-configurator">
+          <div id="mainPlot"></div>
+      </div>
   </div>
 </div>
+
 
 <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
 
