@@ -246,7 +246,7 @@ Through the different aspect of this research question we have defined a fully f
 const pairs = {
   "ARAY vs DVA": {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
-    description: "ARAY vs DVA — Healthcare sector"
+    description: "<b> ARAY vs DVA — Healthcare sector <b> <br> test"
   },
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
@@ -331,7 +331,7 @@ function loadPairs() {
     item.onclick = async () => {
       currentPairLabel = label;
       categoryMenu.querySelector(".menu-header").textContent = label;
-      pairText.textContent = cfg.description;
+      pairText.innerHTML = cfg.description;
 
       currentJSON = await loadJSON(cfg.json);
       loadFeatures(currentJSON);
@@ -388,7 +388,7 @@ document.addEventListener("click", closeMenus);
 
   const firstPair = pairs[currentPairLabel];
   categoryMenu.querySelector(".menu-header").textContent = currentPairLabel;
-  pairText.textContent = firstPair.description;
+  pairText.innerHTML = firstPair.description;
 
   currentJSON = await loadJSON(firstPair.json);
   loadFeatures(currentJSON);
