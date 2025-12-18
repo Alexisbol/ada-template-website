@@ -42,173 +42,40 @@ layout: default
 
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
-
 <script>
 function renderMplExport(divId, jsonPath) {
-  fetch(jsonPath)
-    .then(r => r.json())
-    .then(d => {
-
-      /* =========================
-         DATAFRAME EXPORTS
-         ========================= */
-
-      // line (NOT stacked)
-    
-    if (d.type === "dataframe" && d.kind === "line") {
-      const traces = d.series.map(s => ({
-        x: d.x, y: s.y, name: s.name, type: "scatter", mode: "lines"
+  fetch(jsonPath).then(r => r.json()).then(d => {
+    if (d.type === "dataframe") {
+      const traces = (d.series || []).map(s => ({
+        x: d.x, y: s.y, name: s.name,
+        type: "scatter", mode: "lines"
       }));
-      Plotly.newPlot(divId, traces, {...}, {responsive:true});
-      return;
-    }
-    
-    if (d.type === "dataframe" && d.kind === "stacked") {
-      const traces = d.series.map(s => ({
-        x: d.x, y: s.y, name: s.name, type: "scatter", mode: "lines", stackgroup: "one"
-      }));
-      Plotly.newPlot(divId, traces, {...}, {responsive:true});
-      return;
-    }
-
-
-      // boxplot (fig04)
-      if (d.type === "dataframe" && d.kind === "box") {
-        Plotly.newPlot(divId, [{
-          x: d.categories, y: d.values, type: "box", boxpoints: "outliers"
-        }], {
-          title: d.title || "",
-          yaxis: { title: d.ylabel || "" }
-        }, { responsive: true });
-        return;
-      }
-
-      // errorbar horizontal (fig03-style) — accepts either "errorbar" or "errorbar_h_zero"
-      if (d.type === "dataframe" && (d.kind === "errorbar" || d.kind === "errorbar_h_zero")) {
-        Plotly.newPlot(divId, [{
-          x: d.x, y: d.categories,
-          type: "scatter", mode: "markers",
-          error_x: { type: "data", symmetric: false, array: d.xerr_high, arrayminus: d.xerr_low }
-        }], {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "", zeroline: true }
-        }, { responsive: true });
-        return;
-      }
-
-      // scatter + labels (fig07)
-      if (d.type === "dataframe" && d.kind === "scatter_label") {
-        Plotly.newPlot(divId, [{
-          x: d.points.map(p => p.x),
-          y: d.points.map(p => p.y),
-          text: d.points.map(p => p.name),
-          mode: "markers+text",
-          textposition: "top center",
-          type: "scatter"
-        }], {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "Market beta (NASDAQ)", zeroline: true },
-          yaxis: { title: d.ylabel || "", zeroline: true }
-        }, { responsive: true });
-        return;
-      }
-
-      // line + thresholds (fig08)
-      if (d.type === "dataframe" && d.kind === "line_thresholds") {
-        const traces = [{
-          x: d.x,
-          y: d.series[0].y,
-          name: d.series[0].name || "Series",
-          type: "scatter",
-          mode: "lines",
-          line: { width: 2 }
-        }];
-        (d.thresholds || []).forEach(t => {
-          const y = (typeof t === "number") ? t : t.y;
-          const name = (typeof t === "number") ? "threshold" : (t.label || "threshold");
-          const color = (typeof t === "number") ? undefined : (t.color || undefined);
-          traces.push({
-            x: [d.x[0], d.x[d.x.length - 1]],
-            y: [y, y],
-            type: "scatter",
-            mode: "lines",
-            name,
-            line: { dash: "dash", color }
-          });
-        });
-        Plotly.newPlot(divId, traces, {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "" },
-          yaxis: { title: d.ylabel || "" }
-        }, { responsive: true });
-        return;
-      }
-
-      // barh + zero line (fig09 / fig11)
-      if (d.type === "dataframe" && d.kind === "barh_zero") {
-        Plotly.newPlot(divId, [{
-          x: d.values, y: d.categories,
-          type: "bar", orientation: "h"
-        }], {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "", zeroline: true },
-          shapes: [{
-            type: "line",
-            x0: d.zero_line ?? 0, x1: d.zero_line ?? 0,
-            y0: -0.5, y1: d.categories.length - 0.5,
-            line: { color: "black", width: 1, dash: "dash" }
-          }]
-        }, { responsive: true });
-        return;
-      }
-
-      // barh + hover pvalue (if you used it)
-      if (d.type === "dataframe" && d.kind === "barh_hover_pvalue") {
-        const hoverText = d.categories.map((c, i) =>
-          `${c}<br>High − Low: ${Number(d.values[i]).toFixed(2)}% per year<br>p-value: ${Number(d.p_values[i]).toExponential(2)}`
-        );
-        Plotly.newPlot(divId, [{
-          x: d.values, y: d.categories,
-          type: "bar", orientation: "h",
-          hovertext: hoverText, hoverinfo: "text"
-        }], {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "", zeroline: true }
-        }, { responsive: true });
-        return;
-      }
-
-      /* =========================
-         MATPLOTLIB EXPORTS (old fig01/fig02 etc.)
-         ========================= */
-      if (d.type === "matplotlib_export") {
-        const traces = [];
-        (d.axes || []).forEach(ax => {
-          (ax.lines || []).forEach(l => traces.push({ x: l.x, y: l.y, name: l.label || "", type: "scatter", mode: "lines" }));
-          (ax.scatters || []).forEach(s => traces.push({ x: s.x, y: s.y, name: s.label || "", type: "scatter", mode: "markers" }));
-          (ax.bars || []).forEach(b => traces.push({ x: [b.x], y: [b.height], type: "bar", name: "" }));
-          (ax.polygons || []).forEach(pg => (pg.polys || []).forEach(p =>
-            traces.push({ x: p.x, y: p.y, type: "scatter", mode: "lines", fill: "toself", name: pg.label || "" })
-          ));
-        });
-        Plotly.newPlot(divId, traces, {
-          title: d.axes?.[0]?.title || "",
-          xaxis: { title: d.axes?.[0]?.xlabel || "" },
-          yaxis: { title: d.axes?.[0]?.ylabel || "" }
-        }, { responsive: true });
-        return;
-      }
-
-      // Fallback: don’t silently draw garbage
-      Plotly.newPlot(divId, [], {
-        title: "Unsupported JSON",
-        annotations: [{ text: `type=${d.type}, kind=${d.kind}`, showarrow: false }]
+      Plotly.newPlot(divId, traces, {
+        title: d.title || "",
+        xaxis: { title: d.xlabel || "" },
+        yaxis: { title: d.ylabel || "" }
       }, { responsive: true });
+      return;
+    }
 
-    })
-    .catch(err => {
-      Plotly.newPlot(divId, [], { title: "Error loading JSON", annotations: [{ text: String(err), showarrow: false }] }, { responsive: true });
-    });
+    if (d.type === "matplotlib_export") {
+      const traces = [];
+      (d.axes || []).forEach(ax => {
+        (ax.lines || []).forEach(l => traces.push({ x: l.x, y: l.y, type:"scatter", mode:"lines", name:l.label||"" }));
+        (ax.scatters || []).forEach(s => traces.push({ x: s.x, y: s.y, type:"scatter", mode:"markers", name:s.label||"" }));
+      });
+      Plotly.newPlot(divId, traces, {
+        title: d.axes?.[0]?.title || "",
+        xaxis: { title: d.axes?.[0]?.xlabel || "" },
+        yaxis: { title: d.axes?.[0]?.ylabel || "" }
+      }, { responsive: true });
+      return;
+    }
+
+    Plotly.newPlot(divId, [], {title:"Unsupported JSON", annotations:[{text: JSON.stringify({type:d.type, kind:d.kind}), showarrow:false}]});
+  }).catch(err => {
+    Plotly.newPlot(divId, [], {title:"JSON load error", annotations:[{text:String(err), showarrow:false}]});
+  });
 }
 </script>
 
