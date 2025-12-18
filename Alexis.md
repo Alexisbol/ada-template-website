@@ -289,29 +289,78 @@ On the contrary, when there is a negative FED event (FED rate decrease), ETF ten
     }
     
     // Plot 2 & 3: Winners by Sector (using specific positive/negative JSON files)
-    function plotWinsBySector(data, divId, title) {
-        // Group by sector and winner
+    function plotWinsBySector(data, divId, title, fedEventType) {
+        // Group by sector and winner, also collect pair details
         const sectorData = {};
         data.forEach(d => {
             if (!sectorData[d.Sector]) {
-                sectorData[d.Sector] = { ETF: 0, Stock: 0 };
+                sectorData[d.Sector] = { 
+                    ETF: { count: 0, pairs: [] }, 
+                    Stock: { count: 0, pairs: [] } 
+                };
             }
-            sectorData[d.Sector][d.Winner]++;
+            
+            // Determine winner based on the relevant percentage area for this event type
+            // The percentage represents how often ETF had larger area (outperformed)
+            // Lower percentage (<50%) = Stock wins more often
+            // Higher percentage (≥50%) = ETF wins more often
+            let relevantPercentage, winner;
+            
+            if (fedEventType === 'PosFed') {
+                relevantPercentage = d.Percentage_Area_PosFed;
+            } else {
+                relevantPercentage = d.Percentage_Area_NegFed;
+            }
+            
+            winner = relevantPercentage < 50 ? 'Stock' : 'ETF';
+            
+            sectorData[d.Sector][winner].count++;
+            sectorData[d.Sector][winner].pairs.push({
+                pair: d.Pair,
+                pct: relevantPercentage.toFixed(1),
+                pval: d.pval.toFixed(4)
+            });
         });
         
         const sectors = Object.keys(sectorData).sort();
-        const etfWins = sectors.map(s => sectorData[s].ETF || 0);
-        const stockWins = sectors.map(s => sectorData[s].Stock || 0);
+        const etfWins = sectors.map(s => sectorData[s].ETF.count);
+        const stockWins = sectors.map(s => sectorData[s].Stock.count);
+        
+        // Create hover text with detailed pair information
+        const etfHoverText = sectors.map(s => {
+            const pairs = sectorData[s].ETF.pairs;
+            if (pairs.length === 0) return `<b>${s}</b><br>ETF Wins: 0`;
+            const pairList = pairs.slice(0, 5).map(p => 
+                `${p.pair} (${p.pct}%)`
+            ).join('<br>');
+            const extra = pairs.length > 5 ? `<br>...and ${pairs.length - 5} more` : '';
+            return `<b>${s}</b><br>ETF Wins: ${pairs.length}<br><br>Top pairs:<br>${pairList}${extra}`;
+        });
+        
+        const stockHoverText = sectors.map(s => {
+            const pairs = sectorData[s].Stock.pairs;
+            if (pairs.length === 0) return `<b>${s}</b><br>Stock Wins: 0`;
+            const pairList = pairs.slice(0, 5).map(p => 
+                `${p.pair} (${p.pct}%)`
+            ).join('<br>');
+            const extra = pairs.length > 5 ? `<br>...and ${pairs.length - 5} more` : '';
+            return `<b>${s}</b><br>Stock Wins: ${pairs.length}<br><br>Top pairs:<br>${pairList}${extra}`;
+        });
         
         const trace1 = {
             x: sectors,
             y: etfWins,
             name: 'ETF Wins',
             type: 'bar',
-            marker: { color: '#0ea5e9' },
-            text: etfWins,
+            marker: { 
+                color: '#0ea5e9',
+                line: { color: '#0284c7', width: 1 }
+            },
+            text: etfWins.map(v => v > 0 ? v : ''),
             textposition: 'auto',
-            hovertemplate: '<b>%{x}</b><br>ETF Wins: %{y}<extra></extra>'
+            textfont: { size: 11, color: 'white', weight: 'bold' },
+            hovertext: etfHoverText,
+            hoverinfo: 'text'
         };
         
         const trace2 = {
@@ -319,10 +368,15 @@ On the contrary, when there is a negative FED event (FED rate decrease), ETF ten
             y: stockWins,
             name: 'Stock Wins',
             type: 'bar',
-            marker: { color: '#8b5cf6' },
-            text: stockWins,
+            marker: { 
+                color: '#8b5cf6',
+                line: { color: '#7c3aed', width: 1 }
+            },
+            text: stockWins.map(v => v > 0 ? v : ''),
             textposition: 'auto',
-            hovertemplate: '<b>%{x}</b><br>Stock Wins: %{y}<extra></extra>'
+            textfont: { size: 11, color: 'white', weight: 'bold' },
+            hovertext: stockHoverText,
+            hoverinfo: 'text'
         };
         
         const layout = {
@@ -331,26 +385,39 @@ On the contrary, when there is a negative FED event (FED rate decrease), ETF ten
             paper_bgcolor: 'transparent',
             font: { family: 'Noto Sans, sans-serif', size: 12 },
             xaxis: { 
-                title: '',
+                title: { text: 'Sector', font: { size: 13, color: '#1e293b' } },
                 tickangle: -35,
-                gridcolor: '#e2e8f0'
+                gridcolor: '#e2e8f0',
+                tickfont: { size: 11 }
             },
             yaxis: { 
-                title: 'Number of Wins',
-                gridcolor: '#e2e8f0'
+                title: { text: 'Number of Significant Pairs', font: { size: 13, color: '#1e293b' } },
+                gridcolor: '#e2e8f0',
+                zeroline: true,
+                zerolinecolor: '#cbd5e1'
             },
             legend: { 
                 orientation: 'h',
                 x: 0.5,
                 xanchor: 'center',
-                y: -0.25
+                y: -0.25,
+                bgcolor: 'rgba(255,255,255,0.8)',
+                bordercolor: '#e2e8f0',
+                borderwidth: 1
             },
-            margin: { t: 20, r: 20, b: 100, l: 60 }
+            hoverlabel: {
+                bgcolor: '#1e293b',
+                bordercolor: '#1e293b',
+                font: { size: 12, family: 'Noto Sans, sans-serif', color: 'white' }
+            },
+            margin: { t: 20, r: 20, b: 100, l: 70 }
         };
         
         const config = {
             responsive: true,
-            displayModeBar: false
+            displayModeBar: true,
+            displaylogo: false,
+            modeBarButtonsToRemove: ['lasso2d', 'select2d']
         };
         
         Plotly.newPlot(divId, [trace1, trace2], layout, config);
@@ -362,8 +429,8 @@ On the contrary, when there is a negative FED event (FED rate decrease), ETF ten
         if (allData.length === 0) return;
         
         plotOverallWins(allData);
-        plotWinsBySector(posData, 'posFedSectorChart', 'Positive Fed Events');
-        plotWinsBySector(negData, 'negFedSectorChart', 'Negative Fed Events');
+        plotWinsBySector(posData, 'posFedSectorChart', 'Positive Fed Events', 'PosFed');
+        plotWinsBySector(negData, 'negFedSectorChart', 'Negative Fed Events', 'NegFed');
     }
     
     // Load when ready
