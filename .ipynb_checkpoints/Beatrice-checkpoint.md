@@ -261,6 +261,47 @@ function renderMplExport(divId, jsonPath) {
         }
 
 
+        // horizontal bars with hover p-values + zero line (fig09 style)
+        if (d.type === "dataframe" && d.kind === "barh_hover_pvalue") {
+        
+          const traces = [{
+            x: d.values,
+            y: d.categories,
+            type: "bar",
+            orientation: "h",
+            text: (d.p_values || []).map(p =>
+              (p !== null && p !== undefined)
+                ? `p = ${p.toExponential(2)}`
+                : ""
+            ),
+            hovertemplate:
+              "<b>%{y}</b><br>" +
+              "Δ return: %{x:.2f}%<br>" +
+              "%{text}<extra></extra>"
+          }];
+        
+          Plotly.newPlot(divId, traces, {
+            title: d.title || "",
+            xaxis: {
+              title: d.xlabel || "",
+              zeroline: false
+            },
+            yaxis: {
+              automargin: true
+            },
+            shapes: [{
+              type: "line",
+              x0: d.zero_line ?? 0,
+              x1: d.zero_line ?? 0,
+              y0: -0.5,
+              y1: d.categories.length - 0.5,
+              line: { color: "black", width: 1 }
+            }]
+          }, { responsive: true });
+        
+          return;
+        }
+
         
 
         
