@@ -114,6 +114,7 @@ Through the different aspect of this research question we have defined a fully f
     flex: 2;
     max-width: 900px;
     aspect-ratio: 5 / 3;
+    height: 500px;
     }
 
 
@@ -193,26 +194,36 @@ Through the different aspect of this research question we have defined a fully f
     border-radius: 5px;
     }
 
+    .plot-column {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    gap: 10px;
+    }
+
+    .menu-bar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;  
+    }
+
 </style>
 
 
-<div class="pair-widget-container">
-  <div class="pair-container">
-      <div class="pair-text" id="pairText"></div>
-      <div class="menu-bar">
-          <div class="menu left" id="categoryMenu">
-              <div class="menu-header">Category</div>
-              <div class="menu-content"></div>
-          </div>
-          <div class="menu right" id="imageMenu">
-              <div class="menu-header">Feature</div>
-              <div class="menu-content"></div>
-          </div>
-      </div>
-      <div class="image-configurator">
-          <div id="mainPlot"></div>
-      </div>
-  </div>
+<div class="plot-and-menus">
+    <div class="menu-bar">
+        <div class="menu left" id="categoryMenu">
+            <div class="menu-header">Category</div>
+            <div class="menu-content"></div>
+        </div>
+        <div class="menu right" id="imageMenu">
+            <div class="menu-header">Feature</div>
+            <div class="menu-content"></div>
+        </div>
+    </div>
+    <div class="image-configurator">
+        <div id="mainPlot"></div>
+    </div>
 </div>
 
 
