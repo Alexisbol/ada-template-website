@@ -61,6 +61,8 @@ permalink: /game/
 
 <br>
 
+<!-- template of the game -->
+
 <!-- --------------------------------------------------------------------------------------- -->
 
 <!-- html of the game  -->
@@ -154,60 +156,83 @@ permalink: /game/
 <!-- script of the game -->
 
 <script>
-const questionTree = {
-  text: "Welcome to your finance interview! Are you ready?",
-  answers: ["Yes, let's start!", "No, maybe later."],
-  next: [
-    {
-      text: "First question: What is a stock?",
-      answers: ["A share of ownership in a company", "A type of loan"],
-      next: [
-        {
-          text: "Correct! Next: What's ROI?",
-          answers: ["Return on Investment", "Rate of Interest"],
-          next: [
-            { text: "Well done! You finish the interview.", answers: [], next: [] },
-            { text: "Not quite. ROI is Return on Investment.", answers: [], next: [] }
-          ]
-        },
-        {
-          text: "Incorrect. A stock is a share of ownership.",
-          answers: [],
-          next: []
-        }
-      ]
-    },
-    {
-      text: "Okay, come back later!",
-      answers: [],
-      next: []
-    }
-  ]
-};
+  const questions = [
+    // example of a question
+  {
+    text: "Welcome to your finance interview! Are you ready?", // question
+    answers: ["Yes, let's start!", "No, maybe later."], // answers
+    comments: ["Great! Let's begin.", "Come back when ready."] // comments for each answers
+  },
+  {
+    text: "First question: What is a stock?",
+    answers: ["A share of ownership in a company", "A type of loan"],
+    comments: ["Correct!", "Incorrect. A stock is a share of ownership."]
+  },
+  {
+    text: "What's ROI?",
+    answers: ["Return on Investment", "Rate of Interest"],
+    comments: ["Well done! ROI is Return on Investment.", "Not quite. ROI is Return on Investment."]
+  },
+  // if you want an ending where the game displays an end message here it is : 
+  {
+    text: "The end",
+    answers: [],
+    comments: []
+  }
+];
 
-let currentNode = questionTree;
+let currentIndex = 0;
+let waitingForComment = false;
+let lastAnswerIndex = null;
 
-function updateQuestion() {
-  document.getElementById('question-text').innerText = currentNode.text;
-  
+function updateBubble() {
+  const q = questions[currentIndex];
+  const questionText = document.getElementById('question-text');
   const buttons = document.querySelectorAll('#answers button');
-  buttons.forEach((btn, i) => {
-    if(currentNode.answers[i]) {
-      btn.style.display = "block";
-      btn.innerText = currentNode.answers[i];
-    } else {
-      btn.style.display = "none";
-    }
-  });
-}
 
-function choose(index) {
-  if(currentNode.next[index]) {
-    currentNode = currentNode.next[index];
-    updateQuestion();
+  if (!waitingForComment) {
+    questionText.innerText = q.text;
+    buttons.forEach((btn, i) => {
+      if (q.answers[i]) {
+        btn.style.display = "block";
+        btn.innerText = q.answers[i];
+        btn.onclick = () => showComment(i);
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  } else {
+    questionText.innerText = q.comments[lastAnswerIndex];
+    buttons.forEach((btn, i) => {
+      if (i === 0) {
+        btn.style.display = "block";
+        btn.innerText = "Next";
+        btn.onclick = () => nextQuestion();
+      } else {
+        btn.style.display = "none";
+      }
+    });
   }
 }
 
-updateQuestion();
+function showComment(answerIndex) {
+  lastAnswerIndex = answerIndex;
+  waitingForComment = true;
+  updateBubble();
+}
+
+function nextQuestion() {
+  currentIndex++;
+  waitingForComment = false;
+  if (currentIndex < questions.length) {
+    updateBubble();
+  } else {
+    document.getElementById('question-text').innerText = "You've completed the game!";
+    document.getElementById('answers').style.display = "none";
+  }
+}
+
+updateBubble();
+
 </script>
 
