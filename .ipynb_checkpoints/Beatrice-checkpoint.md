@@ -137,37 +137,74 @@ function renderMplExport(divId, jsonPath) {
       }
 
 
-    // horizontal error bars with zero line (fig03 style)
-    if (d.type === "dataframe" && d.kind === "errorbar_h_zero") {
-      const n = (d.categories || []).length;
-    
-      Plotly.newPlot(divId, [{
-        x: d.x,
-        y: d.categories,
-        type: "scatter",
-        mode: "markers",
-        error_x: {
-          type: "data",
-          symmetric: true,
-          array: d.xerr   // ✅ single symmetric CI array
+        // horizontal error bars with zero line (fig03 style)
+        if (d.type === "dataframe" && d.kind === "errorbar_h_zero") {
+          const n = (d.categories || []).length;
+        
+          Plotly.newPlot(divId, [{
+            x: d.x,
+            y: d.categories,
+            type: "scatter",
+            mode: "markers",
+            error_x: {
+              type: "data",
+              symmetric: true,
+              array: d.xerr   // ✅ single symmetric CI array
+            }
+          }], {
+            title: d.title || "",
+            xaxis: { title: d.xlabel || "", zeroline: false },
+            yaxis: { automargin: true },
+            shapes: [{
+              type: "line",
+              x0: d.zero_line ?? 0,
+              x1: d.zero_line ?? 0,
+              y0: -0.5,
+              y1: n - 0.5,
+              line: { color: "black", width: 1, dash: "dash" }
+            }]
+          }, { responsive: true });
+        
+          return;
         }
-      }], {
-        title: d.title || "",
-        xaxis: { title: d.xlabel || "", zeroline: false },
-        yaxis: { automargin: true },
-        shapes: [{
-          type: "line",
-          x0: d.zero_line ?? 0,
-          x1: d.zero_line ?? 0,
-          y0: -0.5,
-          y1: n - 0.5,
-          line: { color: "black", width: 1, dash: "dash" }
-        }]
-      }, { responsive: true });
-    
-      return;
-    }
-            
+
+
+        // dual horizontal error bars with y-offset + zero line (fig03 style)
+        if (d.type === "dataframe" && d.kind === "errorbar_h_dual") {
+          const n = (d.categories || []).length;
+          const yBase = Array.from({ length: n }, (_, i) => i);
+          const offsets = d.y_offsets || [-0.15, +0.15];
+        
+          const traces = (d.series || []).map((s, i) => ({
+            x: s.x,
+            y: yBase.map(v => v + (offsets[i] ?? 0)),
+            type: "scatter",
+            mode: "markers",
+            name: s.name,
+            error_x: { type: "data", symmetric: true, array: s.xerr }
+          }));
+        
+          Plotly.newPlot(divId, traces, {
+            title: d.title || "",
+            xaxis: { title: d.xlabel || "", zeroline: false },
+            yaxis: {
+              tickmode: "array",
+              tickvals: yBase,
+              ticktext: d.categories,
+              automargin: true
+            },
+            shapes: [{
+              type: "line",
+              x0: d.zero_line ?? 0, x1: d.zero_line ?? 0,
+              y0: -0.5, y1: n - 0.5,
+              line: { color: "black", width: 1, dash: "dash" }
+            }]
+          }, { responsive: true });
+        
+          return;
+        }
+
+        
 
       /* =======================
          MATPLOTLIB EXPORTS
