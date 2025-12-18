@@ -739,6 +739,307 @@ There should be whitespace between paragraphs. We recommend including a README, 
 </script>
 
 
+TEST
+
+<!-- ===================== -->
+<!-- PART 1 -->
+<!-- ===================== -->
+
+<section class="sector-part" id="part-1">
+
+<h2>1. Why sector-level analysis? Market vs sector behavior over time</h2>
+
+<p class="interviewer">
+<b>Interviewer:</b> Why do we need sector-level analysis rather than just looking at the market as a whole?
+</p>
+
+<h3>Context</h3>
+<p>
+Equity markets are often summarized by a single index, implicitly assuming that firms respond
+homogeneously to macroeconomic forces. In reality, sectors differ fundamentally in their
+production structure, capital intensity, exposure to interest rates, and dependence on future
+growth expectations.
+</p>
+<p>
+From a valuation perspective, equity prices reflect discounted future cash flows. If sectors
+differ in the timing and riskiness of these cash flows, then even under identical market
+conditions, their performance can diverge substantially. Monetary policy, technological change,
+and structural economic shifts can therefore generate persistent sectoral dispersion rather than
+short-lived noise.
+</p>
+<p>
+Before studying monetary policy effects, it is essential to establish a baseline: how much of
+sector performance is driven by the overall market, and how much reflects sector-specific
+dynamics?
+</p>
+
+<h3>Method</h3>
+<p>
+For each sector <em>s</em>, we compute log-returns:
+</p>
+<p class="math">
+r<sub>s,t</sub> = ln(P<sub>s,t</sub> / P<sub>s,t−1</sub>)
+</p>
+<p>
+Returns are aggregated into cumulative returns rebased to 1:
+</p>
+<p class="math">
+CR<sub>s,t</sub> = ∏<sub>τ≤t</sub> (1 + r<sub>s,τ</sub>)
+</p>
+<p>
+To isolate sector-specific behavior, we estimate a CAPM-style market model:
+</p>
+<p class="math">
+r<sub>s,t</sub> = α<sub>s</sub> + β<sub>s</sub> r<sub>m,t</sub> + ε<sub>s,t</sub>
+</p>
+<p>
+where β<sub>s</sub> measures exposure to systematic market risk and α<sub>s</sub> captures
+average excess performance unexplained by the market.
+</p>
+
+<h3>Results</h3>
+
+<div class="figure-block">
+  <!-- FIG 1 -->
+</div>
+
+<div class="figure-block">
+  <!-- FIG 4 -->
+</div>
+
+<div class="figure-block">
+  <!-- FIG 5 -->
+</div>
+
+<p>
+Cumulative returns reveal large and persistent divergence across sectors. While all sectors benefit
+from long-run market growth, the magnitude differs dramatically. Some sectors strongly outperform
+the market over decades, while others lag persistently. These deviations are not transitory and
+widen during major macroeconomic episodes.
+</p>
+
+<h3>Conclusion</h3>
+<p>
+Market exposure explains a large fraction of sector returns, but not their relative trajectories.
+This motivates studying additional drivers—starting with monetary policy—that may shape
+sector-specific outcomes beyond the market factor.
+</p>
+
+</section>
+
+<!-- ===================== -->
+<!-- PART 2 -->
+<!-- ===================== -->
+
+<section class="sector-part" id="part-2">
+
+<h2>2. How sensitive are different sectors to changes in the Fed rate?</h2>
+
+<p class="interviewer">
+<b>Interviewer:</b> Are all sectors equally sensitive to changes in the Fed policy rate?
+</p>
+
+<h3>Context</h3>
+<p>
+Changes in the Fed policy rate affect borrowing costs, discount rates, liquidity conditions, and
+risk appetite. However, these channels do not operate uniformly across sectors. Sectors differ in
+their reliance on external financing, growth expectations, and balance-sheet structure.
+</p>
+<p>
+Measuring sector-level sensitivity allows us to test whether monetary policy transmission is
+homogeneous or sector-specific.
+</p>
+
+<h3>Method</h3>
+<p>
+We estimate sector-specific regressions controlling for market movements:
+</p>
+<p class="math">
+r<sub>s,t</sub> = α<sub>s</sub> + β<sub>s</sub> r<sub>m,t</sub> + γ<sub>s</sub> ΔFedRate<sub>t</sub> + u<sub>s,t</sub>
+</p>
+<p>
+The coefficient γ<sub>s</sub> measures the marginal sensitivity of sector returns to changes
+in the policy rate, conditional on the market. Robust standard errors are used.
+</p>
+
+<h3>Results</h3>
+
+<div class="figure-block">
+  <!-- FIG 7 -->
+</div>
+
+<p>
+Market exposure and Fed sensitivity emerge as distinct dimensions of risk. Some sectors exhibit
+meaningful sensitivity to policy rate changes, while others are weakly affected despite similar
+market exposure.
+</p>
+
+<h3>Conclusion</h3>
+<p>
+Fed rate changes matter for sector returns, but heterogeneously. Monetary policy adds an
+independent source of sector-level risk beyond the market factor.
+</p>
+
+</section>
+
+<!-- ===================== -->
+<!-- PART 3 -->
+<!-- ===================== -->
+
+<section class="sector-part" id="part-3">
+
+<h2>3. How do sectors react to sudden Fed signals and surprise cuts?</h2>
+
+<p class="interviewer">
+<b>Interviewer:</b> Do sectors react differently when the Fed moves unexpectedly?
+</p>
+
+<h3>Context</h3>
+<p>
+Not all policy actions convey the same information. Surprise rate cuts reveal new information about
+economic conditions or financial stress. Markets may react to the signal embedded in the policy
+decision rather than to the mechanical effect of lower rates.
+</p>
+
+<h3>Method</h3>
+<p>
+We implement a short-horizon event-study framework around surprise Fed cuts. Sector performance is
+measured relative to a benchmark sector (Industrials):
+</p>
+<p class="math">
+AR<sub>s,t</sub> = r<sub>s,t</sub> − r<sub>Ind,t</sub>
+</p>
+<p>
+Abnormal returns are aggregated over a 3-day window to obtain cumulative abnormal returns.
+</p>
+
+<h3>Results</h3>
+
+<div class="figure-block">
+  <!-- FIG 11 -->
+</div>
+
+<div class="figure-block">
+  <!-- FIG 12 -->
+</div>
+
+<p>
+Sector responses to surprise cuts are highly heterogeneous. Some sectors underperform sharply,
+suggesting that surprise easing is often interpreted as bad news about the macroeconomic outlook.
+</p>
+
+<h3>Conclusion</h3>
+<p>
+Short-term responses to surprise Fed actions depend critically on sector characteristics and the
+informational content of policy decisions.
+</p>
+
+</section>
+
+<!-- ===================== -->
+<!-- PART 4 -->
+<!-- ===================== -->
+
+<section class="sector-part" id="part-4">
+
+<h2>4. Are Fed rates the right proxy for long-term monetary policy?</h2>
+
+<p class="interviewer">
+<b>Interviewer:</b> Is the Fed policy rate the best variable to study long-term stock market effects?
+</p>
+
+<h3>Context</h3>
+<p>
+Equity valuation depends on discounting future cash flows over long horizons. While the Fed Funds
+Rate governs short-term conditions, long-term yields incorporate expectations about future policy,
+inflation, and risk premia.
+</p>
+
+<h3>Method</h3>
+<p>
+We compare the dynamics of the Fed Funds Rate and the 10-year Treasury yield, and use the latter as
+a proxy for long-term monetary conditions.
+</p>
+
+<h3>Results</h3>
+
+<div class="figure-block">
+  <!-- FIG 2 -->
+</div>
+
+<p>
+The two rates co-move closely, but the 10-year yield is smoother and forward-looking, making it
+more suitable for long-horizon sector analysis.
+</p>
+
+<h3>Conclusion</h3>
+<p>
+The Fed rate captures short-term policy actions, while the 10Y yield better reflects long-term
+monetary conditions relevant for equity valuation.
+</p>
+
+</section>
+
+<!-- ===================== -->
+<!-- PART 5 -->
+<!-- ===================== -->
+
+<section class="sector-part" id="part-5">
+
+<h2>5. Which sectors perform better in high-rate environments?</h2>
+
+<p class="interviewer">
+<b>Interviewer:</b> Which sectors benefit—or suffer—when long-term interest rates are high?
+</p>
+
+<h3>Context</h3>
+<p>
+High-rate environments alter discounting and macroeconomic conditions. Sector performance depends
+on cash-flow timing, pricing power, and balance-sheet exposure.
+</p>
+
+<h3>Method</h3>
+<p>
+We estimate sector sensitivity to changes in the 10Y yield:
+</p>
+<p class="math">
+r<sub>s,t</sub> = α<sub>s</sub> + β<sub>s</sub> r<sub>m,t</sub> + θ<sub>s</sub> ΔY<sub>t</sub><sup>10</sup> + u<sub>s,t</sub>
+</p>
+<p>
+We also define low- and high-rate regimes using yield quantiles and compare average annualized
+sector returns across regimes.
+</p>
+
+<h3>Results</h3>
+
+<div class="figure-block">
+  <!-- FIG 3 -->
+</div>
+
+<div class="figure-block">
+  <!-- FIG 8 -->
+</div>
+
+<div class="figure-block">
+  <!-- FIG 9 -->
+</div>
+
+<p>
+Sector performance differs sharply across rate regimes. Some sectors outperform significantly in
+high-rate environments, while others underperform, with statistically meaningful differences.
+</p>
+
+<h3>Conclusion</h3>
+<p>
+High interest rates do not uniformly depress equities. Instead, they redistribute performance
+across sectors, confirming the importance of sector-level analysis for understanding monetary
+policy effects.
+</p>
+
+</section>
+TEST
+
+
 
 
 
