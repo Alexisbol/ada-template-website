@@ -195,10 +195,11 @@ Through the different aspect of this research question we have defined a fully f
 </style>
 
 
+
 <div class="pair-widget-container">
   <div class="pair-container">
       <div class="image-configurator">
-        <img id="mainImage" alt="Selected image">
+        <div id="mainPlot" style="width:100%; height:100%;"></div>
         <div class="menu left" id="categoryMenu">
             <div class="menu-header">Category</div>
             <div class="menu-content"></div>
@@ -212,18 +213,38 @@ Through the different aspect of this research question we have defined a fully f
   </div>
 </div>
 
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
 
 <script>
-  const images = {
+  const plots = {
     pair1: [
-      { label: "feature1", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png"},
-      { label: "feature2", src: "{{ site.baseurl }}/assets/img/Lucas/comparability_measure.png"}
-    ],
-    pair2: [
-      { label: "feature1", src: "{{ site.baseurl }}/assets/img/Lucas/X_tilde.png" },
-      { label: "feature2", src: "{{ site.baseurl }}/assets/img/game/recruiter.png" }
+      {
+        label: "Accuracy",
+        json: "{{ site.baseurl }}/assets/data/test_lucas.json",
+        title: "Model Accuracy",
+        yRange: [0, 1]
+      },
+      {
+        label: "Loss",
+        json: "{{ site.baseurl }}/assets/data/test_lucas.json",
+        title: "Training Loss"
+      }
     ]
   };
+
+  async function renderPlotFromJSON(jsonPath, title, yRange=null) {
+    const res = await fetch(jsonPath);
+    const data = await res.json();
+
+    Plotly.react("mainPlot", [{
+      x: data.x,
+      y: data.y,
+      mode: "lines+markers"
+    }], {
+      title: title,
+      yaxis: yRange ? { range: yRange } : {}
+    });
+  }
 
   const pairTexts = {
   pair1: "pair 1 blabla",
@@ -231,7 +252,8 @@ Through the different aspect of this research question we have defined a fully f
   };
 
 
-  const mainImage = document.getElementById("mainImage");
+  const mainPlot = document.getElementById("mainPlot");
+
 
   const categoryMenu = document.getElementById("categoryMenu");
   const imageMenu = document.getElementById("imageMenu");
@@ -270,20 +292,21 @@ Through the different aspect of this research question we have defined a fully f
     });
   }
 
-  function loadImages(category) {
+  function loadPlots(category) {
     imageContent.innerHTML = "";
-    images[category].forEach(img => {
+    plots[category].forEach(plot => {
       const item = document.createElement("div");
-      item.textContent = img.label;
+      item.textContent = plot.label;
       item.onclick = () => {
-        currentFeatureLabel = img.label;
-        mainImage.src = img.src;
-        imageMenu.querySelector(".menu-header").textContent = img.label;
+        currentFeatureLabel = plot.label;
+        renderPlotFromJSON(plot.json, plot.title, plot.yRange);
+        imageMenu.querySelector(".menu-header").textContent = plot.label;
         closeMenus();
       };
       imageContent.appendChild(item);
     });
   }
+
 
   
   categoryMenu.querySelector(".menu-header").onclick = e => {
@@ -301,9 +324,15 @@ Through the different aspect of this research question we have defined a fully f
   document.addEventListener("click", closeMenus);
 
   loadCategories();
-  loadImages(currentCategory);
-  const initialImage = images[currentCategory].find(f => f.label === currentFeatureLabel) || images[currentCategory][0];
-  mainImage.src = initialImage.src; 
+  loadPlots(currentCategory);
+  const initialPlot = plots[currentCategory][0];
+
+  renderPlotFromJSON(
+    initialPlot.json,
+    initialPlot.title,
+    initialPlot.yRange
+  );
+ 
   categoryMenu.querySelector(".menu-header").textContent = currentCategory;
   imageMenu.querySelector(".menu-header").textContent = initialImage.label; 
   document.getElementById("pairText").textContent = pairTexts[currentCategory]; 
