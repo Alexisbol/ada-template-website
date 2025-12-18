@@ -220,13 +220,13 @@ Through the different aspect of this research question we have defined a fully f
     pair1: [
       {
         label: "Accuracy",
-        json: "{{ site.baseurl }}/assets/data/test_lucas.json",
+        json: "{{ site.baseurl/data/test_lucas.json",
         title: "Model Accuracy",
         yRange: [0, 1]
       },
       {
         label: "Loss",
-        json: "{{ site.baseurl }}/assets/data/test_lucas.json",
+        json: "{{ site.baseurl }}/data/test_lucas.json",
         title: "Training Loss"
       }
     ]
