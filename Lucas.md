@@ -205,7 +205,7 @@ Through the different aspect of this research question we have defined a fully f
             <div class="menu-content"></div>
         </div>
         <div class="menu right" id="imageMenu">
-            <div class="menu-header">Image</div>
+            <div class="menu-header">Plot</div>
             <div class="menu-content"></div>
         </div>
       </div>
@@ -216,53 +216,81 @@ Through the different aspect of this research question we have defined a fully f
 <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
 
 <script>
-  const plots = {
-    pair1: [
-      {
-        label: "Accuracy",
-        json: "{{ site.baseurl }}/data/test_lucas.json",
-        title: "Model Accuracy",
-        yRange: [0, 1]
-      },
-      {
-        label: "Loss",
-        json: "{{ site.baseurl }}/data/test_lucas.json",
-        title: "Training Loss"
-      }
-    ]
+
+  const pairs = {
+    "ARAY vs DVA": {
+      json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
+      description: "ARAY vs DVA — Healthcare sector"
+    },
+    "AGX vs ARTW": {
+      json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
+      description: "AGX vs ARTW — Industry sector"
+    },
+    "ASTC vs ALOT": {
+      json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
+      description: "ASTC vs ALOT — Technology sector"
+    },
+    "DVN vs MUR": {
+      json: "{{ site.baseurl }}/data/(DVN,MUR).json",
+      description: "DVN vs MUR — Energy sector"
+    }
   };
-
-  async function renderPlotFromJSON(jsonPath, title, yRange=null) {
-    const res = await fetch(jsonPath);
-    const data = await res.json();
-
-    Plotly.react("mainPlot", [{
-      x: data.x,
-      y: data.y,
-      mode: "lines+markers"
-    }], {
-      title: title,
-      yaxis: yRange ? { range: yRange } : {}
-    });
-  }
-
-  const pairTexts = {
-  pair1: "pair 1 blabla"
-  };
-
-
-  const mainPlot = document.getElementById("mainPlot");
 
 
   const categoryMenu = document.getElementById("categoryMenu");
   const imageMenu = document.getElementById("imageMenu");
-
   const categoryContent = categoryMenu.querySelector(".menu-content");
   const imageContent = imageMenu.querySelector(".menu-content");
+  const pairText = document.getElementById("pairText");
 
-  let currentCategory = Object.keys(plots)[0];
-  let currentFeatureLabel = plots[currentCategory][0].label;
 
+  let currentPairLabel = Object.keys(pairs)[0];
+  let currentFeature = null;
+  let currentJSON = null;
+
+
+  async function loadJSON(path) {
+    const res = await fetch(path);
+    return await res.json();
+  }
+
+  function fedEventShape(json) {
+    return {
+      type: "rect",
+      xref: "x",
+      yref: "paper",
+      x0: json.fed_event.start,
+      x1: json.fed_event.end,
+      y0: 0,
+      y1: 1,
+      fillcolor: "rgba(255,0,0,0.15)",
+      line: { width: 0 }
+    };
+  }
+
+  function plotFeature(json, feature) {
+    const dates = Object.keys(json.data).sort();
+    const [t1, t2] = json.pair;
+
+    const y1 = dates.map(d => json.data[d][feature][t1]);
+    const y2 = dates.map(d => json.data[d][feature][t2]);
+    const fedY = dates.map(d => json.data[d].Fed_rate);
+
+
+    const shapes = [ fedEventShape(json) ];
+
+    Plotly.react("mainPlot", [
+        { x: dates, y: y1, mode: "lines", name: t1, line: { color: "orange" } },
+        { x: dates, y: y2, mode: "lines", name: t2, line: { color: "blue" } },
+        { x: dates, y: fedY, mode: "lines", name: "Fed Rate", line: {color: "green" } }
+    ], {
+        title: `${feature} — ${t1} vs ${t2}`,
+        yaxis: { title: feature },
+        shapes: shapes,
+        margin: { t: 50 },
+        legend: { orientation: "h" }
+    });
+  }
 
 
   function closeMenus() {
@@ -270,45 +298,54 @@ Through the different aspect of this research question we have defined a fully f
     imageMenu.classList.remove("open");
   }
 
-  function loadCategories() {
+  function loadPairs() {
     categoryContent.innerHTML = "";
-    Object.keys(plots).forEach(cat => {
+
+    Object.entries(pairs).forEach(([label, cfg]) => {
       const item = document.createElement("div");
-      item.textContent = cat;
-      item.onclick = () => {
-        currentCategory = cat;
-        categoryMenu.querySelector(".menu-header").textContent = cat;
-        loadPlots(cat);
+      item.textContent = label;
 
-        const plot = plots[cat][0];
-        renderPlotFromJSON(plot.json, plot.title, plot.yRange);
-        imageMenu.querySelector(".menu-header").textContent = plot.label;
+      item.onclick = async () => {
+        currentPairLabel = label;
+        categoryMenu.querySelector(".menu-header").textContent = label;
+        pairText.textContent = cfg.description;
 
-        document.getElementById("pairText").textContent = pairTexts[cat];
+        currentJSON = await loadJSON(cfg.json);
+        loadFeatures(currentJSON);
 
         closeMenus();
       };
+
       categoryContent.appendChild(item);
     });
   }
 
-  function loadPlots(category) {
+
+  function loadFeatures(json) {
     imageContent.innerHTML = "";
-    plots[category].forEach(plot => {
+
+    json.features.forEach((feature, i) => {
       const item = document.createElement("div");
-      item.textContent = plot.label;
+      item.textContent = feature;
+
       item.onclick = () => {
-        currentFeatureLabel = plot.label;
-        renderPlotFromJSON(plot.json, plot.title, plot.yRange);
-        imageMenu.querySelector(".menu-header").textContent = plot.label;
+        currentFeature = feature;
+        imageMenu.querySelector(".menu-header").textContent = feature;
+        plotFeature(json, feature);
         closeMenus();
       };
+
       imageContent.appendChild(item);
+
+      if (i === 0) {
+        currentFeature = feature;
+        imageMenu.querySelector(".menu-header").textContent = feature;
+        plotFeature(json, feature);
+      }
     });
   }
 
 
-  
   categoryMenu.querySelector(".menu-header").onclick = e => {
     e.stopPropagation();
     categoryMenu.classList.toggle("open");
@@ -323,19 +360,17 @@ Through the different aspect of this research question we have defined a fully f
 
   document.addEventListener("click", closeMenus);
 
-  loadCategories();
-  loadPlots(currentCategory);
-  const initialPlot = plots[currentCategory][0];
 
-  renderPlotFromJSON(
-    initialPlot.json,
-    initialPlot.title,
-    initialPlot.yRange
-  );
- 
-  categoryMenu.querySelector(".menu-header").textContent = currentCategory;
-  imageMenu.querySelector(".menu-header").textContent = initialPlot.label;
-  document.getElementById("pairText").textContent = pairTexts[currentCategory]; 
+  (async function init() {
+    loadPairs();
+
+    const firstPair = pairs[currentPairLabel];
+    categoryMenu.querySelector(".menu-header").textContent = currentPairLabel;
+    pairText.textContent = firstPair.description;
+
+    currentJSON = await loadJSON(firstPair.json);
+    loadFeatures(currentJSON);
+  })();
 
 </script>
 
