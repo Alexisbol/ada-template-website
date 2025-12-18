@@ -210,21 +210,26 @@ Through the different aspect of this research question we have defined a fully f
 </style>
 
 
-<div class="plot-and-menus">
-    <div class="menu-bar">
-        <div class="menu left" id="categoryMenu">
-            <div class="menu-header">Category</div>
-            <div class="menu-content"></div>
-        </div>
-        <div class="menu right" id="imageMenu">
-            <div class="menu-header">Feature</div>
-            <div class="menu-content"></div>
-        </div>
+<div class="pair-container">
+    <div class="pair-text" id="pairText">
     </div>
-    <div class="image-configurator">
-        <div id="mainPlot"></div>
+    <div class="plot-column">
+        <div class="menu-bar">
+            <div class="menu left" id="categoryMenu">
+                <div class="menu-header">Category</div>
+                <div class="menu-content"></div>
+            </div>
+            <div class="menu right" id="imageMenu">
+                <div class="menu-header">Feature</div>
+                <div class="menu-content"></div>
+            </div>
+        </div>
+        <div class="image-configurator">
+            <div id="mainPlot"></div>
+        </div>
     </div>
 </div>
+
 
 
 <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
