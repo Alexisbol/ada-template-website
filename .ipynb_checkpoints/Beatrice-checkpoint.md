@@ -269,11 +269,15 @@ function renderMplExport(divId, jsonPath) {
             y: d.categories,
             type: "bar",
             orientation: "h",
-            text: (d.p_values || []).map(p =>
-              (p !== null && p !== undefined)
-                ? `p = ${p.toExponential(2)}`
-                : ""
-            ),
+              
+            text: (d.p_values || []).map(p => {
+              if (p === null || p === undefined) return "";
+              const pn = Number(p);
+              if (!isFinite(pn)) return "";
+              return "p = " + pn.toExponential(2);
+            }),
+
+              
             hovertemplate:
               "<b>%{y}</b><br>" +
               "Δ return: %{x:.2f}%<br>" +
