@@ -490,6 +490,11 @@ There should be whitespace between paragraphs. We recommend including a README, 
 <div id="fig11" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig11", "{{ site.baseurl }}/assets/fig_json/fig11.json");</script>
 
+<div id="fig12" style="width:100%; height:520px;"></div>
+<script>
+  renderMplExport("fig12", "{{ site.baseurl }}/assets/fig_json/fig12.json");
+</script>
+
 <div id="fig13" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig13", "{{ site.baseurl }}/assets/fig_json/fig13.json");</script>
 
