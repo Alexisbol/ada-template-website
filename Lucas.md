@@ -112,9 +112,9 @@ Through the different aspect of this research question we have defined a fully f
     .image-configurator {
     position: relative;
     flex: 2;
-    max-width: 900px;
-    aspect-ratio: 5 / 3;
-    height: 500px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    min-height: 300px;
     }
 
 
@@ -182,6 +182,7 @@ Through the different aspect of this research question we have defined a fully f
 
     .pair-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 30px;              
     max-width: 1500px;
@@ -189,7 +190,7 @@ Through the different aspect of this research question we have defined a fully f
     }
 
     .pair-text {
-    flex: 1;
+    flex: 1 1 300px;
     max-width: 300px;
     padding: 15px;
     border: 1px solid #aaa;
@@ -202,17 +203,32 @@ Through the different aspect of this research question we have defined a fully f
     .plot-column {
     display: flex;
     flex-direction: column;
-    flex: 2;
+    flex: 2 1 600px;
     gap: 10px;
     }
 
     .menu-bar {
-        display: flex;
-        justify-content: flex-start;
-        gap: 50px;  
-        margin-bottom: 10px;
-        position: relative;
-        z-index 100;
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;  
+    margin-bottom: 10px;
+    position: relative;
+    z-index 100;
+    }
+
+    #mainPlot {
+    width: 100% !important;
+    height: 100% !important;
+    }
+
+    @media (max-width: 900px) {
+      .pair-container {
+          flex-direction: column;
+          align-items: center;
+      }
+      .plot-column, .pair-text {
+          width: 100%;
+      }
     }
 
 </style>
@@ -246,7 +262,7 @@ Through the different aspect of this research question we have defined a fully f
 const pairs = {
   "ARAY vs DVA": {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
-    description: "<b> ARAY vs DVA — Healthcare sector <b> <br> test"
+    description: "<b> ARAY vs DVA — Healthcare sector </b> <br> test"
   },
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
