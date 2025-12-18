@@ -384,9 +384,197 @@ However, for Industrial, ETF are winning, same in technology.
 
 #### TODO ADD eplanation...
 
-#### ADD last interactive cool plot to see companies reacting well to positive or/and negative FED events. This but interactive
+<div style="margin:30px 0;padding:24px;border:1px solid #e1e8f0;border-radius:14px;background:#fbfdff;box-shadow:0 10px 24px rgba(12,50,96,0.08);">
+    <h3 style="margin:0 0 12px;color:#0d1b2a;">🔀 Company Performance Rankings: PosFed vs NegFed Events</h3>
+    <p style="margin:0 0 16px;color:#2f3f55;">
+        Compare how individual companies rank during positive Fed events (rate increases) versus negative Fed events (rate cuts). 
+        Companies above the diagonal perform better during rate increases, while those below excel during rate cuts. 
+        Use the dropdown to filter by sector.
+    </p>
+    <div id="comparisonRankingsChart" style="width:100%;height:650px;"></div>
+</div>
 
-<img src="{{ site.baseurl }}/assets/img/comparaison_fed_event_companies.png" alt="Fed Rate Event Results Table" style="max-width:100%; height:auto; border-radius:6px; border:1px solid #ddd; background:#fff;"/>
+<script>
+(function() {
+    async function loadAndPlotComparison() {
+        try {
+            const response = await fetch('{{ site.baseurl }}/data/comparison_posfed_negfed_rankings.json');
+            const jsonData = await response.json();
+            
+            const data = jsonData.data;
+            const sectors = jsonData.sectors;
+            const colorMap = jsonData.color_map;
+            
+            // Calculate axis limits
+            const allRanks = data.flatMap(d => [d.PosRank, d.NegRank]);
+            const maxRank = Math.max(...allRanks);
+            const lim = maxRank + 1;
+            
+            const fig = {
+                data: [],
+                layout: {},
+                config: {}
+            };
+            
+            // Create traces for each sector
+            sectors.forEach((sector, idx) => {
+                const sectorData = data.filter(d => d.Sector === sector);
+                
+                const trace = {
+                    x: sectorData.map(d => d.PosRank),
+                    y: sectorData.map(d => d.NegRank),
+                    mode: 'markers+text',
+                    name: sector,
+                    marker: {
+                        size: 12,
+                        opacity: 0.8,
+                        color: colorMap[sector],
+                        line: { color: 'white', width: 1 }
+                    },
+                    text: sectorData.map(d => d.Ticker),
+                    textposition: 'top center',
+                    textfont: { size: 9, color: '#1e293b' },
+                    customdata: sectorData.map(d => [d.Wins_Pos, d.Wins_Neg, sector]),
+                    hovertemplate: 
+                        '<b>%{text}</b><br>' +
+                        'Sector: %{customdata[2]}<br>' +
+                        'Rank PosFed: %{x}<br>' +
+                        'Rank NegFed: %{y}<br>' +
+                        'Wins PosFed: %{customdata[0]}<br>' +
+                        'Wins NegFed: %{customdata[1]}<extra></extra>',
+                    visible: true  // All sectors visible by default
+                };
+                
+                fig.data.push(trace);
+            });
+            
+            // Diagonal reference line
+            const diagonalTrace = {
+                x: [1, lim],
+                y: [1, lim],
+                mode: 'lines',
+                line: { color: 'gray', dash: 'dot', width: 1.5 },
+                showlegend: false,
+                hoverinfo: 'skip'
+            };
+            fig.data.push(diagonalTrace);
+            
+            // Create dropdown buttons
+            const buttons = [
+                {
+                    label: 'All Sectors',
+                    method: 'update',
+                    args: [
+                        { visible: [...Array(sectors.length).fill(true), true] },
+                        { title: '🔀 Company Performance Rankings: PosFed vs NegFed (All Sectors)' }
+                    ]
+                }
+            ];
+            
+            sectors.forEach((sector, idx) => {
+                const visible = Array(sectors.length + 1).fill(false);
+                visible[idx] = true;
+                visible[sectors.length] = true; // diagonal always visible
+                
+                buttons.push({
+                    label: sector,
+                    method: 'update',
+                    args: [
+                        { visible: visible },
+                        { title: `🔀 Sector: ${sector}` }
+                    ]
+                });
+            });
+            
+            // Layout
+            fig.layout = {
+                updatemenus: [{
+                    buttons: buttons,
+                    direction: 'down',
+                    showactive: true,
+                    x: 1.02,
+                    xanchor: 'left',
+                    y: 1.15,
+                    yanchor: 'top',
+                    bgcolor: 'white',
+                    bordercolor: '#e2e8f0',
+                    borderwidth: 1
+                }],
+                xaxis: {
+                    title: 'Rank PosFed (1 = best)',
+                    autorange: 'reversed',
+                    range: [lim, 0],
+                    gridcolor: '#e2e8f0',
+                    showgrid: true,
+                    zeroline: false
+                },
+                yaxis: {
+                    title: 'Rank NegFed (1 = best)',
+                    autorange: 'reversed',
+                    range: [lim, 0],
+                    gridcolor: '#e2e8f0',
+                    showgrid: true,
+                    zeroline: false
+                },
+                plot_bgcolor: '#f8fafc',
+                paper_bgcolor: 'transparent',
+                font: { family: 'Noto Sans, sans-serif', size: 12 },
+                legend: {
+                    title: { text: 'Sector', font: { size: 13, weight: 'bold' } },
+                    bgcolor: 'rgba(255,255,255,0.9)',
+                    bordercolor: '#e2e8f0',
+                    borderwidth: 1,
+                    x: 1.02,
+                    xanchor: 'left',
+                    y: 0.5
+                },
+                title: {
+                    text: '🔀 Company Performance Rankings: PosFed vs NegFed (All Sectors)',
+                    font: { size: 14, color: '#1e293b' }
+                },
+                hoverlabel: {
+                    bgcolor: '#1e293b',
+                    bordercolor: '#1e293b',
+                    font: { size: 13, family: 'Noto Sans, sans-serif', color: 'white' }
+                },
+                margin: { t: 80, r: 200, b: 60, l: 70 },
+                width: null,
+                height: 650
+            };
+            
+            // Config
+            fig.config = {
+                responsive: true,
+                displayModeBar: true,
+                displaylogo: false,
+                modeBarButtonsToRemove: ['lasso2d', 'select2d']
+            };
+            
+            Plotly.newPlot('comparisonRankingsChart', fig.data, fig.layout, fig.config);
+            
+        } catch (error) {
+            console.error('Error loading comparison rankings data:', error);
+        }
+    }
+    
+    if (typeof Plotly !== 'undefined') {
+        loadAndPlotComparison();
+    } else {
+        window.addEventListener('load', loadAndPlotComparison);
+    }
+})();
+</script>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+    <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+    <ul style="margin:0;padding-left:20px;color:#1e293b;">
+        <li><strong>Above the diagonal:</strong> Companies perform better during negative Fed events (rate hikes)</li>
+        <li><strong>Below the diagonal:</strong> Companies perform better during positive Fed events (rate cuts)</li>
+        <li><strong>Near the diagonal:</strong> Companies show balanced performance across both event types</li>
+    </ul>
+</div>
+
+We can see that Techology and Financial have top performing stocks during fed events.
 
 ---
 

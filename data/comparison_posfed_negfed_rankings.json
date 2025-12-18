@@ -1,0 +1,438 @@
+{
+  "metadata": {
+    "title": "Comparison of PosFed vs NegFed Rankings",
+    "description": "Ranking comparison of ticker performance during positive and negative Fed rate events by sector",
+    "min_wins_threshold": 2,
+    "date_generated": "2025-12-18 17:29:48"
+  },
+  "sectors": [
+    "Financial Services",
+    "Healthcare",
+    "Industrials",
+    "Technology"
+  ],
+  "data": [
+    {
+      "Sector": "Financial Services",
+      "Ticker": "BAP",
+      "Wins_Pos": 13,
+      "Wins_Neg": 16,
+      "PosRank": 3,
+      "NegRank": 1
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "ASA",
+      "Wins_Pos": 42,
+      "Wins_Neg": 8,
+      "PosRank": 1,
+      "NegRank": 2
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "AWF",
+      "Wins_Pos": 15,
+      "Wins_Neg": 7,
+      "PosRank": 2,
+      "NegRank": 3
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "BCV",
+      "Wins_Pos": 2,
+      "Wins_Neg": 7,
+      "PosRank": 9,
+      "NegRank": 4
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "BBVA",
+      "Wins_Pos": 6,
+      "Wins_Neg": 6,
+      "PosRank": 5,
+      "NegRank": 5
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "AJG",
+      "Wins_Pos": 2,
+      "Wins_Neg": 6,
+      "PosRank": 8,
+      "NegRank": 6
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "AWP",
+      "Wins_Pos": 2,
+      "Wins_Neg": 3,
+      "PosRank": 7,
+      "NegRank": 7
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "BHK",
+      "Wins_Pos": 12,
+      "Wins_Neg": 2,
+      "PosRank": 4,
+      "NegRank": 8
+    },
+    {
+      "Sector": "Financial Services",
+      "Ticker": "BANC",
+      "Wins_Pos": 6,
+      "Wins_Neg": 2,
+      "PosRank": 6,
+      "NegRank": 9
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "GILD",
+      "Wins_Pos": 2,
+      "Wins_Neg": 12,
+      "PosRank": 10,
+      "NegRank": 1
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "AZN",
+      "Wins_Pos": 3,
+      "Wins_Neg": 11,
+      "PosRank": 6,
+      "NegRank": 2
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "ATR",
+      "Wins_Pos": 5,
+      "Wins_Neg": 8,
+      "PosRank": 5,
+      "NegRank": 3
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "BHC",
+      "Wins_Pos": 8,
+      "Wins_Neg": 7,
+      "PosRank": 1,
+      "NegRank": 4
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "ISRG",
+      "Wins_Pos": 5,
+      "Wins_Neg": 7,
+      "PosRank": 3,
+      "NegRank": 5
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "LH",
+      "Wins_Pos": 8,
+      "Wins_Neg": 6,
+      "PosRank": 2,
+      "NegRank": 6
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "BEAT",
+      "Wins_Pos": 5,
+      "Wins_Neg": 5,
+      "PosRank": 4,
+      "NegRank": 7
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "LLY",
+      "Wins_Pos": 2,
+      "Wins_Neg": 5,
+      "PosRank": 11,
+      "NegRank": 8
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "DVA",
+      "Wins_Pos": 3,
+      "Wins_Neg": 5,
+      "PosRank": 7,
+      "NegRank": 9
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "AMGN",
+      "Wins_Pos": 2,
+      "Wins_Neg": 5,
+      "PosRank": 12,
+      "NegRank": 10
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "AMN",
+      "Wins_Pos": 2,
+      "Wins_Neg": 4,
+      "PosRank": 9,
+      "NegRank": 11
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "HSIC",
+      "Wins_Pos": 3,
+      "Wins_Neg": 3,
+      "PosRank": 8,
+      "NegRank": 12
+    },
+    {
+      "Sector": "Healthcare",
+      "Ticker": "EW",
+      "Wins_Pos": 2,
+      "Wins_Neg": 3,
+      "PosRank": 13,
+      "NegRank": 13
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "FLS",
+      "Wins_Pos": 2,
+      "Wins_Neg": 25,
+      "PosRank": 19,
+      "NegRank": 1
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "CMI",
+      "Wins_Pos": 3,
+      "Wins_Neg": 12,
+      "PosRank": 10,
+      "NegRank": 2
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "ARNC",
+      "Wins_Pos": 2,
+      "Wins_Neg": 8,
+      "PosRank": 15,
+      "NegRank": 3
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "BCO",
+      "Wins_Pos": 2,
+      "Wins_Neg": 7,
+      "PosRank": 18,
+      "NegRank": 4
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "ETN",
+      "Wins_Pos": 3,
+      "Wins_Neg": 6,
+      "PosRank": 12,
+      "NegRank": 5
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "BA",
+      "Wins_Pos": 8,
+      "Wins_Neg": 6,
+      "PosRank": 5,
+      "NegRank": 6
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "EFX",
+      "Wins_Pos": 4,
+      "Wins_Neg": 5,
+      "PosRank": 8,
+      "NegRank": 7
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "LEG",
+      "Wins_Pos": 6,
+      "Wins_Neg": 5,
+      "PosRank": 6,
+      "NegRank": 8
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "AIT",
+      "Wins_Pos": 2,
+      "Wins_Neg": 5,
+      "PosRank": 17,
+      "NegRank": 9
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "HON",
+      "Wins_Pos": 2,
+      "Wins_Neg": 5,
+      "PosRank": 13,
+      "NegRank": 10
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "RSG",
+      "Wins_Pos": 11,
+      "Wins_Neg": 4,
+      "PosRank": 4,
+      "NegRank": 11
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "GD",
+      "Wins_Pos": 19,
+      "Wins_Neg": 4,
+      "PosRank": 2,
+      "NegRank": 12
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "FXR",
+      "Wins_Pos": 2,
+      "Wins_Neg": 4,
+      "PosRank": 20,
+      "NegRank": 13
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "PWR",
+      "Wins_Pos": 2,
+      "Wins_Neg": 4,
+      "PosRank": 14,
+      "NegRank": 14
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "ALG",
+      "Wins_Pos": 5,
+      "Wins_Neg": 4,
+      "PosRank": 7,
+      "NegRank": 15
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "DHR",
+      "Wins_Pos": 3,
+      "Wins_Neg": 4,
+      "PosRank": 9,
+      "NegRank": 16
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "AGX",
+      "Wins_Pos": 12,
+      "Wins_Neg": 3,
+      "PosRank": 3,
+      "NegRank": 17
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "LMT",
+      "Wins_Pos": 38,
+      "Wins_Neg": 3,
+      "PosRank": 1,
+      "NegRank": 18
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "CAT",
+      "Wins_Pos": 3,
+      "Wins_Neg": 3,
+      "PosRank": 11,
+      "NegRank": 19
+    },
+    {
+      "Sector": "Industrials",
+      "Ticker": "AGCO",
+      "Wins_Pos": 2,
+      "Wins_Neg": 2,
+      "PosRank": 16,
+      "NegRank": 20
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "FISV",
+      "Wins_Pos": 4,
+      "Wins_Neg": 12,
+      "PosRank": 5,
+      "NegRank": 1
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "NFLX",
+      "Wins_Pos": 2,
+      "Wins_Neg": 9,
+      "PosRank": 10,
+      "NegRank": 2
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "ADP",
+      "Wins_Pos": 3,
+      "Wins_Neg": 7,
+      "PosRank": 6,
+      "NegRank": 3
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "HPQ",
+      "Wins_Pos": 2,
+      "Wins_Neg": 4,
+      "PosRank": 9,
+      "NegRank": 4
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "ADBE",
+      "Wins_Pos": 7,
+      "Wins_Neg": 3,
+      "PosRank": 2,
+      "NegRank": 5
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "ASML",
+      "Wins_Pos": 16,
+      "Wins_Neg": 3,
+      "PosRank": 1,
+      "NegRank": 6
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "CTXS",
+      "Wins_Pos": 2,
+      "Wins_Neg": 3,
+      "PosRank": 8,
+      "NegRank": 7
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "ADS",
+      "Wins_Pos": 4,
+      "Wins_Neg": 2,
+      "PosRank": 4,
+      "NegRank": 8
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "EBAY",
+      "Wins_Pos": 6,
+      "Wins_Neg": 2,
+      "PosRank": 3,
+      "NegRank": 9
+    },
+    {
+      "Sector": "Technology",
+      "Ticker": "ARW",
+      "Wins_Pos": 3,
+      "Wins_Neg": 2,
+      "PosRank": 7,
+      "NegRank": 10
+    }
+  ],
+  "color_map": {
+    "Financial Services": "#636EFA",
+    "Healthcare": "#EF553B",
+    "Industrials": "#00CC96",
+    "Technology": "#AB63FA"
+  }
+}
