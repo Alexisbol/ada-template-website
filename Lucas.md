@@ -163,6 +163,7 @@ Through the different aspect of this research question we have defined a fully f
     left: 0;
     width: 100%;
     z-index: 50;
+    border: 1px solid #aaa;
     }
 
    .menu-content div {
@@ -182,7 +183,7 @@ Through the different aspect of this research question we have defined a fully f
     .pair-container {
     display: flex;
     justify-content: center;
-    gap: 30px;              
+    gap: 50px;              
     max-width: 1500px;
     margin: 0 auto;
     }
