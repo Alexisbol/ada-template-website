@@ -449,7 +449,7 @@ function renderMplExport(divId, jsonPath) {
             
        
         
-        // stacked horizontal bars + star annotations (fig22 style) — FIXED
+        // stacked horizontal bars + star annotations (fig22 style)
         if (d.type === "dataframe" && d.kind === "barh_stacked_star") {
           const cats = d.categories || [];
           const macro = (d.macro || []).map(Number);
@@ -470,7 +470,7 @@ function renderMplExport(divId, jsonPath) {
             hovertemplate: "<b>%{y}</b><br>Fed inc: %{x:.3f}<extra></extra>"
           };
         
-          // Stars: anchor explicitly to x/y axes, and disable clipping
+          // star annotations
           const ann = [];
           for (let i = 0; i < cats.length; i++) {
             if (star[i]) {
@@ -483,8 +483,7 @@ function renderMplExport(divId, jsonPath) {
                 text: "*",
                 showarrow: false,
                 font: { size: 18 },
-                xanchor: "left",
-                align: "left"
+                xanchor: "left"
               });
             }
           }
@@ -492,29 +491,19 @@ function renderMplExport(divId, jsonPath) {
           Plotly.newPlot(divId, [t1, t2], {
             title: d.title || "",
             barmode: "stack",
-            xaxis: {
-              title: d.xlabel || "",
-              zeroline: false,
-              showgrid: true
-            },
-            yaxis: {
-              automargin: true,
-              type: "category",
-              autorange: "reversed"   // ✅ matches matplotlib barh order
-            },
+            xaxis: { title: d.xlabel || "", zeroline: false, showgrid: true },
+            yaxis: { automargin: true, type: "category", autorange: "reversed" },
             annotations: ann,
-            legend: {
-              orientation: "h",
-              x: 0.5,
-              xanchor: "center",
-              y: -0.35
-            },
+        
+            // legend below + extra space
+            legend: { orientation: "h", x: 0.5, xanchor: "center", y: -0.35 },
             margin: { t: 70, b: 170, l: 140, r: 60 },
-            height: 650,
-
+            height: 650
+          }, { responsive: true });
         
           return;
         }
+
                     
 
         
