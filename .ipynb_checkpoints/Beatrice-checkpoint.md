@@ -222,14 +222,8 @@ There should be whitespace between paragraphs. We recommend including a README, 
 <div id="fig09" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig09", "{{ site.baseurl }}/assets/fig_json/fig09.json");</script>
 
-<div id="fig10" style="width:100%; height:520px;"></div>
-<script>renderMplExport("fig10", "{{ site.baseurl }}/assets/fig_json/fig10.json");</script>
-
 <div id="fig11" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig11", "{{ site.baseurl }}/assets/fig_json/fig11.json");</script>
-
-<div id="fig12" style="width:100%; height:520px;"></div>
-<script>renderMplExport("fig12", "{{ site.baseurl }}/assets/fig_json/fig12.json");</script>
 
 <div id="fig13" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig13", "{{ site.baseurl }}/assets/fig_json/fig13.json");</script>
