@@ -42,6 +42,43 @@ layout: default
 
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
+<script>
+function renderMplExport(divId, jsonPath) {
+  fetch(jsonPath)
+    .then(r => r.json())
+    .then(d => {
+      const layout = {
+        title: (d.axes?.[0]?.title || ""),
+        xaxis: { title: (d.axes?.[0]?.xlabel || "") },
+        yaxis: { title: (d.axes?.[0]?.ylabel || "") }
+      };
+
+      const traces = [];
+      (d.axes || []).forEach((ax, i) => {
+        // lines
+        (ax.lines || []).forEach(l => {
+          traces.push({ x: l.x, y: l.y, name: l.label || "", type: "scatter", mode: "lines" });
+        });
+        // polygons (stacked areas) — draw as filled shapes
+        (ax.polygons || []).forEach(pg => {
+          (pg.polys || []).forEach(p => {
+            traces.push({ x: p.x, y: p.y, type: "scatter", mode: "lines", fill: "toself", name: pg.label || "" });
+          });
+        });
+        // bars
+        (ax.bars || []).forEach(b => {
+          traces.push({ x: [b.x], y: [b.height], type: "bar", name: "" });
+        });
+        // scatters
+        (ax.scatters || []).forEach(s => {
+          traces.push({ x: s.x, y: s.y, name: s.label || "", type: "scatter", mode: "markers" });
+        });
+      });
+
+      Plotly.newPlot(divId, traces, layout, { responsive: true });
+    });
+}
+</script>
 
 
 <div class="top-nav">
@@ -92,6 +129,77 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+
+
+<div id="fig01" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig01", "{{ site.baseurl }}/assets/fig_json/fig01.json");</script>
+
+<div id="fig02" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig02", "{{ site.baseurl }}/assets/fig_json/fig02.json");</script>
+
+<div id="fig03" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig03", "{{ site.baseurl }}/assets/fig_json/fig03.json");</script>
+
+<div id="fig04" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig04", "{{ site.baseurl }}/assets/fig_json/fig04.json");</script>
+
+<div id="fig05" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig05", "{{ site.baseurl }}/assets/fig_json/fig05.json");</script>
+
+<div id="fig06" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig06", "{{ site.baseurl }}/assets/fig_json/fig06.json");</script>
+
+<div id="fig07" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig07", "{{ site.baseurl }}/assets/fig_json/fig07.json");</script>
+
+<div id="fig08" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig08", "{{ site.baseurl }}/assets/fig_json/fig08.json");</script>
+
+<div id="fig09" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig09", "{{ site.baseurl }}/assets/fig_json/fig09.json");</script>
+
+<div id="fig10" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig10", "{{ site.baseurl }}/assets/fig_json/fig10.json");</script>
+
+<div id="fig11" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig11", "{{ site.baseurl }}/assets/fig_json/fig11.json");</script>
+
+<div id="fig12" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig12", "{{ site.baseurl }}/assets/fig_json/fig12.json");</script>
+
+<div id="fig13" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig13", "{{ site.baseurl }}/assets/fig_json/fig13.json");</script>
+
+<div id="fig14" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig14", "{{ site.baseurl }}/assets/fig_json/fig14.json");</script>
+
+<div id="fig15" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig15", "{{ site.baseurl }}/assets/fig_json/fig15.json");</script>
+
+<div id="fig16" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig16", "{{ site.baseurl }}/assets/fig_json/fig16.json");</script>
+
+<div id="fig17" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig17", "{{ site.baseurl }}/assets/fig_json/fig17.json");</script>
+
+<div id="fig18" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig18", "{{ site.baseurl }}/assets/fig_json/fig18.json");</script>
+
+<div id="fig19" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig19", "{{ site.baseurl }}/assets/fig_json/fig19.json");</script>
+
+<div id="fig20" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig20", "{{ site.baseurl }}/assets/fig_json/fig20.json");</script>
+
+<div id="fig21" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig21", "{{ site.baseurl }}/assets/fig_json/fig21.json");</script>
+
+<div id="fig22" style="width:100%; height:520px;"></div>
+<script>renderMplExport("fig22", "{{ site.baseurl }}/assets/fig_json/fig22.json");</script>
+
+
+
+
 
 # Header 1
 
