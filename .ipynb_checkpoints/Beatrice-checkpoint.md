@@ -49,99 +49,163 @@ function renderMplExport(divId, jsonPath) {
     .then(r => r.json())
     .then(d => {
 
-      /* =========================================================
-         CASE 1 — DATAFRAME EXPORT (stacked area, cumulative plots)
-         ========================================================= */
-      if (d.type === "dataframe") {
+      /* =========================
+         DATAFRAME EXPORTS (d.type === "dataframe")
+         ========================= */
+
+      // 1) stacked area / cumulative / multi-line (your fig01/fig05-like exports)
+      if (d.type === "dataframe" && (d.kind === "line" || d.kind === "stacked" || !d.kind) && d.series && d.x) {
+        const isStacked = (d.kind === "stacked");
         const traces = d.series.map(s => ({
           x: d.x,
           y: s.y,
           name: s.name,
           type: "scatter",
           mode: "lines",
-          stackgroup: "one"
+          ...(isStacked ? { stackgroup: "one" } : {})
         }));
-
-        Plotly.newPlot(
-          divId,
-          traces,
-          {
-            title: d.title || "",
-            xaxis: { title: "" },
-            yaxis: { title: d.ylabel || "" }
-          },
-          { responsive: true }
-        );
+        Plotly.newPlot(divId, traces, {
+          title: d.title || "",
+          xaxis: { title: d.xlabel || "" },
+          yaxis: { title: d.ylabel || "" }
+        }, { responsive: true });
         return;
       }
 
-      /* =========================================================
-         CASE 2 — MATPLOTLIB EXPORT (lines, scatters, bars, subplots)
-         ========================================================= */
-      const traces = [];
+      // 2) horizontal bar with zero line (fig09/fig11)
+      if (d.type === "dataframe" && d.kind === "barh_zero") {
+        Plotly.newPlot(divId, [{
+          x: d.values,
+          y: d.categories,
+          type: "bar",
+          orientation: "h"
+        }], {
+          title: d.title || "",
+          xaxis: { title: d.xlabel || "", zeroline: true },
+          shapes: [{
+            type: "line",
+            x0: d.zero_line ?? 0, x1: d.zero_line ?? 0,
+            y0: -0.5, y1: d.categories.length - 0.5,
+            line: { color: "black", width: 1, dash: "dash" }
+          }]
+        }, { responsive: true });
+        return;
+      }
 
-      (d.axes || []).forEach((ax, axIndex) => {
+      // 3) horizontal bar with hover p-value (your final fig09 version)
+      if (d.type === "dataframe" && d.kind === "barh_hover_pvalue") {
+        const hoverText = d.categories.map((c, i) =>
+          `${c}<br>` +
+          `High − Low: ${Number(d.values[i]).toFixed(2)}% per year<br>` +
+          `p-value: ${Number(d.p_values[i]).toExponential(2)}`
+        );
+        Plotly.newPlot(divId, [{
+          x: d.values,
+          y: d.categories,
+          type: "bar",
+          orientation: "h",
+          hovertext: hoverText,
+          hoverinfo: "text"
+        }], {
+          title: d.title || "",
+          xaxis: { title: d.xlabel || "", zeroline: true },
+          shapes: [{
+            type: "line",
+            x0: d.zero_line ?? 0, x1: d.zero_line ?? 0,
+            y0: -0.5, y1: d.categories.length - 0.5,
+            line: { color: "black", width: 1 }
+          }]
+        }, { responsive: true });
+        return;
+      }
 
-        // Lines
-        (ax.lines || []).forEach(l => {
-          traces.push({
-            x: l.x,
-            y: l.y,
-            name: l.label || "",
-            type: "scatter",
-            mode: "lines"
-          });
-        });
+      // 4) scatter with labels (fig07)
+      if (d.type === "dataframe" && d.kind === "scatter_label") {
+        Plotly.newPlot(divId, [{
+          x: d.points.map(p => p.x),
+          y: d.points.map(p => p.y),
+          text: d.points.map(p => p.name),
+          mode: "markers+text",
+          textposition: "top center",
+          type: "scatter"
+        }], {
+          title: d.title || "",
+          xaxis: { title: d.xlabel || "Market beta (NASDAQ)", zeroline: true },
+          yaxis: { title: d.ylabel || "", zeroline: true }
+        }, { responsive: true });
+        return;
+      }
 
-        // Filled polygons (areas exported from matplotlib)
-        (ax.polygons || []).forEach(pg => {
-          (pg.polys || []).forEach(p => {
-            traces.push({
-              x: p.x,
-              y: p.y,
-              type: "scatter",
-              mode: "lines",
-              fill: "toself",
-              name: pg.label || ""
+      // 5) line with horizontal thresholds (fig08)
+      if (d.type === "dataframe" && d.kind === "line_thresholds") {
+        const traces = [{
+          x: d.x,
+          y: d.series[0].y,
+          name: d.series[0].name || "Series",
+          type: "scatter",
+          mode: "lines",
+          line: { width: 2 }
+        }];
+
+        // thresholds can be either array of numbers OR array of {y,label,color}
+        if (Array.isArray(d.thresholds)) {
+          if (typeof d.thresholds[0] === "number") {
+            d.thresholds.forEach((t, i) => {
+              traces.push({
+                x: [d.x[0], d.x[d.x.length - 1]],
+                y: [t, t],
+                type: "scatter",
+                mode: "lines",
+                name: (d.threshold_labels && d.threshold_labels[i]) ? d.threshold_labels[i] : `threshold ${i+1}`,
+                line: { dash: "dash" }
+              });
             });
-          });
-        });
+          } else {
+            d.thresholds.forEach(t => {
+              traces.push({
+                x: [d.x[0], d.x[d.x.length - 1]],
+                y: [t.y, t.y],
+                type: "scatter",
+                mode: "lines",
+                name: t.label || "threshold",
+                line: { dash: "dash", color: t.color || undefined }
+              });
+            });
+          }
+        }
 
-        // Bars
-        (ax.bars || []).forEach(b => {
-          traces.push({
-            x: [b.x],
-            y: [b.height],
-            type: "bar",
-            name: ""
-          });
-        });
+        Plotly.newPlot(divId, traces, {
+          title: d.title || "",
+          xaxis: { title: d.xlabel || "" },
+          yaxis: { title: d.ylabel || "" }
+        }, { responsive: true });
+        return;
+      }
 
-        // Scatter points
-        (ax.scatters || []).forEach(s => {
-          traces.push({
-            x: s.x,
-            y: s.y,
-            name: s.label || "",
-            type: "scatter",
-            mode: "markers"
-          });
-        });
-      });
+      // 6) horizontal errorbar with zero line (fig03-like if you export as errorbar, and fig12 if you keep it)
+      if (d.type === "dataframe" && d.kind === "errorbar_h_zero") {
+        Plotly.newPlot(divId, [{
+          x: d.x,
+          y: d.categories,
+          type: "scatter",
+          mode: "markers",
+          error_x: { type: "data", symmetric: false, array: d.xerr_high, arrayminus: d.xerr_low }
+        }], {
+          title: d.title || "",
+          xaxis: { title: d.xlabel || "", zeroline: true }
+        }, { responsive: true });
+        return;
+      }
 
-      Plotly.newPlot(
-        divId,
-        traces,
-        {
-          title: d.axes?.[0]?.title || "",
-          xaxis: { title: d.axes?.[0]?.xlabel || "" },
-          yaxis: { title: d.axes?.[0]?.ylabel || "" }
-        },
-        { responsive: true }
-      );
+      // Fallback: show something readable instead of blank
+      Plotly.newPlot(divId, [], {
+        title: "Unsupported JSON format",
+        annotations: [{ text: `Unknown payload: type=${d.type}, kind=${d.kind}`, showarrow: false }]
+      }, { responsive: true });
     });
 }
 </script>
+
 
 
 
@@ -173,16 +237,6 @@ List
 
 **bold**
 
-
-<div id="fig01" style="width:100%; height:500px;"></div>
-
-<script>
-fetch("{{ site.baseurl }}/assets/fig_json/fig01.json")
-  .then(r => r.json())
-  .then(fig => {
-    Plotly.newPlot("fig01", fig.data, fig.layout, { responsive: true });
-  });
-</script>
 
 
 
