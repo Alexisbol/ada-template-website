@@ -136,21 +136,38 @@ function renderMplExport(divId, jsonPath) {
         return;
       }
 
-      // horizontal error bars with zero line (fig12 style; safe even if you removed it)
-      if (d.type === "dataframe" && d.kind === "errorbar_h_zero") {
-        Plotly.newPlot(divId, [{
-          x: d.x,
-          y: d.categories,
-          type: "scatter",
-          mode: "markers",
-          error_x: { type: "data", symmetric: false, array: d.xerr_high, arrayminus: d.xerr_low }
-        }], {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "", zeroline: true },
-          yaxis: { automargin: true }
-        }, { responsive: true });
-        return;
-      }
+
+    // horizontal error bars with zero line (fig03 style)
+    if (d.type === "dataframe" && d.kind === "errorbar_h_zero") {
+      const n = (d.categories || []).length;
+    
+      Plotly.newPlot(divId, [{
+        x: d.x,
+        y: d.categories,
+        type: "scatter",
+        mode: "markers",
+        error_x: {
+          type: "data",
+          symmetric: true,
+          array: d.xerr   // ✅ single symmetric CI array
+        }
+      }], {
+        title: d.title || "",
+        xaxis: { title: d.xlabel || "", zeroline: false },
+        yaxis: { automargin: true },
+        shapes: [{
+          type: "line",
+          x0: d.zero_line ?? 0,
+          x1: d.zero_line ?? 0,
+          y0: -0.5,
+          y1: n - 0.5,
+          line: { color: "black", width: 1, dash: "dash" }
+        }]
+      }, { responsive: true });
+    
+      return;
+    }
+            
 
       /* =======================
          MATPLOTLIB EXPORTS
