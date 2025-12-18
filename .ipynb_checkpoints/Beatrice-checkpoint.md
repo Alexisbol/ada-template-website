@@ -503,9 +503,15 @@ function renderMplExport(divId, jsonPath) {
               autorange: "reversed"   // ✅ matches matplotlib barh order
             },
             annotations: ann,
-            legend: { x: 1, xanchor: "right", y: 0, yanchor: "bottom" },
-            margin: { t: 70, b: 70, r: 70 },
-          }, { responsive: true });
+            legend: {
+              orientation: "h",
+              x: 0.5,
+              xanchor: "center",
+              y: -0.35
+            },
+            margin: { t: 70, b: 170, l: 140, r: 60 },
+            height: 650,
+
         
           return;
         }
@@ -738,8 +744,10 @@ There should be whitespace between paragraphs. We recommend including a README, 
   renderMplExport("fig21", "{{ site.baseurl }}/assets/fig_json/fig21.json");
 </script>
 
-<div id="fig22" style="width:100%; height:560px;"></div>
-<script>renderMplExport("fig22", "{{ site.baseurl }}/assets/fig_json/fig22.json");</script>
+<div id="fig22" style="width:100%; height:700px;"></div>
+<script>
+  renderMplExport("fig22", "{{ site.baseurl }}/assets/fig_json/fig22.json");
+</script>
 
 
 
