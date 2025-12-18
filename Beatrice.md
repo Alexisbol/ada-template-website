@@ -204,8 +204,28 @@ function renderMplExport(divId, jsonPath) {
           return;
         }
 
+                
+        // boxplot from raw grouped values (fig04 style)
+        if (d.type === "dataframe" && d.kind === "box_raw") {
+          const traces = (d.groups || []).map(g => ({
+            type: "box",
+            name: g.name,
+            y: g.y,
+            boxpoints: "outliers"   // shows the circles like seaborn
+          }));
         
+          Plotly.newPlot(divId, traces, {
+            title: d.title || "",
+            xaxis: { title: d.xlabel || "" },
+            yaxis: { title: d.ylabel || "" }
+          }, { responsive: true });
+        
+          return;
+        }
 
+
+
+        
       /* =======================
          MATPLOTLIB EXPORTS
          ======================= */
