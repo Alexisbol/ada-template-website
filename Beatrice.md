@@ -343,6 +343,52 @@ function renderMplExport(divId, jsonPath) {
           return;
         }
 
+
+        // scatter with categorical y + p-value annotations + vertical zero line (fig18 style)
+        if (d.type === "dataframe" && d.kind === "scatter_labels_zero_p") {
+          const x = (d.x || []).map(Number);
+          const cats = d.categories || [];
+          const p = d.p_values || [];
+        
+          const trace = {
+            x: x,
+            y: cats,
+            type: "scatter",
+            mode: "markers+text",
+            text: p.map(v => {
+              const pn = Number(v);
+              if (!isFinite(pn)) return "";
+              return "p=" + pn.toPrecision(3);
+            }),
+            textposition: "middle right",
+            marker: { size: 10 },
+            hovertemplate: "<b>%{y}</b><br>x=%{x:.4f}<extra></extra>"
+          };
+        
+          // span the categorical axis safely
+          const y0 = -0.5;
+          const y1 = cats.length - 0.5;
+        
+          Plotly.newPlot(divId, [trace], {
+            title: d.title || "",
+            xaxis: { title: d.xlabel || "", zeroline: false },
+            yaxis: { automargin: true, type: "category" },
+            shapes: [{
+              type: "line",
+              x0: d.zero_x ?? 0, x1: d.zero_x ?? 0,
+              y0: y0, y1: y1,
+              xref: "x",
+              yref: "y",
+              line: { color: "black", width: 1, dash: "dash" }
+            }]
+          }, { responsive: true });
+        
+          return;
+        }
+
+
+        
+
         
       /* =======================
          MATPLOTLIB EXPORTS
@@ -414,6 +460,36 @@ function renderMplExport(divId, jsonPath) {
 }
 
 
+function renderSectorPickerDualAxis(divId, jsonPath, selectId) {
+  fetch(jsonPath).then(r => r.json()).then(d => {
+    const sel = document.getElementById(selectId);
+    sel.innerHTML = "";
+    (d.sectors || []).forEach(s => {
+      const opt = document.createElement("option");
+      opt.value = s; opt.textContent = s;
+      sel.appendChild(opt);
+    });
+
+    function draw(sector) {
+      const trFed = { x: d.x, y: d.fed.y, type:"scatter", mode:"lines", name:d.fed.name, yaxis:"y1" };
+      const trVol = { x: d.x, y: d.vol.by_sector[sector], type:"scatter", mode:"lines", name:d.vol.name, yaxis:"y2" };
+
+      Plotly.newPlot(divId, [trFed, trVol], {
+        title: d.title || "",
+        xaxis: { title: d.xlabel || "" },
+        yaxis: { title: "ΔFedRate", range: d.fed.ylim, zeroline: true },
+        yaxis2: { title: "Volatility", range: d.vol.ylim, overlaying: "y", side: "right", zeroline: true },
+        legend: { orientation: "h" }
+      }, { responsive: true });
+    }
+
+    sel.onchange = () => draw(sel.value);
+    sel.value = d.sectors?.[0] || "";
+    draw(sel.value);
+  });
+}
+renderSectorPickerDualAxis("fig19", "{{ site.baseurl }}/assets/fig_json/fig19.json", "fig19_sector");
+    
 </script>
 
 
@@ -495,6 +571,8 @@ There should be whitespace between paragraphs. We recommend including a README, 
   renderMplExport("fig12", "{{ site.baseurl }}/assets/fig_json/fig12.json");
 </script>
 
+<!--
+
 <div id="fig13" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig13", "{{ site.baseurl }}/assets/fig_json/fig13.json");</script>
 
@@ -507,14 +585,29 @@ There should be whitespace between paragraphs. We recommend including a README, 
 <div id="fig16" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig16", "{{ site.baseurl }}/assets/fig_json/fig16.json");</script>
 
+-->
+
 <div id="fig17" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig17", "{{ site.baseurl }}/assets/fig_json/fig17.json");</script>
 
 <div id="fig18" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig18", "{{ site.baseurl }}/assets/fig_json/fig18.json");</script>
 
+<div style="margin:10px 0;">
+  <label for="fig19_sector"><b>Sector:</b></label>
+  <select id="fig19_sector"></select>
+</div>
+
 <div id="fig19" style="width:100%; height:520px;"></div>
-<script>renderMplExport("fig19", "{{ site.baseurl }}/assets/fig_json/fig19.json");</script>
+
+<script>
+  renderSectorPickerDualAxis(
+    "fig19",
+    "{{ site.baseurl }}/assets/fig_json/fig19.json",
+    "fig19_sector"
+  );
+</script>
+
 
 <div id="fig20" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig20", "{{ site.baseurl }}/assets/fig_json/fig20.json");</script>
