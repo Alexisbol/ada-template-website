@@ -1,1 +1,1 @@
-{"type": "matplotlib_export", "axes": [], "figure_id": "fig21"}
+{"type": "matplotlib_export", "figure_id": "fig21", "axes": [{"ax_index": 0, "title": "Additional explanatory power from VXN + volatility persistence", "xlabel": "ΔR² = R²(controlled) − R²(naive)", "ylabel": "", "xlim": [0.0, 0.6688108639479967], "ylim": [-0.8400000000000001, 8.84], "lines": [{"label": "_child9", "x": [0, 0], "y": [0, 1]}], "scatters": [], "bars": [], "polygons": []}]}
