@@ -105,7 +105,7 @@ fig.add_trace(
         x=[None], y=[None],
         mode='lines',
         line=dict(color='#ff0000', width=6),
-        name='Rate increases (red)'
+        name='Positive FED event - Rate increases (red)'
     )
 )
 fig.add_trace(
@@ -113,7 +113,7 @@ fig.add_trace(
         x=[None], y=[None],
         mode='lines',
         line=dict(color='#00cc00', width=6),
-        name='Rate decreases (green)'
+        name='Negative FED event - Rate decreases (green)'
     )
 )
 
