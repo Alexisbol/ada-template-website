@@ -42,43 +42,107 @@ layout: default
 
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
+
 <script>
 function renderMplExport(divId, jsonPath) {
   fetch(jsonPath)
     .then(r => r.json())
     .then(d => {
-      const layout = {
-        title: (d.axes?.[0]?.title || ""),
-        xaxis: { title: (d.axes?.[0]?.xlabel || "") },
-        yaxis: { title: (d.axes?.[0]?.ylabel || "") }
-      };
 
+      /* =========================================================
+         CASE 1 — DATAFRAME EXPORT (stacked area, cumulative plots)
+         ========================================================= */
+      if (d.type === "dataframe") {
+        const traces = d.series.map(s => ({
+          x: d.x,
+          y: s.y,
+          name: s.name,
+          type: "scatter",
+          mode: "lines",
+          stackgroup: "one"
+        }));
+
+        Plotly.newPlot(
+          divId,
+          traces,
+          {
+            title: d.title || "",
+            xaxis: { title: "" },
+            yaxis: { title: d.ylabel || "" }
+          },
+          { responsive: true }
+        );
+        return;
+      }
+
+      /* =========================================================
+         CASE 2 — MATPLOTLIB EXPORT (lines, scatters, bars, subplots)
+         ========================================================= */
       const traces = [];
-      (d.axes || []).forEach((ax, i) => {
-        // lines
+
+      (d.axes || []).forEach((ax, axIndex) => {
+
+        // Lines
         (ax.lines || []).forEach(l => {
-          traces.push({ x: l.x, y: l.y, name: l.label || "", type: "scatter", mode: "lines" });
-        });
-        // polygons (stacked areas) — draw as filled shapes
-        (ax.polygons || []).forEach(pg => {
-          (pg.polys || []).forEach(p => {
-            traces.push({ x: p.x, y: p.y, type: "scatter", mode: "lines", fill: "toself", name: pg.label || "" });
+          traces.push({
+            x: l.x,
+            y: l.y,
+            name: l.label || "",
+            type: "scatter",
+            mode: "lines"
           });
         });
-        // bars
-        (ax.bars || []).forEach(b => {
-          traces.push({ x: [b.x], y: [b.height], type: "bar", name: "" });
+
+        // Filled polygons (areas exported from matplotlib)
+        (ax.polygons || []).forEach(pg => {
+          (pg.polys || []).forEach(p => {
+            traces.push({
+              x: p.x,
+              y: p.y,
+              type: "scatter",
+              mode: "lines",
+              fill: "toself",
+              name: pg.label || ""
+            });
+          });
         });
-        // scatters
+
+        // Bars
+        (ax.bars || []).forEach(b => {
+          traces.push({
+            x: [b.x],
+            y: [b.height],
+            type: "bar",
+            name: ""
+          });
+        });
+
+        // Scatter points
         (ax.scatters || []).forEach(s => {
-          traces.push({ x: s.x, y: s.y, name: s.label || "", type: "scatter", mode: "markers" });
+          traces.push({
+            x: s.x,
+            y: s.y,
+            name: s.label || "",
+            type: "scatter",
+            mode: "markers"
+          });
         });
       });
 
-      Plotly.newPlot(divId, traces, layout, { responsive: true });
+      Plotly.newPlot(
+        divId,
+        traces,
+        {
+          title: d.axes?.[0]?.title || "",
+          xaxis: { title: d.axes?.[0]?.xlabel || "" },
+          yaxis: { title: d.axes?.[0]?.ylabel || "" }
+        },
+        { responsive: true }
+      );
     });
 }
 </script>
+
 
 
 <div class="top-nav">
