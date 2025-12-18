@@ -441,7 +441,9 @@ function renderMplExport(divId, jsonPath) {
           return;
         }
             
-        // stacked horizontal bars + star annotations (fig22 style)
+       
+        
+        // stacked horizontal bars + star annotations (fig22 style) — FIXED
         if (d.type === "dataframe" && d.kind === "barh_stacked_star") {
           const cats = d.categories || [];
           const macro = (d.macro || []).map(Number);
@@ -451,18 +453,18 @@ function renderMplExport(divId, jsonPath) {
           const t1 = {
             x: macro, y: cats,
             type: "bar", orientation: "h",
-            name: d.labels?.macro || "Macro",
+            name: d.labels?.macro || "Macro risk + volatility persistence",
             hovertemplate: "<b>%{y}</b><br>Macro: %{x:.3f}<extra></extra>"
           };
         
           const t2 = {
             x: fed, y: cats,
             type: "bar", orientation: "h",
-            name: d.labels?.fed_inc || "Fed incremental",
+            name: d.labels?.fed_inc || "Incremental Fed contribution (given macro)",
             hovertemplate: "<b>%{y}</b><br>Fed inc: %{x:.3f}<extra></extra>"
           };
         
-          // star annotations placed slightly to the right of total bar
+          // Stars: anchor explicitly to x/y axes, and disable clipping
           const ann = [];
           for (let i = 0; i < cats.length; i++) {
             if (star[i]) {
@@ -470,9 +472,13 @@ function renderMplExport(divId, jsonPath) {
               ann.push({
                 x: tot + 0.01,
                 y: cats[i],
+                xref: "x",
+                yref: "y",
                 text: "*",
                 showarrow: false,
-                font: { size: 18 }
+                font: { size: 18 },
+                xanchor: "left",
+                align: "left"
               });
             }
           }
@@ -480,16 +486,23 @@ function renderMplExport(divId, jsonPath) {
           Plotly.newPlot(divId, [t1, t2], {
             title: d.title || "",
             barmode: "stack",
-            xaxis: { title: d.xlabel || "", zeroline: false, showgrid: true, griddash: "dot" },
-            yaxis: { automargin: true, type: "category" },
+            xaxis: {
+              title: d.xlabel || "",
+              zeroline: false,
+              showgrid: true
+            },
+            yaxis: {
+              automargin: true,
+              type: "category",
+              autorange: "reversed"   // ✅ matches matplotlib barh order
+            },
             annotations: ann,
             legend: { x: 1, xanchor: "right", y: 0, yanchor: "bottom" },
-            margin: { t: 70, b: 70 }
+            margin: { t: 70, b: 70, r: 70 },
           }, { responsive: true });
         
           return;
         }
-
                     
 
         
