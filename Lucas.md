@@ -220,7 +220,7 @@ Through the different aspect of this research question we have defined a fully f
     pair1: [
       {
         label: "Accuracy",
-        json: "{{ site.baseurl/data/test_lucas.json",
+        json: "{{ site.baseurl }}/data/test_lucas.json",
         title: "Model Accuracy",
         yRange: [0, 1]
       },
@@ -247,8 +247,7 @@ Through the different aspect of this research question we have defined a fully f
   }
 
   const pairTexts = {
-  pair1: "pair 1 blabla",
-  pair2: "pair 2 blabla"
+  pair1: "pair 1 blabla"
   };
 
 
