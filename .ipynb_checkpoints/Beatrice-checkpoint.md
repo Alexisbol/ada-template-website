@@ -260,7 +260,7 @@ function renderMplExport(divId, jsonPath) {
           return;
         }
 
-
+/*
         // horizontal bars with hover p-values + zero line (fig09 style)
         if (d.type === "dataframe" && d.kind === "barh_hover_pvalue") {
         
@@ -276,7 +276,7 @@ function renderMplExport(divId, jsonPath) {
               if (!isFinite(pn)) return "";
               return "p = " + pn.toExponential(2);
             }),
-
+*/
               
             hovertemplate:
               "<b>%{y}</b><br>" +
