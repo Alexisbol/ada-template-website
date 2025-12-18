@@ -386,6 +386,60 @@ function renderMplExport(divId, jsonPath) {
           return;
         }
 
+        
+        // dumbbell: naive vs controlled (fig20 style)
+        if (d.type === "dataframe" && d.kind === "dumbbell_naive_controlled") {
+          const cats = d.categories || [];
+          const x1 = (d.x_naive || []).map(Number);
+          const x2 = (d.x_ctrl || []).map(Number);
+        
+          // segments (one trace with gaps)
+          const segX = [];
+          const segY = [];
+          for (let i = 0; i < cats.length; i++) {
+            segX.push(x1[i], x2[i], null);
+            segY.push(cats[i], cats[i], null);
+          }
+        
+          const traces = [
+            {
+              x: segX, y: segY,
+              type: "scatter", mode: "lines",
+              name: "",
+              hoverinfo: "skip",
+              line: { width: 1 },
+              showlegend: false
+            },
+            {
+              x: x1, y: cats,
+              type: "scatter", mode: "markers",
+              name: d.name_naive || "Naive",
+              hovertemplate: "<b>%{y}</b><br>Naive: %{x:.3f}<extra></extra>"
+            },
+            {
+              x: x2, y: cats,
+              type: "scatter", mode: "markers",
+              name: d.name_ctrl || "Controlled",
+              hovertemplate: "<b>%{y}</b><br>Controlled: %{x:.3f}<extra></extra>"
+            }
+          ];
+        
+          Plotly.newPlot(divId, traces, {
+            title: d.title || "",
+            xaxis: { title: d.xlabel || "", zeroline: false, showgrid: true, griddash: "dot" },
+            yaxis: { automargin: true, type: "category" },
+            shapes: [{
+              type: "line",
+              x0: d.zero_line ?? 0, x1: d.zero_line ?? 0,
+              y0: -0.5, y1: cats.length - 0.5,
+              line: { color: "black", width: 1, dash: "dash" }
+            }],
+            legend: { orientation: "h", x: 0.5, xanchor: "center", y: -0.22 },
+            margin: { t: 70, b: 110 }   // ✅ espace pour la légende vs xlabel
+          }, { responsive: true });
+        
+          return;
+        }
 
         
 
@@ -608,9 +662,9 @@ There should be whitespace between paragraphs. We recommend including a README, 
   );
 </script>
 
-
-<div id="fig20" style="width:100%; height:520px;"></div>
+<div id="fig20" style="width:100%; height:560px;"></div>
 <script>renderMplExport("fig20", "{{ site.baseurl }}/assets/fig_json/fig20.json");</script>
+
 
 <div id="fig21" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig21", "{{ site.baseurl }}/assets/fig_json/fig21.json");</script>
