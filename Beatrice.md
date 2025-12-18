@@ -440,8 +440,57 @@ function renderMplExport(divId, jsonPath) {
         
           return;
         }
-
+            
+        // stacked horizontal bars + star annotations (fig22 style)
+        if (d.type === "dataframe" && d.kind === "barh_stacked_star") {
+          const cats = d.categories || [];
+          const macro = (d.macro || []).map(Number);
+          const fed = (d.fed_inc || []).map(Number);
+          const star = d.star || [];
         
+          const t1 = {
+            x: macro, y: cats,
+            type: "bar", orientation: "h",
+            name: d.labels?.macro || "Macro",
+            hovertemplate: "<b>%{y}</b><br>Macro: %{x:.3f}<extra></extra>"
+          };
+        
+          const t2 = {
+            x: fed, y: cats,
+            type: "bar", orientation: "h",
+            name: d.labels?.fed_inc || "Fed incremental",
+            hovertemplate: "<b>%{y}</b><br>Fed inc: %{x:.3f}<extra></extra>"
+          };
+        
+          // star annotations placed slightly to the right of total bar
+          const ann = [];
+          for (let i = 0; i < cats.length; i++) {
+            if (star[i]) {
+              const tot = (macro[i] || 0) + (fed[i] || 0);
+              ann.push({
+                x: tot + 0.01,
+                y: cats[i],
+                text: "*",
+                showarrow: false,
+                font: { size: 18 }
+              });
+            }
+          }
+        
+          Plotly.newPlot(divId, [t1, t2], {
+            title: d.title || "",
+            barmode: "stack",
+            xaxis: { title: d.xlabel || "", zeroline: false, showgrid: true, griddash: "dot" },
+            yaxis: { automargin: true, type: "category" },
+            annotations: ann,
+            legend: { x: 1, xanchor: "right", y: 0, yanchor: "bottom" },
+            margin: { t: 70, b: 70 }
+          }, { responsive: true });
+        
+          return;
+        }
+
+                    
 
         
       /* =======================
@@ -665,11 +714,12 @@ There should be whitespace between paragraphs. We recommend including a README, 
 <div id="fig20" style="width:100%; height:560px;"></div>
 <script>renderMplExport("fig20", "{{ site.baseurl }}/assets/fig_json/fig20.json");</script>
 
-
 <div id="fig21" style="width:100%; height:520px;"></div>
-<script>renderMplExport("fig21", "{{ site.baseurl }}/assets/fig_json/fig21.json");</script>
+<script>
+  renderMplExport("fig21", "{{ site.baseurl }}/assets/fig_json/fig21.json");
+</script>
 
-<div id="fig22" style="width:100%; height:520px;"></div>
+<div id="fig22" style="width:100%; height:560px;"></div>
 <script>renderMplExport("fig22", "{{ site.baseurl }}/assets/fig_json/fig22.json");</script>
 
 
