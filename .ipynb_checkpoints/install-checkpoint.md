@@ -27,8 +27,7 @@ bundle exec jekyll serve
 Download and install Ruby from [RubyInstaller](https://rubyinstaller.org/).
 
 ### Install Jekyll and Bundler
-Open a **
-** (search with windows button and type ruby) and run:
+Open a **command prompt with ruby** (search with windows button and type ruby) and run:
 ```
 gem install jekyll bundler
 bundle install
