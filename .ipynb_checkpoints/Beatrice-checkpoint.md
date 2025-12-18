@@ -43,7 +43,7 @@ layout: default
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
 
-<!--
+
 
 <script>
  
@@ -385,7 +385,7 @@ function renderMplExport(divId, jsonPath) {
 
 </script>
 
--->
+
 
 
 
