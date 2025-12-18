@@ -54,32 +54,23 @@ function renderMplExport(divId, jsonPath) {
          ========================= */
 
       // line (NOT stacked)
-      if (d.type === "dataframe" && d.kind === "line") {
-        const traces = (d.series || []).map(s => ({
-          x: d.x, y: s.y, name: s.name,
-          type: "scatter", mode: "lines"
-        }));
-        Plotly.newPlot(divId, traces, {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "" },
-          yaxis: { title: d.ylabel || "" }
-        }, { responsive: true });
-        return;
-      }
+    
+    if (d.type === "dataframe" && d.kind === "line") {
+      const traces = d.series.map(s => ({
+        x: d.x, y: s.y, name: s.name, type: "scatter", mode: "lines"
+      }));
+      Plotly.newPlot(divId, traces, {...}, {responsive:true});
+      return;
+    }
+    
+    if (d.type === "dataframe" && d.kind === "stacked") {
+      const traces = d.series.map(s => ({
+        x: d.x, y: s.y, name: s.name, type: "scatter", mode: "lines", stackgroup: "one"
+      }));
+      Plotly.newPlot(divId, traces, {...}, {responsive:true});
+      return;
+    }
 
-      // stacked area
-      if (d.type === "dataframe" && d.kind === "stacked") {
-        const traces = (d.series || []).map(s => ({
-          x: d.x, y: s.y, name: s.name,
-          type: "scatter", mode: "lines", stackgroup: "one"
-        }));
-        Plotly.newPlot(divId, traces, {
-          title: d.title || "",
-          xaxis: { title: d.xlabel || "" },
-          yaxis: { title: d.ylabel || "" }
-        }, { responsive: true });
-        return;
-      }
 
       // boxplot (fig04)
       if (d.type === "dataframe" && d.kind === "box") {
