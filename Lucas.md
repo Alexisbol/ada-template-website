@@ -158,6 +158,11 @@ Through the different aspect of this research question we have defined a fully f
     max-height: 140px;
     overflow-y: auto;
     border-top: 1px solid #aaa;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 50;
     }
 
    .menu-content div {
@@ -203,8 +208,10 @@ Through the different aspect of this research question we have defined a fully f
     .menu-bar {
         display: flex;
         justify-content: flex-start;
-        gap: 10px;  
+        gap: 20px;  
         margin-bottom: 10px;
+        position: relative;
+        z-index 100;
     }
 
 </style>
