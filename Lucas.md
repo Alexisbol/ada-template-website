@@ -126,8 +126,7 @@ Through the different aspect of this research question we have defined a fully f
     }
 
     .menu {
-    position: absolute;
-    top: 10px;
+    position: relative;
     min-width: 160px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #aaa;
@@ -205,6 +204,7 @@ Through the different aspect of this research question we have defined a fully f
         display: flex;
         justify-content: flex-start;
         gap: 10px;  
+        margin-bottom: 10px;
     }
 
 </style>
