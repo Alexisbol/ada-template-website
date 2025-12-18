@@ -96,7 +96,7 @@ On a side note, we also defined a feature called Dollar Return as the product be
 
 One key ingredient is missing to the pipeline so far. Everything mentioned combined only offers an automized way to get pairs of companies with the most intersting properties of similarity for our analysis, but it never guarantees the existence of the statistical significance of said properties. What we mean is the fact that we merely sort the pairs based on a similarity and dissimilarity score to get companies the most similar at the beginning and most different at the end of the event, but nothing in the process guarantees that these difference are statistically significative. 
 
-The solution found was to introduce different t-test at different steps of the pipeline to study their p values. In that sense we have t-test for the evolution of the feature of the company, in order to quantify a real impact on these features. In addition we have t-test comparing both companies on the start and end windows of the event to test the significance of the start similarity and end dissimilarity mentionned previously.
+The solution found was to introduce different t-test at different steps of the pipeline to study their p values. In that sense we have t-test for the evolution of the feature of the company, in order to quantify a real impact on these features. For the sake of simplicity afterwards we refer to associated p values as "pvd" as in p value of the difference in the evolution of the features. In addition we have t-test comparing both companies on the start and end windows of the event to test the significance of the start similarity and end dissimilarity mentionned previously. Again for the sake of simplicity we refer to associated p values as "pvs" for the start and "pve" for the end.
 
 These tests allow us to only discuss significant changes in the behavior of the companies, but not to assess the role of the fed rates in those changes. A last step towards the relevance of our results was then to introduce correlations and linear regressions to study the link between these evolutions in the features of the company and the evolution of the fed rate.
 
@@ -262,7 +262,7 @@ Through the different aspect of this research question we have defined a fully f
 const pairs = {
   "ARAY vs DVA": {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
-    description: "<b> ARAY vs DVA — Healthcare sector </b> <br> test"
+    description: "<b> ARAY vs DVA — Healthcare sector </b> <br> <br> <i>Accuracy INC</i> <br>  <i>Davita INC</i> <br> pvd : 0.037 <br> <br> pvs : 0.883 <br> pve : 0.002 <br> <br> We can see a sharper and more sustained drop in dollar return for ARAY <br> <br>   "
   },
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
