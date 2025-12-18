@@ -53,7 +53,7 @@ layout: default
     </div>
 </div>
 
-# def fed events (+ parameters in our dataset) (Alexis)
+## def fed events (+ parameters in our dataset) (Alexis)
 We want to focus our analysis on specific Federal Reserve interest rate events.
 Specifically, we aim to detect periods in which the Fed rate experiences a **substantial increase or decrease**, followed by a **stable phase lasting a few days**.  
 This allows us to study market behavior during intervals when the interest rate remains constant — ensuring that our observations are not influenced by additional policy changes occurring in the same timeframe.
@@ -163,7 +163,7 @@ This allows us to study market behavior during intervals when the interest rate 
 
 We can indeed see that the algorithm has indentified recession, for example in 2001, 2008 or 2019 where we see a lot of green (negative Fed events) as the Fed was trying to stimulate the economy.
 
-# ETF / stock (method & results & graphs & interpretation / intuition)
+## ETF / stock (method & results & graphs & interpretation / intuition)
 
 1. Identify for rate signals (see previous explanation)
 2. Map etf and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
@@ -311,9 +311,9 @@ Now, let’s focus on the Negative fed event. We can see the same trend for Cons
 
 However, for Industrial, ETF are winning, same in technology.
 
-# TODO ADD eplanation...
+## TODO ADD eplanation...
 
-# ADD last interactive cool plot to see companies reacting well to positive or/and negative FED events.
+## ADD last interactive cool plot to see companies reacting well to positive or/and negative FED events.
 ## This but interactive
 
 <img src="{{ site.baseurl }}/assets/img/comparaison_fed_event_companies.png" alt="Fed Rate Event Results Table" style="max-width:100%; height:auto; border-radius:6px; border:1px solid #ddd; background:#fff;"/>
