@@ -183,7 +183,7 @@ Through the different aspect of this research question we have defined a fully f
     .pair-container {
     display: flex;
     justify-content: center;
-    gap: 50px;              
+    gap: 30px;              
     max-width: 1500px;
     margin: 0 auto;
     }
@@ -209,7 +209,7 @@ Through the different aspect of this research question we have defined a fully f
     .menu-bar {
         display: flex;
         justify-content: flex-start;
-        gap: 20px;  
+        gap: 50px;  
         margin-bottom: 10px;
         position: relative;
         z-index 100;
