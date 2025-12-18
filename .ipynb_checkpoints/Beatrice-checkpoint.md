@@ -42,7 +42,11 @@ layout: default
 
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
+
+<!--
+
 <script>
+ 
 function renderMplExport(divId, jsonPath) {
   fetch(jsonPath)
     .then(r => r.json())
@@ -260,7 +264,7 @@ function renderMplExport(divId, jsonPath) {
           return;
         }
 
-/*
+
         // horizontal bars with hover p-values + zero line (fig09 style)
         if (d.type === "dataframe" && d.kind === "barh_hover_pvalue") {
         
@@ -276,7 +280,7 @@ function renderMplExport(divId, jsonPath) {
               if (!isFinite(pn)) return "";
               return "p = " + pn.toExponential(2);
             }),
-*/
+
               
             hovertemplate:
               "<b>%{y}</b><br>" +
@@ -377,9 +381,11 @@ function renderMplExport(divId, jsonPath) {
       }, { responsive: true });
     });
 }
+
+
 </script>
 
-
+-->
 
 
 
