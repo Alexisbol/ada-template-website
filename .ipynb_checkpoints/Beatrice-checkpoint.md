@@ -653,6 +653,8 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
+<!--
+
 <div id="fig01" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig01", "{{ site.baseurl }}/assets/fig_json/fig01.json");</script>
 
@@ -688,7 +690,7 @@ There should be whitespace between paragraphs. We recommend including a README, 
   renderMplExport("fig12", "{{ site.baseurl }}/assets/fig_json/fig12.json");
 </script>
 
-<!--
+HERE
 
 <div id="fig13" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig13", "{{ site.baseurl }}/assets/fig_json/fig13.json");</script>
@@ -702,7 +704,7 @@ There should be whitespace between paragraphs. We recommend including a README, 
 <div id="fig16" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig16", "{{ site.baseurl }}/assets/fig_json/fig16.json");</script>
 
--->
+HERE
 
 <div id="fig17" style="width:100%; height:520px;"></div>
 <script>renderMplExport("fig17", "{{ site.baseurl }}/assets/fig_json/fig17.json");</script>
@@ -738,6 +740,7 @@ There should be whitespace between paragraphs. We recommend including a README, 
   renderMplExport("fig22", "{{ site.baseurl }}/assets/fig_json/fig22.json");
 </script>
 
+-->
 
 TEST
 
@@ -800,16 +803,22 @@ average excess performance unexplained by the market.
 <h3>Results</h3>
 
 <div class="figure-block">
-  <!-- FIG 1 -->
+  <div id="fig01" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig01", "{{ site.baseurl }}/assets/fig_json/fig01.json");</script>
 </div>
 
-<div class="figure-block">
-  <!-- FIG 4 -->
-</div>
 
 <div class="figure-block">
-  <!-- FIG 5 -->
+  <div id="fig04" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig04", "{{ site.baseurl }}/assets/fig_json/fig04.json");</script>
 </div>
+
+
+<div class="figure-block">
+  <div id="fig05" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig05", "{{ site.baseurl }}/assets/fig_json/fig05.json");</script>
+</div>
+
 
 <p>
 Cumulative returns reveal large and persistent divergence across sectors. While all sectors benefit
@@ -865,7 +874,8 @@ in the policy rate, conditional on the market. Robust standard errors are used.
 <h3>Results</h3>
 
 <div class="figure-block">
-  <!-- FIG 7 -->
+  <div id="fig07" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig07", "{{ site.baseurl }}/assets/fig_json/fig07.json");</script>
 </div>
 
 <p>
@@ -916,11 +926,16 @@ Abnormal returns are aggregated over a 3-day window to obtain cumulative abnorma
 <h3>Results</h3>
 
 <div class="figure-block">
-  <!-- FIG 11 -->
+  <div id="fig11" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig11", "{{ site.baseurl }}/assets/fig_json/fig11.json");</script>
 </div>
 
+
 <div class="figure-block">
-  <!-- FIG 12 -->
+  <div id="fig12" style="width:100%; height:520px;"></div>
+  <script>
+    renderMplExport("fig12", "{{ site.baseurl }}/assets/fig_json/fig12.json");
+  </script>
 </div>
 
 <p>
@@ -964,8 +979,10 @@ a proxy for long-term monetary conditions.
 <h3>Results</h3>
 
 <div class="figure-block">
-  <!-- FIG 2 -->
+  <div id="fig02" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig02", "{{ site.baseurl }}/assets/fig_json/fig02.json");</script>
 </div>
+
 
 <p>
 The two rates co-move closely, but the 10-year yield is smoother and forward-looking, making it
@@ -1013,16 +1030,20 @@ sector returns across regimes.
 <h3>Results</h3>
 
 <div class="figure-block">
-  <!-- FIG 3 -->
+  <div id="fig03" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig03", "{{ site.baseurl }}/assets/fig_json/fig03.json");</script>
 </div>
 
 <div class="figure-block">
-  <!-- FIG 8 -->
+  <div id="fig08" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig08", "{{ site.baseurl }}/assets/fig_json/fig08.json");</script>
 </div>
 
 <div class="figure-block">
-  <!-- FIG 9 -->
+  <div id="fig09" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig09", "{{ site.baseurl }}/assets/fig_json/fig09.json");</script>
 </div>
+
 
 <p>
 Sector performance differs sharply across rate regimes. Some sectors outperform significantly in
@@ -1148,7 +1169,8 @@ and heteroskedasticity in volatility.
 <h3>Results</h3>
 
 <div class="figure-block">
-  <!-- FIG 17 -->
+  <div id="fig17" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig17", "{{ site.baseurl }}/assets/fig_json/fig17.json");</script>
 </div>
 
 <p>
@@ -1158,8 +1180,10 @@ to zero, with confidence intervals overlapping zero. This suggests that the dire
 </p>
 
 <div class="figure-block">
-  <!-- FIG 18 -->
+  <div id="fig18" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig18", "{{ site.baseurl }}/assets/fig_json/fig18.json");</script>
 </div>
+
 
 <p>
 In contrast, the magnitude of Fed shocks is far more informative. Technology stands out with a large
@@ -1170,8 +1194,24 @@ no statistically meaningful relationship once VXN is included.
 </p>
 
 <div class="figure-block">
-  <!-- FIG 19 -->
+
+  <div style="margin:10px 0;">
+    <label for="fig19_sector"><b>Sector:</b></label>
+    <select id="fig19_sector"></select>
+  </div>
+
+  <div id="fig19" style="width:100%; height:520px;"></div>
+
+  <script>
+    renderSectorPickerDualAxis(
+      "fig19",
+      "{{ site.baseurl }}/assets/fig_json/fig19.json",
+      "fig19_sector"
+    );
+  </script>
+
 </div>
+
 
 <p>
 Time-series illustrations after 2008 further support these results. Long periods of near-zero Fed
