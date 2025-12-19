@@ -742,7 +742,8 @@ HERE
 
 -->
 
-TEST
+
+
 
 <!-- ===================== -->
 <!-- PART 1 -->
@@ -780,9 +781,10 @@ dynamics?
 <p>
 For each sector <em>s</em>, we compute log-returns:
 </p>
-<p class="math">
-r<sub>s,t</sub> = ln(P<sub>s,t</sub> / P<sub>s,t−1</sub>)
-</p>
+> <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\ln\!\left(\frac{P_{s,t}}{P_{s,t-1}}\right)" height="60em">
+>
+> With \(r_{s,t}\) the log-return of sector *s* at time *t*.
+
 <p>
 Returns are aggregated into cumulative returns rebased to 1:
 </p>
@@ -1156,9 +1158,7 @@ policy effects.
 </p>
 
 </section>
-TEST
 
-TEST2
 
 <!-- ===================== -->
 <!-- PART 6 -->
@@ -1518,7 +1518,7 @@ phenomenon, with monetary policy acting as a secondary amplifier rather than a d
 
 </section>
 
-TEST2 fin
+
 
 
 
