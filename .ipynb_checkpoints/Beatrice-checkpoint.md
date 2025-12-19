@@ -802,13 +802,14 @@ Returns are aggregated into cumulative returns rebased to 1:
 <p>
 To isolate sector-specific behavior, we estimate a CAPM-style market model:
 </p>
-<p class="math">
-r<sub>s,t</sub> = α<sub>s</sub> + β<sub>s</sub> r<sub>m,t</sub> + ε<sub>s,t</sub>
-</p>
-<p>
-where β<sub>s</sub> measures exposure to systematic market risk and α<sub>s</sub> captures
-average excess performance unexplained by the market.
-</p>
+
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\alpha_s+\beta_s r_{m,t}+\varepsilon_{s,t}" height="70em">
+  <p style="margin:10px 0 0;font-style:italic;">
+    βₛ measures exposure to market risk, while αₛ captures average excess performance.
+  </p>
+</blockquote>
+
 
 <h3>Results</h3>
 
