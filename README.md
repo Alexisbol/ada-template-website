@@ -1161,10 +1161,10 @@ h2 {
 
 
 <!-- ######################################################################################################################### -->
+<section class="content-section trigger-game" data-game="init-game"></section>
 
 ## Vrai intro un peu cool <a id="Intro"></a>
 
-<section class="content-section trigger-game" data-game="init-game"></section>
 
 WE
 
@@ -1634,11 +1634,10 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <!-- ######################################################################################################################### -->
 
-
+<section class="content-section trigger-game" data-game="etf-game"></section>
 
 ## ETF / stock (method & results & graphs & interpretation / intuition) <a id="ETF"></a>
 
-<section class="content-section trigger-game" data-game="etf-game"></section>
 
 
 1. Identify fed rate signals (see previous explanation)
@@ -2139,21 +2138,21 @@ This analysis reveals that diversification (ETFs) becomes more valuable during F
 
 
 <!-- ######################################################################################################################### -->
-## Sectors <a id="Sectors"></a>
 
 <section class="content-section trigger-game" data-game="sectors-game"></section>
+
+## Sectors <a id="Sectors"></a>
+
 
 
 
 
 
 <!-- ######################################################################################################################### -->
-## Size <a id="Size"></a>
-
-
 <section class="content-section trigger-game" data-game="size-game"></section>
 
-## Stock Size
+## Size <a id="Size"></a>
+
 
 Q: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?
 
@@ -2799,9 +2798,10 @@ AGX was leading in terms of increase of dollar volume, which we can link to the 
 This whole question gave us a good intuition on how what can first look like comparable companies, with comparable results, can have very different structure and strategies, leading to very different reactions to fed rates. That's why depending on the configuration of the market and the fed rates, not every similarly performing company is worth betting on, and a more in depth analysis of the underlying functionning of the companies is necessary to maximize the gains, or at leasts minimize the risk of losses.
 
 <!-- ######################################################################################################################### -->
+<section class="content-section trigger-game" data-game="conclusion-section"></section>
+
 ## Conclusion <a id="Conclusion"></a>
 
-<section class="content-section trigger-game" data-game="conclusion-section"></section>
 
 
 
