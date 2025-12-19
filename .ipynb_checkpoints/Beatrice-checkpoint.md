@@ -785,7 +785,7 @@ For each sector s, we compute log-returns:
 >
 > *With rₛ,ₜ the log-return of sector **s** at time **t**.*
 
-
+<p>
 Returns are aggregated into cumulative returns rebased to 1:
 </p>
 <p class="math">
