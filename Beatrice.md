@@ -853,7 +853,7 @@ performance separates into persistent winners and laggards. Then we want to chec
 dispersion is simply explained by market exposure β or not.
 </p>
 
-<p><b>In Fig.1, we want to</b> visually compare long-run cumulative performance across sectors.</p>
+<p>In Fig.01, we want to compare long-run cumulative performance across sectors and see whether sector trajectories remain close together or diverge over time.</p>
 
 <div class="figure-block">
   <div id="fig01" style="width:100%; height:520px;"></div>
@@ -876,7 +876,7 @@ regimes do not impact sectors proportionally. If a few curves permanently pull a
 that tells you the differences are structural rather than short-lived noise.
 </p>
 
-<p><b>In Fig.4, we want to</b> check how the distribution of returns changes across regimes, focusing on dispersion and tail events.</p>
+<p>In Fig.4, we want to check how the distribution of returns changes across regimes, focusing on dispersion and tail events.</p>
 
 <div class="figure-block">
   <div id="fig04" style="width:100%; height:520px;"></div>
@@ -898,7 +898,7 @@ changing the average return, but also changing risk and dispersion. This is impo
 motivates later parts of the analysis that focus on volatility and event windows.
 </p>
 
-<p><b>In Fig.5, we want to</b> quantify how market-driven each sector is through β, and whether there is systematic outperformance through α.</p>
+<p>In Fig.5, we want to quantify how market-driven each sector is through β, and whether there is systematic outperformance through α.</p>
 
 <div class="figure-block">
   <div id="fig05" style="width:100%; height:520px;"></div>
@@ -991,7 +991,7 @@ whether it is an independent dimension of sector risk. In other words, do the se
 market-driven also happen to be policy-sensitive, or not?
 </p>
 
-<p><b>In Fig.7, we want to</b> locate sectors in a two-dimensional map: market exposure on one axis and Fed sensitivity on the other.</p>
+<p>In Fig.7, we want to locate sectors in a two-dimensional map: market exposure on one axis and Fed sensitivity on the other.</p>
 
 <div class="figure-block">
   <div id="fig07" style="width:100%; height:520px;"></div>
@@ -1080,7 +1080,7 @@ losers, which would indicate that the informational content of the decision matt
 sector.
 </p>
 
-<p><b>In Fig.11, we want to</b> compare average abnormal performance across sectors during the event window.</p>
+<p>In Fig.11, we want to compare average abnormal performance across sectors during the event window.</p>
 
 <div class="figure-block">
   <div id="fig11" style="width:100%; height:520px;"></div>
@@ -1102,7 +1102,7 @@ some sectors sit clearly on the right while others sit on the left, that indicat
 in how sectors map macro stress into expected cash flows.
 </p>
 
-<p><b>In Fig.12, we want to</b> check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
+<p>In Fig.12, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
 
 <div class="figure-block">
   <div id="fig12" style="width:100%; height:520px;"></div>
@@ -1182,7 +1182,7 @@ while filtering out short-term noise, which makes it a more stable signal for lo
 analysis.
 </p>
 
-<p><b>In Fig.2, we want to</b> visually assess co-movement and whether the 10Y behaves like a smoother, expectation-based version of policy stance.</p>
+<p>In Fig.2, we want to visually assess co-movement and whether the 10Y behaves like a smoother, expectation-based version of policy stance.</p>
 
 <div class="figure-block">
   <div id="fig02" style="width:100%; height:520px;"></div>
@@ -1268,7 +1268,7 @@ others behave like “rate victims”. We also want to see whether the regime di
 economic terms, not only statistically.
 </p>
 
-<p><b>In Fig.3, we want to</b> estimate which sectors have positive or negative sensitivity to changes in the 10Y yield.</p>
+<p>In Fig.3, we want to estimate which sectors have positive or negative sensitivity to changes in the 10Y yield.</p>
 
 <div class="figure-block">
   <div id="fig03" style="width:100%; height:520px;"></div>
@@ -1291,7 +1291,7 @@ the right are candidates for sectors that benefit in higher-yield environments, 
 not penalized by higher discount rates.
 </p>
 
-<p><b>In Fig.8, we want to</b> define low and high yield regimes using thresholds, so we can compare average performance between regimes.</p>
+<p>In Fig.8, we want to define low and high yield regimes using thresholds, so we can compare average performance between regimes.</p>
 
 <div class="figure-block">
   <div id="fig08" style="width:100%; height:520px;"></div>
@@ -1313,7 +1313,7 @@ the series spends meaningful time in both regimes, your comparison has enough da
 enters one regime, regime comparisons become noisy.
 </p>
 
-<p><b>In Fig.9, we want to</b> quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
+<p>In Fig.9, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
 
 <div class="figure-block">
   <div id="fig09" style="width:100%; height:520px;"></div>
@@ -1492,7 +1492,7 @@ sector volatility once you control for market-wide fear. First we test direction
 then we use a time-series view to see how the relationship looks through time.
 </p>
 
-<p><b>In Fig.17, we want to</b> test whether volatility responds differently to hikes versus cuts after controlling for VXN.</p>
+<p>In Fig.17, we want to test whether volatility responds differently to hikes versus cuts after controlling for VXN.</p>
 
 <div class="figure-block">
   <div id="fig17" style="width:100%; height:520px;"></div>
@@ -1514,7 +1514,7 @@ is that direction is not a robust predictor once broad market risk is accounted 
 what you expect if the main driver is macro stress rather than the sign of the policy move.
 </p>
 
-<p><b>In Fig.18, we want to</b> test whether large policy moves, regardless of sign, are associated with higher volatility in some sectors.</p>
+<p>In Fig.18, we want to test whether large policy moves, regardless of sign, are associated with higher volatility in some sectors.</p>
 
 <div class="figure-block">
   <div id="fig18" style="width:100%; height:520px;"></div>
@@ -1537,7 +1537,7 @@ supports a story where only some sectors treat large policy moves as a meaningfu
 signal, while others do not.
 </p>
 
-<p><b>In Fig.19, we want to</b> visually check co-movement over time: do volatility spikes align with large Fed changes in the chosen sector?</p>
+<p>In Fig.19, we want to visually check co-movement over time: do volatility spikes align with large Fed changes in the chosen sector?</p>
 
 <div class="figure-block">
 
@@ -1698,7 +1698,7 @@ how much explanatory power comes from macro risk and persistence, and whether th
 material after those controls.
 </p>
 
-<p><b>In Fig.20, we want to</b> visually compare naive versus controlled Fed coefficients sector by sector.</p>
+<p>In Fig.20, we want to visually compare naive versus controlled Fed coefficients sector by sector.</p>
 
 <div class="figure-block">
   <div id="fig20" style="width:100%; height:560px;"></div>
@@ -1721,7 +1721,7 @@ out that timing using VXN and persistence, so what remains is closer to an incre
 effect.
 </p>
 
-<p><b>In Fig.21, we want to</b> measure how much explanatory power is added when including macro risk and volatility persistence.</p>
+<p>In Fig.21, we want to measure how much explanatory power is added when including macro risk and volatility persistence.</p>
 
 <div class="figure-block">
   <div id="fig21" style="width:100%; height:520px;"></div>
@@ -1745,7 +1745,7 @@ If ΔR² is large and common across sectors, that supports the view that volatil
 macro regime phenomenon plus persistence rather than a direct response to policy changes.
 </p>
 
-<p><b>In Fig.22, we want to</b> decompose explained variance into what comes from macro risk and persistence versus what is added by the Fed on top.</p>
+<p>In Fig.22, we want to decompose explained variance into what comes from macro risk and persistence versus what is added by the Fed on top.</p>
 
 <div class="figure-block">
   <div id="fig22" style="width:100%; height:700px;"></div>
