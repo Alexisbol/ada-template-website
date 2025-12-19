@@ -795,11 +795,16 @@ For each sector s, we compute log-returns:
 
 Returns are aggregated into cumulative returns rebased to 1:
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
-  <img src="https://latex.codecogs.com/png.image?\dpi{150}CR_{s,t}=\prod_{\tau\le t}(1+r_{s,\tau})" height="70em">
-  <p style="margin:10px 0 0;font-style:italic;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{110}CR_{s,t}=\prod_{\tau\le t}(1+r_{s,\tau})"
+    style="max-width:420px;height:auto;display:block;"
+    alt="cumulative returns"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
     Cumulative return rebased to 1, obtained by compounding sector returns over time.
   </p>
 </blockquote>
+
 
 
 
@@ -808,11 +813,16 @@ To isolate sector-specific behavior, we estimate a CAPM-style market model:
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
-  <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\alpha_s+\beta_s r_{m,t}+\varepsilon_{s,t}" height="70em">
-  <p style="margin:10px 0 0;font-style:italic;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{120}r_{s,t}=\alpha_s+\beta_s r_{m,t}+\varepsilon_{s,t}"
+    style="max-width:420px;height:auto;display:block;"
+    alt="CAPM model"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
     βₛ measures exposure to market risk, while αₛ captures average excess performance.
   </p>
 </blockquote>
+
 
 
 <h3>Results</h3>
@@ -904,16 +914,20 @@ homogeneous or sector-specific.
 </p>
 
 <h3>Method</h3>
-<p>
+
 We estimate sector-specific regressions controlling for market movements:
-</p>
-<p class="math">
-r<sub>s,t</sub> = α<sub>s</sub> + β<sub>s</sub> r<sub>m,t</sub> + γ<sub>s</sub> ΔFedRate<sub>t</sub> + u<sub>s,t</sub>
-</p>
-<p>
-The coefficient γ<sub>s</sub> measures the marginal sensitivity of sector returns to changes
-in the policy rate, conditional on the market. Robust standard errors are used.
-</p>
+
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{110}r_{s,t}=\alpha_s+\beta_s r_{m,t}+\gamma_s\Delta FedRate_t+u_{s,t}"
+    style="max-width:440px;height:auto;display:block;"
+    alt="market plus fed regression"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    γₛ measures the marginal sensitivity of sector returns to changes in the Fed policy rate.
+  </p>
+</blockquote>
+
 
 <h3>Results</h3>
 
@@ -966,16 +980,19 @@ decision rather than to the mechanical effect of lower rates.
 </p>
 
 <h3>Method</h3>
-<p>
+
 We implement a short-horizon event-study framework around surprise Fed cuts. Sector performance is
 measured relative to a benchmark sector (Industrials):
-</p>
-<p class="math">
-AR<sub>s,t</sub> = r<sub>s,t</sub> − r<sub>Ind,t</sub>
-</p>
-<p>
-Abnormal returns are aggregated over a 3-day window to obtain cumulative abnormal returns.
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{120}AR_{s,t}=r_{s,t}-r_{Ind,t}"
+    style="max-width:360px;height:auto;display:block;"
+    alt="abnormal returns"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    Abnormal return of sector <b>s</b> measured relative to the Industrials benchmark.
+  </p>
+</blockquote>
 
 <h3>Results</h3>
 
@@ -1206,17 +1223,32 @@ Formally, if <em>r<sub>s,d</sub></em> denotes daily returns for sector <em>s</em
 volatility can be defined as:
 </p>
 
-<p class="math">
-σ<sub>s,m</sub> = √(∑<sub>d∈m</sub> r<sub>s,d</sub><sup>2</sup>)
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{110}\sigma_{s,m}=\sqrt{\sum_{d\in m}r_{s,d}^2}"
+    style="max-width:420px;height:auto;display:block;"
+    alt="realized volatility"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    Monthly realized volatility computed from daily sector returns.
+  </p>
+</blockquote>
 
 <p>
 An equivalent definition is the monthly standard deviation of daily returns:
 </p>
 
-<p class="math">
-σ<sub>s,m</sub> = √( (1/(N<sub>m</sub>−1)) ∑<sub>d∈m</sub> (r<sub>s,d</sub> − r̄<sub>s,m</sub>)<sup>2</sup> )
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{110}\sigma_{s,m}=\sqrt{\frac{1}{N_m-1}\sum_{d\in m}(r_{s,d}-\bar r_{s,m})^2}"
+    style="max-width:440px;height:auto;display:block;"
+    alt="volatility standard deviation"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    Equivalent definition of volatility as the standard deviation of daily returns.
+  </p>
+</blockquote>
+
 
 <p>
 Both definitions capture the same concept: higher values indicate larger typical fluctuations and
@@ -1243,9 +1275,17 @@ We first test whether volatility reacts differently to rate hikes versus rate cu
 ΔF<sub>m</sub> denote the monthly change in the Fed policy rate:
 </p>
 
-<p class="math">
-ΔF<sub>m</sub> = F<sub>m</sub> − F<sub>m−1</sub>
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{120}\Delta F_m=F_m-F_{m-1}"
+    style="max-width:300px;height:auto;display:block;"
+    alt="fed rate change"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    Monthly change in the Fed policy rate.
+  </p>
+</blockquote>
+
 
 <p>
 For each sector <em>s</em>, we estimate:
@@ -1267,9 +1307,17 @@ Markets may respond not to the direction of rate changes, but to the size of pol
 this hypothesis, we estimate:
 </p>
 
-<p class="math">
-σ<sub>s,m</sub> = α<sub>s</sub> + θ<sub>s</sub> |ΔF<sub>m</sub>| + δ<sub>s</sub> VXN<sub>m</sub> + ε<sub>s,m</sub>
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{110}\sigma_{s,m}=\alpha_s+\beta_s\Delta F_m+\delta_s VXN_m+\varepsilon_{s,m}"
+    style="max-width:440px;height:auto;display:block;"
+    alt="volatility directional"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    βₛ captures the signed response of sector volatility to Fed rate changes.
+  </p>
+</blockquote>
+
 
 <p>
 Here, θ<sub>s</sub> measures how volatility responds to the absolute size of Fed moves, regardless
@@ -1413,9 +1461,18 @@ macro stress rather than causal monetary transmission.
 We begin with a Fed-only model:
 </p>
 
-<p class="math">
-σ<sub>s,m</sub> = α<sub>s</sub> + β<sub>s</sub><sup>(N)</sup> ΔF<sub>m</sub> + ε<sub>s,m</sub>
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{120}\sigma_{s,m}=\alpha_s+\beta_s^{(N)}\Delta F_m+\varepsilon_{s,m}"
+    style="max-width:420px;height:auto;display:block;"
+    alt="naive volatility"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    Naive specification that ignores macro risk and volatility persistence.
+  </p>
+</blockquote>
+
+
 
 <h4>Controlled specification</h4>
 
@@ -1423,10 +1480,17 @@ We begin with a Fed-only model:
 We then estimate a more complete model that accounts for macro risk and volatility persistence:
 </p>
 
-<p class="math">
-σ<sub>s,m</sub> = α<sub>s</sub> + β<sub>s</sub><sup>(C)</sup> ΔF<sub>m</sub> + δ<sub>s</sub> VXN<sub>m</sub>
-+ ∑<sub>k=1</sub><sup>K</sup> φ<sub>s,k</sub> σ<sub>s,m−k</sub> + η<sub>s,m</sub>
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{100}\sigma_{s,m}=\alpha_s+\beta_s^{(C)}\Delta F_m+\delta_s VXN_m+\sum_{k=1}^K\phi_{s,k}\sigma_{s,m-k}+\eta_{s,m}"
+    style="max-width:460px;height:auto;display:block;"
+    alt="controlled volatility"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    Controlled model accounting for macro risk and volatility persistence.
+  </p>
+</blockquote>
+
 
 <p>
 Inference relies on heteroskedasticity- and autocorrelation-consistent standard errors.
@@ -1438,9 +1502,17 @@ Inference relies on heteroskedasticity- and autocorrelation-consistent standard 
 We compare explanatory power using R²:
 </p>
 
-<p class="math">
-ΔR² = R²<sub>controlled</sub> − R²<sub>naive</sub>
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{120}\Delta R^2=R^2_{\text{controlled}}-R^2_{\text{naive}}"
+    style="max-width:340px;height:auto;display:block;"
+    alt="delta r2"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    Increase in explanatory power when macro controls are included.
+  </p>
+</blockquote>
+
 
 <p>
 Finally, total explained variance is decomposed into macro risk plus volatility persistence versus
