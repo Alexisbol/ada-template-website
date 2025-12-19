@@ -54,7 +54,7 @@
     gap: 40px;
 }
 .header-title {
-    font-size: 32px;
+    font-size: 45px;
     font-weight: 700;
     color: #fff;
     margin: 0;
