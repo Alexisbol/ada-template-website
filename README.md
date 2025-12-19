@@ -779,37 +779,79 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             ]
         },
-        "sectors-game": {
-            text: "Hello! SECTORS",
-            answers: [
-                {
-                    label: "Yes",
-                    comment: "Great! Let's begin.",
-                    next: {
-                        text: "What is a stock?",
-                        answers: [
-                            {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
-                                isCorrect: true,
-                                next: null
-                            },
-                            {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
-                                isCorrect: false,
-                                next: null
-                            }
-                        ]
-                    }
-                },
-                {
-                    label: "No",
-                    comment: "Come back when you're ready.",
-                    next: null
-                }
-            ]
+
+        "game-part-1": {
+          text: "Why is it misleading to look only at a broad market index?",
+          answers: [
+            { label: "Because sectors can have different cash-flow timing and risk exposures", comment: "Correct. Aggregation hides persistent sector-specific dynamics.", isCorrect: true, next: null },
+            { label: "Because indices are computed incorrectly", comment: "Incorrect. The issue is economic aggregation, not a calculation error.", isCorrect: false, next: null }
+          ]
         },
+        
+        "game-part-2": {
+          text: "Select all reasons why sensitivity to Fed policy can differ across sectors.",
+          answers: [
+            { label: "Sectors differ in leverage and reliance on external financing", comment: "Correct. Financing structure changes sensitivity to rates.", isCorrect: true },
+            { label: "Sectors differ in growth expectations and cash-flow duration", comment: "Correct. Longer-duration cash flows react more to discount-rate changes.", isCorrect: true },
+            { label: "Fed sensitivity is identical across sectors once market beta is controlled for", comment: "Incorrect. Heterogeneity can remain after market controls.", isCorrect: false }
+          ],
+          next: {
+            text: "If a sector behaves like a “long-duration” asset, what should you expect when discount rates rise?",
+            answers: [
+              { label: "Its valuation tends to drop more, because distant cash flows are discounted more heavily", comment: "Correct. Long-duration exposures are more rate-sensitive.", isCorrect: true, next: null },
+              { label: "It becomes less sensitive than defensive sectors", comment: "Incorrect. Duration-like sectors usually become more rate-sensitive.", isCorrect: false, next: null }
+            ]
+          }
+        },
+        
+        "game-part-3": {
+          text: "Why might markets react negatively to a surprise Fed rate cut?",
+          answers: [
+            { label: "Because surprise cuts can signal worsening economic conditions", comment: "Correct. The information content can dominate the mechanical rate effect.", isCorrect: true, next: null },
+            { label: "Because lower rates mechanically reduce equity valuations", comment: "Incorrect. Lower discount rates usually support valuations mechanically.", isCorrect: false, next: null }
+          ]
+        },
+        
+        "game-part-4": {
+          text: "Why is the 10-year Treasury yield often more useful than the Fed rate for long-term equity analysis?",
+          answers: [
+            { label: "Because it reflects expectations about future policy, inflation, and risk premia", comment: "Correct. It’s a forward-looking long-horizon discount-rate proxy.", isCorrect: true, next: null },
+            { label: "Because it is directly set by the Federal Reserve", comment: "Incorrect. The Fed sets short-term rates, not long-term yields.", isCorrect: false, next: null }
+          ]
+        },
+        
+        "game-part-5": {
+          text: "Which statement best describes how high interest rates affect sector performance?",
+          answers: [
+            { label: "High rates redistribute performance across sectors, creating winners and losers", comment: "Correct. Sector outcomes are heterogeneous across rate regimes.", isCorrect: true, next: null },
+            { label: "High rates always reduce stock returns across all sectors", comment: "Incorrect. Effects differ strongly across sectors.", isCorrect: false, next: null }
+          ]
+        },
+        
+        "game-part-6": {
+          text: "After controlling for market-wide risk (VXN), what tends to matter more for sector volatility?",
+          answers: [
+            { label: "The size of Fed moves, regardless of direction", comment: "Correct. Shock magnitude matters more than hikes vs cuts once risk is controlled for.", isCorrect: true, next: null },
+            { label: "Only whether the Fed hikes or cuts (direction)", comment: "Incorrect. Direction alone explains little once macro risk is controlled for.", isCorrect: false, next: null }
+          ]
+        },
+        
+        "game-part-7": {
+          text: "Select all reasons why naive volatility regressions can overstate the Fed’s role.",
+          answers: [
+            { label: "The Fed often moves during macro stress, when volatility is already high", comment: "Correct. This creates confounding in naive estimates.", isCorrect: true },
+            { label: "Volatility is persistent (clustering), so lagged volatility matters", comment: "Correct. Ignoring persistence can bias coefficients.", isCorrect: true },
+            { label: "The Fed mechanically sets sector volatility directly", comment: "Incorrect. There is no direct mechanical link.", isCorrect: false }
+          ],
+          next: {
+            text: "If a controlled model explains far more volatility than a Fed-only model, what does it suggest?",
+            answers: [
+              { label: "Macro risk and persistence dominate volatility dynamics, and the Fed adds only a small incremental effect", comment: "Correct. That’s the confounding story.", isCorrect: true, next: null },
+              { label: "The Fed-only model is always better because it is simpler", comment: "Incorrect. Simplicity doesn’t beat explanatory power when confounding is strong.", isCorrect: false, next: null }
+            ]
+          }
+        }
+
 
         "size-game": {
             text: "We will now discuss how company size can affect their sensitivity to fed rates. Ready?",
@@ -2847,8 +2889,6 @@ renderSectorPickerDualAxis("fig19", "{{ site.baseurl }}/assets/fig_json/fig19.js
 ## 1. Why sector-level analysis? Market vs sector behavior over time
 
 
-**Interviewer:** Why do we need sector-level analysis rather than just looking at the market as a whole?
-
 
 ### Context
 <p>
@@ -2867,13 +2907,9 @@ The baseline question we want to answer here is very simple: do sectors mostly l
 versions of the market, or do they have their own long-run trajectories?
 </p>
 
-<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 1)</h4>
-  <p style="margin:0;color:#7c2d12;">
-    If two sectors have the same market beta β but very different cumulative returns over time, what does it suggest?
-    (A) The market explains everything (B) Sector-specific factors matter (C) Returns are random
-  </p>
-</div>
+<div id="game-part-1" style="margin:14px 0;"></div>
+<script>renderGame("game-part-1");</script>
+
 
 <h3>Method</h3>
 
@@ -3031,7 +3067,6 @@ relative trajectories, which motivates adding monetary policy variables in later
 
 ## 2. How sensitive are different sectors to changes in the Fed rate?
 
-**Interviewer:** Are all sectors equally sensitive to changes in the Fed policy rate?
 
 
 ### Context
@@ -3046,13 +3081,9 @@ So what we want to test here is whether the sensitivity to Fed changes is homoge
 not, that gives a sector-level transmission mechanism of monetary policy.
 </p>
 
-<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 2)</h4>
-  <p style="margin:0;color:#7c2d12;">
-    If a sector has high market beta β but γ close to zero, what does it mean?
-    (A) It follows the market but is not especially Fed-sensitive (B) It is strongly Fed-sensitive (C) It is risk-free
-  </p>
-</div>
+<div id="game-part-2" style="margin:14px 0;"></div>
+<script>renderGame("game-part-2");</script>
+
 
 <h3>Method</h3>
 
@@ -3120,8 +3151,6 @@ risk dimension beyond market beta.
 
 ## 3. How do sectors react to sudden Fed signals and surprise cuts?
 
-**Interviewer:** Do sectors react differently when the Fed moves unexpectedly?
-
 <h3>Context</h3>
 <p>
 To respond to that, it helps to separate expected moves from surprises. If a move is fully priced
@@ -3130,13 +3159,9 @@ deteriorating conditions. So the market reaction can reflect the signal, not onl
 impact of lower rates.
 </p>
 
-<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 3)</h4>
-  <p style="margin:0;color:#7c2d12;">
-    If most sectors have negative abnormal returns around a surprise rate cut, what is the most likely interpretation?
-    (A) The cut is good news (B) The cut signals bad macro conditions (C) Markets ignore surprises
-  </p>
-</div>
+<div id="game-part-3" style="margin:14px 0;"></div>
+<script>renderGame("game-part-3");</script>
+
 
 <h3>Method</h3>
 
@@ -3230,7 +3255,6 @@ supports a signaling story. The event-study helps isolate that short-run informa
 
 <h2>4. Are Fed rates the right proxy for long-term monetary policy?</h2>
 
-<b>Interviewer:</b> Is the Fed policy rate the best variable to study long-term stock market effects?
 
 <h3>Context</h3>
 <p>
@@ -3240,13 +3264,9 @@ the future. The Fed Funds Rate is a short-term policy tool, while long-term yiel
 future policy, inflation expectations, and term premia.
 </p>
 
-<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 4)</h4>
-  <p style="margin:0;color:#7c2d12;">
-    Which rate is usually more forward-looking for long-horizon valuation: the Fed Funds rate or the 10-year yield?
-    (A) Fed Funds (B) 10-year yield (C) Neither
-  </p>
-</div>
+<div id="game-part-4" style="margin:14px 0;"></div>
+<script>renderGame("game-part-4");</script>
+
 
 <h3>Method</h3>
 <p>
@@ -3303,8 +3323,6 @@ yield is often the better long-run proxy because it embeds expectations and is l
 
 <h2>5. Which sectors perform better in high-rate environments?</h2>
 
-<b>Interviewer:</b> Which sectors benefit or suffer when long-term interest rates are high?
-
 <h3>Context</h3>
 <p>
 To respond to that, you can think of high-rate environments as changing both discounting and the
@@ -3313,13 +3331,8 @@ while sectors linked to commodities, financial intermediation, or pricing power 
 differently.
 </p>
 
-<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 5)</h4>
-  <p style="margin:0;color:#7c2d12;">
-    If a sector has negative sensitivity to the 10Y yield, what usually happens when yields rise?
-    (A) Sector tends to fall (B) Sector tends to rise (C) No relationship
-  </p>
-</div>
+<div id="game-part-5" style="margin:14px 0;"></div>
+<script>renderGame("game-part-5");</script>
 
 <h3>Method</h3>
 <p>
@@ -3431,7 +3444,6 @@ worse, which is exactly why the sector view is necessary.
 
 <h2>6. Volatility: do some sectors become riskier when the Fed moves?</h2>
 
-<b>Interviewer:</b> Returns are one thing, but what about risk: do some sectors become more volatile when the Fed changes rates?
 
 <h3>Context</h3>
 
@@ -3446,13 +3458,9 @@ Volatility is not just noise. In finance it is a practical proxy for risk becaus
 unstable returns are over time.
 </p>
 
-<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 6)</h4>
-  <p style="margin:0;color:#7c2d12;">
-    If a sector’s volatility rises when |ΔFedRate| is large, what does it mean?
-    (A) Big Fed moves increase uncertainty for that sector (B) Fed moves reduce risk (C) Volatility is unrelated to policy
-  </p>
-</div>
+<div id="game-part-6" style="margin:14px 0;"></div>
+<script>renderGame("game-part-6");</script>
+
 
 <p>
 Formally, if <em>r<sub>s,d</sub></em> denotes daily returns for sector <em>s</em>, monthly realized
@@ -3667,8 +3675,6 @@ an uncertainty amplifier for particular sector structures.
 
 <h2>7. Fed vs macro confounding: naive versus controlled explanations of volatility</h2>
 
-<b>Interviewer:</b> But is volatility really driven by the Fed, or is the Fed simply moving during
-high-risk macroeconomic environments?
 
 <h3>Context</h3>
 
@@ -3685,13 +3691,9 @@ volatility. And market-wide risk indices like VXN explain a large share of what 
 volatility.
 </p>
 
-<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 7)</h4>
-  <p style="margin:0;color:#7c2d12;">
-    If the Fed coefficient becomes much smaller after adding VXN and lagged volatility, what does it suggest?
-    (A) Confounding was inflating the naive Fed effect (B) The Fed effect gets stronger (C) Controls are irrelevant
-  </p>
-</div>
+<div id="game-part-7" style="margin:14px 0;"></div>
+<script>renderGame("game-part-7");</script>
+
 
 <h3>Method</h3>
 
