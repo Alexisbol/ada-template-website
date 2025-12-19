@@ -785,7 +785,6 @@ For each sector s, we compute log-returns:
 > <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\ln\!\left(\frac{P_{s,t}}{P_{s,t-1}}\right)" height="60em">
 >
 > *With rₛ,ₜ the log-return of sector **s** at time **t**.*
-    
 
 <p>
 Returns are aggregated into cumulative returns rebased to 1:
