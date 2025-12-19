@@ -264,10 +264,12 @@ const pairs = {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
     description: `<b> ARAY vs DVA — Healthcare sector </b> 
     <br> 
-    <br> <i>Accuracy Inc</i> ( pvd : 0.037 ) ( pvc : 0.008 )
-    <br> <i>Davita Inc</i> ( pvd : 0.037 ) ( pvc : 0.314 )
+    <br> <i>Accuracy Inc</i> 
+    <br>( pvd : 0.037 ) ( pvc : 0.008 )
+    <br> <i>Davita Inc</i> 
+    <br>( pvd : 0.037 ) ( pvc : 0.314 )
     <br> 
-    <br> pvs : 0.883 
+    <br> pvs : 0.883
     <br> pve : 0.002 
     <br> 
     <br> We can see a sustained drop in dollar return for ARAY and a sharp increase in dollar volume for DVA
@@ -280,8 +282,10 @@ const pairs = {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
     description: ` <b> AGX vs ARTW — Industry sector </b>
     <br> 
-    <br> <i>Argan Inc</i> ( pvd : 0.014 ) ( pvc : 0.912)
-    <br> <i>Art’s Way Manufacturing Co Inc</i> ( pvd : 0.165 ) (pvc : 0.0)
+    <br> <i>Argan Inc</i> 
+    <br>( pvd : 0.014 ) ( pvc : 0.912)
+    <br> <i>Art’s Way Manufacturing Co Inc</i> 
+    <br>( pvd : 0.165 ) (pvc : 0.0)
     <br> 
     <br> pvs : 0.999 
     <br> pve : 0.089 
@@ -296,8 +300,10 @@ const pairs = {
     json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
     description: ` <b> ASTC vs ALOT — Technology sector </b>
     <br> 
-    <br> <i>Astrotech Corp</i> ( pvd : 0.016 ) ( pvc : 0.0)
-    <br> <i>AstraNova Inc</i> ( pvd : 0.964 ) (pvc : 0.512)
+    <br> <i>Astrotech Corp</i> 
+    <br>( pvd : 0.016 ) ( pvc : 0.0)
+    <br> <i>AstraNova Inc</i> 
+    <br>( pvd : 0.964 ) (pvc : 0.512)
     <br> 
     <br> pvs : 0.456 
     <br> pve : 0.009 
@@ -312,8 +318,10 @@ const pairs = {
     json: "{{ site.baseurl }}/data/(DVN,MUR).json",
     description: ` <b> DVN vs MUR — Energy sector </b> 
     <br> 
-    <br> <i>Devon Energy Corp</i> ( pvd : 0.005 ) ( pvc : 0.028)
-    <br> <i>Murphy Oil Corp</i> ( pvd : 0.975 ) (pvc : 0.5)
+    <br> <i>Devon Energy Corp</i> 
+    <br>( pvd : 0.005 ) ( pvc : 0.028)
+    <br> <i>Murphy Oil Corp</i> 
+    <br>( pvd : 0.975 ) (pvc : 0.5)
     <br> 
     <br> pvs : 0.0 
     <br> pve : 0.0 
