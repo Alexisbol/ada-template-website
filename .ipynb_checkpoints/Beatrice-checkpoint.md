@@ -781,9 +781,13 @@ dynamics?
 
 For each sector s, we compute log-returns:
 
-> <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\ln\!\left(\frac{P_{s,t}}{P_{s,t-1}}\right)" height="60em">
->
-> *With rₛ,ₜ the log-return of sector **s** at time **t**.*
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\ln\!\left(\frac{P_{s,t}}{P_{s,t-1}}\right)" height="60em">
+  <p style="margin:10px 0 0;font-style:italic;">
+    With rₛ,ₜ the log-return of sector <b>s</b> at time <b>t</b>.
+  </p>
+</blockquote>
+
 
 <p>
 Returns are aggregated into cumulative returns rebased to 1:
