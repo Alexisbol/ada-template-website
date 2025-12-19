@@ -744,7 +744,6 @@ HERE
 
 
 
-
 <!-- ===================== -->
 <!-- PART 1 -->
 <!-- ===================== -->
@@ -759,25 +758,40 @@ HERE
 
 <h3>Context</h3>
 <p>
-Equity markets are often summarized by a single index, implicitly assuming that firms respond
-homogeneously to macroeconomic forces. In reality, sectors differ fundamentally in their
-production structure, capital intensity, exposure to interest rates, and dependence on future
-growth expectations.
+If you only look at a market index, you implicitly assume that all firms react in roughly the same
+way to macroeconomic forces. In practice, sectors differ in capital intensity, leverage, pricing
+power, exposure to rates, and how much their value depends on future growth.
 </p>
 <p>
-From a valuation perspective, equity prices reflect discounted future cash flows. If sectors
-differ in the timing and riskiness of these cash flows, then even under identical market
-conditions, their performance can diverge substantially. Monetary policy, technological change,
-and structural economic shifts can therefore generate persistent sectoral dispersion rather than
-short-lived noise.
+So, to respond to your question, a good starting point is to separate two things: what is simply
+the market moving up and down, and what is genuinely sector-specific behavior. If sector paths
+diverge even after you account for the market, then it makes sense to study additional drivers
+later, like monetary policy.
 </p>
 <p>
-Before studying monetary policy effects, it is essential to establish a baseline: how much of
-sector performance is driven by the overall market, and how much reflects sector-specific
-dynamics?
+The baseline question we want to answer here is very simple: do sectors mostly look like scaled
+versions of the market, or do they have their own long-run trajectories?
 </p>
 
+<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 1)</h4>
+  <p style="margin:0;color:#7c2d12;">
+    If two sectors have the same market beta β but very different cumulative returns over time, what does it suggest?
+    (A) The market explains everything (B) Sector-specific factors matter (C) Returns are random
+  </p>
+</div>
+
 <h3>Method</h3>
+
+<p>
+To respond to this question, you could begin by defining a consistent measure of performance.
+Prices are not directly comparable across sectors because they have different levels and scales, so
+the first step is to work with returns, which normalize changes over time.
+</p>
+<p>
+A practical choice is log-returns because they add nicely over time and are standard in finance.
+That gives you a clean daily or monthly return series per sector.
+</p>
 
 For each sector s, we compute log-returns:
 
@@ -792,9 +806,10 @@ For each sector s, we compute log-returns:
   </p>
 </blockquote>
 
-
-
-
+<p>
+Then, to visualize long-run differences, you can compound these returns. This turns a noisy return
+series into an interpretable performance curve: if you start at 1, where does each sector end up?
+</p>
 
 Returns are aggregated into cumulative returns rebased to 1:
 
@@ -809,6 +824,11 @@ Returns are aggregated into cumulative returns rebased to 1:
   </p>
 </blockquote>
 
+<p>
+Finally, if you want to quantify how much a sector is just following the market, you can estimate
+a simple market model. Intuitively, you try to explain sector returns by market returns. What is
+left in the residual is the part not captured by broad market movement.
+</p>
 
 <p>
 To isolate sector-specific behavior, we estimate a CAPM-style market model:
@@ -825,10 +845,15 @@ To isolate sector-specific behavior, we estimate a CAPM-style market model:
   </p>
 </blockquote>
 
-
-
-
 <h3>Results</h3>
+
+<p>
+Here, what we are trying to see is whether sectors share the same long-run trend, or whether their
+performance separates into persistent winners and laggards. Then we want to check whether this
+dispersion is simply explained by market exposure β or not.
+</p>
+
+<p><b>Before Fig. 1:</b> We first want to visually compare long-run cumulative performance across sectors.</p>
 
 <div class="figure-block">
   <div id="fig01" style="width:100%; height:520px;"></div>
@@ -844,7 +869,14 @@ To isolate sector-specific behavior, we estimate a CAPM-style market model:
   </ul>
 </div>
 
+<p>
+What you typically observe in this kind of plot is that sectors do not simply move together with a
+constant gap. Instead, dispersion often widens in major episodes, suggesting that shocks and
+regimes do not impact sectors proportionally. If a few curves permanently pull away from others,
+that tells you the differences are structural rather than short-lived noise.
+</p>
 
+<p><b>Before Fig. 4:</b> Next, we want to check how the distribution of returns changes across regimes, focusing on dispersion and tail events.</p>
 
 <div class="figure-block">
   <div id="fig04" style="width:100%; height:520px;"></div>
@@ -860,6 +892,13 @@ To isolate sector-specific behavior, we estimate a CAPM-style market model:
   </ul>
 </div>
 
+<p>
+When the boxes widen or outliers become more frequent, it indicates that the regime is not just
+changing the average return, but also changing risk and dispersion. This is important because it
+motivates later parts of the analysis that focus on volatility and event windows.
+</p>
+
+<p><b>Before Fig. 5:</b> Finally, we want to quantify how market-driven each sector is through β, and whether there is systematic outperformance through α.</p>
 
 <div class="figure-block">
   <div id="fig05" style="width:100%; height:520px;"></div>
@@ -875,20 +914,18 @@ To isolate sector-specific behavior, we estimate a CAPM-style market model:
   </ul>
 </div>
 
-
-
 <p>
-Cumulative returns reveal large and persistent divergence across sectors. While all sectors benefit
-from long-run market growth, the magnitude differs dramatically. Some sectors strongly outperform
-the market over decades, while others lag persistently. These deviations are not transitory and
-widen during major macroeconomic episodes.
+If you see large differences in β across sectors, that is already a strong reason to avoid using
+only a single market index. More importantly, if some sectors show persistent deviations that are
+not aligned with β, that suggests market exposure is not the full story. That sets up the next
+question: beyond the market factor, how much does monetary policy matter?
 </p>
 
 <h3>Conclusion</h3>
 <p>
-Market exposure explains a large fraction of sector returns, but not their relative trajectories.
-This motivates studying additional drivers—starting with monetary policy—that may shape
-sector-specific outcomes beyond the market factor.
+So the takeaway is: to respond to your original question, sector-level analysis is useful because
+it reveals persistent dispersion. Market exposure explains a lot, but it does not fully explain the
+relative trajectories, which motivates adding monetary policy variables in later parts.
 </p>
 
 </section>
@@ -907,16 +944,31 @@ sector-specific outcomes beyond the market factor.
 
 <h3>Context</h3>
 <p>
-Changes in the Fed policy rate affect borrowing costs, discount rates, liquidity conditions, and
-risk appetite. However, these channels do not operate uniformly across sectors. Sectors differ in
-their reliance on external financing, growth expectations, and balance-sheet structure.
+To respond to that, you can think of the Fed rate as affecting both discount rates and financing
+conditions. But those channels vary by sector: some sectors rely heavily on external funding and
+long-horizon growth, while others are more cash-flow stable or benefit from different macro
+conditions.
 </p>
 <p>
-Measuring sector-level sensitivity allows us to test whether monetary policy transmission is
-homogeneous or sector-specific.
+So what we want to test here is whether the sensitivity to Fed changes is homogeneous. If it is
+not, that gives a sector-level transmission mechanism of monetary policy.
 </p>
 
+<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 2)</h4>
+  <p style="margin:0;color:#7c2d12;">
+    If a sector has high market beta β but γ close to zero, what does it mean?
+    (A) It follows the market but is not especially Fed-sensitive (B) It is strongly Fed-sensitive (C) It is risk-free
+  </p>
+</div>
+
 <h3>Method</h3>
+
+<p>
+To answer this, you want to isolate Fed effects from general market movement. If you do not
+control for the market, you might confuse a broad market day with a policy effect. So the idea is
+to regress sector returns on both market returns and Fed rate changes.
+</p>
 
 We estimate sector-specific regressions controlling for market movements:
 
@@ -931,9 +983,15 @@ We estimate sector-specific regressions controlling for market movements:
   </p>
 </blockquote>
 
-
-
 <h3>Results</h3>
+
+<p>
+Here, what we are trying to see is whether Fed sensitivity γ lines up with market beta β, or
+whether it is an independent dimension of sector risk. In other words, do the sectors that are
+market-driven also happen to be policy-sensitive, or not?
+</p>
+
+<p><b>Before Fig. 7:</b> We want to locate sectors in a two-dimensional map: market exposure on one axis and Fed sensitivity on the other.</p>
 
 <div class="figure-block">
   <div id="fig07" style="width:100%; height:520px;"></div>
@@ -949,17 +1007,17 @@ We estimate sector-specific regressions controlling for market movements:
   </ul>
 </div>
 
-
 <p>
-Market exposure and Fed sensitivity emerge as distinct dimensions of risk. Some sectors exhibit
-meaningful sensitivity to policy rate changes, while others are weakly affected despite similar
-market exposure.
+What you look for is whether points spread vertically a lot. A wide vertical spread means sectors
+react differently to Fed changes even if they have similar market exposure. That supports the idea
+that policy sensitivity is not just a re-labeling of market risk, but an additional channel.
 </p>
 
 <h3>Conclusion</h3>
 <p>
-Fed rate changes matter for sector returns, but heterogeneously. Monetary policy adds an
-independent source of sector-level risk beyond the market factor.
+So to respond to your question: no, sectors are not equally sensitive. Once you control for the
+market, you still see heterogeneity in γ, meaning monetary policy contributes a sector-specific
+risk dimension beyond market beta.
 </p>
 
 </section>
@@ -978,12 +1036,27 @@ independent source of sector-level risk beyond the market factor.
 
 <h3>Context</h3>
 <p>
-Not all policy actions convey the same information. Surprise rate cuts reveal new information about
-economic conditions or financial stress. Markets may react to the signal embedded in the policy
-decision rather than to the mechanical effect of lower rates.
+To respond to that, it helps to separate expected moves from surprises. If a move is fully priced
+in, returns may barely react. But a surprise cut often conveys information about stress or
+deteriorating conditions. So the market reaction can reflect the signal, not only the mechanical
+impact of lower rates.
 </p>
 
+<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 3)</h4>
+  <p style="margin:0;color:#7c2d12;">
+    If most sectors have negative abnormal returns around a surprise rate cut, what is the most likely interpretation?
+    (A) The cut is good news (B) The cut signals bad macro conditions (C) Markets ignore surprises
+  </p>
+</div>
+
 <h3>Method</h3>
+
+<p>
+To answer this, you can use an event-study. The intuition is: instead of looking at long windows
+where many things happen, you zoom into a short window around the policy surprise and compare the
+sector to a benchmark. That reduces contamination from other slow-moving factors.
+</p>
 
 We implement a short-horizon event-study framework around surprise Fed cuts. Sector performance is
 measured relative to a benchmark sector (Industrials):
@@ -999,8 +1072,15 @@ measured relative to a benchmark sector (Industrials):
   </p>
 </blockquote>
 
-
 <h3>Results</h3>
+
+<p>
+Here, what we are trying to see is whether surprise cuts produce consistent sector winners and
+losers, which would indicate that the informational content of the decision matters and differs by
+sector.
+</p>
+
+<p><b>Before Fig. 11:</b> We want to compare average abnormal performance across sectors during the event window.</p>
 
 <div class="figure-block">
   <div id="fig11" style="width:100%; height:520px;"></div>
@@ -1016,7 +1096,13 @@ measured relative to a benchmark sector (Industrials):
   </ul>
 </div>
 
+<p>
+If many bars sit left of zero, that suggests the event is interpreted as negative news overall. If
+some sectors sit clearly on the right while others sit on the left, that indicates heterogeneity
+in how sectors map macro stress into expected cash flows.
+</p>
 
+<p><b>Before Fig. 12:</b> Next, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
 
 <div class="figure-block">
   <div id="fig12" style="width:100%; height:520px;"></div>
@@ -1034,16 +1120,17 @@ measured relative to a benchmark sector (Industrials):
   </ul>
 </div>
 
-
 <p>
-Sector responses to surprise cuts are highly heterogeneous. Some sectors underperform sharply,
-suggesting that surprise easing is often interpreted as bad news about the macroeconomic outlook.
+Here the key is whether confidence intervals cross zero. If they do, you cannot confidently claim
+a directional effect for that sector in the event window. If some sectors remain clearly negative
+even with uncertainty, that strengthens the interpretation that surprise easing often signals
+stress rather than relief.
 </p>
 
 <h3>Conclusion</h3>
 <p>
-Short-term responses to surprise Fed actions depend critically on sector characteristics and the
-informational content of policy decisions.
+So to respond to your question: yes, sectors react differently to surprises, and the pattern often
+supports a signaling story. The event-study helps isolate that short-run informational effect.
 </p>
 
 </section>
@@ -1062,18 +1149,40 @@ informational content of policy decisions.
 
 <h3>Context</h3>
 <p>
-Equity valuation depends on discounting future cash flows over long horizons. While the Fed Funds
-Rate governs short-term conditions, long-term yields incorporate expectations about future policy,
-inflation, and risk premia.
+To respond to that, you want to match the horizon of the financial variable to the horizon of
+equity valuation. Stocks are long-duration assets: prices depend on discounting cash flows far in
+the future. The Fed Funds Rate is a short-term policy tool, while long-term yields embed expected
+future policy, inflation expectations, and term premia.
 </p>
 
+<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 4)</h4>
+  <p style="margin:0;color:#7c2d12;">
+    Which rate is usually more forward-looking for long-horizon valuation: the Fed Funds rate or the 10-year yield?
+    (A) Fed Funds (B) 10-year yield (C) Neither
+  </p>
+</div>
+
 <h3>Method</h3>
+<p>
+A simple way to answer is to plot both series and look at how they co-move. The intuition is that
+if you want a long-run proxy for monetary conditions relevant to equity valuation, you prefer the
+series that moves with policy but is smoother and expectation-driven.
+</p>
 <p>
 We compare the dynamics of the Fed Funds Rate and the 10-year Treasury yield, and use the latter as
 a proxy for long-term monetary conditions.
 </p>
 
 <h3>Results</h3>
+
+<p>
+Here, what we are trying to see is whether the 10-year yield tracks the broad stance of policy
+while filtering out short-term noise, which makes it a more stable signal for long-horizon sector
+analysis.
+</p>
+
+<p><b>Before Fig. 2:</b> We want to visually assess co-movement and whether the 10Y behaves like a smoother, expectation-based version of policy stance.</p>
 
 <div class="figure-block">
   <div id="fig02" style="width:100%; height:520px;"></div>
@@ -1089,16 +1198,16 @@ a proxy for long-term monetary conditions.
   </ul>
 </div>
 
-
 <p>
-The two rates co-move closely, but the 10-year yield is smoother and forward-looking, making it
-more suitable for long-horizon sector analysis.
+If the two series broadly track each other but the 10Y is smoother, it supports using the 10Y as a
+long-horizon proxy. When gaps open, that can reflect changing expectations or term premia, which is
+exactly the kind of information relevant for valuing long-duration assets.
 </p>
 
 <h3>Conclusion</h3>
 <p>
-The Fed rate captures short-term policy actions, while the 10Y yield better reflects long-term
-monetary conditions relevant for equity valuation.
+So to respond to your question: the Fed rate is informative for short-term actions, but the 10-year
+yield is often the better long-run proxy because it embeds expectations and is less noisy.
 </p>
 
 </section>
@@ -1112,16 +1221,34 @@ monetary conditions relevant for equity valuation.
 <h2>5. Which sectors perform better in high-rate environments?</h2>
 
 <p class="interviewer">
-<b>Interviewer:</b> Which sectors benefit—or suffer—when long-term interest rates are high?
+<b>Interviewer:</b> Which sectors benefit or suffer when long-term interest rates are high?
 </p>
 
 <h3>Context</h3>
 <p>
-High-rate environments alter discounting and macroeconomic conditions. Sector performance depends
-on cash-flow timing, pricing power, and balance-sheet exposure.
+To respond to that, you can think of high-rate environments as changing both discounting and the
+macro mix. Sectors with long-duration cash flows tend to be hurt more when discount rates rise,
+while sectors linked to commodities, financial intermediation, or pricing power may behave
+differently.
 </p>
 
+<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 5)</h4>
+  <p style="margin:0;color:#7c2d12;">
+    If a sector has negative sensitivity to the 10Y yield, what usually happens when yields rise?
+    (A) Sector tends to fall (B) Sector tends to rise (C) No relationship
+  </p>
+</div>
+
 <h3>Method</h3>
+<p>
+To answer this, you can do two complementary things. First, estimate a regression that links
+sector returns to changes in the 10-year yield while still controlling for the market. Second,
+define regimes, for example “low” and “high” yield months, and compare average sector performance
+across regimes. The regression gives a marginal sensitivity, and the regime approach gives a more
+economic comparison.
+</p>
+
 <p>
 We estimate sector sensitivity to changes in the 10Y yield:
 </p>
@@ -1134,6 +1261,14 @@ sector returns across regimes.
 </p>
 
 <h3>Results</h3>
+
+<p>
+Here, what we are trying to see is whether some sectors behave like “rate beneficiaries” while
+others behave like “rate victims”. We also want to see whether the regime differences are large in
+economic terms, not only statistically.
+</p>
+
+<p><b>Before Fig. 3:</b> We want to estimate which sectors have positive or negative sensitivity to changes in the 10Y yield.</p>
 
 <div class="figure-block">
   <div id="fig03" style="width:100%; height:520px;"></div>
@@ -1149,6 +1284,14 @@ sector returns across regimes.
   </ul>
 </div>
 
+<p>
+The key thing to look at is which sectors have estimates clearly left of zero with error bars that
+do not cross zero. Those are the sectors most likely to be structurally rate-sensitive. Sectors on
+the right are candidates for sectors that benefit in higher-yield environments, or at least are
+not penalized by higher discount rates.
+</p>
+
+<p><b>Before Fig. 8:</b> We want to define low and high yield regimes using thresholds, so we can compare average performance between regimes.</p>
 
 <div class="figure-block">
   <div id="fig08" style="width:100%; height:520px;"></div>
@@ -1164,6 +1307,13 @@ sector returns across regimes.
   </ul>
 </div>
 
+<p>
+This plot matters because the regime definition is only as good as the threshold separation. If
+the series spends meaningful time in both regimes, your comparison has enough data. If it rarely
+enters one regime, regime comparisons become noisy.
+</p>
+
+<p><b>Before Fig. 9:</b> We want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
 
 <div class="figure-block">
   <div id="fig09" style="width:100%; height:520px;"></div>
@@ -1179,22 +1329,20 @@ sector returns across regimes.
   </ul>
 </div>
 
-
-
 <p>
-Sector performance differs sharply across rate regimes. Some sectors outperform significantly in
-high-rate environments, while others underperform, with statistically meaningful differences.
+Here you want to compare the sign and the magnitude. A small bar may be statistically detectable
+but economically minor. A large bar suggests a meaningful regime effect. If the sectors that look
+rate-sensitive in Fig. 3 also show large regime differences here, that gives a coherent story.
 </p>
 
 <h3>Conclusion</h3>
 <p>
-High interest rates do not uniformly depress equities. Instead, they redistribute performance
-across sectors, confirming the importance of sector-level analysis for understanding monetary
-policy effects.
+So to respond to your question: high rates do not uniformly depress equities. Instead, they are
+associated with systematic sector rotation, where some sectors do relatively better and others do
+worse, which is exactly why the sector view is necessary.
 </p>
 
 </section>
-
 
 <!-- ===================== -->
 <!-- PART 6 -->
@@ -1211,18 +1359,23 @@ policy effects.
 <h3>Context</h3>
 
 <p>
-When people say that markets “react to the Fed”, they often focus on returns, i.e. whether prices
-go up or down. However, an equally important transmission channel of monetary policy is uncertainty
-and risk, which manifests itself through volatility. Even when average returns do not move
-substantially, the dispersion of outcomes can increase: larger price swings, deeper drawdowns,
-and less stable valuations.
+To respond to that, you can shift from average returns to risk. Even if average returns do not
+move much, policy can change uncertainty. More uncertainty shows up as higher volatility: prices
+swing more, drawdowns can deepen, and the range of outcomes widens.
 </p>
 
 <p>
-In this analysis, volatility is used as a proxy for risk. For a given sector, higher volatility
-means that returns fluctuate more strongly within a given period, reflecting higher uncertainty
-about valuation and future cash flows.
+Volatility is not just noise. In finance it is a practical proxy for risk because it measures how
+unstable returns are over time.
 </p>
+
+<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 6)</h4>
+  <p style="margin:0;color:#7c2d12;">
+    If a sector’s volatility rises when |ΔFedRate| is large, what does it mean?
+    (A) Big Fed moves increase uncertainty for that sector (B) Fed moves reduce risk (C) Volatility is unrelated to policy
+  </p>
+</div>
 
 <p>
 Formally, if <em>r<sub>s,d</sub></em> denotes daily returns for sector <em>s</em>, monthly realized
@@ -1240,7 +1393,6 @@ volatility can be defined as:
   </p>
 </blockquote>
 
-
 <p>
 An equivalent definition is the monthly standard deviation of daily returns:
 </p>
@@ -1256,21 +1408,19 @@ An equivalent definition is the monthly standard deviation of daily returns:
   </p>
 </blockquote>
 
-
-
 <p>
-Both definitions capture the same concept: higher values indicate larger typical fluctuations and
-therefore higher risk.
-</p>
-
-<p>
-A crucial identification challenge is that the Fed often changes rates in periods of macroeconomic
-stress, when volatility is already elevated. To avoid attributing broad market fear to monetary
-policy, we explicitly control for VXN, the implied volatility index for the NASDAQ-100, which serves
-as a proxy for market-wide risk sentiment.
+A key methodological point is confounding: the Fed tends to move during stress, and stress raises
+volatility everywhere. So to avoid attributing broad fear to policy, you control for VXN, which
+captures market-wide risk sentiment.
 </p>
 
 <h3>Method</h3>
+
+<p>
+To answer your question, you can test two separate ideas. First, does the direction of policy
+matter, meaning hikes versus cuts. Second, does the magnitude matter, meaning large moves versus
+small moves. In both cases, you include VXN to separate macro fear from policy effects.
+</p>
 
 <p>
 We study two complementary channels through which Fed policy may affect sector volatility.
@@ -1294,11 +1444,18 @@ We first test whether volatility reacts differently to rate hikes versus rate cu
   </p>
 </blockquote>
 
-
-
 <p>
 For each sector <em>s</em>, we estimate:
 </p>
+
+<p>
+Here, the intuition is that if hikes systematically raise uncertainty, you would see volatility
+increase with positive ΔF, while if cuts systematically raise uncertainty, you would see it with
+negative ΔF. If neither is true after controlling for VXN, then direction is not the main driver.
+</p>
+
+<!-- Keep your formula blocks unchanged, but note: in your current snippet, A and B are swapped.
+     You said do not change formulas; so I do not change them here. If you want, tell me and I will only swap the two blocks without modifying content. -->
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
   <img
@@ -1311,18 +1468,22 @@ For each sector <em>s</em>, we estimate:
   </p>
 </blockquote>
 
-
 <p>
 The coefficient βₛ captures the signed sensitivity of sector volatility to changes in
 the policy rate, conditional on overall market risk.
 </p>
-
 
 <h4>(B) Magnitude of Fed shocks</h4>
 
 <p>
 Markets may respond not to the direction of rate changes, but to the size of policy shocks. To test
 this hypothesis, we estimate:
+</p>
+
+<p>
+The intuition here is simple: even if hikes and cuts are not symmetric, very large moves often
+signal unusual conditions. So volatility may increase with the absolute size of policy shocks even
+if the sign does not matter.
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -1336,15 +1497,21 @@ this hypothesis, we estimate:
   </p>
 </blockquote>
 
-
-
 <p>
-Here, θ<sub>s</sub> measures how volatility responds to the absolute size of Fed moves, regardless
+Here, θₛ measures how volatility responds to the absolute size of Fed moves, regardless
 of sign. Inference is based on robust (HAC-type) standard errors to account for serial correlation
 and heteroskedasticity in volatility.
 </p>
 
 <h3>Results</h3>
+
+<p>
+Here, what we are trying to see is whether Fed policy has any incremental relationship with
+sector volatility once you control for market-wide fear. First we test direction, then magnitude,
+then we use a time-series view to see how the relationship looks through time.
+</p>
+
+<p><b>Before Fig. 17:</b> We want to test whether volatility responds differently to hikes versus cuts after controlling for VXN.</p>
 
 <div class="figure-block">
   <div id="fig17" style="width:100%; height:520px;"></div>
@@ -1360,12 +1527,13 @@ and heteroskedasticity in volatility.
   </ul>
 </div>
 
-
 <p>
-Once market-wide risk (VXN) is controlled for, most sectors exhibit volatility sensitivities close
-to zero, with confidence intervals overlapping zero. This suggests that the direction of Fed moves
-(cuts versus hikes) does not strongly affect sector volatility on its own.
+If most estimates sit close to zero and confidence intervals cross zero, the practical conclusion
+is that direction is not a robust predictor once broad market risk is accounted for. That is often
+what you expect if the main driver is macro stress rather than the sign of the policy move.
 </p>
+
+<p><b>Before Fig. 18:</b> We want to test whether large policy moves, regardless of sign, are associated with higher volatility in some sectors.</p>
 
 <div class="figure-block">
   <div id="fig18" style="width:100%; height:520px;"></div>
@@ -1381,15 +1549,14 @@ to zero, with confidence intervals overlapping zero. This suggests that the dire
   </ul>
 </div>
 
-
-
 <p>
-In contrast, the magnitude of Fed shocks is far more informative. Technology stands out with a large
-and highly statistically significant sensitivity to |ΔFedRate|, indicating that larger policy
-moves are reliably associated with higher Tech volatility. Communication Services also exhibits a
-strong and significant response, followed by Energy and Basic Materials. Several other sectors show
-no statistically meaningful relationship once VXN is included.
+What you typically see here is stronger sector separation: a subset of sectors show positive
+sensitivity to shock size with small p-values, while many sectors cluster near zero. That pattern
+supports a story where only some sectors treat large policy moves as a meaningful uncertainty
+signal, while others do not.
 </p>
+
+<p><b>Before Fig. 19:</b> We want to visually check co-movement over time: do volatility spikes align with large Fed changes in the chosen sector?</p>
 
 <div class="figure-block">
 
@@ -1419,22 +1586,19 @@ no statistically meaningful relationship once VXN is included.
   </ul>
 </div>
 
-
-
 <p>
-Time-series illustrations after 2008 further support these results. Long periods of near-zero Fed
-changes coexist with moderate volatility fluctuations, while sharp Fed moves coincide with visible
-volatility responses in some sectors but not others, highlighting strong heterogeneity.
+This plot is a sanity check. If you pick a sector that showed strong sensitivity in Fig. 18, you
+often see volatility spikes lining up with large policy moves in crisis periods. If you pick a
+sector with near-zero sensitivity, you usually see volatility moving without clear alignment to Fed
+moves, which supports the heterogeneity story.
 </p>
 
 <h3>Conclusion</h3>
 
 <p>
-After controlling for market-wide risk, the direction of Fed changes explains little of sector
-volatility. Instead, the magnitude of policy moves matters for a subset of sectors, most notably
-Technology and Communication Services, with Energy and Basic Materials also affected. Volatility
-responses to monetary policy are therefore sector-specific and driven primarily by shock size
-rather than policy direction.
+So to respond to your original question: once you control for market-wide risk, direction explains
+little. The magnitude of moves matters for some sectors, which suggests policy shocks act more like
+an uncertainty amplifier for particular sector structures.
 </p>
 
 </section>
@@ -1455,24 +1619,34 @@ high-risk macroeconomic environments?
 <h3>Context</h3>
 
 <p>
-A naive regression of volatility on Fed rate changes can easily attribute excessive importance to
-monetary policy. The reason is structural: the Fed typically adjusts rates in response to worsening
-macroeconomic conditions, which independently raise volatility across markets.
+To respond to that, you should explicitly test confounding. The Fed often moves when the economy
+deteriorates. Those same periods raise volatility through risk sentiment, leverage constraints,
+liquidity stress, and uncertainty. If you regress volatility only on Fed changes, you may just be
+capturing crisis timing.
 </p>
 
 <p>
-Two empirical facts must therefore be accounted for. First, volatility is persistent: high
-volatility months tend to be followed by high volatility months, a phenomenon known as volatility
-clustering. Second, market-wide risk conditions, captured by indices such as VXN, explain a large
-fraction of sector-level volatility.
+Two stylized facts matter. Volatility is persistent, meaning high volatility tends to follow high
+volatility. And market-wide risk indices like VXN explain a large share of what happens in sector
+volatility.
 </p>
 
-<p>
-Failing to control for these effects leads to spurious Fed coefficients that primarily reflect
-macro stress rather than causal monetary transmission.
-</p>
+<div style="margin:14px 0;padding:14px;background:#fff7ed;border-left:4px solid #fb923c;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#9a3412;">🎮 Easy game question (Part 7)</h4>
+  <p style="margin:0;color:#7c2d12;">
+    If the Fed coefficient becomes much smaller after adding VXN and lagged volatility, what does it suggest?
+    (A) Confounding was inflating the naive Fed effect (B) The Fed effect gets stronger (C) Controls are irrelevant
+  </p>
+</div>
 
 <h3>Method</h3>
+
+<p>
+To answer this, you can compare two models. First a naive model that uses only Fed changes. Then a
+controlled model that adds macro risk (VXN) and volatility persistence through lagged volatility.
+The intuition is: if the Fed coefficient collapses when you add those controls, the naive effect
+was mostly picking up macro stress timing.
+</p>
 
 <h4>Naive specification</h4>
 
@@ -1491,9 +1665,6 @@ We begin with a Fed-only model:
   </p>
 </blockquote>
 
-
-
-
 <h4>Controlled specification</h4>
 
 <p>
@@ -1511,8 +1682,6 @@ We then estimate a more complete model that accounts for macro risk and volatili
   </p>
 </blockquote>
 
-
-
 <p>
 Inference relies on heteroskedasticity- and autocorrelation-consistent standard errors.
 </p>
@@ -1520,9 +1689,9 @@ Inference relies on heteroskedasticity- and autocorrelation-consistent standard 
 <h4>Explained variance comparison</h4>
 
 <p>
-We compare explanatory power using R²:
+We compare explanatory power using R². Intuitively, if the controlled model explains much more,
+that tells you macro risk and persistence dominate volatility dynamics.
 </p>
-
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
   <img
@@ -1535,8 +1704,6 @@ We compare explanatory power using R²:
   </p>
 </blockquote>
 
-
-
 <p>
 Finally, total explained variance is decomposed into macro risk plus volatility persistence versus
 the incremental contribution of the Fed given those controls.
@@ -1544,11 +1711,18 @@ the incremental contribution of the Fed given those controls.
 
 <h3>Results</h3>
 
+<p>
+Here, what we are trying to see is three things: whether naive Fed coefficients are exaggerated,
+how much explanatory power comes from macro risk and persistence, and whether the Fed adds anything
+material after those controls.
+</p>
+
+<p><b>Before Fig. 20:</b> We want to visually compare naive versus controlled Fed coefficients sector by sector.</p>
+
 <div class="figure-block">
   <div id="fig20" style="width:100%; height:560px;"></div>
   <script>renderMplExport("fig20", "{{ site.baseurl }}/assets/fig_json/fig20.json");</script>
 </div>
-
 
 <div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
   <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
@@ -1559,13 +1733,14 @@ the incremental contribution of the Fed given those controls.
   </ul>
 </div>
 
-
 <p>
-In the naive specification, Fed coefficients are large and often strongly negative, reflecting the
-fact that rate cuts tend to occur during high-volatility episodes. Once macro risk and volatility
-persistence are controlled for, these coefficients shrink dramatically and often move close to
-zero, indicating substantial confounding in the naive estimates.
+If controlled dots cluster near zero while naive dots are far away, the interpretation is that the
+Fed variable in the naive model is acting as a proxy for crisis timing. The controlled model strips
+out that timing using VXN and persistence, so what remains is closer to an incremental policy
+effect.
 </p>
+
+<p><b>Before Fig. 21:</b> We want to measure how much explanatory power is added when including macro risk and volatility persistence.</p>
 
 <div class="figure-block">
   <div id="fig21" style="width:100%; height:520px;"></div>
@@ -1573,7 +1748,6 @@ zero, indicating substantial confounding in the naive estimates.
     renderMplExport("fig21", "{{ site.baseurl }}/assets/fig_json/fig21.json");
   </script>
 </div>
-
 
 <div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
   <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
@@ -1584,12 +1758,13 @@ zero, indicating substantial confounding in the naive estimates.
   </ul>
 </div>
 
-
 <p>
-Adding VXN and volatility persistence leads to large increases in explanatory power across all
-sectors. The gain in R² is substantial, confirming that macro conditions and volatility clustering
-dominate sector-level volatility dynamics.
+A strong ΔR² across sectors means the controlled model captures the dominant drivers of volatility.
+If ΔR² is large and common across sectors, that supports the view that volatility is largely a
+macro regime phenomenon plus persistence rather than a direct response to policy changes.
 </p>
+
+<p><b>Before Fig. 22:</b> We want to decompose explained variance into what comes from macro risk and persistence versus what is added by the Fed on top.</p>
 
 <div class="figure-block">
   <div id="fig22" style="width:100%; height:700px;"></div>
@@ -1597,7 +1772,6 @@ dominate sector-level volatility dynamics.
     renderMplExport("fig22", "{{ site.baseurl }}/assets/fig_json/fig22.json");
   </script>
 </div>
-
 
 <div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
   <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
@@ -1608,23 +1782,26 @@ dominate sector-level volatility dynamics.
   </ul>
 </div>
 
-
 <p>
-Variance decomposition shows that macro risk and volatility persistence account for the vast
-majority of explained variance. The incremental Fed contribution, while sometimes statistically
-detectable, is quantitatively small for all sectors.
+If the macro plus persistence segment dominates and the Fed segment is consistently small, the
+practical conclusion is that the Fed adds limited incremental explanatory power once you account
+for the macro environment. Stars can indicate detectability, but you should still compare sizes,
+because a statistically detectable effect can still be economically small.
 </p>
 
 <h3>Conclusion</h3>
 
 <p>
-A naive analysis overstates the role of monetary policy in driving sector volatility. Once macro
-conditions and volatility persistence are properly accounted for, the Fed’s incremental
-contribution is small and sector-dependent. Sector volatility is primarily a macroeconomic
-phenomenon, with monetary policy acting as a secondary amplifier rather than a dominant driver.
+So to respond to your question: yes, macro confounding is a major issue. A naive model overstates
+the Fed role because the Fed moves during stress. After controls, the Fed contribution is smaller
+and sector-dependent, with volatility driven mainly by macro risk and persistence.
 </p>
 
 </section>
+
+
+
+
 
 
 
