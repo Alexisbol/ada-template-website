@@ -518,9 +518,7 @@
 <!-- ---------------- Floating Game HTML ---------------- -->
 <div id="game-overlay"></div>
 <div id="floating-image-wrapper">
-    <button id="close-game">&times;</button>
     <button id="minimize-game">–</button>
-    <div id="score-display">Score: <span id="score-value">0</span></div>
     <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Sticky visual"/>
     <div id="question-container">
         <p id="question-text"></p>
@@ -530,7 +528,6 @@
         </div>
     </div>
 </div>
-<div id="fireworks-container"></div>
 
 <!-- ---------------- Floating Game CSS ---------------- -->
 <style>
@@ -563,7 +560,7 @@
 }
 
 #floating-image-wrapper img {
-    width: 180px;
+    width: 160px; /* compact size when docked on the side */
     border-radius: 10px;
     transition: all 0.6s ease;
 }
@@ -577,8 +574,8 @@
 }
 
 #floating-image-wrapper.active img {
-    width: 400px;
-    max-width: 450px;
+    width: 700px; /* larger when deployed */
+    max-width: 900px;
 }
 
 /* Question container */
@@ -622,28 +619,6 @@
     background-color: #2c619aff;
 }
 
-/* Close button inside image */
-#close-game {
-    position: absolute;
-    top: 15%;
-    right: 15%;
-    background: red;
-    color: white;
-    font-size: 1.5em;
-    border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    z-index: 1000;
-    line-height: 30px;
-    text-align: center;
-    padding: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
 /* Minimize button top-right corner */
 #minimize-game {
     position: absolute;
@@ -664,10 +639,9 @@
     pointer-events: auto;
 }
 
-/* Minimized state hides image and question (close button hidden automatically) */
+/* Minimized state hides image and question */
 #floating-image-wrapper.minimized #floating-image,
-#floating-image-wrapper.minimized #question-container,
-#floating-image-wrapper.minimized #close-game {
+#floating-image-wrapper.minimized #question-container {
     opacity: 0;
     pointer-events: none;
 }
@@ -675,74 +649,6 @@
 #floating-image-wrapper.active #question-container {
     opacity: 1;
     pointer-events: auto;
-}
-
-#floating-image-wrapper.active #close-game {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Score display */
-#score-display {
-    position: absolute;
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 0.9em;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 25px;
-    z-index: 1001;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-#score-value {
-    font-size: 1.4em;
-    font-weight: 700;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 2px 12px;
-    border-radius: 15px;
-    min-width: 30px;
-    text-align: center;
-}
-
-/* Fireworks container */
-#fireworks-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* Firework particle animation */
-.firework {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    animation: explode 1s ease-out forwards;
-}
-
-@keyframes explode {
-    0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(0.3);
-    }
 }
 
 /* Correct answer pulse effect */
@@ -768,7 +674,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const floating = document.getElementById("floating-image-wrapper");
     const overlay = document.getElementById("game-overlay");
     const triggers = document.querySelectorAll(".trigger-game");
-    const closeBtn = document.getElementById("close-game");
     const minimizeBtn = document.getElementById("minimize-game");
     const questionContainer = document.getElementById("question-container");
     const floatingImage = document.getElementById("floating-image");
@@ -776,10 +681,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionText = document.getElementById("question-text");
     const answerButtons = document.querySelectorAll("#answers button");
     const answersWrapper = document.getElementById("answers");
-    const scoreDisplay = document.getElementById("score-value");
-    const fireworksContainer = document.getElementById("fireworks-container");
-
-    let score = 0;
 
     // ---------------- TREE-BASED GAMES ----------------
     const games = {
@@ -911,25 +812,57 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "comparison-game": {
-            text: "Hello! COMPARISON?",
+            text: "We will now compare some specific companies! Ready?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "What is a stock?",
+                        text: "Do you think that two companies with comparable results on a given period will necesseraly react the same to fed events ?",
                         answers: [
                             {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
+                                label: "Yes, they have similar results.",
+                                comment: "Not quite. Similar results doesn't tell the full story on the strategies of the companies and how they will behave in a different situation.",
                                 isCorrect: true,
-                                next: null
-                            },
+                                next: {
+                                        text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares?",
+                                        answers: [
+                                            {
+                                                label: "Yes, we can assess with only one.",
+                                                comment: "Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company.",
+                                                isCorrect: true,
+                                                next: 
+                                            },
+                                            {
+                                                label: "No, we would need both.",
+                                                comment: "Precisely ! Only by combining both can we get real insight on the performance of a company.",
+                                                isCorrect: false,
+                                                next: null
+                                            }
+                                        ]
+                                    }
+                                            },
                             {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
+                                label: "No, not necesseraly",
+                                comment: "Indeed ! Same results for a period of time cannot guarantee similar behavior given a different situation.",
                                 isCorrect: false,
-                                next: null
+                                next: {
+                                        text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares?",
+                                        answers: [
+                                            {
+                                                label: "Yes, we can assess with only one.",
+                                                comment: "Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company.",
+                                                isCorrect: true,
+                                                next: 
+                                            },
+                                            {
+                                                label: "No, we would need both.",
+                                                comment: "Precisely ! Only by combining both can we get real insight on the performance of a company.",
+                                                isCorrect: false,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             }
                         ]
                     }
@@ -1028,14 +961,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!floating.classList.contains("minimized")) {
                     questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
-                    closeBtn.style.opacity = "1";
-                    closeBtn.style.pointerEvents = "auto";
                 } else {
                     // Ensure question and buttons are visible and clickable
                     questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
-                    closeBtn.style.opacity = "1";
-                    closeBtn.style.pointerEvents = "auto";
                 }
 
             } else if (!entry.isIntersecting && !floating.classList.contains("minimized")) {
@@ -1043,8 +972,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 overlay.classList.remove("active");
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
-                closeBtn.style.opacity = "0";
-                closeBtn.style.pointerEvents = "none";
             } else {
                 // Hide when leaving section
                 floating.classList.remove("active");
@@ -1052,8 +979,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
-                closeBtn.style.opacity = "0";
-                closeBtn.style.pointerEvents = "none";
 
                 if(!floating.classList.contains("minimized")){
                     floatingImage.style.opacity = "1";
@@ -1095,84 +1020,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ---------------- FIREWORKS ANIMATION ----------------
-    function createFireworks(x, y, particleCount = 30) {
-        const colors = ['#ff0', '#f0f', '#0ff', '#f00', '#0f0', '#00f', '#ff4757', '#00d084', '#ffd700', '#ff1493'];
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'firework';
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
-            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-            
-            const angle = (Math.PI * 2 * i) / particleCount;
-            const velocity = 50 + Math.random() * 100;
-            const tx = Math.cos(angle) * velocity;
-            const ty = Math.sin(angle) * velocity;
-            
-            particle.style.setProperty('--tx', tx + 'px');
-            particle.style.setProperty('--ty', ty + 'px');
-            
-            fireworksContainer.appendChild(particle);
-            
-            setTimeout(() => particle.remove(), 1000);
-        }
-    }
-
-    // ---------------- BIG FINALE FIREWORKS ----------------
-    function createFinaleFireworks() {
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        
-        // Create a spectacular finale with many bursts
-        const positions = [
-            {x: centerX, y: centerY - 100},
-            {x: centerX - 200, y: centerY},
-            {x: centerX + 200, y: centerY},
-            {x: centerX - 150, y: centerY - 150},
-            {x: centerX + 150, y: centerY - 150},
-            {x: centerX, y: centerY + 50},
-            {x: centerX - 250, y: centerY + 100},
-            {x: centerX + 250, y: centerY + 100}
-        ];
-        
-        positions.forEach((pos, index) => {
-            setTimeout(() => {
-                createFireworks(pos.x, pos.y, 50); // More particles for finale
-            }, index * 150);
-        });
-        
-        // Final center burst
-        setTimeout(() => {
-            createFireworks(centerX, centerY, 80);
-        }, positions.length * 150 + 200);
-    }
-
     // ---------------- ANSWER CHOSEN ----------------
     window.choose = function(index) {
         lastAnswer = currentNode.answers[index];
-        
-        // Check if answer is correct and update score
-        if (lastAnswer.isCorrect === true) {
-            score++;
-            scoreDisplay.textContent = score;
-            
-            // Animate score update
-            const scoreContainer = document.getElementById('score-display');
-            scoreContainer.style.transform = 'scale(1.2)';
-            setTimeout(() => scoreContainer.style.transform = 'scale(1)', 300);
-            
-            // Add pulse animation to button
+
+        // Add pulse animation to button for feedback
+        if (lastAnswer && lastAnswer.isCorrect) {
             answerButtons[index].classList.add('correct-pulse');
             setTimeout(() => answerButtons[index].classList.remove('correct-pulse'), 500);
-            
-            // Smaller fireworks for correct answers
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            createFireworks(centerX, centerY, 25);
         }
-        
+
         waitingForComment = true;
         updateBubble();
     };
@@ -1186,12 +1043,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentNode) {
             updateBubble();
         } else {
-            // Game finished - show finale
-            questionText.innerText = "🎉 Congratulations! Final Score: " + score;
+            // Game finished
+            questionText.innerText = "You've completed the game!";
             answersWrapper.style.display = "none";
-            
-            // Trigger big finale fireworks
-            createFinaleFireworks();
         }
     }
 
@@ -1201,11 +1055,7 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("active");
         questionContainer.style.opacity = "0";
         questionContainer.style.pointerEvents = "none";
-        closeBtn.style.opacity = "0";
-        closeBtn.style.pointerEvents = "none";
     }
-
-    closeBtn.addEventListener("click", closeGame);
     
     // Close when clicking on overlay
     overlay.addEventListener("click", closeGame);
@@ -1220,8 +1070,6 @@ document.addEventListener("DOMContentLoaded", () => {
             floatingImage.style.opacity = "0";
             questionContainer.style.opacity = "0";
             questionContainer.style.pointerEvents = "none";
-            closeBtn.style.opacity = "0";
-            closeBtn.style.pointerEvents = "none";
         }
     });
 
@@ -1301,10 +1149,10 @@ h2 {
 
 
 <!-- ######################################################################################################################### -->
+<section class="content-section trigger-game" data-game="init-game"></section>
 
 ## Vrai intro un peu cool <a id="Intro"></a>
 
-<section class="content-section trigger-game" data-game="init-game"></section>
 
 WE
 
@@ -1776,8 +1624,9 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <section class="content-section trigger-game" data-game="etf-game"></section>
 
-
 ## ETF / stock (method & results & graphs & interpretation / intuition) <a id="ETF"></a>
+
+
 
 1. Identify fed rate signals (see previous explanation)
 2. Map etf and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
@@ -2277,21 +2126,21 @@ This analysis reveals that diversification (ETFs) becomes more valuable during F
 
 
 <!-- ######################################################################################################################### -->
-## Sectors <a id="Sectors"></a>
 
 <section class="content-section trigger-game" data-game="sectors-game"></section>
+
+## Sectors <a id="Sectors"></a>
+
 
 
 
 
 
 <!-- ######################################################################################################################### -->
-## Size <a id="Size"></a>
-
-
 <section class="content-section trigger-game" data-game="size-game"></section>
 
-## Stock Size
+## Size <a id="Size"></a>
+
 
 Q: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?
 
@@ -2937,9 +2786,10 @@ AGX was leading in terms of increase of dollar volume, which we can link to the 
 This whole question gave us a good intuition on how what can first look like comparable companies, with comparable results, can have very different structure and strategies, leading to very different reactions to fed rates. That's why depending on the configuration of the market and the fed rates, not every similarly performing company is worth betting on, and a more in depth analysis of the underlying functionning of the companies is necessary to maximize the gains, or at leasts minimize the risk of losses.
 
 <!-- ######################################################################################################################### -->
+<section class="content-section trigger-game" data-game="conclusion-section"></section>
+
 ## Conclusion <a id="Conclusion"></a>
 
-<section class="content-section trigger-game" data-game="conclusion-section"></section>
 
 
 
