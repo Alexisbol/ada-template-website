@@ -561,7 +561,7 @@
 }
 
 #floating-image-wrapper img {
-    width: 240px;
+    width: 160px; /* compact size when docked on the side */
     border-radius: 10px;
     transition: all 0.6s ease;
 }
@@ -575,8 +575,8 @@
 }
 
 #floating-image-wrapper.active img {
-    width: 520px;
-    max-width: 600px;
+    width: 700px; /* larger when deployed */
+    max-width: 900px;
 }
 
 /* Question container */
