@@ -780,78 +780,163 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         },
 
-        "game-part-1": {
-          text: "Why is it misleading to look only at a broad market index?",
-          answers: [
-            { label: "Because sectors can have different cash-flow timing and risk exposures", comment: "Correct. Aggregation hides persistent sector-specific dynamics.", isCorrect: true, next: null },
-            { label: "Because indices are computed incorrectly", comment: "Incorrect. The issue is economic aggregation, not a calculation error.", isCorrect: false, next: null }
-          ]
-        },
-        
-        "game-part-2": {
-          text: "Select all reasons why sensitivity to Fed policy can differ across sectors.",
-          answers: [
-            { label: "Sectors differ in leverage and reliance on external financing", comment: "Correct. Financing structure changes sensitivity to rates.", isCorrect: true },
-            { label: "Sectors differ in growth expectations and cash-flow duration", comment: "Correct. Longer-duration cash flows react more to discount-rate changes.", isCorrect: true },
-            { label: "Fed sensitivity is identical across sectors once market beta is controlled for", comment: "Incorrect. Heterogeneity can remain after market controls.", isCorrect: false }
-          ],
-          next: {
-            text: "If a sector behaves like a “long-duration” asset, what should you expect when discount rates rise?",
-            answers: [
-              { label: "Its valuation tends to drop more, because distant cash flows are discounted more heavily", comment: "Correct. Long-duration exposures are more rate-sensitive.", isCorrect: true, next: null },
-              { label: "It becomes less sensitive than defensive sectors", comment: "Incorrect. Duration-like sectors usually become more rate-sensitive.", isCorrect: false, next: null }
-            ]
-          }
-        },
-        
-        "game-part-3": {
-          text: "Why might markets react negatively to a surprise Fed rate cut?",
-          answers: [
-            { label: "Because surprise cuts can signal worsening economic conditions", comment: "Correct. The information content can dominate the mechanical rate effect.", isCorrect: true, next: null },
-            { label: "Because lower rates mechanically reduce equity valuations", comment: "Incorrect. Lower discount rates usually support valuations mechanically.", isCorrect: false, next: null }
-          ]
-        },
-        
-        "game-part-4": {
-          text: "Why is the 10-year Treasury yield often more useful than the Fed rate for long-term equity analysis?",
-          answers: [
-            { label: "Because it reflects expectations about future policy, inflation, and risk premia", comment: "Correct. It’s a forward-looking long-horizon discount-rate proxy.", isCorrect: true, next: null },
-            { label: "Because it is directly set by the Federal Reserve", comment: "Incorrect. The Fed sets short-term rates, not long-term yields.", isCorrect: false, next: null }
-          ]
-        },
-        
-        "game-part-5": {
-          text: "Which statement best describes how high interest rates affect sector performance?",
-          answers: [
-            { label: "High rates redistribute performance across sectors, creating winners and losers", comment: "Correct. Sector outcomes are heterogeneous across rate regimes.", isCorrect: true, next: null },
-            { label: "High rates always reduce stock returns across all sectors", comment: "Incorrect. Effects differ strongly across sectors.", isCorrect: false, next: null }
-          ]
-        },
-        
-        "game-part-6": {
-          text: "After controlling for market-wide risk (VXN), what tends to matter more for sector volatility?",
-          answers: [
-            { label: "The size of Fed moves, regardless of direction", comment: "Correct. Shock magnitude matters more than hikes vs cuts once risk is controlled for.", isCorrect: true, next: null },
-            { label: "Only whether the Fed hikes or cuts (direction)", comment: "Incorrect. Direction alone explains little once macro risk is controlled for.", isCorrect: false, next: null }
-          ]
-        },
-        
-        "game-part-7": {
-          text: "Select all reasons why naive volatility regressions can overstate the Fed’s role.",
-          answers: [
-            { label: "The Fed often moves during macro stress, when volatility is already high", comment: "Correct. This creates confounding in naive estimates.", isCorrect: true },
-            { label: "Volatility is persistent (clustering), so lagged volatility matters", comment: "Correct. Ignoring persistence can bias coefficients.", isCorrect: true },
-            { label: "The Fed mechanically sets sector volatility directly", comment: "Incorrect. There is no direct mechanical link.", isCorrect: false }
-          ],
-          next: {
-            text: "If a controlled model explains far more volatility than a Fed-only model, what does it suggest?",
-            answers: [
-              { label: "Macro risk and persistence dominate volatility dynamics, and the Fed adds only a small incremental effect", comment: "Correct. That’s the confounding story.", isCorrect: true, next: null },
-              { label: "The Fed-only model is always better because it is simpler", comment: "Incorrect. Simplicity doesn’t beat explanatory power when confounding is strong.", isCorrect: false, next: null }
-            ]
-          }
-        }
 
+
+        const games = {
+          "game-part-1": {
+            text: "Why is it misleading to look only at a broad market index?",
+            answers: [
+              {
+                label: "Because sectors can have different cash-flow timing and risk exposures",
+                comment: "Correct. Aggregation hides persistent sector-specific dynamics.",
+                isCorrect: true
+              },
+              {
+                label: "Because indices are computed incorrectly",
+                comment: "Incorrect. The issue is economic aggregation, not a calculation error.",
+                isCorrect: false
+              }
+            ]
+          },
+        
+          "game-part-2": {
+            text: "Select all reasons why sensitivity to Fed policy can differ across sectors.",
+            answers: [
+              {
+                label: "Sectors differ in leverage and reliance on external financing",
+                comment: "Correct. Financing structure changes sensitivity to rates.",
+                isCorrect: true
+              },
+              {
+                label: "Sectors differ in growth expectations and cash-flow duration",
+                comment: "Correct. Longer-duration cash flows react more to discount-rate changes.",
+                isCorrect: true
+              },
+              {
+                label: "Fed sensitivity is identical across sectors once market beta is controlled for",
+                comment: "Incorrect. Heterogeneity can remain after market controls.",
+                isCorrect: false
+              }
+            ],
+            next: {
+              text: "If a sector behaves like a long-duration asset, what should you expect when discount rates rise?",
+              answers: [
+                {
+                  label: "Its valuation tends to drop more, because distant cash flows are discounted more heavily",
+                  comment: "Correct. Long-duration exposures are more rate-sensitive.",
+                  isCorrect: true
+                },
+                {
+                  label: "It becomes less sensitive than defensive sectors",
+                  comment: "Incorrect. Duration-like sectors usually become more rate-sensitive.",
+                  isCorrect: false
+                }
+              ]
+            }
+          },
+        
+          "game-part-3": {
+            text: "Why might markets react negatively to a surprise Fed rate cut?",
+            answers: [
+              {
+                label: "Because surprise cuts can signal worsening economic conditions",
+                comment: "Correct. The information content can dominate the mechanical rate effect.",
+                isCorrect: true
+              },
+              {
+                label: "Because lower rates mechanically reduce equity valuations",
+                comment: "Incorrect. Lower discount rates usually support valuations mechanically.",
+                isCorrect: false
+              }
+            ]
+          },
+        
+          "game-part-4": {
+            text: "Why is the 10-year Treasury yield often more useful than the Fed rate for long-term equity analysis?",
+            answers: [
+              {
+                label: "Because it reflects expectations about future policy, inflation, and risk premia",
+                comment: "Correct. It’s a forward-looking long-horizon discount-rate proxy.",
+                isCorrect: true
+              },
+              {
+                label: "Because it is directly set by the Federal Reserve",
+                comment: "Incorrect. The Fed sets short-term rates, not long-term yields.",
+                isCorrect: false
+              }
+            ]
+          },
+        
+          "game-part-5": {
+            text: "Which statement best describes how high interest rates affect sector performance?",
+            answers: [
+              {
+                label: "High rates redistribute performance across sectors, creating winners and losers",
+                comment: "Correct. Sector outcomes are heterogeneous across rate regimes.",
+                isCorrect: true
+              },
+              {
+                label: "High rates always reduce stock returns across all sectors",
+                comment: "Incorrect. Effects differ strongly across sectors.",
+                isCorrect: false
+              }
+            ]
+          },
+        
+          "game-part-6": {
+            text: "After controlling for market-wide risk (VXN), what tends to matter more for sector volatility?",
+            answers: [
+              {
+                label: "The size of Fed moves, regardless of direction",
+                comment: "Correct. Shock magnitude matters more than hikes vs cuts once risk is controlled for.",
+                isCorrect: true
+              },
+              {
+                label: "Only whether the Fed hikes or cuts (direction)",
+                comment: "Incorrect. Direction alone explains little once macro risk is controlled for.",
+                isCorrect: false
+              }
+            ]
+          },
+        
+          "game-part-7": {
+            text: "Select all reasons why naive volatility regressions can overstate the Fed’s role.",
+            answers: [
+              {
+                label: "The Fed often moves during macro stress, when volatility is already high",
+                comment: "Correct. This creates confounding in naive estimates.",
+                isCorrect: true
+              },
+              {
+                label: "Volatility is persistent (clustering), so lagged volatility matters",
+                comment: "Correct. Ignoring persistence can bias coefficients.",
+                isCorrect: true
+              },
+              {
+                label: "The Fed mechanically sets sector volatility directly",
+                comment: "Incorrect. There is no direct mechanical link.",
+                isCorrect: false
+              }
+            ],
+            next: {
+              text: "If a controlled model explains far more volatility than a Fed-only model, what does it suggest?",
+              answers: [
+                {
+                  label: "Macro risk and persistence dominate volatility dynamics, and the Fed adds only a small incremental effect",
+                  comment: "Correct. That’s the confounding story.",
+                  isCorrect: true
+                },
+                {
+                  label: "The Fed-only model is always better because it is simpler",
+                  comment: "Incorrect. Simplicity doesn’t beat explanatory power when confounding is strong.",
+                  isCorrect: false
+                }
+              ]
+            }
+          }
+        },
+
+        
 
         "size-game": {
             text: "We will now discuss how company size can affect their sensitivity to fed rates. Ready?",
