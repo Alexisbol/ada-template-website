@@ -98,7 +98,7 @@ One key ingredient is missing to the pipeline so far. Everything mentioned combi
 
 The solution found was to introduce different t-test at different steps of the pipeline to study their p values. In that sense we have t-test for the evolution of the feature of the company, in order to quantify a real impact on these features. For the sake of simplicity afterwards we refer to associated p values as "pvd" as in p value of the difference in the evolution of the features. In addition we have t-test comparing both companies on the start and end windows of the event to test the significance of the start similarity and end dissimilarity mentionned previously. Again for the sake of simplicity we refer to associated p values as "pvs" for the start and "pve" for the end.
 
-These tests allow us to only discuss significant changes in the behavior of the companies, but not to assess the role of the fed rates in those changes. A last step towards the relevance of our results was then to introduce correlations and linear regressions to study the link between these evolutions in the features of the company and the evolution of the fed rate.
+These tests allow us to only discuss significant changes in the behavior of the companies, but not to assess the role of the fed rates in those changes. A last step towards the relevance of our results was then to introduce correlations and linear regressions to study the link between these evolutions in the features of the company and the evolution of the fed rate. We refer to associated p values as "pvc" as in correlation.
 
 
 ## Case studies
@@ -264,21 +264,31 @@ const pairs = {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
     description: `<b> ARAY vs DVA — Healthcare sector </b> 
     <br> 
-    <br> <i>Accuracy INC</i> (pvd : 0.037)
-    <br> 
-    <br>  <i>Davita INC</i> (pvd : 0.037 )
+    <br> <i>Accuracy Inc</i> ( pvd : 0.037 ) ( pvc : 0.008 )
+    <br> <i>Davita Inc</i> ( pvd : 0.037 ) ( pvc : 0.314 )
     <br> 
     <br> pvs : 0.883 
     <br> pve : 0.002 
     <br> 
-    <br> We can see a sharper and more sustained drop in dollar return for ARAY 
+    <br> We can see a sustained drop in dollar return for ARAY and a sharp increase in dollar volume for DVA
     <br> 
     <br>
     <br> <b> ARAY is a biotech company with important research stages that rely on financing. DVA on the other hand mainly provides dialysis services, which are a more stable source of income often tied to insurance reimbursements </b>` 
   },
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
-    description: "AGX vs ARTW — Industry sector"
+    description: ` <b> AGX vs ARTW — Industry sector </b>
+    <br> 
+    <br>  <i>Argan Inc</i> ( pvd : 0.014 ) ( pvc : 0.912)
+    <br> <i>Art’s Way Manufacturing Co Inc</i> ( pvd : 0.165 ) (pvc : 0.0)
+    <br> 
+    <br> pvs : 0.999 
+    <br> pve : 0.089 
+    <br> 
+    <br> We can see an increase in dollar return for AGX and a shaper increase in dollar volume for ARTW
+    <br> 
+    <br>
+    <br> <b> AGX is a construction and industrial services firm which operates by providing services in related fields. ARTW is a smaller industrial equipment manufacturer specialized, in particular, in agricultural machinery  </b>` 
   },
   "ASTC vs ALOT": {
     json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
@@ -423,23 +433,3 @@ document.addEventListener("click", closeMenus);
 })();
 
 </script>
-
-
-### _Accuracy Inc_ VS _Davita Inc_
-
-The first intersting case is that of these two companies, from the Healthcare sector.
-
-
-### _Art’s Way manufacturing Co Inc_ VS _Argan Inc_
-
-The first intersting case is that of these two companies, from the Industry sector.
-
-
-### _Astrotech Corp_ VS _AstraNova Inc_
-
-The first intersting case is that of these two companies, from the Technology sector.
-
-
-### _Devon Energy Corp_ VS _Murphy Oil Corp_
-
-The first intersting case is that of these two companies, from the Energy sector.
