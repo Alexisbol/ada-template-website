@@ -647,6 +647,9 @@ document.addEventListener("click", closeMenus);
 
 </script>
 
+<br>
+<br>
+
 ## Results and interpretations
 
 The case studies seem to tie a companie's resilience, that is its low reactivity to fed rates and stability, to two main component of its functionning. 
