@@ -780,25 +780,57 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "size-game": {
-            text: "Hello! SIZE?",
+            text: "We will now discuss how company size can affect their sensitivity to fed rates. Ready?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "What is a stock?",
+                        text: "In a Negative fed event, do you think it is safer to invest in a small or large firm?",
                         answers: [
                             {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
+                                label: "A small one!",
+                                comment: "Correct! It turns out it is a little safer to do so.",
                                 isCorrect: true,
-                                next: null
+                                next: {
+                                        text: "Do you think that company size is a clear strong of sensitivity to fed events?",
+                                        answers: [
+                                            {
+                                                label: "Yes, they are the best indicator.",
+                                                comment: "Incorrect. It is hard to assess by considering only the size of the company...",
+                                                isCorrect: false,
+                                                next: null
+                                            },
+                                            {
+                                                label: "No, there is a lot of variance of reactions even within same sized comapnies.",
+                                                comment: "Precisely ! It is very hard to generalize this kind of statement!",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             },
                             {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
+                                label: "A large one!",
+                                comment: "Incorrect. Smaller ones are a little safer.",
                                 isCorrect: false,
-                                next: null
+                                next: {
+                                        text: "Do you think that company size is a clear strong of sensitivity to fed events?",
+                                        answers: [
+                                            {
+                                                label: "Yes, they are the best indicator.",
+                                                comment: "Incorrect. It is hard to assess by considering only the size of the company...",
+                                                isCorrect: false,
+                                                next: null
+                                            },
+                                            {
+                                                label: "No, there is a lot of variance of reactions even within same sized comapnies.",
+                                                comment: "Precisely ! It is very hard to generalize this kind of statement!",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             }
                         ]
                     }
@@ -1044,7 +1076,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateBubble();
         } else {
             // Game finished
-            questionText.innerText = "You've completed the game!";
+            questionText.innerText = "Let us dive deeper into the subject!";
             answersWrapper.style.display = "none";
         }
     }
@@ -1287,11 +1319,31 @@ Current Status: As of December 2025, the Fed is in a "colling" phase. By cutting
         const center = document.getElementById('fed-center');
         if (!dial || !out || !needle || !center || !dialVisual) return;
         const states = {
-            1: { label: 'Cold', detail: 'Cold economy: aggressive cuts', text: 'Borrowing gets cheap; growth and small caps pop, credit risk rises; inflation risk subdued.' },
-            2: { label: 'Cool', detail: 'Cool: easing bias', text: 'Lower rates support hiring and capex; risk assets find a bid; defensive sectors lag.' },
-            3: { label: 'Warm', detail: 'Warm (neutral-ish)', text: 'Policy near neutral; fundamentals and earnings drive returns; balance between growth and value.' },
-            4: { label: 'Hot', detail: 'Hot: tightening bias', text: 'Higher discount rates compress valuations; debt-heavy and long-duration names suffer first.' },
-            5: { label: 'Overheat', detail: 'Overheat: sharp hikes', text: 'Financing pain and multiple compression; defensives and strong balance sheets hold up best.' }
+            1: { 
+    label: 'Cold', 
+    detail: 'Aggressive Cuts: Jumpstarting Growth', 
+    text: 'The Fed slashes rates to make borrowing as cheap as possible. This encourages companies to hire and families to spend during a slow economy.' 
+            },
+            2: { 
+                label: 'Cool', 
+                detail: 'Easing Bias: Supporting Expansion', 
+                text: 'Rates are falling, making it easier for businesses to fund new projects and for people to get affordable mortgages or car loans.' 
+            },
+            3: { 
+                label: 'Warm', 
+                detail: 'Neutral: Balanced Stability', 
+                text: 'Rates are at a "just right" level. The focus shifts to steady company earnings and predictable costs for consumers.' 
+            },
+            4: { 
+                label: 'Hot', 
+                detail: 'Tightening Bias: Slowing Down', 
+                text: 'Rates start to rise to keep inflation in check. Higher borrowing costs lead businesses to be more cautious and consumers to spend less.' 
+            },
+            5: { 
+                label: 'Overheat', 
+                detail: 'Sharp Hikes: Fighting Inflation', 
+                text: 'Aggressive hikes make debt expensive for everyone. Companies tighten their belts and families feel the squeeze of high interest on loans.' 
+            }
         };
         const angleFor = (val) => -120 + (val - 1) * 60;
         const render = () => {
@@ -1566,7 +1618,6 @@ fetch("{{ site.baseurl }}/data/nasdaq_etf_stocks.json")
 
 ## Fed events <a id="FedEvents"></a>
 
-## def fed events (+ parameters in our dataset) (Alexis)
 We want to focus our analysis on specific Federal Reserve interest rate events.
 Specifically, we aim to detect periods in which the Fed rate experiences a **substantial increase or decrease**, followed by a **stable phase lasting a few days**.  
 This allows us to study market behavior during intervals when the interest rate remains constant — ensuring that our observations are not influenced by additional policy changes occurring in the same timeframe.
@@ -1681,19 +1732,18 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <section class="content-section trigger-game" data-game="etf-game"></section>
 
-## ETF / stock (method & results & graphs & interpretation / intuition) <a id="ETF"></a>
+## ETF VS Stocks, do we have a winner?<a id="ETF"></a>
 
-
-
-1. Identify fed rate signals (see previous explanation)
-2. Map etf and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
+To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
 We only pair the important stocks of an ETF with the stock itself.
-3. for each etf and one of the corresponding stocks, we compute the performance during each fed rate event.
-4. If the etf or the stocks performs better a significant amount of time computed with a binomtest. Than we store the result.
-5. Finally we can display the results in a bar chart.
 
-We can see that when there is a positive fed event (FED rate increase), Stocks tend to react better than ETF. 
-On the contrary, when there is a negative FED event (FED rate decrease), ETF tend to react better.
+
+Now for each ETF and one of the corresponding stocks, we compute the performance during each fed rate event.
+Then If the ETF or the stocks performs better a significant amount of time computed with a binomtest we store the result.
+
+Finally we can display the results in a bar chart.
+
+We can see that when there is a positive or a negative FED event, Stocks tend to react better than ETF. 
 
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -1963,13 +2013,11 @@ On the contrary, when there is a negative FED event (FED rate decrease), ETF ten
 </script>
 
 
-If we look closer on the positive fed event, we can see that Stocks, is clearly wining in Healthcare and industrial sectors, winning in technology, losing in consumer cyclical and clearly losing in financial services.
+If we look closer on the positive fed event, we can see that stocks are winning in technology and losing in the financial services.
 
-Now, let’s focus on the Negative fed event. We can see the same trend for Consumer Cyclical Financial Services, Healthcare.
+Now, let’s focus on the Negative fed event. We can see the same trend, stocks are clearly winning expecpt for the energy sector.
 
-However, for Industrial, ETF are winning, same in technology.
-
-#### TODO ADD eplanation...
+However, this analysis comparing stocks and ETFs are very dependent on the fed event chosen and drawing a solid conclusion from this analysis is not possible.
 
 <div style="margin:30px 0;padding:24px;border:1px solid #e1e8f0;border-radius:14px;background:#fbfdff;box-shadow:0 10px 24px rgba(12,50,96,0.08);">
     <h3 style="margin:0 0 12px;color:#0d1b2a;">🔀 Company Performance Rankings: PosFed vs NegFed Events</h3>
@@ -2169,16 +2217,17 @@ We can see that Techology and Financial have top performing stocks during fed ev
 ### Key Insights
 
 **Overall Patterns:**
-- During **positive Fed events** (rate increases), individual stocks tend to outperform their sector ETFs, particularly in Healthcare and Industrial sectors
-- During **negative Fed events** (rate cuts), ETFs show stronger resilience, especially in Technology and Financial sectors
+- During **positive Fed events** (rate increases), individual stocks tend to outperform their sector ETFs, exept in the Financial sector
+- During **negative Fed events** (rate cuts), individual stocks tend to outperform their sector ETFs, escpecially in Financials, Healthcare, and Technology sectors.
 
 **Sector-Specific Behaviors:**
-- **Technology**: Stocks dominate during rate hikes, but ETFs provide better stability during cuts
+- **Technology**: Stocks dominate during rate hikes, but some ETFs won during cuts
 - **Healthcare**: Stocks consistently outperform across both event types, showing sector-specific strength
-- **Financials**: ETFs win decisively during rate cuts, benefiting from diversification during volatile periods
-- **Energy**: Mixed results with sector volatility playing a major role
+- **Financials**: ETFs win decisively during rate increase, potentially benefiting from diversification during volatile periods
 
-This analysis reveals that diversification (ETFs) becomes more valuable during Fed easing cycles, while concentrated bets (individual stocks) can outperform during tightening cycles in specific sectors.
+This analysis reveals that concentrated bets (individual stocks) can outperform ETFs during fed events. However, the performance varies significantly by sector like Financials where ETFs often win during positive fed events. 
+
+The number of significant pairs is relatively low compared to the total number of stocks analyzed, indicating that only a subset of companies consistently outperform their peers during Fed rate events making it difficult to draw broad conclusions.
 
 
 
