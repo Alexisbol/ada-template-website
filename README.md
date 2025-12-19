@@ -518,7 +518,6 @@
 <!-- ---------------- Floating Game HTML ---------------- -->
 <div id="game-overlay"></div>
 <div id="floating-image-wrapper">
-    <button id="close-game">&times;</button>
     <button id="minimize-game">–</button>
     <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Sticky visual"/>
     <div id="question-container">
@@ -620,28 +619,6 @@
     background-color: #2c619aff;
 }
 
-/* Close button inside image */
-#close-game {
-    position: absolute;
-    top: 15%;
-    right: 15%;
-    background: red;
-    color: white;
-    font-size: 1.5em;
-    border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    z-index: 1000;
-    line-height: 30px;
-    text-align: center;
-    padding: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
 /* Minimize button top-right corner */
 #minimize-game {
     position: absolute;
@@ -662,20 +639,14 @@
     pointer-events: auto;
 }
 
-/* Minimized state hides image and question (close button hidden automatically) */
+/* Minimized state hides image and question */
 #floating-image-wrapper.minimized #floating-image,
-#floating-image-wrapper.minimized #question-container,
-#floating-image-wrapper.minimized #close-game {
+#floating-image-wrapper.minimized #question-container {
     opacity: 0;
     pointer-events: none;
 }
 
 #floating-image-wrapper.active #question-container {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#floating-image-wrapper.active #close-game {
     opacity: 1;
     pointer-events: auto;
 }
@@ -703,7 +674,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const floating = document.getElementById("floating-image-wrapper");
     const overlay = document.getElementById("game-overlay");
     const triggers = document.querySelectorAll(".trigger-game");
-    const closeBtn = document.getElementById("close-game");
     const minimizeBtn = document.getElementById("minimize-game");
     const questionContainer = document.getElementById("question-container");
     const floatingImage = document.getElementById("floating-image");
@@ -959,14 +929,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!floating.classList.contains("minimized")) {
                     questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
-                    closeBtn.style.opacity = "1";
-                    closeBtn.style.pointerEvents = "auto";
                 } else {
                     // Ensure question and buttons are visible and clickable
                     questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
-                    closeBtn.style.opacity = "1";
-                    closeBtn.style.pointerEvents = "auto";
                 }
 
             } else if (!entry.isIntersecting && !floating.classList.contains("minimized")) {
@@ -974,8 +940,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 overlay.classList.remove("active");
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
-                closeBtn.style.opacity = "0";
-                closeBtn.style.pointerEvents = "none";
             } else {
                 // Hide when leaving section
                 floating.classList.remove("active");
@@ -983,8 +947,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
-                closeBtn.style.opacity = "0";
-                closeBtn.style.pointerEvents = "none";
 
                 if(!floating.classList.contains("minimized")){
                     floatingImage.style.opacity = "1";
@@ -1061,11 +1023,7 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("active");
         questionContainer.style.opacity = "0";
         questionContainer.style.pointerEvents = "none";
-        closeBtn.style.opacity = "0";
-        closeBtn.style.pointerEvents = "none";
     }
-
-    closeBtn.addEventListener("click", closeGame);
     
     // Close when clicking on overlay
     overlay.addEventListener("click", closeGame);
@@ -1080,8 +1038,6 @@ document.addEventListener("DOMContentLoaded", () => {
             floatingImage.style.opacity = "0";
             questionContainer.style.opacity = "0";
             questionContainer.style.pointerEvents = "none";
-            closeBtn.style.opacity = "0";
-            closeBtn.style.pointerEvents = "none";
         }
     });
 
