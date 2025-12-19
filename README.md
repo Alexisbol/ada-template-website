@@ -512,9 +512,9 @@
         })
         .catch(err => console.error('Error loading Fed Rate data:', err));
 })();
+
+
 </script>
-
-
 <!-- ---------------- Floating Game HTML ---------------- -->
 <div id="floating-image-wrapper">
     <button id="close-game">&times;</button>
@@ -523,8 +523,8 @@
     <div id="question-container">
         <p id="question-text"></p>
         <div id="answers">
-            <button onclick="choose(0)"></button>
-            <button onclick="choose(1)"></button>
+            <button id="answer1" onclick="choose(0)"></button>
+            <button id="answer2" onclick="choose(1)"></button>
         </div>
     </div>
 </div>
@@ -673,60 +673,246 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionContainer = document.getElementById("question-container");
     const floatingImage = document.getElementById("floating-image");
 
-    // ---------------- Multiple games ----------------
+    const questionText = document.getElementById("question-text");
+    const answerButtons = document.querySelectorAll("#answers button");
+    const answersWrapper = document.getElementById("answers");
+
+    // ---------------- TREE-BASED GAMES ----------------
     const games = {
-        "stock-size": {
-            text: "Stock Size Game: Ready?",
-            answers: ["Yes", "No"],
-            next: [
+        "init-game": {
+            text: "Hello! Are you ready to start your interview to become a finance bro?",
+            answers: [
                 {
-                    text: "Which stock size is riskier after a positive fed rate?",
-                    answers: ["Small", "Medium"],
-                    next: [
-                        { text: "Correct!", answers: [], next: [] },
-                        { text: "Incorrect!", answers: [], next: [] }
-                    ]
+                    label: "Yes",
+                    comment: "Great! Let's begin.",
+                    next: {
+                        text: "What is a stock?",
+                        answers: [
+                            {
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Come back when you're ready.",
+                    next: null
                 }
             ]
         },
-        "fed-policy": {
-            text: "Fed Policy Game: Ready?",
-            answers: ["Yes", "No"],
-            next: [
+
+        "etf-game": {
+            text: "Hello! ETF GAME?",
+            answers: [
                 {
-                    text: "What happens to interest rates after a fed policy change?",
-                    answers: ["Increase", "Decrease"],
-                    next: [
-                        { text: "Correct!", answers: [], next: [] },
-                        { text: "Incorrect!", answers: [], next: [] }
-                    ]
+                    label: "Yes",
+                    comment: "Great! Let's begin.",
+                    next: {
+                        text: "What is a stock?",
+                        answers: [
+                            {
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Come back when you're ready.",
+                    next: null
+                }
+            ]
+        },
+        "sectors-game": {
+            text: "Hello! SECTORS",
+            answers: [
+                {
+                    label: "Yes",
+                    comment: "Great! Let's begin.",
+                    next: {
+                        text: "What is a stock?",
+                        answers: [
+                            {
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Come back when you're ready.",
+                    next: null
+                }
+            ]
+        },
+
+        "size-game": {
+            text: "Hello! SIZE?",
+            answers: [
+                {
+                    label: "Yes",
+                    comment: "Great! Let's begin.",
+                    next: {
+                        text: "What is a stock?",
+                        answers: [
+                            {
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Come back when you're ready.",
+                    next: null
+                }
+            ]
+        },
+
+        "comparison-game": {
+            text: "Hello! COMPARISON?",
+            answers: [
+                {
+                    label: "Yes",
+                    comment: "Great! Let's begin.",
+                    next: {
+                        text: "What is a stock?",
+                        answers: [
+                            {
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Come back when you're ready.",
+                    next: null
+                }
+            ]
+        },
+
+        "conclusion-section": {
+            text: "Hello! CONCLUSION?",
+            answers: [
+                {
+                    label: "Yes",
+                    comment: "Great! Let's begin.",
+                    next: {
+                        text: "What is a stock?",
+                        answers: [
+                            {
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Come back when you're ready.",
+                    next: null
+                }
+            ]
+        },
+
+        "fed-event": {
+            text: "Ready to check if you understood Fed events?",
+            answers: [
+                {
+                    label: "Yes!",
+                    comment: "Nice!",
+                    next: {
+                        text: "If we see a continuous increase in Fed rate, is this an event?",
+                        answers: [
+                            {
+                                label: "Yes",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "No",
+                                comment: "Incorrect.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Review the section and come back 🙂",
+                    next: null
                 }
             ]
         }
     };
 
-    let currentGame = null;
     let currentNode = null;
+    let waitingForComment = false;
+    let lastAnswer = null;
 
-    // ---------------- IntersectionObserver for scroll triggers ----------------
+    // ---------------- INTERSECTION OBSERVER ----------------
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if(entry.isIntersecting) {
+            const gameKey = entry.target.dataset.game;
+            if (entry.isIntersecting && games[gameKey]) {
 
-                const gameKey = entry.target.dataset.game;
-                if(gameKey && games[gameKey]){
-                    currentGame = games[gameKey];
-                    currentNode = currentGame;
-                    updateQuestion();
-                }
+                currentNode = games[gameKey];
+                waitingForComment = false;
+                lastAnswer = null;
+                answersWrapper.style.display = "flex";
+                updateBubble();
 
-                // Show floating game
+                // ----------- NEW: Always set opacity to 1 -----------
+                floatingImage.style.opacity = "1";
+
+                // Activate the bubble and make sure question + close button appear
                 floating.classList.add("active");
-
-                // If minimized, temporarily restore image + question + close button
-                if(floating.classList.contains("minimized")){
-                    floatingImage.style.opacity = "1";
+                if (!floating.classList.contains("minimized")) {
                     questionContainer.style.opacity = "1";
+                    //questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
                     closeBtn.style.opacity = "1";
                     closeBtn.style.pointerEvents = "auto";
@@ -738,6 +924,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     closeBtn.style.pointerEvents = "auto";
                 }
 
+            } else if (!entry.isIntersecting && !floating.classList.contains("minimized")) {
+                floating.classList.remove("active");
+                questionContainer.style.opacity = "0";
+                questionContainer.style.pointerEvents = "none";
+                closeBtn.style.opacity = "0";
+                closeBtn.style.pointerEvents = "none";
             } else {
                 // Hide when leaving section
                 floating.classList.remove("active");
@@ -754,22 +946,70 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.5 });
 
-    triggers.forEach(section => observer.observe(section));
+    triggers.forEach(t => observer.observe(t));
 
-    // ---------------- Close button ----------------
+    // ---------------- UPDATE BUBBLE ----------------
+    function updateBubble() {
+        if (!currentNode) return;
+
+        if (!waitingForComment) {
+            questionText.innerText = currentNode.text;
+
+            answerButtons.forEach((btn, i) => {
+                const answer = currentNode.answers[i];
+                if (answer) {
+                    btn.style.display = "block";
+                    btn.innerText = answer.label;
+                    btn.onclick = () => choose(i);
+                } else {
+                    btn.style.display = "none";
+                }
+            });
+
+        } else {
+            questionText.innerText = lastAnswer.comment || "";
+
+            answerButtons[0].style.display = "block";
+            answerButtons[0].innerText = lastAnswer.next ? "Next" : "Finish";
+            answerButtons[0].onclick = goNext;
+
+            if (answerButtons[1]) {
+                answerButtons[1].style.display = "none";
+            }
+        }
+    }
+
+    // ---------------- ANSWER CHOSEN ----------------
+    window.choose = function(index) {
+        lastAnswer = currentNode.answers[index];
+        waitingForComment = true;
+        updateBubble();
+    };
+
+    // ---------------- GO NEXT ----------------
+    function goNext() {
+        currentNode = lastAnswer.next;
+        waitingForComment = false;
+        lastAnswer = null;
+
+        if (currentNode) {
+            updateBubble();
+        } else {
+            questionText.innerText = "End of this path.";
+            answersWrapper.style.display = "none";
+        }
+    }
+
+    // ---------------- CLOSE ----------------
     closeBtn.addEventListener("click", () => {
         floating.classList.remove("active");
         questionContainer.style.opacity = "0";
         questionContainer.style.pointerEvents = "none";
         closeBtn.style.opacity = "0";
         closeBtn.style.pointerEvents = "none";
-
-        if(!floating.classList.contains("minimized")){
-            floatingImage.style.opacity = "1";
-        }
     });
 
-    // ---------------- Minimize button ----------------
+    // ---------------- MINIMIZE ----------------
     minimizeBtn.addEventListener("click", () => {
         if(floating.classList.contains("minimized")){
             floating.classList.remove("minimized");
@@ -784,49 +1024,96 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ---------------- Update question ----------------
-    function updateQuestion() {
-        if(!currentNode) return;
-
-        const questionText = document.querySelector('#floating-image-wrapper #question-text');
-        const buttons = document.querySelectorAll('#floating-image-wrapper #answers button');
-
-        questionText.innerText = currentNode.text;
-
-        buttons.forEach((btn, i) => {
-            if(currentNode.answers[i]) {
-                btn.style.display = "block";
-                btn.innerText = currentNode.answers[i];
-            } else {
-                btn.style.display = "none";
-            }
-        });
-    }
-
-    // ---------------- Choose answer ----------------
-    window.choose = function(index){
-        if(currentNode.next[index]){
-            currentNode = currentNode.next[index];
-            updateQuestion();
-        }
-    }
-
-    // Initialize
-    updateQuestion();
-
 });
 </script>
 
+
+<div id="sideMenu">
+  <a href="#Intro">Introduction</a>
+  <a href="#FedRates">Intro to Fed rates</a>
+  <a href="#ResearchQ">Research questions</a>
+  <a href="#Dataset">The dataset</a>
+  <a href="#ETF">ETF vs Stocks</a>
+  <a href="#Sectors">Sectors comparison</a>
+  <a href="#Size">Size Comparison</a>
+  <a href="#Comparison">Similar stocks</a>
+  <a href="#Conclusion">Conclusion</a>
+</div>
+
+<div id="content"></div>
+
+<style>
+    /* Side Menu Styling */
+#sideMenu {
+  position: fixed; /* stays in place when scrolling */
+  top: 50%; /* vertical center */
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#sideMenu a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+#sideMenu a:hover {
+  color: #007bff;
+}
+
+/* Content Styling */
+#content {
+  margin-left: 150px; /* make space for the menu */
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 100px; /* spacing before each section */
+}
+
+</style>
+
+<script>
+  // Select all links in the side menu
+  const menuLinks = document.querySelectorAll('#sideMenu a');
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent default jump
+      const targetId = this.getAttribute('href').substring(1); // remove #
+      const targetSection = document.getElementById(targetId);
+
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  });
+</script>
+
+
+
 <!-- ######################################################################################################################### -->
 
-## Vrai intro un peu cool
+## Vrai intro un peu cool <a id="Intro"></a>
+
+<section class="content-section trigger-game" data-game="init-game"></section>
+
+WE
+
 
 
 <!-- ######################################################################################################################### -->
 
 <section class="content-section trigger-game" data-game="fed-policy"></section>
 
-## Fed rates
+## Fed rates <a id="FedRates"></a>
 
 What is the Federal Reserve Interest Rate?
 
@@ -1002,7 +1289,9 @@ Our analysis highlights the impact of interest rates on markets and economic gro
 
 
 <!-- ######################################################################################################################### -->
-## Research Questions
+## Research Questions <a id="ResearchQ"></a>
+
+
 
 
 1. Sectoral Impact of Fed Rate Changes
@@ -1019,7 +1308,7 @@ Can Federal Reserve interest rate decisions indirectly influence investment flow
 
 <!-- ######################################################################################################################### -->
 
-## Datasets
+## Datasets <a id="Dataset"></a>
 
 Our analysis is built upon a primary stock market dataset, which has been enriched and validated using several external sources and libraries to ensure its completeness and accuracy for our research questions. In order to run the code of this repository one must first download and extract the zip folder containing the data (https://drive.google.com/file/d/1CSiKZGzjFM69QFF1hhgpscOVYW2XCfLM/view?usp=sharing), then place it as is in the ada-2025-project-t4d4 directory.
 
@@ -1165,7 +1454,11 @@ fetch("{{ site.baseurl }}/data/nasdaq_etf_stocks.json")
 
 
 <!-- ######################################################################################################################### -->
-## Fed events
+
+<section class="content-section trigger-game" data-game="fed-event"></section>
+
+
+## Fed events <a id="FedEvents"></a>
 
 ## def fed events (+ parameters in our dataset) (Alexis)
 We want to focus our analysis on specific Federal Reserve interest rate events.
@@ -1280,8 +1573,10 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <!-- ######################################################################################################################### -->
 
+<section class="content-section trigger-game" data-game="etf-game"></section>
 
-## ETF / stock (method & results & graphs & interpretation / intuition)
+
+## ETF / stock (method & results & graphs & interpretation / intuition) <a id="ETF"></a>
 
 1. Identify fed rate signals (see previous explanation)
 2. Map etf and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
@@ -1781,16 +2076,19 @@ This analysis reveals that diversification (ETFs) becomes more valuable during F
 
 
 <!-- ######################################################################################################################### -->
-## Sectors
+## Sectors <a id="Sectors"></a>
+
+<section class="content-section trigger-game" data-game="sectors-game"></section>
+
 
 
 
 
 <!-- ######################################################################################################################### -->
-## Size
+## Size <a id="Size"></a>
 
 
-<section class="content-section trigger-game" data-game="stock-size"></section>
+<section class="content-section trigger-game" data-game="size-game"></section>
 
 ## Stock Size
 
@@ -1992,7 +2290,11 @@ We see that it consistantly reaches much better normalized returns after the neg
 
 
 <!-- ######################################################################################################################### -->
-## Specific
+
+<section class="content-section trigger-game" data-game="comparison-game"></section>
+
+
+## Specific <a id="Comparison"></a>
 
 Like you just saw, one of the questions we can ask ourselves is what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
 
@@ -2434,7 +2736,10 @@ AGX was leading in terms of increase of dollar volume, which we can link to the 
 This whole question gave us a good intuition on how what can first look like comparable companies, with comparable results, can have very different structure and strategies, leading to very different reactions to fed rates. That's why depending on the configuration of the market and the fed rates, not every similarly performing company is worth betting on, and a more in depth analysis of the underlying functionning of the companies is necessary to maximize the gains, or at leasts minimize the risk of losses.
 
 <!-- ######################################################################################################################### -->
-## Conclusion
+## Conclusion <a id="Conclusion"></a>
+
+<section class="content-section trigger-game" data-game="conclusion-section"></section>
+
 
 
 

@@ -296,6 +296,8 @@ The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds),
 
 <!-- ---------------- Floating Game JS ---------------- -->
 <script>
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const floating = document.getElementById("floating-image-wrapper");
