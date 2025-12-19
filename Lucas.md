@@ -264,10 +264,9 @@ const pairs = {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
     description: `<b> ARAY vs DVA — Healthcare sector </b> 
     <br> 
-    <br> <i>Accuracy INC</i> 
-    <br> pvd : 0.037
-    <br>  <i>Davita INC</i> 
-    <br> pvd : 0.037 
+    <br> <i>Accuracy INC</i> (pvd : 0.037)
+    <br> 
+    <br>  <i>Davita INC</i> (pvd : 0.037 )
     <br> 
     <br> pvs : 0.883 
     <br> pve : 0.002 
@@ -275,7 +274,7 @@ const pairs = {
     <br> We can see a sharper and more sustained drop in dollar return for ARAY 
     <br> 
     <br>
-    <br> ARAY is a biotech company with important research stages that rely on financing. DVA on the other hand mainly provides dialysis services, which are a more stable source of income often tied to insurance reimbursements`
+    <br> <b> ARAY is a biotech company with important research stages that rely on financing. DVA on the other hand mainly provides dialysis services, which are a more stable source of income often tied to insurance reimbursements </b>` 
   },
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
