@@ -1092,38 +1092,91 @@ document.addEventListener("DOMContentLoaded", () => {
 <div id="content"></div>
 
 <style>
-    /* Side Menu Styling */
+/* Side Menu Styling */
 #sideMenu {
-  position: fixed; /* stays in place when scrolling */
-  top: 50%; /* vertical center */
+  position: fixed;
+  top: 50%;
   left: 0;
   transform: translateY(-50%);
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 0 5px 5px 0;
+
+  width: 28px;                 /* collapsed width */
+  overflow: hidden;
+
+  background-color: #d0d0d0;
+  padding: 10px 0;
+  border-radius: 0 6px 6px 0;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+  transition: width 0.3s ease;
 }
 
+/* Arrow indicator */
+/* Flat arrow indicator */
+#sideMenu::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+
+  width: 10px;
+  height: 26px;
+
+  background-color: #555; /* dark grey */
+  clip-path: polygon(
+    0 0,
+    70% 0,
+    100% 50%,
+    70% 100%,
+    0 100%
+  );
+
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+
+/* Expand on hover */
+#sideMenu:hover {
+  width: 180px;
+}
+
+/* Hide arrow when expanded */
+#sideMenu:hover::before {
+  opacity: 0;
+}
+
+/* Menu links */
 #sideMenu a {
   display: block;
-  margin: 10px 0;
+  margin: 10px 10px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  white-space: nowrap;
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
+/* Show links when expanded */
+#sideMenu:hover a {
+  opacity: 1;
+}
+
+/* Hover effect on links */
 #sideMenu a:hover {
   color: #007bff;
 }
 
 /* Content Styling */
 #content {
-  margin-left: 150px; /* make space for the menu */
+  margin-left: 40px;
   padding: 20px;
 }
 
 h2 {
-  margin-top: 100px; /* spacing before each section */
+  margin-top: 100px;
 }
 
 </style>
