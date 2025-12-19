@@ -789,12 +789,16 @@ For each sector s, we compute log-returns:
 </blockquote>
 
 
-<p>
 Returns are aggregated into cumulative returns rebased to 1:
-</p>
-<p class="math">
-CR<sub>s,t</sub> = ∏<sub>τ≤t</sub> (1 + r<sub>s,τ</sub>)
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img src="https://latex.codecogs.com/png.image?\dpi{150}CR_{s,t}=\prod_{\tau\le t}(1+r_{s,\tau})" height="70em">
+  <p style="margin:10px 0 0;font-style:italic;">
+    Cumulative return rebased to 1, obtained by compounding sector returns over time.
+  </p>
+</blockquote>
+
+
+
 <p>
 To isolate sector-specific behavior, we estimate a CAPM-style market model:
 </p>
