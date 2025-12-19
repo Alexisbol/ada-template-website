@@ -185,6 +185,36 @@
       "name": "Communication Services",
       "children": [
         {
+          "name": "MDIA",
+          "value": 311031730.87626624,
+          "company": "Mediaco Holding Inc. - Class A Common Stock"
+        },
+        {
+          "name": "SNAP",
+          "value": 368605934.8314886,
+          "company": "Snap Inc. Class A Common Stock"
+        },
+        {
+          "name": "BIDU",
+          "value": 697791389.2205995,
+          "company": "Baidu, Inc. - American Depositary Shares, each representing one tenth Class A ordinary share"
+        },
+        {
+          "name": "ROKU",
+          "value": 933997071.8443156,
+          "company": "Roku, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "GOOG",
+          "value": 1976485962.0219667,
+          "company": "Alphabet Inc. - Class C Capital Stock"
+        },
+        {
+          "name": "TWTR",
+          "value": 687347615.5303282,
+          "company": "Twitter, Inc. Common Stock"
+        },
+        {
           "name": "T",
           "value": 277295653.3644323,
           "company": "AT&T Inc."
@@ -279,6 +309,36 @@
     {
       "name": "Consumer Cyclical",
       "children": [
+        {
+          "name": "BKNG",
+          "value": 387812094.12801063,
+          "company": "Booking Holdings Inc. - Common Stock"
+        },
+        {
+          "name": "JD",
+          "value": 385176294.3100511,
+          "company": "JD.com, Inc. - American Depositary Shares"
+        },
+        {
+          "name": "STG",
+          "value": 788420942.8265635,
+          "company": "Sunlands Technology Group American Depositary Shares, representing Class A ordinary shares"
+        },
+        {
+          "name": "KTB",
+          "value": 1661041792.6712813,
+          "company": "Kontoor Brands, Inc. Common Stock "
+        },
+        {
+          "name": "TSLA",
+          "value": 1550764597.6527336,
+          "company": "Tesla, Inc.  - Common Stock"
+        },
+        {
+          "name": "VNE",
+          "value": 4313366515.28755,
+          "company": "Veoneer, Inc. Common Stock "
+        },
         {
           "name": "BABA",
           "value": 2353448967.9873133,
@@ -459,6 +519,11 @@
     {
       "name": "Consumer Defensive",
       "children": [
+        {
+          "name": "BYND",
+          "value": 830898497.2778765,
+          "company": "Beyond Meat, Inc. - Common stock"
+        },
         {
           "name": "PM",
           "value": 336461575.8613339,
@@ -789,6 +854,41 @@
     {
       "name": "Financial Services",
       "children": [
+        {
+          "name": "SQ",
+          "value": 471696340.09146345,
+          "company": "Square, Inc. Class A Common Stock"
+        },
+        {
+          "name": "TVIX",
+          "value": 536845747.79442215,
+          "company": "Credit Suisse AG - VelocityShares Daily 2x VIX Short Term ETN"
+        },
+        {
+          "name": "VXX",
+          "value": 512639705.0341624,
+          "company": "iPath Series B S&P 500 VIX Short-Term Futures ETN"
+        },
+        {
+          "name": "GS",
+          "value": 693537528.2428731,
+          "company": "Goldman Sachs Group, Inc. (The) Common Stock"
+        },
+        {
+          "name": "V",
+          "value": 692957377.2181185,
+          "company": "Visa Inc."
+        },
+        {
+          "name": "NTB",
+          "value": 1899154292.7511866,
+          "company": "Bank of N.T. Butterfield & Son Limited (The) Voting Ordinary Shares"
+        },
+        {
+          "name": "SBT",
+          "value": 5626605014.491042,
+          "company": "Sterling Bancorp, Inc. - Common Stock"
+        },
         {
           "name": "BAC",
           "value": 541471797.9476202,
@@ -1150,6 +1250,16 @@
       "name": "Industrials",
       "children": [
         {
+          "name": "UBER",
+          "value": 799089986.0705966,
+          "company": "Uber Technologies, Inc. Common Stock"
+        },
+        {
+          "name": "GE",
+          "value": 282284028.4188971,
+          "company": "General Electric Company Common Stock"
+        },
+        {
           "name": "DAL",
           "value": 259834112.27742445,
           "company": "Delta Air Lines, Inc. Common Stock"
@@ -1510,6 +1620,61 @@
       "name": "Technology",
       "children": [
         {
+          "name": "GOOGL",
+          "value": 2044026103.684978,
+          "company": "Alphabet Inc. - Class A Common Stock"
+        },
+        {
+          "name": "QCOM",
+          "value": 473523378.0466521,
+          "company": "QUALCOMM Incorporated - Common Stock"
+        },
+        {
+          "name": "NVDA",
+          "value": 585882533.7351403,
+          "company": "NVIDIA Corporation - Common Stock"
+        },
+        {
+          "name": "CSCO",
+          "value": 739018459.0493746,
+          "company": "Cisco Systems, Inc. - Common Stock"
+        },
+        {
+          "name": "MSFT",
+          "value": 1096397790.2008042,
+          "company": "Microsoft Corporation - Common Stock"
+        },
+        {
+          "name": "ORCL",
+          "value": 441376483.5886806,
+          "company": "Oracle Corporation Common Stock"
+        },
+        {
+          "name": "ZM",
+          "value": 410112933.5849382,
+          "company": "Zoom Video Communications, Inc. - Class A Common Stock"
+        },
+        {
+          "name": "CRM",
+          "value": 315865531.94051147,
+          "company": "Salesforce.com Inc Common Stock"
+        },
+        {
+          "name": "MU",
+          "value": 307055093.4087062,
+          "company": "Micron Technology, Inc. - Common Stock"
+        },
+        {
+          "name": "WORK",
+          "value": 284665033.32939243,
+          "company": "Slack Technologies, Inc. Class A Common Stock"
+        },
+        {
+          "name": "LYFT",
+          "value": 370204834.38060683,
+          "company": "Lyft, Inc. - Class A Common Stock"
+        },
+        {
           "name": "FB",
           "value": 2900035509.291957,
           "company": "Facebook, Inc. - Class A Common Stock"
@@ -1687,183 +1852,13 @@
       ]
     },
     {
-      "name": "Unknown",
+      "name": "Utilities",
       "children": [
-        {
-          "name": "SBT",
-          "value": 5626605014.491042,
-          "company": "Sterling Bancorp, Inc. - Common Stock"
-        },
-        {
-          "name": "VNE",
-          "value": 4313366515.28755,
-          "company": "Veoneer, Inc. Common Stock "
-        },
-        {
-          "name": "GOOGL",
-          "value": 2044026103.684978,
-          "company": "Alphabet Inc. - Class A Common Stock"
-        },
-        {
-          "name": "GOOG",
-          "value": 1976485962.0219667,
-          "company": "Alphabet Inc. - Class C Capital Stock"
-        },
-        {
-          "name": "NTB",
-          "value": 1899154292.7511866,
-          "company": "Bank of N.T. Butterfield & Son Limited (The) Voting Ordinary Shares"
-        },
-        {
-          "name": "KTB",
-          "value": 1661041792.6712813,
-          "company": "Kontoor Brands, Inc. Common Stock "
-        },
-        {
-          "name": "TSLA",
-          "value": 1550764597.6527336,
-          "company": "Tesla, Inc.  - Common Stock"
-        },
         {
           "name": "ELC",
           "value": 1507038193.561929,
           "company": "Entergy Louisiana, Inc. Collateral Trust Mortgage Bonds, 4.875 % Series due September 1, 2066"
         },
-        {
-          "name": "MSFT",
-          "value": 1096397790.2008042,
-          "company": "Microsoft Corporation - Common Stock"
-        },
-        {
-          "name": "ROKU",
-          "value": 933997071.8443156,
-          "company": "Roku, Inc. - Class A Common Stock"
-        },
-        {
-          "name": "BYND",
-          "value": 830898497.2778765,
-          "company": "Beyond Meat, Inc. - Common stock"
-        },
-        {
-          "name": "UBER",
-          "value": 799089986.0705966,
-          "company": "Uber Technologies, Inc. Common Stock"
-        },
-        {
-          "name": "STG",
-          "value": 788420942.8265635,
-          "company": "Sunlands Technology Group American Depositary Shares, representing Class A ordinary shares"
-        },
-        {
-          "name": "CSCO",
-          "value": 739018459.0493746,
-          "company": "Cisco Systems, Inc. - Common Stock"
-        },
-        {
-          "name": "BIDU",
-          "value": 697791389.2205995,
-          "company": "Baidu, Inc. - American Depositary Shares, each representing one tenth Class A ordinary share"
-        },
-        {
-          "name": "GS",
-          "value": 693537528.2428731,
-          "company": "Goldman Sachs Group, Inc. (The) Common Stock"
-        },
-        {
-          "name": "V",
-          "value": 692957377.2181185,
-          "company": "Visa Inc."
-        },
-        {
-          "name": "TWTR",
-          "value": 687347615.5303282,
-          "company": "Twitter, Inc. Common Stock"
-        },
-        {
-          "name": "NVDA",
-          "value": 585882533.7351403,
-          "company": "NVIDIA Corporation - Common Stock"
-        },
-        {
-          "name": "TVIX",
-          "value": 536845747.79442215,
-          "company": "Credit Suisse AG - VelocityShares Daily 2x VIX Short Term ETN"
-        },
-        {
-          "name": "VXX",
-          "value": 512639705.0341624,
-          "company": "iPath Series B S&P 500 VIX Short-Term Futures ETN"
-        },
-        {
-          "name": "QCOM",
-          "value": 473523378.0466521,
-          "company": "QUALCOMM Incorporated - Common Stock"
-        },
-        {
-          "name": "SQ",
-          "value": 471696340.09146345,
-          "company": "Square, Inc. Class A Common Stock"
-        },
-        {
-          "name": "ORCL",
-          "value": 441376483.5886806,
-          "company": "Oracle Corporation Common Stock"
-        },
-        {
-          "name": "ZM",
-          "value": 410112933.5849382,
-          "company": "Zoom Video Communications, Inc. - Class A Common Stock"
-        },
-        {
-          "name": "BKNG",
-          "value": 387812094.12801063,
-          "company": "Booking Holdings Inc. - Common Stock"
-        },
-        {
-          "name": "JD",
-          "value": 385176294.3100511,
-          "company": "JD.com, Inc. - American Depositary Shares"
-        },
-        {
-          "name": "LYFT",
-          "value": 370204834.38060683,
-          "company": "Lyft, Inc. - Class A Common Stock"
-        },
-        {
-          "name": "SNAP",
-          "value": 368605934.8314886,
-          "company": "Snap Inc. Class A Common Stock"
-        },
-        {
-          "name": "CRM",
-          "value": 315865531.94051147,
-          "company": "Salesforce.com Inc Common Stock"
-        },
-        {
-          "name": "MDIA",
-          "value": 311031730.87626624,
-          "company": "Mediaco Holding Inc. - Class A Common Stock"
-        },
-        {
-          "name": "MU",
-          "value": 307055093.4087062,
-          "company": "Micron Technology, Inc. - Common Stock"
-        },
-        {
-          "name": "WORK",
-          "value": 284665033.32939243,
-          "company": "Slack Technologies, Inc. Class A Common Stock"
-        },
-        {
-          "name": "GE",
-          "value": 282284028.4188971,
-          "company": "General Electric Company Common Stock"
-        }
-      ]
-    },
-    {
-      "name": "Utilities",
-      "children": [
         {
           "name": "DUK",
           "value": 71923692.81017165,
