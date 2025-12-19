@@ -823,28 +823,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             {
                                 label: "Yes, they have similar results.",
                                 comment: "Not quite. Similar results doesn't tell the full story on the strategies of the companies and how they will behave in a different situation.",
-                                isCorrect: true,
-                                next: {
-                                        text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares?",
-                                        answers: [
-                                            {
-                                                label: "Yes, we can assess with only one.",
-                                                comment: "Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company.",
-                                                isCorrect: true,
-                                                next: 
-                                            },
-                                            {
-                                                label: "No, we would need both.",
-                                                comment: "Precisely ! Only by combining both can we get real insight on the performance of a company.",
-                                                isCorrect: false,
-                                                next: null
-                                            }
-                                        ]
-                                    }
-                                            },
-                            {
-                                label: "No, not necesseraly",
-                                comment: "Indeed ! Same results for a period of time cannot guarantee similar behavior given a different situation.",
                                 isCorrect: false,
                                 next: {
                                         text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares?",
@@ -852,13 +830,35 @@ document.addEventListener("DOMContentLoaded", () => {
                                             {
                                                 label: "Yes, we can assess with only one.",
                                                 comment: "Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company.",
-                                                isCorrect: true,
-                                                next: 
+                                                isCorrect: false,
+                                                next: null
                                             },
                                             {
                                                 label: "No, we would need both.",
                                                 comment: "Precisely ! Only by combining both can we get real insight on the performance of a company.",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
+                            },
+                            {
+                                label: "No, not necesseraly",
+                                comment: "Indeed ! Same results for a period of time cannot guarantee similar behavior given a different situation.",
+                                isCorrect: true,
+                                next: {
+                                        text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares?",
+                                        answers: [
+                                            {
+                                                label: "Yes, we can assess with only one.",
+                                                comment: "Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company.",
                                                 isCorrect: false,
+                                                next: null
+                                            },
+                                            {
+                                                label: "No, we would need both.",
+                                                comment: "Precisely ! Only by combining both can we get real insight on the performance of a company.",
+                                                isCorrect: true,
                                                 next: null
                                             }
                                         ]
