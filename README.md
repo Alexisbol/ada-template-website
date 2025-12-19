@@ -516,9 +516,11 @@
 
 </script>
 <!-- ---------------- Floating Game HTML ---------------- -->
+<div id="game-overlay"></div>
 <div id="floating-image-wrapper">
     <button id="close-game">&times;</button>
     <button id="minimize-game">–</button>
+    <div id="score-display">Score: <span id="score-value">0</span></div>
     <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Sticky visual"/>
     <div id="question-container">
         <p id="question-text"></p>
@@ -528,9 +530,29 @@
         </div>
     </div>
 </div>
+<div id="fireworks-container"></div>
 
 <!-- ---------------- Floating Game CSS ---------------- -->
 <style>
+/* Overlay that covers the screen when game is active */
+#game-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#game-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 #floating-image-wrapper {
     position: fixed;
     top: 10%;
@@ -546,17 +568,17 @@
     transition: all 0.6s ease;
 }
 
-/* Active state moves to center */
+/* Active state moves to right side */
 #floating-image-wrapper.active {
     top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
+    right: 40px;
+    transform: translateY(-50%);
     pointer-events: auto;
 }
 
 #floating-image-wrapper.active img {
-    width: 70vw;
-    max-width: 900px;
+    width: 400px;
+    max-width: 450px;
 }
 
 /* Question container */
@@ -565,11 +587,10 @@
     pointer-events: none;
     transition: opacity 0.6s ease;
     background: rgba(235, 235, 235, 0.95);
-    padding: 15px 25px;
-    width: 80%;
-    max-width: 650px;
+    padding: 20px 30px;
+    width: 350px;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     text-align: center;
     position: absolute;
     top: 60%;
@@ -660,6 +681,84 @@
     opacity: 1;
     pointer-events: auto;
 }
+
+/* Score display */
+#score-display {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    z-index: 1001;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+#score-value {
+    font-size: 1.4em;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 2px 12px;
+    border-radius: 15px;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Fireworks container */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Firework particle animation */
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0.3);
+    }
+}
+
+/* Correct answer pulse effect */
+.correct-pulse {
+    animation: pulse 0.5s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 208, 132, 0.6);
+    }
+}
 </style>
 
 <!-- ---------------- Floating Game JS ---------------- -->
@@ -667,6 +766,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const floating = document.getElementById("floating-image-wrapper");
+    const overlay = document.getElementById("game-overlay");
     const triggers = document.querySelectorAll(".trigger-game");
     const closeBtn = document.getElementById("close-game");
     const minimizeBtn = document.getElementById("minimize-game");
@@ -676,6 +776,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionText = document.getElementById("question-text");
     const answerButtons = document.querySelectorAll("#answers button");
     const answersWrapper = document.getElementById("answers");
+    const scoreDisplay = document.getElementById("score-value");
+    const fireworksContainer = document.getElementById("fireworks-container");
+
+    let score = 0;
 
     // ---------------- TREE-BASED GAMES ----------------
     const games = {
@@ -691,11 +795,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             {
                                 label: "A share of ownership in a company",
                                 comment: "Correct!",
+                                isCorrect: true,
                                 next: null
                             },
                             {
                                 label: "A type of loan",
                                 comment: "Incorrect. A stock is ownership.",
+                                isCorrect: false,
                                 next: null
                             }
                         ]
@@ -721,11 +827,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             {
                                 label: "A share of ownership in a company",
                                 comment: "Correct!",
+                                isCorrect: true,
                                 next: null
                             },
                             {
                                 label: "A type of loan",
                                 comment: "Incorrect. A stock is ownership.",
+                                isCorrect: false,
                                 next: null
                             }
                         ]
@@ -750,11 +858,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             {
                                 label: "A share of ownership in a company",
                                 comment: "Correct!",
+                                isCorrect: true,
                                 next: null
                             },
                             {
                                 label: "A type of loan",
                                 comment: "Incorrect. A stock is ownership.",
+                                isCorrect: false,
                                 next: null
                             }
                         ]
@@ -780,11 +890,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             {
                                 label: "A share of ownership in a company",
                                 comment: "Correct!",
+                                isCorrect: true,
                                 next: null
                             },
                             {
                                 label: "A type of loan",
                                 comment: "Incorrect. A stock is ownership.",
+                                isCorrect: false,
                                 next: null
                             }
                         ]
@@ -810,11 +922,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             {
                                 label: "A share of ownership in a company",
                                 comment: "Correct!",
+                                isCorrect: true,
                                 next: null
                             },
                             {
                                 label: "A type of loan",
                                 comment: "Incorrect. A stock is ownership.",
+                                isCorrect: false,
                                 next: null
                             }
                         ]
@@ -910,9 +1024,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Activate the bubble and make sure question + close button appear
                 floating.classList.add("active");
+                overlay.classList.add("active");
                 if (!floating.classList.contains("minimized")) {
                     questionContainer.style.opacity = "1";
-                    //questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
                     closeBtn.style.opacity = "1";
                     closeBtn.style.pointerEvents = "auto";
@@ -926,6 +1040,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } else if (!entry.isIntersecting && !floating.classList.contains("minimized")) {
                 floating.classList.remove("active");
+                overlay.classList.remove("active");
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
                 closeBtn.style.opacity = "0";
@@ -933,6 +1048,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 // Hide when leaving section
                 floating.classList.remove("active");
+                overlay.classList.remove("active");
 
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
@@ -979,9 +1095,84 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // ---------------- FIREWORKS ANIMATION ----------------
+    function createFireworks(x, y, particleCount = 30) {
+        const colors = ['#ff0', '#f0f', '#0ff', '#f00', '#0f0', '#00f', '#ff4757', '#00d084', '#ffd700', '#ff1493'];
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'firework';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            const angle = (Math.PI * 2 * i) / particleCount;
+            const velocity = 50 + Math.random() * 100;
+            const tx = Math.cos(angle) * velocity;
+            const ty = Math.sin(angle) * velocity;
+            
+            particle.style.setProperty('--tx', tx + 'px');
+            particle.style.setProperty('--ty', ty + 'px');
+            
+            fireworksContainer.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 1000);
+        }
+    }
+
+    // ---------------- BIG FINALE FIREWORKS ----------------
+    function createFinaleFireworks() {
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        
+        // Create a spectacular finale with many bursts
+        const positions = [
+            {x: centerX, y: centerY - 100},
+            {x: centerX - 200, y: centerY},
+            {x: centerX + 200, y: centerY},
+            {x: centerX - 150, y: centerY - 150},
+            {x: centerX + 150, y: centerY - 150},
+            {x: centerX, y: centerY + 50},
+            {x: centerX - 250, y: centerY + 100},
+            {x: centerX + 250, y: centerY + 100}
+        ];
+        
+        positions.forEach((pos, index) => {
+            setTimeout(() => {
+                createFireworks(pos.x, pos.y, 50); // More particles for finale
+            }, index * 150);
+        });
+        
+        // Final center burst
+        setTimeout(() => {
+            createFireworks(centerX, centerY, 80);
+        }, positions.length * 150 + 200);
+    }
+
     // ---------------- ANSWER CHOSEN ----------------
     window.choose = function(index) {
         lastAnswer = currentNode.answers[index];
+        
+        // Check if answer is correct and update score
+        if (lastAnswer.isCorrect === true) {
+            score++;
+            scoreDisplay.textContent = score;
+            
+            // Animate score update
+            const scoreContainer = document.getElementById('score-display');
+            scoreContainer.style.transform = 'scale(1.2)';
+            setTimeout(() => scoreContainer.style.transform = 'scale(1)', 300);
+            
+            // Add pulse animation to button
+            answerButtons[index].classList.add('correct-pulse');
+            setTimeout(() => answerButtons[index].classList.remove('correct-pulse'), 500);
+            
+            // Smaller fireworks for correct answers
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            createFireworks(centerX, centerY, 25);
+        }
+        
         waitingForComment = true;
         updateBubble();
     };
@@ -995,19 +1186,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentNode) {
             updateBubble();
         } else {
-            questionText.innerText = "End of this path.";
+            // Game finished - show finale
+            questionText.innerText = "🎉 Congratulations! Final Score: " + score;
             answersWrapper.style.display = "none";
+            
+            // Trigger big finale fireworks
+            createFinaleFireworks();
         }
     }
 
     // ---------------- CLOSE ----------------
-    closeBtn.addEventListener("click", () => {
+    function closeGame() {
         floating.classList.remove("active");
+        overlay.classList.remove("active");
         questionContainer.style.opacity = "0";
         questionContainer.style.pointerEvents = "none";
         closeBtn.style.opacity = "0";
         closeBtn.style.pointerEvents = "none";
-    });
+    }
+
+    closeBtn.addEventListener("click", closeGame);
+    
+    // Close when clicking on overlay
+    overlay.addEventListener("click", closeGame);
 
     // ---------------- MINIMIZE ----------------
     minimizeBtn.addEventListener("click", () => {
