@@ -38,6 +38,11 @@ layout: default
     color: #fff;
     border-bottom-color: #fff;
 }
+.content-section h2 {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+}
 </style>
 
 <div class="top-nav">
@@ -67,11 +72,11 @@ The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds),
 <div id="sunburst" style="width:100%; height:700px;"></div>
 
 
-## STOCK SIZE
 
-<!-- <div id="question-container">
+
+<!--<div id="question-container">
   <div id="character-container">
-   <!-- for theinterviewer icon (this one is free of license) --#>
+   <!-- for theinterviewer icon (this one is free of license) - #->
    <img src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Character" id="character"> 
 	<div id="question-container">
 	 <p id="question-text">'Next, I would like to ask you: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?'</p>
@@ -141,12 +146,324 @@ The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds),
   background-color: #2c619aff;
 }
 
-</style> -->
+</style>-->
+<!-- ---------------- Floating Game HTML ---------------- -->
+<div id="floating-image-wrapper">
+    <button id="close-game">&times;</button>
+    <button id="minimize-game">–</button>
+    <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Sticky visual"/>
+    <div id="question-container">
+        <p id="question-text"></p>
+        <div id="answers">
+            <button onclick="choose(0)"></button>
+            <button onclick="choose(1)"></button>
+        </div>
+    </div>
+</div>
+
+<!-- ---------------- Floating Game CSS ---------------- -->
+<style>
+#floating-image-wrapper {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    pointer-events: none;
+    z-index: 999;
+    transition: all 0.6s ease;
+}
+
+#floating-image-wrapper img {
+    width: 180px;
+    border-radius: 10px;
+    transition: all 0.6s ease;
+}
+
+/* Active state moves to center */
+#floating-image-wrapper.active {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    pointer-events: auto;
+}
+
+#floating-image-wrapper.active img {
+    width: 70vw;
+    max-width: 900px;
+}
+
+/* Question container */
+#question-container {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    background: rgba(235, 235, 235, 0.95);
+    padding: 15px 25px;
+    width: 80%;
+    max-width: 650px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Answers */
+#answers {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#answers button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    background-color: #408ad8ff;
+    color: white;
+    transition: background 0.2s ease;
+}
+
+#answers button:hover {
+    background-color: #2c619aff;
+}
+
+/* Close button inside image */
+#close-game {
+    position: absolute;
+    top: 70%;
+    right: 70%;
+    background: red;
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    z-index: 1000;
+    line-height: 30px;
+    text-align: center;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Minimize button top-right corner */
+#minimize-game {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: grey;
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    z-index: 1000;
+    line-height: 30px;
+    text-align: center;
+    padding: 0;
+    pointer-events: auto;
+}
+
+/* Minimized state hides image and question (close button hidden automatically) */
+#floating-image-wrapper.minimized #floating-image,
+#floating-image-wrapper.minimized #question-container,
+#floating-image-wrapper.minimized #close-game {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#floating-image-wrapper.active #question-container {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#floating-image-wrapper.active #close-game {
+    opacity: 1;
+    pointer-events: auto;
+}
+</style>
+
+<!-- ---------------- Floating Game JS ---------------- -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const floating = document.getElementById("floating-image-wrapper");
+    const triggers = document.querySelectorAll(".trigger-game");
+    const closeBtn = document.getElementById("close-game");
+    const minimizeBtn = document.getElementById("minimize-game");
+    const questionContainer = document.getElementById("question-container");
+    const floatingImage = document.getElementById("floating-image");
+
+    // ---------------- Multiple games ----------------
+    const games = {
+        "stock-size": {
+            text: "Stock Size Game: Ready?",
+            answers: ["Yes", "No"],
+            next: [
+                {
+                    text: "Which stock size is riskier after a positive fed rate?",
+                    answers: ["Small", "Medium"],
+                    next: [
+                        { text: "Correct!", answers: [], next: [] },
+                        { text: "Incorrect!", answers: [], next: [] }
+                    ]
+                }
+            ]
+        },
+        "fed-policy": {
+            text: "Fed Policy Game: Ready?",
+            answers: ["Yes", "No"],
+            next: [
+                {
+                    text: "What happens to interest rates after a fed policy change?",
+                    answers: ["Increase", "Decrease"],
+                    next: [
+                        { text: "Correct!", answers: [], next: [] },
+                        { text: "Incorrect!", answers: [], next: [] }
+                    ]
+                }
+            ]
+        }
+    };
+
+    let currentGame = null;
+    let currentNode = null;
+
+    // ---------------- IntersectionObserver for scroll triggers ----------------
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+
+                const gameKey = entry.target.dataset.game;
+                if(gameKey && games[gameKey]){
+                    currentGame = games[gameKey];
+                    currentNode = currentGame;
+                    updateQuestion();
+                }
+
+                // Show floating game
+                floating.classList.add("active");
+
+                // If minimized, temporarily restore image + question + close button
+                if(floating.classList.contains("minimized")){
+                    floatingImage.style.opacity = "1";
+                    questionContainer.style.opacity = "1";
+                    questionContainer.style.pointerEvents = "auto";
+                    closeBtn.style.opacity = "1";
+                    closeBtn.style.pointerEvents = "auto";
+                } else {
+                    // Ensure question and buttons are visible and clickable
+                    questionContainer.style.opacity = "1";
+                    questionContainer.style.pointerEvents = "auto";
+                    closeBtn.style.opacity = "1";
+                    closeBtn.style.pointerEvents = "auto";
+                }
+
+            } else {
+                // Hide when leaving section
+                floating.classList.remove("active");
+
+                questionContainer.style.opacity = "0";
+                questionContainer.style.pointerEvents = "none";
+                closeBtn.style.opacity = "0";
+                closeBtn.style.pointerEvents = "none";
+
+                if(!floating.classList.contains("minimized")){
+                    floatingImage.style.opacity = "1";
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    triggers.forEach(section => observer.observe(section));
+
+    // ---------------- Close button ----------------
+    closeBtn.addEventListener("click", () => {
+        floating.classList.remove("active");
+        questionContainer.style.opacity = "0";
+        questionContainer.style.pointerEvents = "none";
+        closeBtn.style.opacity = "0";
+        closeBtn.style.pointerEvents = "none";
+
+        if(!floating.classList.contains("minimized")){
+            floatingImage.style.opacity = "1";
+        }
+    });
+
+    // ---------------- Minimize button ----------------
+    minimizeBtn.addEventListener("click", () => {
+        if(floating.classList.contains("minimized")){
+            floating.classList.remove("minimized");
+            floatingImage.style.opacity = "1";
+        } else {
+            floating.classList.add("minimized");
+            floatingImage.style.opacity = "0";
+            questionContainer.style.opacity = "0";
+            questionContainer.style.pointerEvents = "none";
+            closeBtn.style.opacity = "0";
+            closeBtn.style.pointerEvents = "none";
+        }
+    });
+
+    // ---------------- Update question ----------------
+    function updateQuestion() {
+        if(!currentNode) return;
+
+        const questionText = document.querySelector('#floating-image-wrapper #question-text');
+        const buttons = document.querySelectorAll('#floating-image-wrapper #answers button');
+
+        questionText.innerText = currentNode.text;
+
+        buttons.forEach((btn, i) => {
+            if(currentNode.answers[i]) {
+                btn.style.display = "block";
+                btn.innerText = currentNode.answers[i];
+            } else {
+                btn.style.display = "none";
+            }
+        });
+    }
+
+    // ---------------- Choose answer ----------------
+    window.choose = function(index){
+        if(currentNode.next[index]){
+            currentNode = currentNode.next[index];
+            updateQuestion();
+        }
+    }
+
+    // Initialize
+    updateQuestion();
+
+});
+</script>
+
+
+
+<section class="content-section trigger-game" data-game="stock-size">
+    <h2>Stock Size</h2>
+    <p>lol.</p>
+</section>
+
 Q: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?
 
 First we must define a metric that allows us to classify the stocks into their sizes! Here we need to aggregate two informations; the price of the stock, as well as the amount of sahres that are bought and sold on a regular basis. Indeed, if we choose to only look at the price of stocks, then a stock of a new, upcoming but still developping small company can be bought by one person at a very large price, say 100$ but no one else does, because it is risky, then the "value" will seem high. On the other hand, if we focus only on volume, then we can mistake a cheap, small company that gets exchange a lot because of rumors and speculation when in fact the company is small. A metric that captures both of the important aspects that make a company valuable, is dollar volume: the product of the price of a stock and the traded volume. It represents the total amount of money that was exchanged for this stock in a day. 
 
 To answer this question, we apply the same strategy as previously; we split the stocks into our three categories: small if the dollar volume is anywhere between 0 and 5 million dollars, medium if it is in the range of 5 to 15 million dollars and large if it is anywhere above. For reference, stocks like Apple, Google or Tesla are well above 1 billion dollars on average.
+
+
+
 
 Then we compare every stock of a given size categroy to all others and count the number of times it has more area above the other stock after a positive fed event when plotting the normalized return over time. This can be with a binomial test, by creating noise in the data to determine how "close" such an experiment is to give a different outcome. We obtian the following result:
 
@@ -238,6 +555,12 @@ Have a look at some example of instances, the stock 'AAN' (AutoNation Inc) beats
 </script>
 
 We see that it consistantly reaches much better normalized returns after the negative fed evetn of the 27th of April 2017 than competitors!
+
+
+<section class="content-section trigger-game" data-game="fed-policy">
+    <h2>Fed Policy</h2>
+    <p>Understanding interest rate changes.</p>
+</section>
 
 <!--<svg id="treemap" width="200" height="200"></svg>
 
