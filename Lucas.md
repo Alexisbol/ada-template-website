@@ -275,11 +275,12 @@ const pairs = {
     <br>
     <br> <b> ARAY is a biotech company with important research stages that rely on financing. DVA on the other hand mainly provides dialysis services, which are a more stable source of income often tied to insurance reimbursements </b>` 
   },
+
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
     description: ` <b> AGX vs ARTW — Industry sector </b>
     <br> 
-    <br>  <i>Argan Inc</i> ( pvd : 0.014 ) ( pvc : 0.912)
+    <br> <i>Argan Inc</i> ( pvd : 0.014 ) ( pvc : 0.912)
     <br> <i>Art’s Way Manufacturing Co Inc</i> ( pvd : 0.165 ) (pvc : 0.0)
     <br> 
     <br> pvs : 0.999 
@@ -290,13 +291,37 @@ const pairs = {
     <br>
     <br> <b> AGX is a construction and industrial services firm which operates by providing services in related fields. ARTW is a smaller industrial equipment manufacturer specialized, in particular, in agricultural machinery  </b>` 
   },
+
   "ASTC vs ALOT": {
     json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
-    description: "ASTC vs ALOT — Technology sector"
+    description: ` <b> ASTC vs ALOT — Technology sector </b>
+    <br> 
+    <br> <i>Astrotech Corp</i> ( pvd : 0.016 ) ( pvc : 0.0)
+    <br> <i>AstraNova Inc</i> ( pvd : 0.964 ) (pvc : 0.512)
+    <br> 
+    <br> pvs : 0.456 
+    <br> pve : 0.009 
+    <br> 
+    <br> We can see an increase in dollar return and in dollar volume for ASTC 
+    <br> 
+    <br>
+    <br> <b> ASTC is a small company, heavily development-oriented focused on spectrometry and the commercialization of detection technologies. ALOT is a larger and more established, which focuses on the manifacture of technologies such as aerospace printing hardware </b>` 
   },
+
   "DVN vs MUR": {
     json: "{{ site.baseurl }}/data/(DVN,MUR).json",
-    description: "DVN vs MUR — Energy sector"
+    description: ` <b> DVN vs MUR — Energy sector </b> 
+    <br> 
+    <br> <i>Devon Energy Corp</i> ( pvd : 0.005 ) ( pvc : 0.028)
+    <br> <i>Murphy Oil Corp</i> ( pvd : 0.975 ) (pvc : 0.5)
+    <br> 
+    <br> pvs : 0.0 
+    <br> pve : 0.0 
+    <br> 
+    <br> We can see an increase in dollar return for AGX and a shaper increase in dollar volume for ARTW
+    <br> 
+    <br>
+    <br> <b> AGX is a construction and industrial services firm which operates by providing services in related fields. ARTW is a smaller industrial equipment manufacturer specialized, in particular, in agricultural machinery  </b>` 
   }
 };
 
