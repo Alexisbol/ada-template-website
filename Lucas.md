@@ -154,12 +154,12 @@ layout: default
   const questions = [
     // example of a question
   {
-    text: "Do you think that two company with comparable results on a given period will necesseraly react the same to fed events ?", // question
+    text: "Do you think that two companies with comparable results on a given period will necesseraly react the same to fed events ?", // question
     answers: ["Yes, they have similar results", "No, not necesseraly"], // answers
-    comments: ["Not quite. Similar results doesn't tell the full story on the strategies of the companies and how the will behave in a different situation", "Indeed ! same results for a period of time cannot guarantee similar behavior given a different situation"] // comments for each answers
+    comments: ["Not quite. Similar results doesn't tell the full story on the strategies of the companies and how they will behave in a different situation", "Indeed ! same results for a period of time cannot guarantee similar behavior given a different situation"] // comments for each answers
   },
     {
-    text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or the Price of the shares",
+    text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares",
     answers: ["Yes, we can assess with only one", "No, we would need both"],
     comments: ["Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company", "Precisely ! Only by combining both can we get real insight on the performance of a company"]
   },
@@ -236,7 +236,7 @@ Like you just saw, one of the questions we can ask ourselves is what the impact 
 
 ## Idea behing the Analysis
 
-A relevant analysis of the impact of the fed rates ask for a relevant difference in the behavior of the two companies we are focusing on. The idea behind your work therefore needs to lie in defining a comparability measure to indentify pairs of companies both strongly comparable before the event, and significantly different after.
+A relevant analysis of the impact of the fed rates asks for a relevant difference in the behavior of the two companies we are focusing on. The idea behind your work therefore needs to lie in defining a comparability measure to indentify pairs of companies both strongly comparable before the event, and significantly different after.
 
  
 ## Comparability Methods 
@@ -246,9 +246,9 @@ A first comment goes towards the sectors of the companies. To achieve a more rel
 A first obstacle in the definition of a comparabilty measure lies in the volatility of these features along a time period.
 The solution you should adopt is thus to think of a local measure of how similar two companies are on a given small time period. This approach fits the question as you only aim to study the impact of localized fed rate events, hence the evolution of the before and after the event for two companies. The idea is then to define a small time window on which you can compare the values of a given feature for both companies.
 
-The issue that arises with this method, and second obstacle, is to account for outliers, meaning localized behaviors of the features that are not inscribed in the global trend of the window. As the idea is to ultimaetely define a similarity metric, that is a number, the idea that you can come up with to nullify the impact of these outliers in theory is to consider the median of the values that the feature takes. Like I said, This approach has the adventage to limit the influence of the outliers when summarizing the behavior of the feature, in opposition to a mean that would be highly reactive to the former.
+The issue that arises with this method, and second obstacle, is to account for outliers, meaning localized behaviors of the features that are not inscribed in the global trend of the window. As the idea is to ultimaetely define a similarity metric (a number), the idea that you can come up with to nullify the impact of these outliers in theory is to consider the median of the values that the feature takes. Like we said, This approach has the advantage to limit the influence of the outliers when summarizing the behavior of the feature, in opposition to a mean that would be highly reactive to the formers.
 
-A Third obstacle lies in the fact that you are so far comparing raw values, without considering the scales of the features. In fact, when dealing with objects that come in a vast diversity like companies, it is important to account for their scale, because what can be a huge change in raw numbers can turn out to be a minor event in the eye of an even bigger company. In that sense, a raw numbers approach would discard any pairs of large scale companies during the sorting. A solution that you could adopt is to consider the Bray-Curtis dissimalirity which brings back a difference in raw numbers to the scale of these numbers themselves. 
+A Third obstacle lies in the fact that you are so far comparing raw values, without considering the scales of the features. In fact, when dealing with objects that come in a vast diversity like companies, it is important to account for their scale, because what can be a huge change in raw numbers can also turn out to be a minor event in the eye of an even bigger company. In that sense, a raw numbers approach would discard any pairs of large scale companies during the sorting. A solution that you could adopt is to consider the Bray-Curtis dissimalirity which brings back a difference in raw numbers to the scale of the numbers themselves. 
 
 Once all these obstacles have been tackled you end up with the complete method for comparing two companies, which can be summarized in the following equation 
 
@@ -261,18 +261,18 @@ Once all these obstacles have been tackled you end up with the complete method f
 
 ## Focus on the Features
 
-Given the comparison method that we have derived, you have to find which feature of a company would best express this notion of comparibility. Having already taken care of the sector of the company, the idea of comparability now only lies intuitively in a notion of "size" of the company. We have already discussed this notion in the part on the size dependent analysis, but as a reminder the idea is here to compare companies of "similar" "size". We have defined this concept of "similar" already what is left is to look into how different features, both given by the dataset and engineered ourseleves could better represent the "size" of a company.
+Given the comparison method that we have derived, you have to find which feature of a company would best express this notion of comparibility. Having already taken care of the sector of the company, the idea of comparability now only lies intuitively in a notion of "size" of the company. We have already discussed this notion in the part on the size dependent analysis, but as a reminder the idea is here to compare companies of similar "size". We have defined this concept of "similar" already what is left is to look into how different features, both given by your dataset and engineered yourself, could better represent the "size" of a company.
 
-You can first consider features like Volume of shares exchanged and Return. Now the latter is already an engineered feature, defined as the percentage of difference between two Closing prices distanced by a given time period (generally for us 21 days). But as you remember from my questions, the issue that arised from these features is their lack of complete economical grounding. In fact we can imagine a company that has issued a large amount of consequently cheap shares, which would imply that a large quantity of exchanged shares doesn't necesseraily represent a large amount of money exchanged. Similarly, a big difference in Closing prices in a compay with a low amount of shares issued doesn't necessarily represent an important financial gain or loss. You may have realized by now that one lacks what the other offers. The idea is then to combine the notions behind them into composite features that display a more complete economical grounding.
+You may first consider features like Volume of shares exchanged and Return. Now the latter is already an engineered feature, defined as the percentage of difference between two Closing prices distanced by a given time period (generally for us 21 days). But as you remember from the interview questions, the issue that arises from these features is their uncomplete economical grounding. In fact we can imagine a company that has issued a large amount of consequently cheap shares, which would imply that a large quantity of exchanged shares doesn't necesseraly represent a large amount of money exchanged. Similarly, a big difference in Closing prices in a compay with a low amount of shares issued doesn't necessarily represent an important financial gain or loss. You may have realized by now that each feature lacks what the other offers. The idea is then to combine the notions behind them into composite features that display a more complete economical grounding.
 
-The feature created from this conclusion is called Dollar Volume and depends on a third one called Typical price. The latter is a well known feature used in finance and that is defined as a weighted average of all the prices of a share (Opening, Closing, Highest, Lowest). This feature helps us define a more adaptable and all encompassing notion of price for a company share. We then define our Dollar Volume as the product of the amount of shares traded and the typical price of a share, to get a quantifier of the amount of financial volume traded.
+The feature created from this conclusion is called Dollar Volume and depends on a third one called Typical price. The latter is a well known feature used in finance and is defined as a weighted average of all the prices of a share (Opening, Closing, Highest, Lowest). This feature helps us to define a more adaptable and all encompassing notion of price for a company share. We then define our Dollar Volume as the product of the amount of shares traded and the typical price of a share, to get a quantifier of the amount of financial volume traded.
 
 On a side note, we also define a feature called Dollar Return as the product between the Return and the Typical price that helps us in the analysis to better quantify the gains or losses of a company in monitary terms.
 
 
 ## Relevance of the Results
 
-One key ingredient is missing to your pipeline so far. Everything mentioned combined only offers an automized way to get pairs of companies with the most interesting properties of similarity for your analysis, but it never guarantees the existence of the statistical significance of said properties. What I mean is the fact that you merely sort the pairs based on a similarity and dissimilarity score to get companies the most similar at the beginning and most different at the end of the event, but nothing in the process guarantees that these difference are statistically significant. 
+One key ingredient is missing to your pipeline so far... Everything mentioned combined only offers an automized way to get pairs of companies with the most interesting properties of similarity for your analysis, but it never guarantees the existence of the statistical significance of said properties. What we mean is the fact that you merely sort the pairs based on a similarity and dissimilarity score to get companies the most similar at the beginning and most different at the end of the event, but nothing in the process guarantees that these difference are statistically significant. 
 
 A solution for you is to introduce different t-test at different steps of the pipeline to study their p values. In that sense, you can set up t-test for the evolution of the feature of the company, in order to quantify the impact on these features. For the sake of simplicity afterwards we refer to associated p values as "pvd" as in p value of the difference in the evolution of the features. In addition you can have t-test comparing both companies on the start and end windows of the event to test the significance of the start similarity and end dissimilarity mentionned previously. Again for the sake of simplicity we refer to associated p values as "pvs" for the start and "pve" for the end.
 
@@ -281,7 +281,9 @@ But these tests allow you to only discuss significant changes in the behavior of
 
 ## Case studies
 
-Through the different aspect of this research question we have defined a fully functionning pipeline aiming to produce pairs of companies judged "comparable" along with the significance of this judgement. Nevertheless, the real analysis lies past this pipeline and focuses rather on its product. Here is a selection of the most relevant cases to analyse what different behaviors from comparable companies can reveal about their functionning. 
+Through the different aspects of this research question we have defined a fully functionning pipeline aiming to produce pairs of companies judged "comparable" along with the significance of this judgement. Nevertheless, the real analysis lies past this pipeline and focuses rather on its product. Here is a selection of the most relevant cases to analyse what different behaviors from comparable companies can reveal about their functionning. 
+
+For the case studies, this pipeline is ran on the feature Dollar Volume and on a fed event linked to the 2008 crisis. In the plots all the features are cross-normalized, meaning normalized taking the maximum of both and the minimum of both. This approach allows to plot them along the fed rates while keeping their relation to each other. The fed rates however are simply normalized in a general manner. 
 
 
 <style>
@@ -489,7 +491,7 @@ const pairs = {
     <br> We can see an increase in dollar return and in dollar volume for ASTC 
     <br> 
     <br>
-    <br> <b> ASTC is a small company, heavily development-oriented focused on spectrometry and the commercialization of detection technologies. ALOT is a larger and more established, which focuses on the manifacture of technologies such as aerospace printing hardware </b>` 
+    <br> <b> ASTC is a small company, heavily development-oriented focused on spectrometry and the commercialization of detection technologies. ALOT is a larger and more established company, which focuses on the manifacture of technologies such as aerospace printing hardware </b>` 
   },
 
   "DVN vs MUR": {
@@ -507,7 +509,7 @@ const pairs = {
     <br> We can see an increase in dollar return more important for DVN and an increase in dollar volume for DVN
     <br> 
     <br>
-    <br> <b> DVN and MUR are both upstream oil and gas producers. DVN aims for rapid expansion throught exploration and acquisition of geographical sites and development of new fields, while MUR operates with careful geographicdiversification </b>` 
+    <br> <b> DVN and MUR are both upstream oil and gas producers. DVN aims for rapid expansion throught exploration and acquisition of geographical sites and development of new fields, while MUR operates with careful geographic diversification </b>` 
   }
 };
 
@@ -647,20 +649,20 @@ document.addEventListener("click", closeMenus);
 
 ## Results and interpretations
 
-The cases studies seem to tie a companie's resilience, that is its low reactivity to fed rates and stability, to two main component of its functionning. 
+The case studies seem to tie a companie's resilience, that is its low reactivity to fed rates and stability, to two main component of its functionning. 
 
-### What first seems to matter is the business model. 
+### What first seems to matter is its business model. 
 
-In the example of the stocks ASTC and ALOT, ASTC is more responsive to fed rates, whereas ALOT is more stable. We can explain this difference of behavior by a difference of business model. In fact ASTC is more development oriented, while ALOT is only manufacturing. This implies that ASTC's revenues are not certain and depend on the financing of the research and development. In fact, when the fed rates go down, investors are more tempted to finance such projects as they do it at a lower cost for them. On the other hand, ALOT's revenue are stable as the company only sells a product on the market, whose value is more stable. 
+In the example of the stocks ASTC and ALOT, ASTC was more responsive to fed rates, whereas ALOT was more stable. We can explain this difference of behavior by a difference of business model. In fact ASTC is more development oriented, while ALOT is only manufacturing. This implies that ASTC's revenues are not certain and depend on the financing of the research and development. In fact, when the fed rates go down, investors are more tempted to finance such projects as they do it at a lower cost for them. On the other hand, ALOT's revenues are stable as the company only sells a product on the market, whose value is more stable. 
 
-In the example of the stocks DVN and MUR, it was DVN that was more responsive to fed rates, while MUR was also responsive but with a weaker response. This difference can be explained in their respective strategies, which can be described as respectively more aggressive and more conservative. The difference in business model, either growth-oriented or stability oriented, leads the reactivity to fed rates and increase of decrease in investssments.
+In the example of the stocks DVN and MUR, it was DVN that was more responsive to fed rates, while MUR was also responsive but with a weaker response. This difference can be explained in their respective strategies, which can be described as respectively more aggressive and more conservative. The difference in business model, either growth-oriented or stability oriented, leads the reactivity to fed rates and increase of decrease in investments.
 
 ### A second key element is its target market and its scale
 
 In the example of AGX and ARTW, both were responding but in different ways and to different consequences of the fed event. 
-AGX was leading in terms of increase of dollar volume, which we can link to the fact that fed rate drops are tied to the incentive for wealthy actors to place their money which explodes the volume of shares of a company. In the case of AGX, it is the perfect choice for these investors as it is a large scale industrial company with large contracts and a historically good balance sheet : in other terms a safe choice. But this portfolio reallocation doesn't imply a reevaluation of the value of a share, meaning the placing is rather speculative at this point. On the other hand ARTW shows an increase in dollar return because, as a small company, it is rather value driven and not flow driven. In the context of a drop in the fed rates investors reevalue the price of the share of the stock, hence the company knows a price effect which increases its overall return.
+AGX was leading in terms of increase of dollar volume, which we can link to the fact that fed rate drops are tied to the incentive for wealthy actors to place their money which explodes the volume of shares of a company. In the case of AGX, it is the perfect choice for these investors as it is a large scale industrial company with large contracts and a historically good balance sheet : in other terms a safe choice. But this portfolio reallocation doesn't imply a reevaluation of the value of a share, meaning the placing is rather speculative in this case. On the other hand ARTW shows an increase in dollar return because, as a small company, it is rather value driven and not flow driven. In the context of a drop in the fed rates investors revalue the price of the share of the stock, hence the company knows a price effect which in this case increases its overall return.
 
 <br>
 <br>
 
-This whole question gave us a good intuition on how what can first look like comparable companies, with comparable results, can have very different structure and strategies, as well as different reactions to fed rates. That's why depending on the configuration of the market and the fed rates, not every similarly performing company is worth betting on, and a more in depth analysis of the underlying functionning of the companies is necessary to maximize the gains, or at leasts minimize the minimize the risk of losses.
+This whole question gave us a good intuition on how what can first look like comparable companies, with comparable results, can have very different structure and strategies, leading to very different reactions to fed rates. That's why depending on the configuration of the market and the fed rates, not every similarly performing company is worth betting on, and a more in depth analysis of the underlying functionning of the companies is necessary to maximize the gains, or at leasts minimize the risk of losses.
