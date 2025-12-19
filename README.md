@@ -520,7 +520,6 @@
 <div id="floating-image-wrapper">
     <button id="close-game">&times;</button>
     <button id="minimize-game">–</button>
-    <div id="score-display">Score: <span id="score-value">0</span></div>
     <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Sticky visual"/>
     <div id="question-container">
         <p id="question-text"></p>
@@ -530,7 +529,6 @@
         </div>
     </div>
 </div>
-<div id="fireworks-container"></div>
 
 <!-- ---------------- Floating Game CSS ---------------- -->
 <style>
@@ -563,7 +561,7 @@
 }
 
 #floating-image-wrapper img {
-    width: 180px;
+    width: 240px;
     border-radius: 10px;
     transition: all 0.6s ease;
 }
@@ -577,8 +575,8 @@
 }
 
 #floating-image-wrapper.active img {
-    width: 400px;
-    max-width: 450px;
+    width: 520px;
+    max-width: 600px;
 }
 
 /* Question container */
@@ -682,69 +680,6 @@
     pointer-events: auto;
 }
 
-/* Score display */
-#score-display {
-    position: absolute;
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 0.9em;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 25px;
-    z-index: 1001;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-#score-value {
-    font-size: 1.4em;
-    font-weight: 700;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 2px 12px;
-    border-radius: 15px;
-    min-width: 30px;
-    text-align: center;
-}
-
-/* Fireworks container */
-#fireworks-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* Firework particle animation */
-.firework {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    animation: explode 1s ease-out forwards;
-}
-
-@keyframes explode {
-    0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(0.3);
-    }
-}
-
 /* Correct answer pulse effect */
 .correct-pulse {
     animation: pulse 0.5s ease-out;
@@ -776,10 +711,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionText = document.getElementById("question-text");
     const answerButtons = document.querySelectorAll("#answers button");
     const answersWrapper = document.getElementById("answers");
-    const scoreDisplay = document.getElementById("score-value");
-    const fireworksContainer = document.getElementById("fireworks-container");
-
-    let score = 0;
 
     // ---------------- TREE-BASED GAMES ----------------
     const games = {
@@ -1095,84 +1026,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ---------------- FIREWORKS ANIMATION ----------------
-    function createFireworks(x, y, particleCount = 30) {
-        const colors = ['#ff0', '#f0f', '#0ff', '#f00', '#0f0', '#00f', '#ff4757', '#00d084', '#ffd700', '#ff1493'];
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'firework';
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
-            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-            
-            const angle = (Math.PI * 2 * i) / particleCount;
-            const velocity = 50 + Math.random() * 100;
-            const tx = Math.cos(angle) * velocity;
-            const ty = Math.sin(angle) * velocity;
-            
-            particle.style.setProperty('--tx', tx + 'px');
-            particle.style.setProperty('--ty', ty + 'px');
-            
-            fireworksContainer.appendChild(particle);
-            
-            setTimeout(() => particle.remove(), 1000);
-        }
-    }
-
-    // ---------------- BIG FINALE FIREWORKS ----------------
-    function createFinaleFireworks() {
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        
-        // Create a spectacular finale with many bursts
-        const positions = [
-            {x: centerX, y: centerY - 100},
-            {x: centerX - 200, y: centerY},
-            {x: centerX + 200, y: centerY},
-            {x: centerX - 150, y: centerY - 150},
-            {x: centerX + 150, y: centerY - 150},
-            {x: centerX, y: centerY + 50},
-            {x: centerX - 250, y: centerY + 100},
-            {x: centerX + 250, y: centerY + 100}
-        ];
-        
-        positions.forEach((pos, index) => {
-            setTimeout(() => {
-                createFireworks(pos.x, pos.y, 50); // More particles for finale
-            }, index * 150);
-        });
-        
-        // Final center burst
-        setTimeout(() => {
-            createFireworks(centerX, centerY, 80);
-        }, positions.length * 150 + 200);
-    }
-
     // ---------------- ANSWER CHOSEN ----------------
     window.choose = function(index) {
         lastAnswer = currentNode.answers[index];
-        
-        // Check if answer is correct and update score
-        if (lastAnswer.isCorrect === true) {
-            score++;
-            scoreDisplay.textContent = score;
-            
-            // Animate score update
-            const scoreContainer = document.getElementById('score-display');
-            scoreContainer.style.transform = 'scale(1.2)';
-            setTimeout(() => scoreContainer.style.transform = 'scale(1)', 300);
-            
-            // Add pulse animation to button
+
+        // Add pulse animation to button for feedback
+        if (lastAnswer && lastAnswer.isCorrect) {
             answerButtons[index].classList.add('correct-pulse');
             setTimeout(() => answerButtons[index].classList.remove('correct-pulse'), 500);
-            
-            // Smaller fireworks for correct answers
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            createFireworks(centerX, centerY, 25);
         }
-        
+
         waitingForComment = true;
         updateBubble();
     };
@@ -1186,12 +1049,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentNode) {
             updateBubble();
         } else {
-            // Game finished - show finale
-            questionText.innerText = "🎉 Congratulations! Final Score: " + score;
+            // Game finished
+            questionText.innerText = "You've completed the game!";
             answersWrapper.style.display = "none";
-            
-            // Trigger big finale fireworks
-            createFinaleFireworks();
         }
     }
 
