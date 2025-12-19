@@ -780,25 +780,57 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "size-game": {
-            text: "Hello! SIZE?",
+            text: "We will now discuss how company size can affect their sensitivity to fed rates. Ready?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "What is a stock?",
+                        text: "In a Negative fed event, do you think it is safer to invest in a small or large firm?",
                         answers: [
                             {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
+                                label: "A small one!",
+                                comment: "Correct! It turns out it is a little safer to do so.",
                                 isCorrect: true,
-                                next: null
+                                next: {
+                                        text: "Do you think that company size is a clear strong of sensitivity to fed events?",
+                                        answers: [
+                                            {
+                                                label: "Yes, they are the best indicator.",
+                                                comment: "Incorrect. It is hard to assess by considering only the size of the company...",
+                                                isCorrect: false,
+                                                next: null
+                                            },
+                                            {
+                                                label: "No, there is a lot of variance of reactions even within same sized comapnies.",
+                                                comment: "Precisely ! It is very hard to generalize this kind of statement!",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             },
                             {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
+                                label: "A large one!",
+                                comment: "Incorrect. Smaller ones are a little safer.",
                                 isCorrect: false,
-                                next: null
+                                next: {
+                                        text: "Do you think that company size is a clear strong of sensitivity to fed events?",
+                                        answers: [
+                                            {
+                                                label: "Yes, they are the best indicator.",
+                                                comment: "Incorrect. It is hard to assess by considering only the size of the company...",
+                                                isCorrect: false,
+                                                next: null
+                                            },
+                                            {
+                                                label: "No, there is a lot of variance of reactions even within same sized comapnies.",
+                                                comment: "Precisely ! It is very hard to generalize this kind of statement!",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             }
                         ]
                     }
@@ -1044,7 +1076,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateBubble();
         } else {
             // Game finished
-            questionText.innerText = "You've completed the game!";
+            questionText.innerText = "Let us dive deeper into the subject!";
             answersWrapper.style.display = "none";
         }
     }
@@ -1206,7 +1238,7 @@ h2 {
 
 ## Introduction <a id="Intro"></a>
 
-This isn't like any other presentation, this is an exclusive interview with Jordan Belfort, aka the wolf of wallstreet, for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
+This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
 
 I'll be throwing questions at you the same way the market trhows curveballs alright 
 <br> <i> What do you know of the differences between sectors </i>

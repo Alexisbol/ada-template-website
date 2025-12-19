@@ -781,26 +781,39 @@ dynamics?
 
 For each sector s, we compute log-returns:
 
-> <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\ln\!\left(\frac{P_{s,t}}{P_{s,t-1}}\right)" height="60em">
->
-> *With rₛ,ₜ the log-return of sector **s** at time **t**.*
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/png.image?\dpi{120}r_{s,t}=\ln\!\left(\frac{P_{s,t}}{P_{s,t-1}}\right)"
+    style="max-width:420px;height:auto;display:block;"
+    alt="log-return formula"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    With rₛ,ₜ the log-return of sector <b>s</b> at time <b>t</b>.
+  </p>
+</blockquote>
 
 
 Returns are aggregated into cumulative returns rebased to 1:
-</p>
-<p class="math">
-CR<sub>s,t</sub> = ∏<sub>τ≤t</sub> (1 + r<sub>s,τ</sub>)
-</p>
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img src="https://latex.codecogs.com/png.image?\dpi{150}CR_{s,t}=\prod_{\tau\le t}(1+r_{s,\tau})" height="70em">
+  <p style="margin:10px 0 0;font-style:italic;">
+    Cumulative return rebased to 1, obtained by compounding sector returns over time.
+  </p>
+</blockquote>
+
+
+
 <p>
 To isolate sector-specific behavior, we estimate a CAPM-style market model:
 </p>
-<p class="math">
-r<sub>s,t</sub> = α<sub>s</sub> + β<sub>s</sub> r<sub>m,t</sub> + ε<sub>s,t</sub>
-</p>
-<p>
-where β<sub>s</sub> measures exposure to systematic market risk and α<sub>s</sub> captures
-average excess performance unexplained by the market.
-</p>
+
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\alpha_s+\beta_s r_{m,t}+\varepsilon_{s,t}" height="70em">
+  <p style="margin:10px 0 0;font-style:italic;">
+    βₛ measures exposure to market risk, while αₛ captures average excess performance.
+  </p>
+</blockquote>
+
 
 <h3>Results</h3>
 
