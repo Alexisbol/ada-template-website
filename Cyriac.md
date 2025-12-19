@@ -236,8 +236,8 @@ The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds),
 /* Close button inside image */
 #close-game {
     position: absolute;
-    top: 70%;
-    right: 70%;
+    top: 15%;
+    right: 15%;
     background: red;
     color: white;
     font-size: 1.5em;
@@ -451,10 +451,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<section class="content-section trigger-game" data-game="stock-size">
-    <h2>Stock Size</h2>
-    <p>lol.</p>
-</section>
+<section class="content-section trigger-game" data-game="stock-size"></section>
+
+## Stock Size
 
 Q: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?
 
@@ -557,10 +556,7 @@ Have a look at some example of instances, the stock 'AAN' (AutoNation Inc) beats
 We see that it consistantly reaches much better normalized returns after the negative fed evetn of the 27th of April 2017 than competitors!
 
 
-<section class="content-section trigger-game" data-game="fed-policy">
-    <h2>Fed Policy</h2>
-    <p>Understanding interest rate changes.</p>
-</section>
+<section class="content-section trigger-game" data-game="fed-policy"></section>
 
 <!--<svg id="treemap" width="200" height="200"></svg>
 
