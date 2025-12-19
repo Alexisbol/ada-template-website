@@ -644,3 +644,23 @@ document.addEventListener("click", closeMenus);
 })();
 
 </script>
+
+## Results and interpretations
+
+The cases studies seem to tie a companie's resilience, that is its low reactivity to fed rates and stability, to two main component of its functionning. 
+
+### What first seems to matter is the business model. 
+
+In the example of the stocks ASTC and ALOT, ASTC is more responsive to fed rates, whereas ALOT is more stable. We can explain this difference of behavior by a difference of business model. In fact ASTC is more development oriented, while ALOT is only manufacturing. This implies that ASTC's revenues are not certain and depend on the financing of the research and development. In fact, when the fed rates go down, investors are more tempted to finance such projects as they do it at a lower cost for them. On the other hand, ALOT's revenue are stable as the company only sells a product on the market, whose value is more stable. 
+
+In the example of the stocks DVN and MUR, it was DVN that was more responsive to fed rates, while MUR was also responsive but with a weaker response. This difference can be explained in their respective strategies, which can be described as respectively more aggressive and more conservative. The difference in business model, either growth-oriented or stability oriented, leads the reactivity to fed rates and increase of decrease in investssments.
+
+### A second key element is its target market and its scale
+
+In the example of AGX and ARTW, both were responding but in different ways and to different consequences of the fed event. 
+AGX was leading in terms of increase of dollar volume, which we can link to the fact that fed rate drops are tied to the incentive for wealthy actors to place their money which explodes the volume of shares of a company. In the case of AGX, it is the perfect choice for these investors as it is a large scale industrial company with large contracts and a historically good balance sheet : in other terms a safe choice. But this portfolio reallocation doesn't imply a reevaluation of the value of a share, meaning the placing is rather speculative at this point. On the other hand ARTW shows an increase in dollar return because, as a small company, it is rather value driven and not flow driven. In the context of a drop in the fed rates investors reevalue the price of the share of the stock, hence the company knows a price effect which increases its overall return.
+
+<br>
+<br>
+
+This whole question gave us a good intuition on how what can first look like comparable companies, with comparable results, can have very different structure and strategies, as well as different reactions to fed rates. That's why depending on the configuration of the market and the fed rates, not every similarly performing company is worth betting on, and a more in depth analysis of the underlying functionning of the companies is necessary to maximize the gains, or at leasts minimize the minimize the risk of losses.
