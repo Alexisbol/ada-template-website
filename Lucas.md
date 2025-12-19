@@ -53,7 +53,185 @@ layout: default
     </div>
 </div>
 
-One of the questions that we asked ourselves was to study what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
+
+
+
+<!-- template of the game -->
+
+<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- html of the game  -->
+
+<div id="game-container">
+  <div id="character-container">
+   <!-- for theinterviewer icon (this one is free of license) -->
+   <img src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Character" id="character"> 
+	<div id="question-container">
+	 <p id="question-text"></p>
+	 <div id="answers">
+	 <button id="answer1" onclick="choose(0)"></button>
+	 <button id="answer2" onclick="choose(1)"></button>
+	</div>
+   </div>
+  </div>
+</div>
+
+
+<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- style of the game  -->
+
+<style>
+
+#game-container {
+  display: flex;
+  justify-content: center;
+  margin: 0px auto 50px auto;
+  font-family: Arial, sans-serif;
+}
+
+#character-container {
+  position: relative;
+  width: 600px;
+}
+
+#character-container img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+#question-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(235, 235, 235, 0.9);
+  padding: 15px 25px;
+  width: 80%;
+  border-radius: 15px;
+  max-width: 650px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+#question-container p#question-text {
+    font-size: 2em;        
+    font-family: "Georgia", serif; 
+    margin: 0;             
+}
+
+#answers {
+  display: flex;
+  justify-content: space-between; /* side by side */
+  margin-top: 15px;
+  gap: 10px;
+}
+
+#answers button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  background-color: #408ad8ff;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+#answers button:hover {
+  background-color: #2c619aff;
+}
+
+</style>
+
+
+<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- script of the game -->
+
+<script>
+  const questions = [
+    // example of a question
+  {
+    text: "Do you think that two company with comparable results on a given period will necesseraly react the same to fed events ?", // question
+    answers: ["Yes, they have similar results", "No, not necesseraly"], // answers
+    comments: ["Not quite. Similar results doesn't tell the full story on the stratyegies of the companies and how the will behave in a different situation", "Indeed ! same results for a period of time cannot guarantee similar behavior given a different situation"] // comments for each answers
+  },
+    {
+    text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or the Price of the shares",
+    answers: ["Yes, we can asses with only one", "No, I would need both"],
+    comments: ["Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company", "Precisely ! Only by combining both can we get real insight on the performance of a company"]
+  },
+  // if you want an ending where the game displays an end message here it is : 
+  {
+    text: "Let us have a better look at how to answer these questions in practice",
+    answers: [],
+    comments: []
+  }
+];
+
+let currentIndex = 0;
+let waitingForComment = false;
+let lastAnswerIndex = null;
+
+function updateBubble() {
+  const q = questions[currentIndex];
+  const questionText = document.getElementById('question-text');
+  const buttons = document.querySelectorAll('#answers button');
+
+  if (!waitingForComment) {
+    questionText.innerText = q.text;
+    buttons.forEach((btn, i) => {
+      if (q.answers[i]) {
+        btn.style.display = "block";
+        btn.innerText = q.answers[i];
+        btn.onclick = () => showComment(i);
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  } else {
+    questionText.innerText = q.comments[lastAnswerIndex];
+    buttons.forEach((btn, i) => {
+      if (i === 0) {
+        btn.style.display = "block";
+        btn.innerText = "Next";
+        btn.onclick = () => nextQuestion();
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  }
+}
+
+function showComment(answerIndex) {
+  lastAnswerIndex = answerIndex;
+  waitingForComment = true;
+  updateBubble();
+}
+
+function nextQuestion() {
+  currentIndex++;
+  waitingForComment = false;
+  if (currentIndex < questions.length) {
+    updateBubble();
+  } else {
+    document.getElementById('question-text').innerText = "You've completed the game!";
+    document.getElementById('answers').style.display = "none";
+  }
+}
+
+updateBubble();
+
+</script>
+
+<br>
+<br>
+<br>
+
+
+One of the questions that we can ask ourselves is to study what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
 
 
 ## Idea behing the Analysis
