@@ -2966,8 +2966,8 @@ This whole question gave us a good intuition on how what can first look like com
             </div>
             <!-- Member 4 -->
             <div class="team-member">
-                <img src="{{ site.baseurl }}/assets/img/pdp_ada.png" alt="Team Member 4" class="team-photo">
-                <div class="team-name">Alexis</div>
+                <img src="{{ site.baseurl }}/assets/img/Cyriac_GREGOIRE_Photo.jpg" alt="Team Member 4" class="team-photo">
+                <div class="team-name">Cyriac</div>
                 <div class="team-contact">
                     <span>cyriac.gregoire@epfl.ch</span>
                     <a href="https://github.com/CyriacGregoire" target="_blank">@CyriacGregoire</a>
