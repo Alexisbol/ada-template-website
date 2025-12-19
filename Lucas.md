@@ -318,10 +318,10 @@ const pairs = {
     <br> pvs : 0.0 
     <br> pve : 0.0 
     <br> 
-    <br> We can see an increase in dollar return for AGX and a shaper increase in dollar volume for ARTW
+    <br> We can see an increase in dollar return more important for DVN and an increase in dollar volume for DVN
     <br> 
     <br>
-    <br> <b> AGX is a construction and industrial services firm which operates by providing services in related fields. ARTW is a smaller industrial equipment manufacturer specialized, in particular, in agricultural machinery  </b>` 
+    <br> <b> DVN and MUR are both upstream oil and gas producers. DVN aims for rapid expansion throught exploration and acquisition of geographical sites and development of new fields, while MUR operates with careful geographicdiversification </b>` 
   }
 };
 
