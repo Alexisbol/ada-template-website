@@ -54,7 +54,7 @@
     gap: 40px;
 }
 .header-title {
-    font-size: 32px;
+    font-size: 45px;
     font-weight: 700;
     color: #fff;
     margin: 0;
@@ -1171,14 +1171,13 @@ So if you think you have what it takes : take a deep breath, sit up straight and
 
 What is the Federal Reserve Interest Rate?
 
-### TODO REPHRASE INTRO TO TALK ABOUT IMPACT ON COMPANIES 
+Think of the Fed Rate as the economic thermostat for both businesses and households. While it is technically the interest rate banks charge each other, it effectively controls the cost of borrowing for everyone. This determines how much it costs a company to expand or how much a family pays for a home.
 
-You can think of the Fed Rate as the "thermostat" for the U.S. economy. While technically it is the interest rate banks charge each other, practically it controls the cost of borrowing for everyone.
-How it works: 
-- **Turning the Dial Down** (Cutting Rates): When the economy is "freezing" (recession or job loss), the Fed lowers the rate. This makes loans cheaper, encouraging people to buy homes and **businesses** to hire more workers.
-- **Turning the Dial Up** (Raising Rates): When the economy is "overheating" (prices rising too fast/inflation), the Fed raises the rate. This makes loans expensive, which slows down spending and stabilizes prices.
+**Cutting Rates** (Green Light): When the Fed "turns down the dial," borrowing becomes cheaper. This encourages companies to fund new projects and hire more workers, while also lowering monthly loan payments for people.
 
-Current Status: As of December 2025, the Fed is in a "warming" phase, having cut rates to 3.75% – 4.00% to support the job market.
+**Raising Rates** (The Brake): When the Fed "turns up the dial" to fight inflation, borrowing becomes expensive. Businesses often tighten their belts and pause expansion, while consumers see higher interest on credit cards and mortgages.
+
+Current Status: As of December 2025, the Fed is in a "colling" phase. By cutting rates to 3.75% – 4.00%, they are lowering the cost of debt to help businesses keep their teams and help families manage their budgets.
 
 <style>
     .fed-card {margin:18px 0;padding:16px;border:1px solid #e1e8f0;border-radius:14px;background:#fbfdff;box-shadow:0 10px 24px rgba(12,50,96,0.08);max-width:100%;}
@@ -1329,7 +1328,7 @@ Current Status: As of December 2025, the Fed is in a "warming" phase, having cut
 </details>
 
 
-
+<!-- 
 We first measure how rate hikes and cuts differently affect sector performance, then zoom in to compare firms within the same industry and across sizes, revealing patterns of resilience and vulnerability. 
 
 By contrasting sector-focused ETFs with their leading constituent stocks, we explore how diversification buffers volatility after policy announcements. 
@@ -1337,7 +1336,7 @@ By contrasting sector-focused ETFs with their leading constituent stocks, we exp
 Finally, we ask whether accommodative monetary policy channels more capital toward innovation-driven industries, accelerating technological breakthroughs. 
 
 Our analysis highlights the impact of interest rates on markets and economic growth. However, when the Federal Reserve adjusts policy, does it effectively dictate global financial trends?
-
+ -->
 
 
 
