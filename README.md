@@ -1774,10 +1774,12 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <!-- ######################################################################################################################### -->
 
-<section class="content-section trigger-game" data-game="etf-game"></section>
 
 
 ## ETF / stock (method & results & graphs & interpretation / intuition) <a id="ETF"></a>
+
+<section class="content-section trigger-game" data-game="etf-game"></section>
+
 
 1. Identify fed rate signals (see previous explanation)
 2. Map etf and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
