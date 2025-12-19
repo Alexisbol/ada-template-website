@@ -519,7 +519,7 @@
 <div id="game-overlay"></div>
 <div id="floating-image-wrapper">
     <button id="minimize-game">–</button>
-    <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Sticky visual"/>
+    <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/leonardo.png" alt="Sticky visual"/>
     <div id="question-container">
         <p id="question-text"></p>
         <div id="answers">
@@ -1153,16 +1153,14 @@ h2 {
 
 ## Introduction <a id="Intro"></a>
 
-This isn't like any other presentation, this is an exclusive interview with Jordan Belfort, aka the wolf of wallstreet, for a covoted position at Stratton Oakmont as intern stock analyst. 
-
-Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
+This isn't like any other presentation, this is an exclusive interview with Jordan Belfort, aka the wolf of wallstreet, for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
 
 I'll be throwing questions at you the same way the market trhows curveballs alright 
 <br> <i> What do you know of the differences between sectors </i>
 <br> <i> What do you know of the differences between ETFs and stocks </i>
 <br> <i> Are you able to understand the influence of a company structure on the behavior of its stocks </i>
 
-So if you think you have what it takes : take a deep breath, sit up straight and show me that you don't just talk stocks, you understand them.
+So if you think you have what it takes : take a deep breath, sit up straight and show me that you don't just talk stocks, you understand them. 
 
 
 <!-- ######################################################################################################################### -->
