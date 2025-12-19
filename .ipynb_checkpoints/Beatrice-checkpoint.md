@@ -742,7 +742,8 @@ HERE
 
 -->
 
-TEST
+
+
 
 <!-- ===================== -->
 <!-- PART 1 -->
@@ -777,13 +778,14 @@ dynamics?
 </p>
 
 <h3>Method</h3>
-<p>
-For each sector <em>s</em>, we compute log-returns:
-</p>
-<p class="math">
-r<sub>s,t</sub> = ln(P<sub>s,t</sub> / P<sub>s,t−1</sub>)
-</p>
-<p>
+
+For each sector s, we compute log-returns:
+
+> <img src="https://latex.codecogs.com/png.image?\dpi{150}r_{s,t}=\ln\!\left(\frac{P_{s,t}}{P_{s,t-1}}\right)" height="60em">
+>
+> *With rₛ,ₜ the log-return of sector **s** at time **t**.*
+
+
 Returns are aggregated into cumulative returns rebased to 1:
 </p>
 <p class="math">
@@ -807,10 +809,29 @@ average excess performance unexplained by the market.
   <script>renderMplExport("fig01", "{{ site.baseurl }}/assets/fig_json/fig01.json");</script>
 </div>
 
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Higher curves:</strong> sectors that grew more over the period (stronger cumulative performance).</li>
+    <li><strong>Diverging curves:</strong> increasing dispersion across sectors (winners vs laggards).</li>
+    <li><strong>Sharp bends:</strong> periods of major market stress or regime changes affecting sectors differently.</li>
+  </ul>
+</div>
+
+
 
 <div class="figure-block">
   <div id="fig04" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig04", "{{ site.baseurl }}/assets/fig_json/fig04.json");</script>
+</div>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Median line:</strong> typical return in that regime.</li>
+    <li><strong>Box height:</strong> variability (wider = more dispersion).</li>
+    <li><strong>Outliers:</strong> rare extreme months (tail risk).</li>
+  </ul>
 </div>
 
 
@@ -818,6 +839,16 @@ average excess performance unexplained by the market.
   <div id="fig05" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig05", "{{ site.baseurl }}/assets/fig_json/fig05.json");</script>
 </div>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Higher β:</strong> sector moves more than the market (more systematic risk).</li>
+    <li><strong>Lower β:</strong> sector is more defensive (less market-driven).</li>
+    <li><strong>Non-zero α:</strong> average performance not explained by the market factor alone.</li>
+  </ul>
+</div>
+
 
 
 <p>
@@ -878,6 +909,16 @@ in the policy rate, conditional on the market. Robust standard errors are used.
   <script>renderMplExport("fig07", "{{ site.baseurl }}/assets/fig_json/fig07.json");</script>
 </div>
 
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Right side:</strong> higher market beta (more market-driven).</li>
+    <li><strong>Above / below zero (y-axis):</strong> positive / negative sensitivity to Fed changes.</li>
+    <li><strong>Far from the origin:</strong> sectors with the most distinctive risk profile.</li>
+  </ul>
+</div>
+
+
 <p>
 Market exposure and Fed sensitivity emerge as distinct dimensions of risk. Some sectors exhibit
 meaningful sensitivity to policy rate changes, while others are weakly affected despite similar
@@ -930,6 +971,16 @@ Abnormal returns are aggregated over a 3-day window to obtain cumulative abnorma
   <script>renderMplExport("fig11", "{{ site.baseurl }}/assets/fig_json/fig11.json");</script>
 </div>
 
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Right of zero:</strong> sector outperforms the benchmark around the event window.</li>
+    <li><strong>Left of zero:</strong> sector underperforms the benchmark around the event window.</li>
+    <li><strong>Near zero:</strong> little average abnormal reaction.</li>
+  </ul>
+</div>
+
+
 
 <div class="figure-block">
   <div id="fig12" style="width:100%; height:520px;"></div>
@@ -937,6 +988,16 @@ Abnormal returns are aggregated over a 3-day window to obtain cumulative abnorma
     renderMplExport("fig12", "{{ site.baseurl }}/assets/fig_json/fig12.json");
   </script>
 </div>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Point estimate:</strong> average abnormal effect around the event.</li>
+    <li><strong>Confidence interval:</strong> uncertainty range around that estimate.</li>
+    <li><strong>Interval crosses zero:</strong> effect is not clearly different from zero.</li>
+  </ul>
+</div>
+
 
 <p>
 Sector responses to surprise cuts are highly heterogeneous. Some sectors underperform sharply,
@@ -981,6 +1042,15 @@ a proxy for long-term monetary conditions.
 <div class="figure-block">
   <div id="fig02" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig02", "{{ site.baseurl }}/assets/fig_json/fig02.json");</script>
+</div>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Same direction:</strong> the two rates generally co-move (shared monetary/macro forces).</li>
+    <li><strong>10Y smoother:</strong> long-term yields reflect expectations and risk premia (less “jumpy”).</li>
+    <li><strong>Gaps between lines:</strong> changes in term premium / expectations about future policy.</li>
+  </ul>
 </div>
 
 
@@ -1034,15 +1104,45 @@ sector returns across regimes.
   <script>renderMplExport("fig03", "{{ site.baseurl }}/assets/fig_json/fig03.json");</script>
 </div>
 
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Right of zero:</strong> returns tend to increase when the 10Y yield rises (positive sensitivity).</li>
+    <li><strong>Left of zero:</strong> returns tend to fall when the 10Y yield rises (rate-sensitive / duration-like).</li>
+    <li><strong>Error bar crosses zero:</strong> effect is not clearly different from zero (statistically weak).</li>
+  </ul>
+</div>
+
+
 <div class="figure-block">
   <div id="fig08" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig08", "{{ site.baseurl }}/assets/fig_json/fig08.json");</script>
 </div>
 
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Line position:</strong> where the yield sits relative to history.</li>
+    <li><strong>Dashed thresholds:</strong> cutoffs that define “low” vs “high” rate regimes.</li>
+    <li><strong>Crossing a threshold:</strong> entering a new regime used for comparison later.</li>
+  </ul>
+</div>
+
+
 <div class="figure-block">
   <div id="fig09" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig09", "{{ site.baseurl }}/assets/fig_json/fig09.json");</script>
 </div>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Right of zero:</strong> sector performs better in the “high-rate” regime.</li>
+    <li><strong>Left of zero:</strong> sector performs better in the “low-rate” regime.</li>
+    <li><strong>Longer bars:</strong> larger economic difference between regimes.</li>
+  </ul>
+</div>
+
 
 
 <p>
@@ -1058,9 +1158,7 @@ policy effects.
 </p>
 
 </section>
-TEST
 
-TEST2
 
 <!-- ===================== -->
 <!-- PART 6 -->
@@ -1173,6 +1271,16 @@ and heteroskedasticity in volatility.
   <script>renderMplExport("fig17", "{{ site.baseurl }}/assets/fig_json/fig17.json");</script>
 </div>
 
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Right of zero:</strong> volatility tends to rise when the Fed rate increases (hikes).</li>
+    <li><strong>Left of zero:</strong> volatility tends to rise when the Fed rate decreases (cuts).</li>
+    <li><strong>Error bar crosses zero:</strong> no clear directional effect once controls are included.</li>
+  </ul>
+</div>
+
+
 <p>
 Once market-wide risk (VXN) is controlled for, most sectors exhibit volatility sensitivities close
 to zero, with confidence intervals overlapping zero. This suggests that the direction of Fed moves
@@ -1183,6 +1291,16 @@ to zero, with confidence intervals overlapping zero. This suggests that the dire
   <div id="fig18" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig18", "{{ site.baseurl }}/assets/fig_json/fig18.json");</script>
 </div>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Further right:</strong> volatility increases more when the Fed move is large (shock-size effect).</li>
+    <li><strong>p-value labels:</strong> smaller values mean stronger statistical evidence.</li>
+    <li><strong>Near zero:</strong> little or no sensitivity to shock magnitude.</li>
+  </ul>
+</div>
+
 
 
 <p>
@@ -1211,6 +1329,16 @@ no statistically meaningful relationship once VXN is included.
   </script>
 
 </div>
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Left axis line:</strong> monthly change in the Fed rate (policy moves over time).</li>
+    <li><strong>Right axis line:</strong> sector volatility for the selected sector.</li>
+    <li><strong>Look for co-movement:</strong> spikes in volatility that align with large Fed moves.</li>
+  </ul>
+</div>
+
 
 
 <p>
@@ -1309,8 +1437,20 @@ the incremental contribution of the Fed given those controls.
 <h3>Results</h3>
 
 <div class="figure-block">
-  <!-- FIG 20 -->
+  <div id="fig20" style="width:100%; height:560px;"></div>
+  <script>renderMplExport("fig20", "{{ site.baseurl }}/assets/fig_json/fig20.json");</script>
 </div>
+
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Two dots per sector:</strong> naive estimate vs controlled estimate.</li>
+    <li><strong>Big gap between dots:</strong> strong confounding (macro risk explains the naive effect).</li>
+    <li><strong>Controlled dot near zero:</strong> little incremental Fed effect after controls.</li>
+  </ul>
+</div>
+
 
 <p>
 In the naive specification, Fed coefficients are large and often strongly negative, reflecting the
@@ -1320,8 +1460,22 @@ zero, indicating substantial confounding in the naive estimates.
 </p>
 
 <div class="figure-block">
-  <!-- FIG 21 -->
+  <div id="fig21" style="width:100%; height:520px;"></div>
+  <script>
+    renderMplExport("fig21", "{{ site.baseurl }}/assets/fig_json/fig21.json");
+  </script>
 </div>
+
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Higher values:</strong> controls (macro risk + persistence) explain much more volatility.</li>
+    <li><strong>Near zero:</strong> controls add little explanatory power for that sector.</li>
+    <li><strong>Comparing sectors:</strong> which sectors are most dominated by macro/persistence dynamics.</li>
+  </ul>
+</div>
+
 
 <p>
 Adding VXN and volatility persistence leads to large increases in explanatory power across all
@@ -1330,8 +1484,22 @@ dominate sector-level volatility dynamics.
 </p>
 
 <div class="figure-block">
-  <!-- FIG 22 -->
+  <div id="fig22" style="width:100%; height:700px;"></div>
+  <script>
+    renderMplExport("fig22", "{{ site.baseurl }}/assets/fig_json/fig22.json");
+  </script>
 </div>
+
+
+<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
+  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
+  <ul style="margin:0;padding-left:20px;color:#1e293b;">
+    <li><strong>Main bar segment:</strong> variance explained by macro risk and volatility persistence.</li>
+    <li><strong>Smaller added segment:</strong> extra variance explained by the Fed after controls.</li>
+    <li><strong>Star marker:</strong> statistically detectable incremental Fed contribution (if present).</li>
+  </ul>
+</div>
+
 
 <p>
 Variance decomposition shows that macro risk and volatility persistence account for the vast
@@ -1350,7 +1518,7 @@ phenomenon, with monetary policy acting as a secondary amplifier rather than a d
 
 </section>
 
-TEST2 fin
+
 
 
 
