@@ -518,7 +518,6 @@
 <!-- ---------------- Floating Game HTML ---------------- -->
 <div id="game-overlay"></div>
 <div id="floating-image-wrapper">
-    <button id="close-game">&times;</button>
     <button id="minimize-game">–</button>
     <img id="floating-image" src="{{ site.baseurl }}/assets/img/game/recruiter.png" alt="Sticky visual"/>
     <div id="question-container">
@@ -620,28 +619,6 @@
     background-color: #2c619aff;
 }
 
-/* Close button inside image */
-#close-game {
-    position: absolute;
-    top: 15%;
-    right: 15%;
-    background: red;
-    color: white;
-    font-size: 1.5em;
-    border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    z-index: 1000;
-    line-height: 30px;
-    text-align: center;
-    padding: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
 /* Minimize button top-right corner */
 #minimize-game {
     position: absolute;
@@ -662,20 +639,14 @@
     pointer-events: auto;
 }
 
-/* Minimized state hides image and question (close button hidden automatically) */
+/* Minimized state hides image and question */
 #floating-image-wrapper.minimized #floating-image,
-#floating-image-wrapper.minimized #question-container,
-#floating-image-wrapper.minimized #close-game {
+#floating-image-wrapper.minimized #question-container {
     opacity: 0;
     pointer-events: none;
 }
 
 #floating-image-wrapper.active #question-container {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#floating-image-wrapper.active #close-game {
     opacity: 1;
     pointer-events: auto;
 }
@@ -703,7 +674,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const floating = document.getElementById("floating-image-wrapper");
     const overlay = document.getElementById("game-overlay");
     const triggers = document.querySelectorAll(".trigger-game");
-    const closeBtn = document.getElementById("close-game");
     const minimizeBtn = document.getElementById("minimize-game");
     const questionContainer = document.getElementById("question-container");
     const floatingImage = document.getElementById("floating-image");
@@ -842,25 +812,57 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "comparison-game": {
-            text: "Hello! COMPARISON?",
+            text: "We will now compare some specific companies! Ready?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "What is a stock?",
+                        text: "Do you think that two companies with comparable results on a given period will necesseraly react the same to fed events ?",
                         answers: [
                             {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
-                                isCorrect: true,
-                                next: null
+                                label: "Yes, they have similar results.",
+                                comment: "Not quite. Similar results doesn't tell the full story on the strategies of the companies and how they will behave in a different situation.",
+                                isCorrect: false,
+                                next: {
+                                        text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares?",
+                                        answers: [
+                                            {
+                                                label: "Yes, we can assess with only one.",
+                                                comment: "Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company.",
+                                                isCorrect: false,
+                                                next: null
+                                            },
+                                            {
+                                                label: "No, we would need both.",
+                                                comment: "Precisely ! Only by combining both can we get real insight on the performance of a company.",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             },
                             {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
-                                isCorrect: false,
-                                next: null
+                                label: "No, not necesseraly",
+                                comment: "Indeed ! Same results for a period of time cannot guarantee similar behavior given a different situation.",
+                                isCorrect: true,
+                                next: {
+                                        text: "To assess similarity of results of two companies, is it sufficient to look only at the Volume of shares or only at the Price of the shares?",
+                                        answers: [
+                                            {
+                                                label: "Yes, we can assess with only one.",
+                                                comment: "Incorrect. It is hard to assess by considering only one dimension of the company, either physical or financial. We need to combine both to get real insight on the performance of a company.",
+                                                isCorrect: false,
+                                                next: null
+                                            },
+                                            {
+                                                label: "No, we would need both.",
+                                                comment: "Precisely ! Only by combining both can we get real insight on the performance of a company.",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             }
                         ]
                     }
@@ -959,14 +961,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!floating.classList.contains("minimized")) {
                     questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
-                    closeBtn.style.opacity = "1";
-                    closeBtn.style.pointerEvents = "auto";
                 } else {
                     // Ensure question and buttons are visible and clickable
                     questionContainer.style.opacity = "1";
                     questionContainer.style.pointerEvents = "auto";
-                    closeBtn.style.opacity = "1";
-                    closeBtn.style.pointerEvents = "auto";
                 }
 
             } else if (!entry.isIntersecting && !floating.classList.contains("minimized")) {
@@ -974,8 +972,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 overlay.classList.remove("active");
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
-                closeBtn.style.opacity = "0";
-                closeBtn.style.pointerEvents = "none";
             } else {
                 // Hide when leaving section
                 floating.classList.remove("active");
@@ -983,8 +979,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 questionContainer.style.opacity = "0";
                 questionContainer.style.pointerEvents = "none";
-                closeBtn.style.opacity = "0";
-                closeBtn.style.pointerEvents = "none";
 
                 if(!floating.classList.contains("minimized")){
                     floatingImage.style.opacity = "1";
@@ -1061,11 +1055,7 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("active");
         questionContainer.style.opacity = "0";
         questionContainer.style.pointerEvents = "none";
-        closeBtn.style.opacity = "0";
-        closeBtn.style.pointerEvents = "none";
     }
-
-    closeBtn.addEventListener("click", closeGame);
     
     // Close when clicking on overlay
     overlay.addEventListener("click", closeGame);
@@ -1080,8 +1070,6 @@ document.addEventListener("DOMContentLoaded", () => {
             floatingImage.style.opacity = "0";
             questionContainer.style.opacity = "0";
             questionContainer.style.pointerEvents = "none";
-            closeBtn.style.opacity = "0";
-            closeBtn.style.pointerEvents = "none";
         }
     });
 
