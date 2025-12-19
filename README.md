@@ -2907,9 +2907,7 @@ The baseline question we want to answer here is very simple: do sectors mostly l
 versions of the market, or do they have their own long-run trajectories?
 </p>
 
-<div id="game-part-1" style="margin:14px 0;"></div>
-<script>renderGame("game-part-1");</script>
-
+<section class="content-section trigger-game" data-game="game-part-1"></section>
 
 <h3>Method</h3>
 
@@ -3081,8 +3079,8 @@ So what we want to test here is whether the sensitivity to Fed changes is homoge
 not, that gives a sector-level transmission mechanism of monetary policy.
 </p>
 
-<div id="game-part-2" style="margin:14px 0;"></div>
-<script>renderGame("game-part-2");</script>
+<section class="content-section trigger-game" data-game="game-part-2"></section>
+
 
 
 <h3>Method</h3>
@@ -3159,8 +3157,7 @@ deteriorating conditions. So the market reaction can reflect the signal, not onl
 impact of lower rates.
 </p>
 
-<div id="game-part-3" style="margin:14px 0;"></div>
-<script>renderGame("game-part-3");</script>
+<section class="content-section trigger-game" data-game="game-part-3"></section>
 
 
 <h3>Method</h3>
@@ -3264,8 +3261,8 @@ the future. The Fed Funds Rate is a short-term policy tool, while long-term yiel
 future policy, inflation expectations, and term premia.
 </p>
 
-<div id="game-part-4" style="margin:14px 0;"></div>
-<script>renderGame("game-part-4");</script>
+<section class="content-section trigger-game" data-game="game-part-4"></section>
+
 
 
 <h3>Method</h3>
@@ -3331,8 +3328,8 @@ while sectors linked to commodities, financial intermediation, or pricing power 
 differently.
 </p>
 
-<div id="game-part-5" style="margin:14px 0;"></div>
-<script>renderGame("game-part-5");</script>
+<section class="content-section trigger-game" data-game="game-part-5"></section>
+
 
 <h3>Method</h3>
 <p>
@@ -3458,8 +3455,8 @@ Volatility is not just noise. In finance it is a practical proxy for risk becaus
 unstable returns are over time.
 </p>
 
-<div id="game-part-6" style="margin:14px 0;"></div>
-<script>renderGame("game-part-6");</script>
+<section class="content-section trigger-game" data-game="game-part-6"></section>
+
 
 
 <p>
@@ -3691,8 +3688,8 @@ volatility. And market-wide risk indices like VXN explain a large share of what 
 volatility.
 </p>
 
-<div id="game-part-7" style="margin:14px 0;"></div>
-<script>renderGame("game-part-7");</script>
+<section class="content-section trigger-game" data-game="game-part-7"></section>
+
 
 
 <h3>Method</h3>
