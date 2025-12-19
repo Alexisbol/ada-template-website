@@ -684,11 +684,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---------------- TREE-BASED GAMES ----------------
     const games = {
-        "init-game": {
-            text: "Hello! Are you ready to start your interview to become a finance bro?",
+        "fed-policy": {
+            text: "Hi, I am Jordan Belfort! Are you ready to start your interview for Stratton Oakmont?",
             answers: [
                 {
-                    label: "Yes",
+                    label: "Yes!",
                     comment: "Great! Let's begin.",
                     next: {
                         text: "What is a stock?",
@@ -697,20 +697,52 @@ document.addEventListener("DOMContentLoaded", () => {
                                 label: "A share of ownership in a company",
                                 comment: "Correct!",
                                 isCorrect: true,
-                                next: null
+                                next: {
+                                        text: "What does the federal reserve interest rate (fed rate) indicate?",
+                                        answers: [
+                                            {
+                                                label: "The interest rate on loans.",
+                                                comment: "That's exactly it! Good start!",
+                                                isCorrect: true,
+                                                next: null
+                                            },
+                                            {
+                                                label: "It is the rate at which money is entering the reserve.",
+                                                comment: "Ooh rough start... you will get other chances to impress me!",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             },
                             {
-                                label: "A type of loan",
+                                label: "A type of loan.",
                                 comment: "Incorrect. A stock is ownership.",
                                 isCorrect: false,
-                                next: null
+                                next: {
+                                        text: "What does the federal reserve interest rate (fed rate) indicate?",
+                                        answers: [
+                                            {
+                                                label: "The interest rate on loans.",
+                                                comment: "That's exactly it! Good start!",
+                                                isCorrect: true,
+                                                next: null
+                                            },
+                                            {
+                                                label: "It is the rate at which money is entering the reserve.",
+                                                comment: "Ooh rough start... you will get other chances to impress me!",
+                                                isCorrect: true,
+                                                next: null
+                                            }
+                                        ]
+                                    }
                             }
                         ]
                     }
                 },
                 {
-                    label: "No",
-                    comment: "Come back when you're ready.",
+                    label: "No...",
+                    comment: "Come back when you're ready...",
                     next: null
                 }
             ]
@@ -1234,7 +1266,6 @@ h2 {
 
 
 <!-- ######################################################################################################################### -->
-<section class="content-section trigger-game" data-game="init-game"></section>
 
 ## Introduction <a id="Intro"></a>
 
@@ -1246,6 +1277,7 @@ I'll be throwing questions at you the same way the market trhows curveballs alri
 <br> <i> Are you able to understand the influence of a company structure on the behavior of its stocks </i>
 
 So if you think you have what it takes : take a deep breath, sit up straight and show me that you don't just talk stocks, you understand them. 
+
 
 
 <!-- ######################################################################################################################### -->
