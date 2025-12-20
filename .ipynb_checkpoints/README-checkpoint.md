@@ -3090,23 +3090,18 @@ Here, we compare long-run cumulative performance across sectors to see whether t
 
 
 <p>
-Overall, sector-level cumulative returns diverge persistently over time, indicating systematic differences in long-run performance rather than uniform exposure to market movements.
-
-For example, Technology benefits from strong growth expectations and innovation-driven business models, allowing returns to compound over time. Healthcare and Industrials also perform relatively well, supported by stable demand. In contrast, sectors such as Energy, Basic Materials, and Communication Services are more exposed to commodity cycles, regulation, or mature market structures, which limits long-run return accumulation.
+Sector-level cumulative returns diverge over time because sectors face very different economic
+conditions. Technology, Healthcare, and Industrials benefit from sustained demand and innovation,
+allowing returns to compound, while Energy, Basic Materials, and Communication Services are more
+exposed to commodity cycles, regulation, or mature markets, which limits long-run growth.
 </p>
 
-<p>
-Overall, sector-level cumulative returns diverge persistently over time, indicating systematic differences in long-run performance rather than uniform exposure to market movements.
 
-For example, Technology benefits from strong growth expectations and innovation-driven business models, allowing returns to compound over time. Healthcare and Industrials also perform relatively well, supported by stable demand. In contrast, sectors such as Energy, Basic Materials, and Communication Services are more exposed to commodity cycles, regulation, or mature market structures, which limits long-run return accumulation.
+<p>
+In the next figure, we use a regression market model (CAPM) to separate sector returns into a market-related component and a residual specific to the sector, by regressing sector returns on a market benchmark.
 </p>
-
 <p>
-In the next figure, we examine how the distribution of sector returns changes across different regimes, with a focus on dispersion and tail behavior. The CAPM intuition is that asset returns can be decomposed into a market-driven component and a residual capturing idiosyncratic variation. We implement this idea using a market-model regression of sector returns on market returns, which isolates sector-level dynamics beyond aggregate market movements.
-</p>
-
-<p>
-In this framework, the NASDAQ-100 is used as the market portfolio. Its breadth, liquidity, and strong representation of large-cap firms make it a practical proxy for overall U.S. market conditions in our analysis.
+In this framework, we use the NASDAQ-100, which tracks 100 of the largest non-financial companies listed on Nasdaq (heavy in large-cap tech and growth firms), and serves as a liquid proxy for broad US market equity conditions in our data.
 </p>
 
 
@@ -3134,7 +3129,7 @@ Sectors such as Technology, Healthcare, and Industrials tend to have higher medi
 
 <h3>Conclusion</h3>
 <p>
-So, sector-level analysis is useful because it reveals persistent dispersion. Market exposure explains a lot, but it does not fully explain the relative trajectories, which motivates adding monetary policy variables in later parts.
+The take-home message is: sector-level analysis is useful because it reveals persistent dispersion. Market exposure explains a lot, but it does not fully explain the relative trajectories, which motivates adding monetary policy variables in later parts.
 </p>
 
 
@@ -3150,14 +3145,12 @@ So, sector-level analysis is useful because it reveals persistent dispersion. Ma
 
 ### Context
 <p>
-To respond to that, you can think of the Fed rate as affecting both discount rates and financing
-conditions. But those channels vary by sector: some sectors rely heavily on external funding and
-long-horizon growth, while others are more cash-flow stable or benefit from different macro
-conditions.
+Fed rate changes affect borrowing conditions and how future profits are valued, but not all sectors
+are exposed in the same way. Some rely more on financing and long-term growth, while others are more
+stable or respond to different economic forces.
 </p>
 <p>
-So what we want to test here is whether the sensitivity to Fed changes is homogeneous. If it is
-not, that gives a sector-level transmission mechanism of monetary policy.
+So, do sectors react homogeneously to Fed rates moves, or do some feel it much more than others? If reactions differ, that tells us monetary policy works through sector-specific channels rather than hitting the whole market uniformly.
 </p>
 
 <section class="content-section trigger-game" data-game="game-part-2"></section>
@@ -3210,22 +3203,22 @@ market-driven also happen to be policy-sensitive, or not?
 </div>
 
 <p>
-This figure contrasts sector exposure to market risk (horizontal axis) and monetary policy risk (vertical axis), showing that the two are not perfectly aligned. Sectors such as Real Estate, Financial Services, and Energy display high sensitivity to Fed rate changes despite moderate market betas, indicating that monetary policy effects are not simply a reflection of overall market exposure.
-</p>
-
-<p>
-By contrast, Basic Materials exhibits strong market exposure but limited Fed sensitivity, consistent with a sector driven more by global demand and commodity cycles. Communication Services appears weakly exposed along both dimensions, suggesting a relatively defensive profile.
-</p>
-
-<p>
-Overall, the figure highlights that market risk and monetary policy risk are distinct dimensions of sector behavior, motivating a separate analysis of Fed effects beyond aggregate market movements.
+This figure compares sector exposure to market risk and to Fed policy risk, showing that the two do
+not perfectly coincide. Some sectors, such as Real Estate, Financial Services, and Energy, exhibit
+strong sensitivity to Fed rate changes even though their exposure to overall market movements is
+only moderate, suggesting a direct policy channel beyond general market risk. In contrast, Basic
+Materials appears largely driven by market-wide and global demand conditions, with limited direct
+exposure to Fed policy. Communication Services shows weak sensitivity along both dimensions,
+indicating a more insulated behavior.
 </p>
 
 
 <h3>Conclusion</h3>
 <p>
-Therefore, sectors are not equally sensitive. Once you control for the market, you still see heterogeneity in γ, meaning monetary policy contributes a sector-specific risk dimension beyond market beta.
+Even after controlling for market movements, sectors remain unevenly exposed to monetary policy,
+indicating that Fed actions introduce a sector-specific risk dimension beyond market beta.
 </p>
+
 
 
 <!-- ===================== -->
