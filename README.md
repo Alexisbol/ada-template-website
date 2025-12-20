@@ -4192,7 +4192,8 @@ We see that it consistantly reaches much better normalized returns after the neg
 <section class="content-section trigger-game" data-game="comparison-game"></section>
 
 
-# Comparable Companies Analysis <a id="Comparison"></a>
+# Comparable Companies Analysis
+<a id="Comparison"></a>
 
 Like you just saw, one of the questions we can ask ourselves is what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
 
