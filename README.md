@@ -1295,6 +1295,8 @@ document.addEventListener("DOMContentLoaded", () => {
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 
   transition: width 0.3s ease;
+  z-index : 9999;
+  pointer-events: auto;
 }
 
 /* Arrow indicator */
