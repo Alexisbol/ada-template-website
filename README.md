@@ -2992,20 +2992,21 @@ renderSectorPickerDualAxis("fig19", "{{ site.baseurl }}/assets/fig_json/fig19.js
 ### Context
 
 <p>
-At first glance, one might expect macroeconomic policy to affect the market as a whole in a fairly uniform way. All firms depend, to some extent, on their cost of capital, access to borrowing, and on consumers’ overall behavior, which makes aggregate market movements appear informative.
+At first glance, macroeconomic policy might seem to affect the market in a fairly uniform way. All firms depend to some extent on borrowing costs, access to capital, and consumers’ overall behavior, making aggregate market movements appear informative.
 </p>
 
 <p>
-In practice, however, firms differ substantially, and these differences are especially pronounced across sectors. Capital intensity, leverage, pricing power, exposure to interest rates, and reliance on future growth vary widely from one sector to another, implying that macroeconomic shocks need not translate evenly across the market.
+In practice, however, firms differ substantially, and these differences are especially pronounced across sectors. Capital intensity, leverage, pricing power, exposure to interest rates, and reliance on future growth vary widely, implying that macroeconomic shocks need not translate evenly across the market.
 </p>
 
 <p>
-This motivates a key distinction: separating what reflects broad market movements from what corresponds to genuinely sector-specific behavior. If sector trajectories diverge even after accounting for the market, aggregate analysis becomes insufficient, and a sector-level approach becomes relevant.
+This motivates a key distinction between broad market movements and genuinely sector-specific behavior. If sector trajectories diverge even after accounting for the market, aggregate analysis becomes insufficient.
 </p>
 
 <p>
-The baseline question addressed here is therefore simple: do sectors mainly behave as scaled versions of the market, or do they follow distinct long-run trajectories that justify a sector-level analysis?
+The central question is therefore simple: do sectors mainly behave as scaled versions of the market, or do they follow distinct long-run paths that justify a sector-level analysis?
 </p>
+
 
 
 <section class="content-section trigger-game" data-game="game-part-1"></section>
@@ -3013,7 +3014,7 @@ The baseline question addressed here is therefore simple: do sectors mainly beha
 <h3>Method</h3>
 
 <p>
-You could begin by defining a consistent measure of performance.
+You could begin by defining a consistent measure of performance. 
 Prices are not directly comparable across sectors because they have different levels and scales, so
 the first step is to work with returns, which normalize changes over time.
 </p>
@@ -3036,11 +3037,8 @@ For each sector s, we compute log-returns:
 </blockquote>
 
 <p>
-Then, to visualize long-run differences, you can compound these returns. This turns a noisy return
-series into an interpretable performance curve: if you start at 1, where does each sector end up?
+To visualize long-run differences, returns are compounded over time by applying each period’s gain or loss to the previous value. This turns a noisy return series into an interpretable performance curve: if you had started by investing 1 in a sector, how much would that investment have grown depending on the sector?
 </p>
-
-Returns are aggregated into cumulative returns rebased to 1:
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
   <img
@@ -3081,25 +3079,15 @@ returns:
 <h3>Results</h3>
 
 <p>
-Here, we examine whether sectors share a common long-run trend, or whether their performance diverges into persistent winners and laggards. Then we want to check whether this
-dispersion is simply explained by market exposure β or not.
+Here, we compare long-run cumulative performance across sectors to see whether they follow a common trend or diverge into persistent winners and laggards, and whether any divergence can be explained simply by differences in market exposure.
 </p>
 
-<p>Through the following graph, we want to compare long-run cumulative performance across sectors and see whether sector trajectories remain close together or diverge over time.</p>
 
 <div class="figure-block">
   <div id="fig01" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig01", "{{ site.baseurl }}/assets/fig_json/fig01.json");</script>
 </div>
 
-<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
-  <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Higher curves:</strong> sectors that grew more over the period (stronger cumulative performance).</li>
-    <li><strong>Diverging curves:</strong> increasing dispersion across sectors (winners vs laggards).</li>
-    <li><strong>Sharp bends:</strong> periods of major market stress or regime changes affecting sectors differently.</li>
-  </ul>
-</div>
 
 <p>
 Overall, sector-level cumulative returns diverge persistently over time, indicating systematic differences in long-run performance rather than uniform exposure to market movements.
