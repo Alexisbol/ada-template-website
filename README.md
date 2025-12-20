@@ -3372,11 +3372,7 @@ Taken together, these results show that sectors respond differently to surprise 
 
 <h3>Context</h3>
 <p>
-To move beyond short-term market reactions, it is useful to consider monetary policy at the horizon
-relevant for equity valuation. Stock prices reflect the discounted value of future cash flows,
-making them more sensitive to long-term expectations about policy and economic conditions than to
-short-term rate adjustments alone. This motivates distinguishing between short-term policy actions
-and longer-term monetary conditions when analyzing equity responses.
+To move beyond short-term market reactions, it is useful to consider monetary policy at the horizon relevant for equity valuation. Stock prices reflect the discounted value of future cash flows, making them more sensitive to long-term expectations about policy and economic conditions than to short-term rate adjustments alone. This motivates distinguishing between short-term policy actions and longer-term monetary conditions when analyzing equity responses.
 </p>
 
 <p>
@@ -3386,9 +3382,7 @@ We therefore compare the Federal Funds Rate, the Fed’s short-term policy instr
 
 <h3>Illustration</h3>
 <p>
-The figure below visually compares the two series. The goal is simply to assess whether the
-10-year yield tracks the broad stance of policy while smoothing out the short-term fluctuations
-present in the policy rate.
+The figure below visually compares the two series. The goal is simply to assess whether the 10-year yield tracks the broad stance of policy while smoothing out the short-term fluctuations present in the policy rate.
 </p>
 
 <div class="figure-block">
@@ -3398,9 +3392,7 @@ present in the policy rate.
 
 <h3>Conclusion</h3>
 <p>
-For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and
-sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations
-and filters out short-term policy noise.
+For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations and filters out short-term policy noise.
 </p>
 
 

@@ -3372,11 +3372,7 @@ Taken together, these results show that sectors respond differently to surprise 
 
 <h3>Context</h3>
 <p>
-To move beyond short-term market reactions, it is useful to consider monetary policy at the horizon
-relevant for equity valuation. Stock prices reflect the discounted value of future cash flows,
-making them more sensitive to long-term expectations about policy and economic conditions than to
-short-term rate adjustments alone. This motivates distinguishing between short-term policy actions
-and longer-term monetary conditions when analyzing equity responses.
+To move beyond short-term market reactions, it is useful to consider monetary policy at the horizon relevant for equity valuation. Stock prices reflect the discounted value of future cash flows, making them more sensitive to long-term expectations about policy and economic conditions than to short-term rate adjustments alone. This motivates distinguishing between short-term policy actions and longer-term monetary conditions when analyzing equity responses.
 </p>
 
 <p>
@@ -3386,9 +3382,7 @@ We therefore compare the Federal Funds Rate, the Fed’s short-term policy instr
 
 <h3>Illustration</h3>
 <p>
-The figure below visually compares the two series. The goal is simply to assess whether the
-10-year yield tracks the broad stance of policy while smoothing out the short-term fluctuations
-present in the policy rate.
+The figure below visually compares the two series. The goal is simply to assess whether the 10-year yield tracks the broad stance of policy while smoothing out the short-term fluctuations present in the policy rate.
 </p>
 
 <div class="figure-block">
@@ -3398,9 +3392,7 @@ present in the policy rate.
 
 <h3>Conclusion</h3>
 <p>
-For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and
-sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations
-and filters out short-term policy noise.
+For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations and filters out short-term policy noise.
 </p>
 
 
@@ -4649,7 +4641,6 @@ In the example of the stocks DVN and MUR, it was DVN that was more responsive to
 In the example of AGX and ARTW, both were responding but in different ways and to different consequences of the fed event. 
 AGX was leading in terms of increase of dollar volume, which we can link to the fact that fed rate drops are tied to the incentive for wealthy actors to place their money which explodes the volume of shares of a company. In the case of AGX, it is the perfect choice for these investors as it is a large scale industrial company with large contracts and a historically good balance sheet : in other terms a safe choice. But this portfolio reallocation doesn't imply a reevaluation of the value of a share, meaning the placing is rather speculative in this case. On the other hand ARTW shows an increase in dollar return because, as a small company, it is rather value driven and not flow driven. In the context of a drop in the fed rates investors revalue the price of the share of the stock, hence the company knows a price effect which in this case increases its overall return.
 
-<br>
 <br>
 
 This whole question gave us a good intuition on how what can first look like comparable companies, with comparable results, can have very different structure and strategies, leading to very different reactions to fed rates. That's why depending on the configuration of the market and the fed rates, not every similarly performing company is worth betting on, and a more in depth analysis of the underlying functionning of the companies is necessary to maximize the gains, or at leasts minimize the risk of losses.
