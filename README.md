@@ -1888,7 +1888,15 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <section class="content-section trigger-game" data-game="etf-game"></section>
 
-# ETF VS Stocks, do we have a winner?<a id="ETF"></a>
+<br>
+<h1 id="ETF"> ETF VS Stocks, do we have a winner? </h1>
+<br>
+
+<style>
+#ETF {
+  white-space: nowrap;
+}
+</style>
 
 To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
 We only pair the important stocks of an ETF with the stock itself.
@@ -2391,7 +2399,15 @@ The number of significant pairs is relatively low compared to the total number o
 
 <section class="content-section trigger-game" data-game="sectors-game"></section>
 
-# Sectors <a id="Sectors"></a>
+<br>
+<h1 id="Sectors"> Sectors </h1>
+<br>
+
+<style>
+#Sectors {
+  white-space: nowrap;
+}
+</style>
 
 At this point in the interview, the discussion naturally moves one level up. The earlier results show that performance during Fed events varies across the market, pointing to the role of broader economic groupings.
 
@@ -3968,7 +3984,15 @@ var fun = function lang(l) {
 <!-- ######################################################################################################################### -->
 <section class="content-section trigger-game" data-game="size-game"></section>
 
-# Size <a id="Size"></a>
+<br>
+<h1 id="Size"> Size </h1>
+<br>
+
+<style>
+#Size {
+  white-space: nowrap;
+}
+</style>
 
 
 Q: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?
@@ -4172,16 +4196,15 @@ We see that it consistantly reaches much better normalized returns after the neg
 
 <section class="content-section trigger-game" data-game="comparison-game"></section>
 
-
+<br>
 <h1 id="Comparison"> Comparable Companies Analysis </h1>
+<br>
 
 <style>
 #Comparison {
   white-space: nowrap;
 }
 </style>
-
-<!-- <a id="Comparison"></a> -->
 
 
 Like you just saw, one of the questions we can ask ourselves is what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
