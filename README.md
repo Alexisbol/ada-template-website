@@ -3559,8 +3559,7 @@ Formally, if <em>r<sub>s,d</sub></em> denotes daily returns for sector <em>s</em
 
 <p>
 This definition focuses on the magnitude of daily fluctuations, independent of their direction.
-An equivalent formulation defines volatility as the standard deviation of daily returns within the
-month:
+An equivalent formulation defines volatility as the standard deviation of daily returns within the month:
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -3675,7 +3674,7 @@ The results suggest that macroeconomic risk, rather than the direction of Fed mo
 </p>
 
 
-<p> The next figures allows to assess whether large policy moves, regardless of sign, are associated with higher volatility in some sectors.</p>
+<p> The following figure allows to assess whether large policy moves, regardless of sign, are associated with higher volatility in some sectors.</p>
 
 <div class="figure-block">
   <div id="fig18" style="width:100%; height:520px;"></div>
@@ -3691,14 +3690,23 @@ The results suggest that macroeconomic risk, rather than the direction of Fed mo
   </ul>
 </div>
 
+
 <p>
-What you typically see here is stronger sector separation: a subset of sectors show positive 
-sensitivity to shock size with small p-values, while many sectors cluster near zero. That pattern
-supports a story where only some sectors treat large policy moves as a meaningful uncertainty
-signal, while others do not.
+This figure shows how sector volatility responds to the size of Fed policy moves, independent of their direction, while controlling for overall market uncertainty using VXN. Each point represents the effect of the absolute change in the Fed rate on monthly volatility.
 </p>
 
-<p>In Fig.19, we want to visually check co-movement over time: do volatility spikes align with large Fed changes in the chosen sector?</p>
+<p>
+For most sectors, the effect is small and not statistically significant. Energy, Basic Materials, and especially Communication Services show positive and significant responses, indicating higher volatility following large Fed moves. This suggests that shock magnitude matters for volatility in some sectors, but not uniformly across the market.
+</p>
+
+
+<p>
+Finally, we turn to a visual comparison of sector volatility and Fed rate changes over time to
+assess whether spikes in volatility coincide with large policy moves. The focus is on a small set
+of sectors with markedly different volatility patterns, allowing us to highlight contrasts in how
+uncertainty evolves around monetary policy actions.
+</p>
+
 
 <div class="figure-block">
 
@@ -3719,28 +3727,14 @@ signal, while others do not.
 
 </div>
 
-<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
-  <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Left axis line:</strong> monthly change in the Fed rate (policy moves over time).</li>
-    <li><strong>Right axis line:</strong> sector volatility for the selected sector.</li>
-    <li><strong>Look for co-movement:</strong> spikes in volatility that align with large Fed moves.</li>
-  </ul>
-</div>
-
 <p>
-This plot is a sanity check. If you pick a sector that showed strong sensitivity in Fig. 18, you
-often see volatility spikes lining up with large policy moves in crisis periods. If you pick a
-sector with near-zero sensitivity, you usually see volatility moving without clear alignment to Fed
-moves, which supports the heterogeneity story.
+Across sectors, volatility does not respond mechanically to Fed rate changes. Spikes tend to occur during broader stress episodes, with some sectors, such as Technology or Basic Materials, showing clearer co-movement during major policy episodes, while others appear much less sensitive.
 </p>
 
 <h3>Conclusion</h3>
 
 <p>
-So to respond to your original question: once you control for market-wide risk, direction explains
-little. The magnitude of moves matters for some sectors, which suggests policy shocks act more like
-an uncertainty amplifier for particular sector structures.
+Overall, Fed policy has limited direct impact on sector volatility once market-wide uncertainty is controlled for. Directional effects are weak, and only a few sectors respond to the size of policy moves, indicating that broader macroeconomic stress is the main driver of volatility.
 </p>
 
 
@@ -3755,30 +3749,19 @@ an uncertainty amplifier for particular sector structures.
 <h3>Context</h3>
 
 <p>
-To respond to that, you should explicitly test confounding. The Fed often moves when the economy
-deteriorates. Those same periods raise volatility through risk sentiment, leverage constraints,
-liquidity stress, and uncertainty. If you regress volatility only on Fed changes, you may just be
-capturing crisis timing.
+A natural question comes at this point: when volatility rises around Fed actions, is it really the policy move at work, or the broader macroeconomic stress that triggered it? In this final part on sectors, we confront this confounding directly by contrasting naive volatility models that attribute changes to the Fed with controlled approaches that separate policy effects from macroeconomic risk.
 </p>
 
-<p>
-Two stylized facts matter. Volatility is persistent, meaning high volatility tends to follow high
-volatility. And market-wide risk indices like VXN explain a large share of what happens in sector
-volatility.
-</p>
 
 <section class="content-section trigger-game" data-game="game-part-7"></section>
-
 
 
 <h3>Method</h3>
 
 <p>
-To answer this, you can compare two models. First a naive model that uses only Fed changes. Then a
-controlled model that adds macro risk (VXN) and volatility persistence through lagged volatility.
-The intuition is: if the Fed coefficient collapses when you add those controls, the naive effect
-was mostly picking up macro stress timing.
+We compare a simple model that links volatility only to Fed rate changes with a more complete model that also accounts for market stress and volatility persistence. If the Fed effect disappears once these controls are added, it suggests the naive model was capturing broader macroeconomic stress rather than a direct policy effect.
 </p>
+
 
 <h4>Naive specification</h4>
 
@@ -3793,14 +3776,15 @@ We begin with a Fed-only model:
     alt="naive volatility"
   >
   <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
-    Naive specification that ignores macro risk and volatility persistence.
+    In this naive specification, β<sub>s</sub><sup>(N)</sup> measures the apparent relationship between Fed rate changes and sector volatility when no other factors are controlled for. Any increase in volatility that happens around Fed moves is therefore attributed to the Fed itself, even if it is actually driven by broader macroeconomic stress. The error term ε<sub>s,m</sub> captures all remaining unexplained variation.
   </p>
 </blockquote>
+
 
 <h4>Controlled specification</h4>
 
 <p>
-We then estimate a more complete model that accounts for macro risk and volatility persistence:
+We then estimate a more complete model that still computes statistical significance but takes into account the fact that the unexplained component of volatility is persistent over time. This ensures that ordinary clustering in volatility is not mistaken for a meaningful effect of Fed policy. 
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -3810,19 +3794,16 @@ We then estimate a more complete model that accounts for macro risk and volatili
     alt="controlled volatility"
   >
   <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
-    Controlled model accounting for macro risk and volatility persistence.
+    In the controlled model, β<sub>s</sub><sup>(C)</sup> measures the incremental effect of Fed rate changes on volatility after accounting for overall market stress (VXN) and the tendency of volatility to persist over time. The error term η<sub>s,m</sub> now represents short-run shocks that remain unexplained after these controls are included. Comparing β<sub>s</sub><sup>(N)</sup> and β<sub>s</sub><sup>(C)</sup> shows how much of the naive Fed effect was actually due to macroeconomic conditions rather than policy itself.
   </p>
 </blockquote>
 
-<p>
-Inference relies on heteroskedasticity- and autocorrelation-consistent standard errors.
-</p>
+
 
 <h4>Explained variance comparison</h4>
 
 <p>
-We compare explanatory power using R². Intuitively, if the controlled model explains much more,
-that tells you macro risk and persistence dominate volatility dynamics.
+We compare explanatory power using R². Intuitively, if the controlled model explains much more, that tells you macro risk and persistence dominate volatility dynamics.
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -3837,42 +3818,30 @@ that tells you macro risk and persistence dominate volatility dynamics.
 </blockquote>
 
 <p>
-Finally, total explained variance is decomposed into macro risk plus volatility persistence versus
-the incremental contribution of the Fed given those controls.
+Finally, we separate the part of volatility explained by macroeconomic conditions and persistence from the small additional contribution that may be attributed to Fed policy.
 </p>
 
 <h3>Results</h3>
 
 <p>
-Here, what we are trying to see is three things: whether naive Fed coefficients are exaggerated,
-how much explanatory power comes from macro risk and persistence, and whether the Fed adds anything
-material after those controls.
+Here, we want to compare sector-by-sector Fed coefficients from naive and controlled models to assess how much of the initial Fed effect remains once macro risk and volatility persistence are accounted for. The estimated beta on ΔFedRate measures how sensitive a sector’s volatility is to changes in the Fed policy rate. HAC standard errors simply adjust the uncertainty of this estimate to account for the fact that volatility is persistent and uneven over time.
 </p>
-
-<p>In Fig.20, we want to visually compare naive versus controlled Fed coefficients sector by sector.</p>
 
 <div class="figure-block">
   <div id="fig20" style="width:100%; height:560px;"></div>
   <script>renderMplExport("fig20", "{{ site.baseurl }}/assets/fig_json/fig20.json");</script>
 </div>
 
-<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
-  <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Two dots per sector:</strong> naive estimate vs controlled estimate.</li>
-    <li><strong>Big gap between dots:</strong> strong confounding (macro risk explains the naive effect).</li>
-    <li><strong>Controlled dot near zero:</strong> little incremental Fed effect after controls.</li>
-  </ul>
-</div>
 
 <p>
-If controlled dots cluster near zero while naive dots are far away, the interpretation is that the
-Fed variable in the naive model is acting as a proxy for crisis timing. The controlled model strips
-out that timing using VXN and persistence, so what remains is closer to an incremental policy
-effect.
+You can see that once macro conditions are accounted for, the apparent Fed effect on volatility largely vanishes across sectors, indicating that the naive relationship was driven by periods of market stress rather than direct policy impact.
 </p>
 
-<p>In Fig.21, we want to measure how much explanatory power is added when including macro risk and volatility persistence.</p>
+<p>
+In the same spirit, we examine how much additional explanatory power comes from accounting for
+macro risk and volatility persistence.
+</p>
+
 
 <div class="figure-block">
   <div id="fig21" style="width:100%; height:520px;"></div>
@@ -3891,12 +3860,10 @@ effect.
 </div>
 
 <p>
-A strong ΔR² across sectors means the controlled model captures the dominant drivers of volatility.
-If ΔR² is large and common across sectors, that supports the view that volatility is largely a
-macro regime phenomenon plus persistence rather than a direct response to policy changes.
+The large gains in R² for Real Estate, Industrials, Energy, and Consumer Cyclical indicate that their volatility is driven mainly by broad market stress and inertia, not by Fed moves per se, while the much smaller gains for Technology and Healthcare suggest their volatility is less tied to these macro and persistence channels.
 </p>
 
-<p>In Fig.22, we want to decompose explained variance into what comes from macro risk and persistence versus what is added by the Fed on top.</p>
+<p> Finally, we push this analysis one step further to get a clear sense of the real explanatory power of Fed rate changes in sectors' volatility, and mark sectors where it does produce a statistically significant increase in R².</p>
 
 <div class="figure-block">
   <div id="fig22" style="width:100%; height:700px;"></div>
@@ -3915,13 +3882,12 @@ macro regime phenomenon plus persistence rather than a direct response to policy
 </div>
 
 <p>
-If the macro plus persistence segment dominates and the Fed segment is consistently small, the
-practical conclusion is that the Fed adds limited incremental explanatory power once you account
-for the macro environment. Stars can indicate detectability, but you should still compare sizes,
-because a statistically detectable effect can still be economically small.
+Once again, the analysis shows that most volatility is explained by macro risk and persistence, even in the sectors that are  financing  is more directly tied to financing conditions or policy-sensitive demand, and where the Fed therefore adds a statistically significant contribution
 </p>
 
-<h3>Conclusion</h3>
+
+
+<h3> Sectors Conclusion</h3>
 
 <p>
 So to respond to your question: yes, macro confounding is a major issue. A naive model overstates
