@@ -3476,17 +3476,13 @@ economic terms, not only statistically.
 </div>
 
 <p>
-This figure shows sector sensitivities to changes in the 10-year Treasury yield using equal- and
-liquidity-weighted specifications. Estimated effects are generally small, with most sectors
-clustered close to zero.
+This figure reports estimated sector sensitivities to changes in the 10-year Treasury yield using both equal-weighted and liquidity-weighted specifications. For most sectors, the estimated effects are small and close to zero, indicating limited direct sensitivity of short-run returns to movements in long-term yields.
 </p>
 
 <p>
-Technology and Consumer Cyclical display slightly positive sensitivities, consistent with
-discount-rate effects, while Basic Materials and Energy show weaker or negative responses, pointing
-to a stronger role for real activity and commodity cycles. The similarity across weighting schemes
-suggests these patterns are not driven by a few large firms.
+Growth-oriented sectors such as Technology and Consumer Cyclical show slightly positive sensitivities, consistent with discount-rate effects, while Basic Materials and Energy display weaker or mildly negative responses, reflecting a stronger role for real activity and commodity price channels. The wide confidence interval for Healthcare highlights substantial heterogeneity and estimation uncertainty within that sector.
 </p>
+
 
 <p>In this barplot, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
 
@@ -3697,7 +3693,7 @@ what you expect if the main driver is macro stress rather than the sign of the p
 </div>
 
 <p>
-What you typically see here is stronger sector separation: a subset of sectors show positive
+What you typically see here is stronger sector separation: a subset of sectors show positive 
 sensitivity to shock size with small p-values, while many sectors cluster near zero. That pattern
 supports a story where only some sectors treat large policy moves as a meaningful uncertainty
 signal, while others do not.
