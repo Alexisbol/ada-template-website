@@ -758,7 +758,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         text: "What is an ETF?",
                         answers: [
                             {
-                                label: "Extra Territorial Field (ETF), it's a place where the governement will finaly leave me alone!",
+                                label: "Extra Territorial Field (ETF), it's a place where the governement will finally leave me alone!",
                                 comment: "I wish this land existed!",
                                 isCorrect: false,
                                 next: null
