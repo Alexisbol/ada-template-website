@@ -3339,16 +3339,17 @@ By contrast, Healthcare and Consumer Cyclical show more muted responses, indicat
 </div>
 
 <p>
-This figure reports sector outperformance relative to Industrials following surprise Fed rate cuts, along with uncertainty bands reflecting estimation variability. Most point estimates are negative, indicating that unexpected easing is generally associated with sector underperformance in the short run.
+This figure reports sector outperformance relative to Industrials following surprise Fed rate cuts, with uncertainty bands reflecting estimation variability. Most point estimates are negative, suggesting that unexpected easing is generally associated with short-run underperformance.
 </p>
 
 <p>
-The negative responses are strongest for Basic Materials and Energy, consistent with the interpretation that surprise rate cuts convey adverse information about economic conditions that outweighs any immediate discount-rate effects. Technology, Communication Services, and Financial Services also show negative average responses, although with greater uncertainty.
+The strongest negative responses appear in Basic Materials and Energy, consistent with surprise rate cuts conveying adverse information about economic conditions. Technology, Communication Services, and Financial Services also show negative average responses, though with greater uncertainty.
 </p>
 
 <p>
-For several sectors, confidence intervals overlap zero, suggesting that short-run responses to surprise easing are not always statistically distinct from Industrials. Overall, the figure reinforces the idea that surprise Fed cuts tend to redistribute sector performance rather than generate uniform positive reactions.
+For several sectors, confidence intervals overlap zero, indicating that short-run responses are not always statistically distinct from Industrials. Overall, the figure shows that surprise Fed cuts tend to redistribute sector performance rather than produce uniform gains.
 </p>
+
 
 <h3>Conclusion</h3>
 <p>
