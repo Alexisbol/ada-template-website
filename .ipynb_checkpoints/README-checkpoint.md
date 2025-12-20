@@ -3132,9 +3132,7 @@ Sectors such as Technology, Healthcare, and Industrials tend to have higher medi
 
 <h3>Conclusion</h3>
 <p>
-So the takeaway is: to respond to your original question, sector-level analysis is useful because
-it reveals persistent dispersion. Market exposure explains a lot, but it does not fully explain the
-relative trajectories, which motivates adding monetary policy variables in later parts.
+So, sector-level analysis is useful because it reveals persistent dispersion. Market exposure explains a lot, but it does not fully explain the relative trajectories, which motivates adding monetary policy variables in later parts.
 </p>
 
 
@@ -3189,7 +3187,7 @@ We estimate sector-specific regressions controlling for market movements:
 
 <p>
 Here, what we are trying to see is whether Fed sensitivity γ lines up with market beta β, or
-whether it is an independent dimension of sector risk. In other words, do the sectors that are
+whether it is an independent dimension of sector returns In other words, do the sectors that are
 market-driven also happen to be policy-sensitive, or not?
 </p>
 
@@ -3210,14 +3208,21 @@ market-driven also happen to be policy-sensitive, or not?
 </div>
 
 <p>
-What you look for is whether points spread vertically a lot. A wide vertical spread means sectors
-react differently to Fed changes even if they have similar market exposure. That supports the idea
-that policy sensitivity is not just a re-labeling of market risk, but an additional channel.
+This figure contrasts sector exposure to market risk (horizontal axis) and monetary policy risk (vertical axis), showing that the two are not perfectly aligned. Sectors such as Real Estate, Financial Services, and Energy display high sensitivity to Fed rate changes despite moderate market betas, indicating that monetary policy effects are not simply a reflection of overall market exposure.
 </p>
+
+<p>
+By contrast, Basic Materials exhibits strong market exposure but limited Fed sensitivity, consistent with a sector driven more by global demand and commodity cycles. Communication Services appears weakly exposed along both dimensions, suggesting a relatively defensive profile.
+</p>
+
+<p>
+Overall, the figure highlights that market risk and monetary policy risk are distinct dimensions of sector behavior, motivating a separate analysis of Fed effects beyond aggregate market movements.
+</p>
+
 
 <h3>Conclusion</h3>
 <p>
-So to respond to your question: no, sectors are not equally sensitive. Once you control for the
+Therefore, sectors are not equally sensitive. Once you control for the
 market, you still see heterogeneity in γ, meaning monetary policy contributes a sector-specific
 risk dimension beyond market beta.
 </p>
