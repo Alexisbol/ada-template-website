@@ -3439,9 +3439,16 @@ We estimate sector sensitivity to changes in the 10Y yield:
 </blockquote>
 
 
+<p>In this timeseries, we show how we define low-rate and high-rate regimes, which are needed to compare average performance between regimes. We display the chosen thresholds (first tercile and last tercile).</p>
+
+<div class="figure-block">
+  <div id="fig08" style="width:100%; height:520px;"></div>
+  <script>renderMplExport("fig08", "{{ site.baseurl }}/assets/fig_json/fig08.json");</script>
+</div>
+
+
 <p>
-We also define low- and high-rate regimes using yield quantiles and compare average annualized
-sector returns across regimes.
+This plot defines low- and high-rate environments using percentile-based thresholds of the 10-year Treasury yield, providing a simple and transparent way to compare sector performance across interest-rate regimes. The main limitation is that these thresholds are mechanical: they do not capture smooth transitions or changes in the economic meaning of yield levels over time, and observations near the cutoffs may switch regimes due to small, economically minor fluctuations.
 </p>
 
 <h3>Results</h3>
@@ -3479,19 +3486,6 @@ Technology and Consumer Cyclical display slightly positive sensitivities, consis
 discount-rate effects, while Basic Materials and Energy show weaker or negative responses, pointing
 to a stronger role for real activity and commodity cycles. The similarity across weighting schemes
 suggests these patterns are not driven by a few large firms.
-</p>
-
-
-<p>In this timeseries, we show the low and high yield regimes chosen using thresholds, so we can compare average performance between regimes.</p>
-
-<div class="figure-block">
-  <div id="fig08" style="width:100%; height:520px;"></div>
-  <script>renderMplExport("fig08", "{{ site.baseurl }}/assets/fig_json/fig08.json");</script>
-</div>
-
-
-<p>
-This plot defines low- and high-rate environments using percentile-based thresholds of the 10-year Treasury yield, providing a simple and transparent way to compare sector performance across interest-rate regimes. The main limitation is that these thresholds are mechanical: they do not capture smooth transitions or changes in the economic meaning of yield levels over time, and observations near the cutoffs may switch regimes due to small, economically minor fluctuations.
 </p>
 
 <p>In Fig.9, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
