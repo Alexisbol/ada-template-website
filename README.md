@@ -3489,19 +3489,9 @@ suggests these patterns are not driven by a few large firms.
   <script>renderMplExport("fig08", "{{ site.baseurl }}/assets/fig_json/fig08.json");</script>
 </div>
 
-<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
-  <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Line position:</strong> where the yield sits relative to history.</li>
-    <li><strong>Dashed thresholds:</strong> cutoffs that define “low” vs “high” rate regimes.</li>
-    <li><strong>Crossing a threshold:</strong> entering a new regime used for comparison later.</li>
-  </ul>
-</div>
 
 <p>
-This plot matters because the regime definition is only as good as the threshold separation. If
-the series spends meaningful time in both regimes, your comparison has enough data. If it rarely
-enters one regime, regime comparisons become noisy.
+This plot defines low- and high-rate environments using percentile-based thresholds of the 10-year Treasury yield, providing a simple and transparent way to compare sector performance across interest-rate regimes. The main limitation is that these thresholds are mechanical: they do not capture smooth transitions or changes in the economic meaning of yield levels over time, and observations near the cutoffs may switch regimes due to small, economically minor fluctuations.
 </p>
 
 <p>In Fig.9, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
