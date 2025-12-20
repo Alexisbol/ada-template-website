@@ -932,7 +932,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ]
             }
           }
-        }, 
+        , 
 
         "size-game": {
             text: "We will now discuss how company size can affect their sensitivity to fed rates. Ready?",
