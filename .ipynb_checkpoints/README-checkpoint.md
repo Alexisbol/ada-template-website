@@ -3368,12 +3368,14 @@ Taken together, these results show that sectors respond differently to surprise 
 
 <h2>4. Are Fed rates the right proxy for long-term monetary policy?</h2>
 
-<section class="content-section trigger-game" data-game="game-part-4"></section>
+
 
 <h3>Context</h3>
 <p>
 To move beyond short-term market reactions, it is useful to consider monetary policy at the horizon relevant for equity valuation. Stock prices reflect the discounted value of future cash flows, making them more sensitive to long-term expectations about policy and economic conditions than to short-term rate adjustments alone. This motivates distinguishing between short-term policy actions and longer-term monetary conditions when analyzing equity responses.
 </p>
+
+<section class="content-section trigger-game" data-game="game-part-4"></section>
 
 <p>
 We therefore compare the Federal Funds Rate, the Fed’s short-term policy instrument, with the 10-year Treasury yield, which reflects expected future policy, inflation, and term premia. The 10-year yield provides a more stable proxy for the monetary environment faced by long-horizon investors.
@@ -3392,7 +3394,7 @@ The figure below visually compares the two series. The goal is simply to assess 
 
 <h3>Conclusion</h3>
 <p>
-For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations and filters out short-term policy noise.
+For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations )and filters out short-term policy noise.
 </p>
 
 
@@ -3470,11 +3472,18 @@ economic terms, not only statistically.
 </div>
 
 <p>
-The key thing to look at is which sectors have estimates clearly left of zero with error bars that
-do not cross zero. Those are the sectors most likely to be structurally rate-sensitive. Sectors on
-the right are candidates for sectors that benefit in higher-yield environments, or at least are
-not penalized by higher discount rates.
+This figure shows sector sensitivities to changes in the 10-year Treasury yield using equal- and
+liquidity-weighted specifications. Estimated effects are generally small, with most sectors
+clustered close to zero.
 </p>
+
+<p>
+Technology and Consumer Cyclical display slightly positive sensitivities, consistent with
+discount-rate effects, while Basic Materials and Energy show weaker or negative responses, pointing
+to a stronger role for real activity and commodity cycles. The similarity across weighting schemes
+suggests these patterns are not driven by a few large firms.
+</p>
+
 
 <p>In Fig.8, we want to define low and high yield regimes using thresholds, so we can compare average performance between regimes.</p>
 
