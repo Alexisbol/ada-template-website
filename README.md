@@ -3990,7 +3990,7 @@ To answer this question, we apply the same strategy as previously; we split the 
 
 
 
-Then we compare every stock of a given size category to all others and count the number of times it has more area above the other stock after a positive fed event when plotting the normalized return over time. This can be with a binomial test, by creating noise in the data to determine how "close" such an experiment is to give a different outcome. We obtian the following result:
+Then we compare every stock of a given size category to all others and count the number of times it has more area above the other stock after a positive fed event when plotting the normalized return over time. This can be done with a binomial test, by creating noise in the data to determine how "close" such an experiment is to give a different outcome. We obtian the following result:
 
 <div id="posfed_barplot" style="width:100%; height:500px;"></div>
 
