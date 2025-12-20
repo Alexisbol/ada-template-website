@@ -3291,7 +3291,7 @@ losers, which would indicate that the informational content of the decision matt
 sector.
 </p>
 
-<p>In Fig.11, we want to compare average abnormal performance across sectors during the event window.</p>
+<p>In this plot, we want to compare average abnormal performance across sectors during the event window.</p>
 
 <div class="figure-block">
   <div id="fig11" style="width:100%; height:520px;"></div>
@@ -3320,7 +3320,7 @@ By contrast, Healthcare and Consumer Cyclical show more muted responses, indicat
 </p>
 
 
-<p>In Fig.12, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
+<p>Then, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
 
 <div class="figure-block">
   <div id="fig12" style="width:100%; height:520px;"></div>
@@ -3339,10 +3339,15 @@ By contrast, Healthcare and Consumer Cyclical show more muted responses, indicat
 </div>
 
 <p>
-Here the key is whether confidence intervals cross zero. If they do, you cannot confidently claim
-a directional effect for that sector in the event window. If some sectors remain clearly negative
-even with uncertainty, that strengthens the interpretation that surprise easing often signals
-stress rather than relief.
+This figure reports sector outperformance relative to Industrials following surprise Fed rate cuts, along with uncertainty bands reflecting estimation variability. Most point estimates are negative, indicating that unexpected easing is generally associated with sector underperformance in the short run.
+</p>
+
+<p>
+The negative responses are strongest for Basic Materials and Energy, consistent with the interpretation that surprise rate cuts convey adverse information about economic conditions that outweighs any immediate discount-rate effects. Technology, Communication Services, and Financial Services also show negative average responses, although with greater uncertainty.
+</p>
+
+<p>
+For several sectors, confidence intervals overlap zero, suggesting that short-run responses to surprise easing are not always statistically distinct from Industrials. Overall, the figure reinforces the idea that surprise Fed cuts tend to redistribute sector performance rather than generate uniform positive reactions.
 </p>
 
 <h3>Conclusion</h3>

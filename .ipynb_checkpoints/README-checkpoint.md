@@ -1270,9 +1270,9 @@ document.addEventListener("DOMContentLoaded", () => {
   <a href="#ResearchQ">Research questions</a>
   <a href="#Dataset">The dataset</a>
   <a href="#ETF">ETF vs Stocks</a>
-  <a href="#Sectors">Sectors comparison</a>
+  <a href="#Sectors">Sectors Comparison</a>
   <a href="#Size">Size Comparison</a>
-  <a href="#Comparison">Similar stocks</a>
+  <a href="#Comparison">Comparable Companies</a>
   <a href="#Conclusion">Conclusion</a>
 </div>
 
@@ -1327,7 +1327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* Expand on hover */
 #sideMenu:hover {
-  width: 180px;
+  width: 220px;
 }
 
 /* Hide arrow when expanded */
@@ -1393,6 +1393,7 @@ h2 {
 <!-- ######################################################################################################################### -->
 
 # Introduction <a id="Intro"></a>
+<br>
 
 This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
 
@@ -1888,7 +1889,15 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <section class="content-section trigger-game" data-game="etf-game"></section>
 
-# ETF VS Stocks, do we have a winner?<a id="ETF"></a>
+<br>
+<h1 id="ETF"> ETF VS Stocks, do we have a winner? </h1>
+<br>
+
+<style>
+#ETF {
+  white-space: nowrap;
+}
+</style>
 
 To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
 We only pair the important stocks of an ETF with the stock itself.
@@ -2391,7 +2400,15 @@ The number of significant pairs is relatively low compared to the total number o
 
 <section class="content-section trigger-game" data-game="sectors-game"></section>
 
-# Sectors <a id="Sectors"></a>
+<br>
+<h1 id="Sectors"> Sectors Comparison </h1>
+<br>
+
+<style>
+#Sectors {
+  white-space: nowrap;
+}
+</style>
 
 At this point in the interview, the discussion naturally moves one level up. The earlier results show that performance during Fed events varies across the market, pointing to the role of broader economic groupings.
 
@@ -3274,7 +3291,7 @@ losers, which would indicate that the informational content of the decision matt
 sector.
 </p>
 
-<p>In Fig.11, we want to compare average abnormal performance across sectors during the event window.</p>
+<p>In this plot, we want to compare average abnormal performance across sectors during the event window.</p>
 
 <div class="figure-block">
   <div id="fig11" style="width:100%; height:520px;"></div>
@@ -3303,7 +3320,7 @@ By contrast, Healthcare and Consumer Cyclical show more muted responses, indicat
 </p>
 
 
-<p>In Fig.12, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
+<p>Then, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
 
 <div class="figure-block">
   <div id="fig12" style="width:100%; height:520px;"></div>
@@ -3322,10 +3339,15 @@ By contrast, Healthcare and Consumer Cyclical show more muted responses, indicat
 </div>
 
 <p>
-Here the key is whether confidence intervals cross zero. If they do, you cannot confidently claim
-a directional effect for that sector in the event window. If some sectors remain clearly negative
-even with uncertainty, that strengthens the interpretation that surprise easing often signals
-stress rather than relief.
+This figure reports sector outperformance relative to Industrials following surprise Fed rate cuts, along with uncertainty bands reflecting estimation variability. Most point estimates are negative, indicating that unexpected easing is generally associated with sector underperformance in the short run.
+</p>
+
+<p>
+The negative responses are strongest for Basic Materials and Energy, consistent with the interpretation that surprise rate cuts convey adverse information about economic conditions that outweighs any immediate discount-rate effects. Technology, Communication Services, and Financial Services also show negative average responses, although with greater uncertainty.
+</p>
+
+<p>
+For several sectors, confidence intervals overlap zero, suggesting that short-run responses to surprise easing are not always statistically distinct from Industrials. Overall, the figure reinforces the idea that surprise Fed cuts tend to redistribute sector performance rather than generate uniform positive reactions.
 </p>
 
 <h3>Conclusion</h3>
@@ -3991,7 +4013,15 @@ var fun = function lang(l) {
 <!-- ######################################################################################################################### -->
 <section class="content-section trigger-game" data-game="size-game"></section>
 
-# Size <a id="Size"></a>
+<br>
+<h1 id="Size"> Size Comparison </h1>
+<br>
+
+<style>
+#Size {
+  white-space: nowrap;
+}
+</style>
 
 
 Q: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?
@@ -4195,16 +4225,15 @@ We see that it consistantly reaches much better normalized returns after the neg
 
 <section class="content-section trigger-game" data-game="comparison-game"></section>
 
-
+<br>
 <h1 id="Comparison"> Comparable Companies Analysis </h1>
+<br>
 
 <style>
 #Comparison {
   white-space: nowrap;
 }
 </style>
-
-<!-- <a id="Comparison"></a> -->
 
 
 Like you just saw, one of the questions we can ask ourselves is what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
