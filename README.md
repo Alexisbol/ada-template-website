@@ -1896,7 +1896,7 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 }
 </style>
 
-To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
+To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF contains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
 We only pair the important stocks of an ETF with the stock itself.
 
 
