@@ -3377,54 +3377,39 @@ This requires matching the horizon of the financial variable to that of equity v
 
 <section class="content-section trigger-game" data-game="game-part-4"></section>
 
-
-
 <h3>Method</h3>
 <p>
-A simple way to answer is to plot both series and look at how they co-move. The intuition is that
-if you want a long-run proxy for monetary conditions relevant to equity valuation, you prefer the
-series that moves with policy but is smoother and expectation-driven.
+To analyze monetary policy in a way that is relevant for equity valuation, it helps to distinguish
+between short-term policy actions and longer-term monetary conditions. Stocks are long-duration
+assets, so they are more sensitive to expectations about future policy than to short-term rate
+changes alone.
 </p>
 <p>
-We compare the dynamics of the Fed Funds Rate and the 10-year Treasury yield, and use the latter as
-a proxy for long-term monetary conditions.
+We therefore compare the Federal Funds Rate, the Fed’s short-term policy instrument, with the
+10-year Treasury yield, which reflects expected future policy, inflation, and term premia. The
+10-year yield provides a more stable proxy for the monetary environment faced by long-horizon
+investors.
 </p>
 
-<h3>Results</h3>
-
+<h3>Illustration</h3>
 <p>
-Here, what we are trying to see is whether the 10-year yield tracks the broad stance of policy
-while filtering out short-term noise, which makes it a more stable signal for long-horizon sector
-analysis.
+The figure below visually compares the two series. The goal is simply to assess whether the
+10-year yield tracks the broad stance of policy while smoothing out the short-term fluctuations
+present in the policy rate.
 </p>
-
-<p>In Fig.2, we want to visually assess co-movement and whether the 10Y behaves like a smoother, expectation-based version of policy stance.</p>
 
 <div class="figure-block">
   <div id="fig02" style="width:100%; height:520px;"></div>
   <script>renderMplExport("fig02", "{{ site.baseurl }}/assets/fig_json/fig02.json");</script>
 </div>
 
-<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
-  <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Same direction:</strong> the two rates generally co-move (shared monetary/macro forces).</li>
-    <li><strong>10Y smoother:</strong> long-term yields reflect expectations and risk premia (less “jumpy”).</li>
-    <li><strong>Gaps between lines:</strong> changes in term premium / expectations about future policy.</li>
-  </ul>
-</div>
-
-<p>
-If the two series broadly track each other but the 10Y is smoother, it supports using the 10Y as a
-long-horizon proxy. When gaps open, that can reflect changing expectations or term premia, which is
-exactly the kind of information relevant for valuing long-duration assets.
-</p>
-
 <h3>Conclusion</h3>
 <p>
-So to respond to your question: the Fed rate is informative for short-term actions, but the 10-year
-yield is often the better long-run proxy because it embeds expectations and is less noisy.
+For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and
+sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations
+and filters out short-term policy noise.
 </p>
+
 
 
 <!-- ===================== -->
