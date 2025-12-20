@@ -3488,7 +3488,7 @@ to a stronger role for real activity and commodity cycles. The similarity across
 suggests these patterns are not driven by a few large firms.
 </p>
 
-<p>In Fig.9, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
+<p>In this barplot, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
 
 <div class="figure-block">
   <div id="fig09" style="width:100%; height:520px;"></div>
@@ -3505,17 +3505,23 @@ suggests these patterns are not driven by a few large firms.
 </div>
 
 <p>
-Here you want to compare the sign and the magnitude. A small bar may be statistically detectable
-but economically minor. A large bar suggests a meaningful regime effect. If the sectors that look
-rate-sensitive in Fig. 3 also show large regime differences here, that gives a coherent story.
+This figure compares average annualized sector returns between high and low 10-year yield environments. Bars show the return difference (high-rate minus low-rate), with p-values indicating statistical significance.
 </p>
+
+<p>
+Technology, Financial Services, and Healthcare underperform significantly when long-term rates are high, consistent with higher discount rates and tighter financing conditions. Consumer Cyclical and Real Estate also perform worse in high-rate regimes.
+</p>
+
+<p>
+In contrast, Energy performs better when rates are high, likely reflecting stronger real activity or inflationary conditions, while Communication Services and Basic Materials show little difference across regimes.
+</p>
+
 
 <h3>Conclusion</h3>
 <p>
-So to respond to your question: high rates do not uniformly depress equities. Instead, they are
-associated with systematic sector rotation, where some sectors do relatively better and others do
-worse, which is exactly why the sector view is necessary.
+This analysis shows that long-term interest rates are a key driver of sector performance. Sectors with long-duration cash flows underperform in high-rate environments, while those tied to real activity are more resilient, making long-term yields a relevant measure of monetary conditions for sector-level analysis.
 </p>
+
 
 
 <!-- ===================== -->
