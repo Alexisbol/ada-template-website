@@ -2380,7 +2380,7 @@ We can see that Techology and Financial have top performing stocks during fed ev
 - **Healthcare**: Stocks consistently outperform across both event types, showing sector-specific strength
 - **Financials**: ETFs win decisively during rate increase, potentially benefiting from diversification during volatile periods
 
-This analysis reveals that concentrated bets (individual stocks) can outperform ETFs during fed events. However, the performance varies significantly by sector like Financials where ETFs often win during positive fed events. 
+This analysis reveals that concentrated bets (individual stocks) can outperform ETFs during Fed events. However, the performance varies significantly by sector like Financials where ETFs often win during positive fed events. 
 
 The number of significant pairs is relatively low compared to the total number of stocks analyzed, indicating that only a subset of companies consistently outperform their peers during Fed rate events making it difficult to draw broad conclusions.
 
