@@ -3482,7 +3482,7 @@ suggests these patterns are not driven by a few large firms.
 </p>
 
 
-<p>In Fig.8, we want to define low and high yield regimes using thresholds, so we can compare average performance between regimes.</p>
+<p>In this timeseries, we show the low and high yield regimes chosen using thresholds, so we can compare average performance between regimes.</p>
 
 <div class="figure-block">
   <div id="fig08" style="width:100%; height:520px;"></div>
