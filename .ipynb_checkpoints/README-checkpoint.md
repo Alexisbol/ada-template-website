@@ -3534,24 +3534,22 @@ This analysis shows that long-term interest rates are a key driver of sector per
 
 <h3>Context</h3>
 
+
 <p>
-To respond to that, you can shift from average returns to risk. Even if average returns do not
-move much, policy can change uncertainty. More uncertainty shows up as higher volatility: prices
-swing more, drawdowns can deepen, and the range of outcomes widens.
+Beyond average returns, monetary policy can affect the riskiness of assets. Even if mean returns
+remain stable, changes in policy can alter uncertainty about future cash flows and discount rates.
 </p>
 
 <p>
-Volatility is not just noise. In finance it is a practical proxy for risk because it measures how
-unstable returns are over time.
+In practice, this uncertainty is captured by volatility, which measures how variable returns are
+over time and is commonly used as a proxy for risk in financial analysis.
 </p>
 
 <section class="content-section trigger-game" data-game="game-part-6"></section>
 
 
-
 <p>
-Formally, if <em>r<sub>s,d</sub></em> denotes daily returns for sector <em>s</em>, monthly realized
-volatility can be defined as:
+Formally, if <em>r<sub>s,d</sub></em> denotes daily returns for sector <em>s</em>, monthly realized volatility summarizes how much returns fluctuate within a month by aggregating daily price movements into a single measure of variability.
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -3566,7 +3564,9 @@ volatility can be defined as:
 </blockquote>
 
 <p>
-An equivalent definition is the monthly standard deviation of daily returns:
+This definition focuses on the magnitude of daily fluctuations, independent of their direction.
+An equivalent formulation defines volatility as the standard deviation of daily returns within the
+month:
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -3576,14 +3576,12 @@ An equivalent definition is the monthly standard deviation of daily returns:
     alt="volatility standard deviation"
   >
   <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
-    Equivalent definition of volatility as the standard deviation of daily returns.
+    Equivalent definition of volatility as the dispersion of daily returns.
   </p>
 </blockquote>
 
 <p>
-A key methodological point is confounding: the Fed tends to move during stress, and stress raises
-volatility everywhere. So to avoid attributing broad fear to policy, you control for VXN, which
-captures market-wide risk sentiment.
+A key methodological point is confounding: the Fed tends to move during stress, and stress raises volatility everywhere. So to avoid attributing broad fear to policy, you control for VXN, which captures market-wide risk sentiment.
 </p>
 
 <h3>Method</h3>
