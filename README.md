@@ -749,24 +749,24 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "etf-game": {
-            text: "Hello! ETF GAME?",
+            text: "Hello! Are you ready for the ETF GAME?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "What is a stock?",
+                        text: "What is an ETF?",
                         answers: [
                             {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
-                                isCorrect: true,
+                                label: "Extra Territorial Field (ETF), it's a place where the governement will finaly leave me alone!",
+                                comment: "I wish this land existed!",
+                                isCorrect: false,
                                 next: null
                             },
                             {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
-                                isCorrect: false,
+                                label: "Exchange-Traded Fund (ETF) is an investment fund that holds multiple underlying assets",
+                                comment: "Correct!",
+                                isCorrect: true,
                                 next: null
                             }
                         ]
@@ -1093,22 +1093,22 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "fed-event": {
-            text: "Ready to check if you understood Fed events?",
+            text: "Ready to check your intuition on Fed events?",
             answers: [
                 {
                     label: "Yes!",
                     comment: "Nice!",
                     next: {
-                        text: "If we see a continuous increase in Fed rate, is this an event?",
+                        text: "What can we call a fed event?",
                         answers: [
                             {
-                                label: "Yes",
+                                label: "A substantial increase or decrease, followed by a stable phase lasting a few days",
                                 comment: "Correct!",
                                 next: null
                             },
                             {
-                                label: "No",
-                                comment: "Incorrect.",
+                                label: "Trump attacking Jerome Powell (fed chair)",
+                                comment: "Incorrect but you where close.",
                                 next: null
                             }
                         ]
@@ -1615,8 +1615,7 @@ Within the same sector, how does the financial performance of two comparable com
 How do larger-cap companies differ from smaller-cap companies in their sensitivity to changes in Federal Reserve interest rates, and what factors drive the variance in their reactions?
 4. Individual Stocks vs. Diversified ETFs
 How does the volatility and performance of a sector-specific ETF compare to that of its largest individual constituent stocks following a Fed rate announcement?
-5. Innovation and Monetary Policy
-Can Federal Reserve interest rate decisions indirectly influence investment flows into innovation-driven sectors, and if so, which industries benefit most from accommodative monetary policies?
+
 
 
 <!-- ######################################################################################################################### -->
