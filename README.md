@@ -174,7 +174,7 @@
 }
 </style>
 
-<div class="top-nav">
+<!-- <div class="top-nav">
     <div class="top-nav-content">
         <a href="{{ site.baseurl }}/" class="nav-link active">Home</a>
         <a href="{{ site.baseurl }}/other_page" class="nav-link">Analysis</a>
@@ -185,7 +185,7 @@
         <a href="{{ site.baseurl }}/Alexis" class="nav-link">Alexis</a>
         <a href="{{ site.github.repository_url }}" class="nav-link" target="_blank">Repository</a>
     </div>
-</div>
+</div> -->
 
 <div class="header-black">
     <div class="header-content">
