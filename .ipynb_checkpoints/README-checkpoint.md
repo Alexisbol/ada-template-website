@@ -780,9 +780,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         },
 
-
-
-        const games = {
+        
           "game-part-1": {
             text: "Why is it misleading to look only at a broad market index?",
             answers: [
