@@ -3371,11 +3371,9 @@ Taken together, these results show that sectors respond differently to surprise 
 
 <h3>Context</h3>
 <p>
-To respond to that, you want to match the horizon of the financial variable to the horizon of
-equity valuation. Stocks are long-duration assets: prices depend on discounting cash flows far in
-the future. The Fed Funds Rate is a short-term policy tool, while long-term yields embed expected
-future policy, inflation expectations, and term premia.
+This requires matching the horizon of the financial variable to that of equity valuation. Stocks are long-duration assets, with prices driven by the discounting of distant cash flows. The Fed Funds Rate reflects short-term policy, whereas long-term yields incorporate expectations about future policy, inflation, and term premia.
 </p>
+
 
 <section class="content-section trigger-game" data-game="game-part-4"></section>
 
