@@ -3353,9 +3353,9 @@ For several sectors, confidence intervals overlap zero, indicating that short-ru
 
 <h3>Conclusion</h3>
 <p>
-So to respond to your question: yes, sectors react differently to surprises, and the pattern often
-supports a signaling story. The event-study helps isolate that short-run informational effect.
+Taken together, these results show that sectors respond differently to surprise Fed rate cuts, and that the short-run reactions are often consistent with a signaling effect rather than a pure discount-rate channel. In many cases, unexpected easing is associated with relative underperformance, particularly in sectors closely tied to growth and demand conditions. The event-study framework helps isolate this short-run informational component of monetary policy surprises.
 </p>
+
 
 
 
