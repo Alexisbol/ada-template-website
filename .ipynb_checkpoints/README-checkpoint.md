@@ -3587,14 +3587,10 @@ A key methodological point is confounding: the Fed tends to move during stress, 
 <h3>Method</h3>
 
 <p>
-To answer your question, you can test two separate ideas. First, does the direction of policy
-matter, meaning hikes versus cuts. Second, does the magnitude matter, meaning large moves versus
-small moves. In both cases, you include VXN to separate macro fear from policy effects.
+This can be examined by testing two distinct dimensions of monetary policy actions. The first is the direction of policy, distinguishing between rate hikes and rate cuts. The second is the magnitude of policy moves, comparing large adjustments to smaller ones. In both cases, VXN is included as a control to separate general macroeconomic risk and market fear from the specific effects of monetary policy actions. VXN measures implied volatility on the NASDAQ-100 and is commonly used as a proxy for market-wide uncertainty and risk aversion.
+
 </p>
 
-<p>
-We study two complementary channels through which Fed policy may affect sector volatility.
-</p>
 
 
 <h4>(A) Directional effect of Fed changes</h4>
