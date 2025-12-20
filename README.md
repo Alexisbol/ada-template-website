@@ -3016,7 +3016,7 @@ The baseline question addressed here is therefore simple: do sectors mainly beha
 <h3>Method</h3>
 
 <p>
-To respond to this question, you could begin by defining a consistent measure of performance.
+You could begin by defining a consistent measure of performance.
 Prices are not directly comparable across sectors because they have different levels and scales, so
 the first step is to work with returns, which normalize changes over time.
 </p>
@@ -3208,7 +3208,7 @@ whether it is an independent dimension of sector returns In other words, do the 
 market-driven also happen to be policy-sensitive, or not?
 </p>
 
-<p>In Fig.7, we want to locate sectors in a two-dimensional map: market exposure on one axis and Fed sensitivity on the other.</p>
+<p>In the figure, we want to locate sectors in a two-dimensional map: market exposure on one axis and Fed sensitivity on the other.</p>
 
 <div class="figure-block">
   <div id="fig07" style="width:100%; height:520px;"></div>
@@ -3252,7 +3252,7 @@ Therefore, sectors are not equally sensitive. Once you control for the market, y
 
 <h3>Context</h3>
 <p>
-To respond to that, it helps to separate expected moves from surprises. If a move is fully priced
+To answer this question, it helps to separate expected moves from surprises. If a move is fully priced
 in, returns may barely react. But a surprise cut often conveys information about stress or
 deteriorating conditions. So the market reaction can reflect the signal, not only the mechanical
 impact of lower rates.
@@ -3291,7 +3291,9 @@ losers, which would indicate that the informational content of the decision matt
 sector.
 </p>
 
-<p>In this plot, we want to compare average abnormal performance across sectors during the event window.</p>
+<p>
+In this plot, we compare average abnormal performance across sectors during the event window. Abnormal performance is measured as the deviation of sector returns from their expected market-driven component, estimated using the market-model regression described above. Averaging these deviations over the event window allows us to isolate the typical short-run sector response to surprise policy events.
+</p>
 
 <div class="figure-block">
   <div id="fig11" style="width:100%; height:520px;"></div>
