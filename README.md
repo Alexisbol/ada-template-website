@@ -3093,7 +3093,19 @@ Overall, sector-level cumulative returns diverge persistently over time, indicat
 For example, Technology benefits from strong growth expectations and innovation-driven business models, allowing returns to compound over time. Healthcare and Industrials also perform relatively well, supported by stable demand. In contrast, sectors such as Energy, Basic Materials, and Communication Services are more exposed to commodity cycles, regulation, or mature market structures, which limits long-run return accumulation.
 </p>
 
-<p>In Fig.4, we want to check how the distribution of returns changes across regimes, focusing on dispersion and tail events.</p>
+<p>
+Overall, sector-level cumulative returns diverge persistently over time, indicating systematic differences in long-run performance rather than uniform exposure to market movements.
+
+For example, Technology benefits from strong growth expectations and innovation-driven business models, allowing returns to compound over time. Healthcare and Industrials also perform relatively well, supported by stable demand. In contrast, sectors such as Energy, Basic Materials, and Communication Services are more exposed to commodity cycles, regulation, or mature market structures, which limits long-run return accumulation.
+</p>
+
+<p>
+In the following figure, we show how the distribution of sector returns changes across different regimes, with a focus on dispersion and tail behavior. To do so, we rely on the market-model regression of sector returns on market returns introduced above, which allows us to separate market-wide movements from sector-level dynamics.
+</p>
+
+<p>
+In this framework, the NASDAQ-100 is used as the market portfolio. This choice reflects its role as a broad, liquid, and well-diversified benchmark for U.S. equity markets, with a strong representation of large-cap firms and growth-oriented sectors. As a result, it provides a practical proxy for aggregate market conditions in the context of our analysis.
+</p>
 
 <div class="figure-block">
   <div id="fig04" style="width:100%; height:520px;"></div>
