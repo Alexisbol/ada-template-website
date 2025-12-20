@@ -2391,6 +2391,9 @@ The number of significant pairs is relatively low compared to the total number o
 
 ## Sectors <a id="Sectors"></a>
 
+At this point in the interview, the discussion naturally moves one level up. The earlier results show that performance during Fed events varies across the market, pointing to the role of broader economic groupings.
+
+The next questions focus on sectors. You will have to think like a real intern stock analyst: to understand which sectors tend to outperform under different Fed actions and macroeconomic conditions, and where investment opportunities emerge as the economic environment changes.
 
 
 <script>
@@ -2971,21 +2974,23 @@ renderSectorPickerDualAxis("fig19", "{{ site.baseurl }}/assets/fig_json/fig19.js
 
 
 ### Context
+
 <p>
-If you only look at a market index, you implicitly assume that all firms react in roughly the same
-way to macroeconomic forces. In practice, sectors differ in capital intensity, leverage, pricing
-power, exposure to rates, and how much their value depends on future growth.
+At first glance, one might expect macroeconomic policy to affect the market as a whole in a fairly uniform way. All firms depend, to some extent, on their cost of capital, access to borrowing, and on consumers’ overall behavior, which makes aggregate market movements appear informative.
 </p>
+
 <p>
-So, to respond to your question, a good starting point is to separate two things: what is simply
-the market moving up and down, and what is genuinely sector-specific behavior. If sector paths
-diverge even after you account for the market, then it makes sense to study additional drivers
-later, like monetary policy.
+In practice, however, firms differ substantially, and these differences are especially pronounced across sectors. Capital intensity, leverage, pricing power, exposure to interest rates, and reliance on future growth vary widely from one sector to another, implying that macroeconomic shocks need not translate evenly across the market.
 </p>
+
 <p>
-The baseline question we want to answer here is very simple: do sectors mostly look like scaled
-versions of the market, or do they have their own long-run trajectories?
+This motivates a key distinction: separating what reflects broad market movements from what corresponds to genuinely sector-specific behavior. If sector trajectories diverge even after accounting for the market, aggregate analysis becomes insufficient, and a sector-level approach becomes relevant.
 </p>
+
+<p>
+The baseline question addressed here is therefore simple: do sectors mainly behave as scaled versions of the market, or do they follow distinct long-run trajectories that justify a sector-level analysis?
+</p>
+
 
 <section class="content-section trigger-game" data-game="game-part-1"></section>
 
