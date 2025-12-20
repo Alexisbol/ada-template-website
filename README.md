@@ -1393,6 +1393,7 @@ h2 {
 <!-- ######################################################################################################################### -->
 
 # Introduction <a id="Intro"></a>
+<br>
 
 This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
 
