@@ -4192,7 +4192,14 @@ We see that it consistantly reaches much better normalized returns after the neg
 <section class="content-section trigger-game" data-game="comparison-game"></section>
 
 
-# Comparable Companies Analysis {#Comparison} 
+<h1 id="Comparison"> Comparable Companies Analysis </h1>
+
+<style>
+#Comparison {
+  white-space: nowrap;
+}
+</style>
+
 <!-- <a id="Comparison"></a> -->
 
 
