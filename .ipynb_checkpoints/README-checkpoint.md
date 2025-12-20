@@ -3114,28 +3114,6 @@ This figure shows that firms’ exposure to market risk, measured by the betas, 
 Sectors such as Technology, Healthcare, and Industrials tend to have higher median betas, indicating stronger comovement with aggregate market fluctuations. This is consistent with business models that are more sensitive to growth expectations and broad risk sentiment. Consumer Cyclical and Energy also display elevated betas, reflecting their dependence on economic conditions and demand cycles. In contrast, Communication Services and Basic Materials exhibit lower median betas, suggesting weaker sensitivity to overall market movements.
 </p>
 
-<p>In Fig.5, we want to quantify how market-driven each sector is through β, and whether there is systematic outperformance through α.</p>
-
-<div class="figure-block">
-  <div id="fig05" style="width:100%; height:520px;"></div>
-  <script>renderMplExport("fig05", "{{ site.baseurl }}/assets/fig_json/fig05.json");</script>
-</div>
-
-<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
-  <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Higher β:</strong> sector moves more than the market (more systematic risk).</li>
-    <li><strong>Lower β:</strong> sector is more defensive (less market-driven).</li>
-    <li><strong>Non-zero α:</strong> average performance not explained by the market factor alone.</li>
-  </ul>
-</div>
-
-<p>
-If you see large differences in β across sectors, that is already a strong reason to avoid using
-only a single market index. More importantly, if some sectors show persistent deviations that are
-not aligned with β, that suggests market exposure is not the full story. That sets up the next
-question: beyond the market factor, how much does monetary policy matter?
-</p>
 
 <h3>Conclusion</h3>
 <p>
