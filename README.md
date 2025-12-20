@@ -1327,7 +1327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* Expand on hover */
 #sideMenu:hover {
-  width: 180px;
+  width: 220px;
 }
 
 /* Hide arrow when expanded */
