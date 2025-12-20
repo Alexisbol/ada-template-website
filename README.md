@@ -3222,9 +3222,7 @@ Overall, the figure highlights that market risk and monetary policy risk are dis
 
 <h3>Conclusion</h3>
 <p>
-Therefore, sectors are not equally sensitive. Once you control for the
-market, you still see heterogeneity in γ, meaning monetary policy contributes a sector-specific
-risk dimension beyond market beta.
+Therefore, sectors are not equally sensitive. Once you control for the market, you still see heterogeneity in γ, meaning monetary policy contributes a sector-specific risk dimension beyond market beta.
 </p>
 
 
@@ -3293,10 +3291,17 @@ sector.
 </div>
 
 <p>
-If many bars sit left of zero, that suggests the event is interpreted as negative news overall. If
-some sectors sit clearly on the right while others sit on the left, that indicates heterogeneity
-in how sectors map macro stress into expected cash flows.
+This figure shows sector performance relative to Industrials following surprise Fed rate cuts over a three-day window. Negative values indicate underperformance, suggesting that unexpected easing is often interpreted as a negative macroeconomic signal rather than a purely supportive policy move.
 </p>
+
+<p>
+The strongest underperformance appears in Basic Materials and Energy, sectors closely tied to global demand and commodity cycles, where adverse growth signals likely dominate any financing benefits. Technology, Financial Services, and Communication Services also react negatively, consistent with a reassessment of growth expectations.
+</p>
+
+<p>
+By contrast, Healthcare and Consumer Cyclical show more muted responses, indicating a weaker short-term sensitivity to surprise policy easing. Overall, the figure illustrates that surprise Fed cuts tend to redistribute performance across sectors rather than uniformly boosting returns.
+</p>
+
 
 <p>In Fig.12, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
 
