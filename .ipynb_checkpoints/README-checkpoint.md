@@ -3038,31 +3038,34 @@ Returns are aggregated into cumulative returns rebased to 1:
 </blockquote>
 
 <p>
-Finally, if you want to quantify how much a sector is just following the market, you can estimate
-a simple market model. Intuitively, you try to explain sector returns by market returns. What is
-left in the residual is the part not captured by broad market movement.
+Finally, to quantify how closely a sector simply follows the market, we estimate a simple market
+model. The idea is to explain sector returns using market returns alone. Any remaining variation
+in the residual then captures the component of sector performance that is not explained by broad
+market movements.
 </p>
 
 <p>
-To isolate sector-specific behavior, we estimate a CAPM-style market model:
+To formalize this intuition, we estimate a market-model regression of sector returns on market
+returns:
 </p>
+
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
   <img
     src="https://latex.codecogs.com/svg.image?r_{s,t}=\alpha_s+\beta_s r_{m,t}+\varepsilon_{s,t}"
     style="max-width:420px;height:auto;display:block;"
-    alt="CAPM model"
+    alt="market model"
   >
   <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
-    βₛ measures exposure to market risk, while αₛ captures average excess performance.
+    βₛ measures exposure to market risk, αₛ captures average sector performance beyond market movements, and εₛ,t represents sector-specific fluctuations not explained by the market.
   </p>
 </blockquote>
+
 
 <h3>Results</h3>
 
 <p>
-Here, what we are trying to see is whether sectors share the same long-run trend, or whether their
-performance separates into persistent winners and laggards. Then we want to check whether this
+Here, we examine whether sectors share a common long-run trend, or whether their performance diverges into persistent winners and laggards. Then we want to check whether this
 dispersion is simply explained by market exposure β or not.
 </p>
 
