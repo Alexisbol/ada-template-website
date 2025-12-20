@@ -3368,27 +3368,20 @@ Taken together, these results show that sectors respond differently to surprise 
 
 <h2>4. Are Fed rates the right proxy for long-term monetary policy?</h2>
 
+<section class="content-section trigger-game" data-game="game-part-4"></section>
 
 <h3>Context</h3>
 <p>
-This requires matching the horizon of the financial variable to that of equity valuation. Stocks are long-duration assets, with prices driven by the discounting of distant cash flows. The Fed Funds Rate reflects short-term policy, whereas long-term yields incorporate expectations about future policy, inflation, and term premia.
+To move beyond short-term market reactions, it is useful to consider monetary policy at the horizon
+relevant for equity valuation. Stock prices reflect the discounted value of future cash flows,
+making them more sensitive to long-term expectations about policy and economic conditions than to
+short-term rate adjustments alone. This motivates distinguishing between short-term policy actions
+and longer-term monetary conditions when analyzing equity responses.
 </p>
 
 
-<section class="content-section trigger-game" data-game="game-part-4"></section>
-
-<h3>Method</h3>
 <p>
-To analyze monetary policy in a way that is relevant for equity valuation, it helps to distinguish
-between short-term policy actions and longer-term monetary conditions. Stocks are long-duration
-assets, so they are more sensitive to expectations about future policy than to short-term rate
-changes alone.
-</p>
-<p>
-We therefore compare the Federal Funds Rate, the Fed’s short-term policy instrument, with the
-10-year Treasury yield, which reflects expected future policy, inflation, and term premia. The
-10-year yield provides a more stable proxy for the monetary environment faced by long-horizon
-investors.
+We therefore compare the Federal Funds Rate, the Fed’s short-term policy instrument, with the 10-year Treasury yield, which reflects expected future policy, inflation, and term premia. The 10-year yield provides a more stable proxy for the monetary environment faced by long-horizon investors.
 </p>
 
 <h3>Illustration</h3>
