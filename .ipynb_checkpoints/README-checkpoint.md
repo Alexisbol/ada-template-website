@@ -3071,7 +3071,7 @@ Here, we examine whether sectors share a common long-run trend, or whether their
 dispersion is simply explained by market exposure β or not.
 </p>
 
-<p>In Fig.01, we want to compare long-run cumulative performance across sectors and see whether sector trajectories remain close together or diverge over time.</p>
+<p>Through the following graph, we want to compare long-run cumulative performance across sectors and see whether sector trajectories remain close together or diverge over time.</p>
 
 <div class="figure-block">
   <div id="fig01" style="width:100%; height:520px;"></div>
@@ -3100,12 +3100,13 @@ For example, Technology benefits from strong growth expectations and innovation-
 </p>
 
 <p>
-In the following figure, we show how the distribution of sector returns changes across different regimes, with a focus on dispersion and tail behavior. To do so, we rely on the market-model regression of sector returns on market returns introduced above, which allows us to separate market-wide movements from sector-level dynamics.
+In the next figure, we examine how the distribution of sector returns changes across different regimes, with a focus on dispersion and tail behavior. The CAPM intuition is that asset returns can be decomposed into a market-driven component and a residual capturing idiosyncratic variation. We implement this idea using a market-model regression of sector returns on market returns, which isolates sector-level dynamics beyond aggregate market movements.
 </p>
 
 <p>
-In this framework, the NASDAQ-100 is used as the market portfolio. This choice reflects its role as a broad, liquid, and well-diversified benchmark for U.S. equity markets, with a strong representation of large-cap firms and growth-oriented sectors. As a result, it provides a practical proxy for aggregate market conditions in the context of our analysis.
+In this framework, the NASDAQ-100 is used as the market portfolio. Its breadth, liquidity, and strong representation of large-cap firms make it a practical proxy for overall U.S. market conditions in our analysis.
 </p>
+
 
 <div class="figure-block">
   <div id="fig04" style="width:100%; height:520px;"></div>
