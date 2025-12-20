@@ -1397,10 +1397,10 @@ h2 {
 
 This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
 
-I'll be throwing questions at you the same way the market trhows curveballs alright 
-<br> <i> What do you know of the differences between sectors </i>
-<br> <i> What do you know of the differences between ETFs and stocks </i>
-<br> <i> Are you able to understand the influence of a company structure on the behavior of its stocks </i>
+I'll be throwing questions at you the same way the market throws curveballs alright 
+<br> <i> What do you know of the differences between sectors ? </i>
+<br> <i> What do you know of the differences between ETFs and stocks ? </i>
+<br> <i> Are you able to understand the influence of a company structure on the behavior of its stocks ? </i>
 
 So if you think you have what it takes : take a deep breath, sit up straight and show me that you don't just talk stocks, you understand them. 
 
