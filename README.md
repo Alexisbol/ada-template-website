@@ -1270,9 +1270,9 @@ document.addEventListener("DOMContentLoaded", () => {
   <a href="#ResearchQ">Research questions</a>
   <a href="#Dataset">The dataset</a>
   <a href="#ETF">ETF vs Stocks</a>
-  <a href="#Sectors">Sectors comparison</a>
+  <a href="#Sectors">Sectors Comparison</a>
   <a href="#Size">Size Comparison</a>
-  <a href="#Comparison">Similar stocks</a>
+  <a href="#Comparison">Comparable Companies</a>
   <a href="#Conclusion">Conclusion</a>
 </div>
 
@@ -2400,7 +2400,7 @@ The number of significant pairs is relatively low compared to the total number o
 <section class="content-section trigger-game" data-game="sectors-game"></section>
 
 <br>
-<h1 id="Sectors"> Sectors </h1>
+<h1 id="Sectors"> Sectors Comparison </h1>
 <br>
 
 <style>
@@ -3997,7 +3997,7 @@ var fun = function lang(l) {
 <section class="content-section trigger-game" data-game="size-game"></section>
 
 <br>
-<h1 id="Size"> Size </h1>
+<h1 id="Size"> Size Comparison </h1>
 <br>
 
 <style>
