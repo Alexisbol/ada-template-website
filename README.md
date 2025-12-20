@@ -3424,9 +3424,19 @@ economic comparison.
 <p>
 We estimate sector sensitivity to changes in the 10Y yield:
 </p>
-<p class="math">
-r<sub>s,t</sub> = α<sub>s</sub> + β<sub>s</sub> r<sub>m,t</sub> + θ<sub>s</sub> ΔY<sub>t</sub><sup>10</sup> + u<sub>s,t</sub>
-</p>
+
+<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
+  <img
+    src="https://latex.codecogs.com/svg.image?r_{s,t}=\alpha_s+\beta_s r_{m,t}+\theta_s\Delta Y^{10}_t+u_{s,t}"
+    style="max-width:440px;height:auto;display:block;"
+    alt="market plus long-term yield regression"
+  >
+  <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
+    θₛ measures the marginal sensitivity of sector returns to changes in the 10-year Treasury yield.
+  </p>
+</blockquote>
+
+
 <p>
 We also define low- and high-rate regimes using yield quantiles and compare average annualized
 sector returns across regimes.
