@@ -3086,10 +3086,9 @@ dispersion is simply explained by market exposure β or not.
 </div>
 
 <p>
-What you typically observe in this kind of plot is that sectors do not simply move together with a
-constant gap. Instead, dispersion often widens in major episodes, suggesting that shocks and
-regimes do not impact sectors proportionally. If a few curves permanently pull away from others,
-that tells you the differences are structural rather than short-lived noise.
+Overall, sector-level cumulative returns diverge persistently over time, indicating systematic differences in long-run performance rather than uniform exposure to market movements.
+
+For example, Technology benefits from strong growth expectations and innovation-driven business models, allowing returns to compound over time. Healthcare and Industrials also perform relatively well, supported by stable demand. In contrast, sectors such as Energy, Basic Materials, and Communication Services are more exposed to commodity cycles, regulation, or mature market structures, which limits long-run return accumulation.
 </p>
 
 <p>In Fig.4, we want to check how the distribution of returns changes across regimes, focusing on dispersion and tail events.</p>
@@ -3102,40 +3101,19 @@ that tells you the differences are structural rather than short-lived noise.
 <div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
   <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
   <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Median line:</strong> typical return in that regime.</li>
-    <li><strong>Box height:</strong> variability (wider = more dispersion).</li>
-    <li><strong>Outliers:</strong> rare extreme months (tail risk).</li>
+    <li><strong>Median line:</strong> typical market exposure (beta) within the sector.</li>
+    <li><strong>Box height:</strong> dispersion of firm-level betas (taller box = more heterogeneity).</li>
+    <li><strong>Outliers:</strong> firms with unusually high or low sensitivity to market movements.</li>
   </ul>
 </div>
 
-<p>
-When the boxes widen or outliers become more frequent, it indicates that the regime is not just
-changing the average return, but also changing risk and dispersion. This is important because it
-motivates later parts of the analysis that focus on volatility and event windows.
-</p>
-
-<p>In Fig.5, we want to quantify how market-driven each sector is through β, and whether there is systematic outperformance through α.</p>
-
-<div class="figure-block">
-  <div id="fig05" style="width:100%; height:520px;"></div>
-  <script>renderMplExport("fig05", "{{ site.baseurl }}/assets/fig_json/fig05.json");</script>
-</div>
-
-<div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
-  <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
-  <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Higher β:</strong> sector moves more than the market (more systematic risk).</li>
-    <li><strong>Lower β:</strong> sector is more defensive (less market-driven).</li>
-    <li><strong>Non-zero α:</strong> average performance not explained by the market factor alone.</li>
-  </ul>
-</div>
 
 <p>
-If you see large differences in β across sectors, that is already a strong reason to avoid using
-only a single market index. More importantly, if some sectors show persistent deviations that are
-not aligned with β, that suggests market exposure is not the full story. That sets up the next
-question: beyond the market factor, how much does monetary policy matter?
+This figure shows that firms’ exposure to market risk, measured by the betas, varies systematically across sectors rather than being uniform across the market.
+
+Sectors such as Technology, Healthcare, and Industrials tend to have higher median betas, indicating stronger comovement with aggregate market fluctuations. This is consistent with business models that are more sensitive to growth expectations and broad risk sentiment. Consumer Cyclical and Energy also display elevated betas, reflecting their dependence on economic conditions and demand cycles. In contrast, Communication Services and Basic Materials exhibit lower median betas, suggesting weaker sensitivity to overall market movements.
 </p>
+
 
 <h3>Conclusion</h3>
 <p>
