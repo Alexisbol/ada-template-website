@@ -1390,7 +1390,7 @@ h2 {
 
 <!-- ######################################################################################################################### -->
 
-## Introduction <a id="Intro"></a>
+# Introduction <a id="Intro"></a>
 
 This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
 
@@ -1886,7 +1886,7 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 
 <section class="content-section trigger-game" data-game="etf-game"></section>
 
-## ETF VS Stocks, do we have a winner?<a id="ETF"></a>
+# ETF VS Stocks, do we have a winner?<a id="ETF"></a>
 
 To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF countains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
 We only pair the important stocks of an ETF with the stock itself.
@@ -2389,7 +2389,7 @@ The number of significant pairs is relatively low compared to the total number o
 
 <section class="content-section trigger-game" data-game="sectors-game"></section>
 
-## Sectors <a id="Sectors"></a>
+# Sectors <a id="Sectors"></a>
 
 At this point in the interview, the discussion naturally moves one level up. The earlier results show that performance during Fed events varies across the market, pointing to the role of broader economic groupings.
 
@@ -3985,7 +3985,7 @@ var fun = function lang(l) {
 <!-- ######################################################################################################################### -->
 <section class="content-section trigger-game" data-game="size-game"></section>
 
-## Size <a id="Size"></a>
+# Size <a id="Size"></a>
 
 
 Q: If I give you the choice between a stock of a small, medium or large company, which do you expect to be more risky to invest in, just after a positive fed rate event?
@@ -4190,7 +4190,7 @@ We see that it consistantly reaches much better normalized returns after the neg
 <section class="content-section trigger-game" data-game="comparison-game"></section>
 
 
-## Comparable Companies Analysis <a id="Comparison"></a>
+# Comparable Companies Analysis <a id="Comparison"></a>
 
 Like you just saw, one of the questions we can ask ourselves is what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
 
