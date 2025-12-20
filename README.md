@@ -749,24 +749,24 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "etf-game": {
-            text: "Hello! ETF GAME?",
+            text: "Hello! Are you ready for the ETF GAME?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "What is a stock?",
+                        text: "What is an ETF?",
                         answers: [
                             {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
-                                isCorrect: true,
+                                label: "Extra Territorial Field (ETF), it's a place where the governement will finaly leave me alone!",
+                                comment: "I wish this land existed!",
+                                isCorrect: false,
                                 next: null
                             },
                             {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
-                                isCorrect: false,
+                                label: "Exchange-Traded Fund (ETF) is an investment fund that holds multiple underlying assets",
+                                comment: "Correct!",
+                                isCorrect: true,
                                 next: null
                             }
                         ]
@@ -999,7 +999,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "comparison-game": {
-            text: "We will now compare some specific companies! Ready?",
+            text: "Let's focus on the analysis of comparable companies ! Ready?",
             answers: [
                 {
                     label: "Yes",
@@ -1093,22 +1093,22 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "fed-event": {
-            text: "Ready to check if you understood Fed events?",
+            text: "Ready to check your intuition on Fed events?",
             answers: [
                 {
                     label: "Yes!",
                     comment: "Nice!",
                     next: {
-                        text: "If we see a continuous increase in Fed rate, is this an event?",
+                        text: "What can we call a fed event?",
                         answers: [
                             {
-                                label: "Yes",
+                                label: "A substantial increase or decrease, followed by a stable phase lasting a few days",
                                 comment: "Correct!",
                                 next: null
                             },
                             {
-                                label: "No",
-                                comment: "Incorrect.",
+                                label: "Trump attacking Jerome Powell (fed chair)",
+                                comment: "Incorrect but you where close.",
                                 next: null
                             }
                         ]
@@ -1615,8 +1615,7 @@ Within the same sector, how does the financial performance of two comparable com
 How do larger-cap companies differ from smaller-cap companies in their sensitivity to changes in Federal Reserve interest rates, and what factors drive the variance in their reactions?
 4. Individual Stocks vs. Diversified ETFs
 How does the volatility and performance of a sector-specific ETF compare to that of its largest individual constituent stocks following a Fed rate announcement?
-5. Innovation and Monetary Policy
-Can Federal Reserve interest rate decisions indirectly influence investment flows into innovation-driven sectors, and if so, which industries benefit most from accommodative monetary policies?
+
 
 
 <!-- ######################################################################################################################### -->
@@ -4186,7 +4185,7 @@ We see that it consistantly reaches much better normalized returns after the neg
 <section class="content-section trigger-game" data-game="comparison-game"></section>
 
 
-## Specific <a id="Comparison"></a>
+## Comparable Companies Analysis <a id="Comparison"></a>
 
 Like you just saw, one of the questions we can ask ourselves is what the impact of fed rates on two comparable companies, given a comparison criterion, can reveal on the specifics of the companies. The idea is to study the reactions and reactivities to fed rates events and link different reactions to different underlying truths about the companies, their functionning and economic strategies.
 
@@ -4652,7 +4651,7 @@ This whole question gave us a good intuition on how what can first look like com
             </div>
             <!-- Member 2 -->
             <div class="team-member">
-                <img src="{{ site.baseurl }}/assets/img/pdp_ada.png" alt="Team Member 2" class="team-photo">
+                <img src="{{ site.baseurl }}/assets/img/photo_alexis.jpg" alt="Team Member 2" class="team-photo">
                 <div class="team-name">Alexis</div>
                 <div class="team-contact">
                     <span>alexis.bollack@epfl.ch</span>
@@ -4661,7 +4660,7 @@ This whole question gave us a good intuition on how what can first look like com
             </div>
             <!-- Member 3 -->
             <div class="team-member">
-                <img src="{{ site.baseurl }}/assets/img/pdp_ada.png" alt="Team Member 3" class="team-photo">
+                <img src="{{ site.baseurl }}/assets/img/lucas_MASSOT_Photo.png" alt="Team Member 3" class="team-photo">
                 <div class="team-name">Lucas</div>
                 <div class="team-contact">
                     <span>lucas.massot@epfl.ch</span>
