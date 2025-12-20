@@ -3379,10 +3379,10 @@ short-term rate adjustments alone. This motivates distinguishing between short-t
 and longer-term monetary conditions when analyzing equity responses.
 </p>
 
-
 <p>
 We therefore compare the Federal Funds Rate, the Fed’s short-term policy instrument, with the 10-year Treasury yield, which reflects expected future policy, inflation, and term premia. The 10-year yield provides a more stable proxy for the monetary environment faced by long-horizon investors.
 </p>
+
 
 <h3>Illustration</h3>
 <p>
