@@ -3532,13 +3532,11 @@ This analysis shows that long-term interest rates are a key driver of sector per
 
 
 <p>
-Beyond average returns, monetary policy can affect the riskiness of assets. Even if mean returns
-remain stable, changes in policy can alter uncertainty about future cash flows and discount rates.
+Beyond average returns, monetary policy can affect the riskiness of assets. Even if mean returns remain stable, changes in policy can alter uncertainty about future cash flows and discount rates. 
 </p>
 
 <p>
-In practice, this uncertainty is captured by volatility, which measures how variable returns are
-over time and is commonly used as a proxy for risk in financial analysis.
+In practice, this uncertainty is captured by volatility, which measures how variable returns are over time and is commonly used as a proxy for risk in financial analysis.
 </p>
 
 <section class="content-section trigger-game" data-game="game-part-6"></section>
@@ -3584,7 +3582,6 @@ A key methodological point is confounding: the Fed tends to move during stress, 
 
 <p>
 This can be examined by testing two distinct dimensions of monetary policy actions. The first is the direction of policy, distinguishing between rate hikes and rate cuts. The second is the magnitude of policy moves, comparing large adjustments to smaller ones. In both cases, VXN is included as a control to separate general macroeconomic risk and market fear from the specific effects of monetary policy actions. VXN measures implied volatility on the NASDAQ-100 and is commonly used as a proxy for market-wide uncertainty and risk aversion.
-
 </p>
 
 
@@ -3592,8 +3589,7 @@ This can be examined by testing two distinct dimensions of monetary policy actio
 <h4>(A) Directional effect of Fed changes</h4>
 
 <p>
-We first test whether volatility reacts differently to rate hikes versus rate cuts. Let
-ΔF<sub>m</sub> denote the monthly change in the Fed policy rate:
+We first test whether volatility reacts differently to rate hikes versus rate cuts. Let ΔF<sub>m</sub> denote the monthly change in the Fed policy rate:
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -3625,8 +3621,7 @@ For each sector <em>s</em>, we estimate:
 <h4>(B) Magnitude of Fed shocks</h4>
 
 <p>
-Markets may respond not to the direction of rate changes, but to the size of policy shocks. To test
-this hypothesis, we estimate:
+Markets may respond not to the direction of rate changes, but to the size of policy shocks. To test this hypothesis, we estimate:
 </p>
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
@@ -3636,25 +3631,22 @@ this hypothesis, we estimate:
     alt="volatility magnitude"
   >
   <p style="margin:8px 0 0;font-style:italic;font-size:0.95em;">
-    θₛ measures how volatility reacts to the size of Fed moves (ignoring direction), controlling for VXN.
+    θₛ measures how volatility reacts to the size of Fed moves (ignoring direction), controlling for VXN
   </p>
 </blockquote>
 
 <p>
-Inference is based on robust (HAC-type) standard errors to account for serial correlation
-and heteroskedasticity in volatility.
+Statistical inference uses robust (HAC-type) standard errors to account for the fact that volatility tends to be correlated over time and does not fluctuate uniformly. In simple terms, this correction prevents us from mistaking natural clustering and uneven variability in volatility for meaningful effects.
 </p>
    
 
 <h3>Results</h3>
 
 <p>
-Here, what we are trying to see is whether Fed policy has any incremental relationship with
-sector volatility once you control for market-wide fear. First we test direction, then magnitude,
-then we use a time-series view to see how the relationship looks through time.
+Here, what we are trying to see is whether Fed policy has any incremental relationship with sector volatility once you control for market-wide fear. First we test direction, then magnitude, then we use a time-series view to see how the relationship looks through time.
 </p>
 
-<p>In Fig.17, we want to test whether volatility responds differently to hikes versus cuts after controlling for VXN.</p>
+<p>Next, we want to test whether volatility responds differently to hikes versus cuts after controlling for the market-wide uncertainty (VXN).</p>
 
 <div class="figure-block">
   <div id="fig17" style="width:100%; height:520px;"></div>
@@ -3671,12 +3663,19 @@ then we use a time-series view to see how the relationship looks through time.
 </div>
 
 <p>
-If most estimates sit close to zero and confidence intervals cross zero, the practical conclusion
-is that direction is not a robust predictor once broad market risk is accounted for. That is often
-what you expect if the main driver is macro stress rather than the sign of the policy move.
+This figure shows how sector volatility responds to changes in the Fed policy rate after controlling for overall market uncertainty using VXN. Each point represents the estimated effect of a rate change on monthly volatility, with confidence intervals indicating statistical uncertainty.
 </p>
 
-<p>In Fig.18, we want to test whether large policy moves, regardless of sign, are associated with higher volatility in some sectors.</p>
+<p>
+Most sectors have estimates close to zero with wide confidence intervals, suggesting that once general market risk is accounted for, Fed rate changes have limited direct impact on sector volatility. Technology stands out with a negative and statistically significant estimate, indicating that its volatility tends to decrease following Fed rate hikes.
+</p>
+
+<p>
+The results suggest that macroeconomic risk, rather than the direction of Fed moves itself, is the main driver of sector-level volatility.
+</p>
+
+
+<p> The next figures allows to assess whether large policy moves, regardless of sign, are associated with higher volatility in some sectors.</p>
 
 <div class="figure-block">
   <div id="fig18" style="width:100%; height:520px;"></div>
