@@ -4600,7 +4600,7 @@ This whole question gave us a good intuition on how what can first look like com
         <div class="team-grid">
             <!-- Member 1 -->
             <div class="team-member">
-                <img src="{{ site.baseurl }}/assets/img/pdp_ada.png" alt="Team Member 1" class="team-photo">
+                <img src="{{ site.baseurl }}/assets/img/BS_photo" alt="Team Member 1" class="team-photo">
                 <div class="team-name">Beatrice</div>
                 <div class="team-contact">
                     <span>beatrice.saitta@epfl.ch</span>
