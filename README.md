@@ -1412,14 +1412,14 @@ What is the Federal Reserve Interest Rate?
 
 Think of the Fed Rate as the economic thermostat for both businesses and households. While it is technically the interest rate banks charge each other, it effectively controls the cost of borrowing for everyone. This determines how much it costs a company to expand or how much a family pays for a home.
 
-<section class="content-section trigger-game" data-game="fed-policy"></section>
-
 
 **Cutting Rates** (Green Light): When the Fed "turns down the dial," borrowing becomes cheaper. This encourages companies to fund new projects and hire more workers, while also lowering monthly loan payments for people.
 
 **Raising Rates** (The Brake): When the Fed "turns up the dial" to fight inflation, borrowing becomes expensive. Businesses often tighten their belts and pause expansion, while consumers see higher interest on credit cards and mortgages.
 
 Current Status: As of December 2025, the Fed is in a "colling" phase. By cutting rates to 3.75% – 4.00%, they are lowering the cost of debt to help businesses keep their teams and help families manage their budgets.
+<section class="content-section trigger-game" data-game="fed-policy"></section>
+
 
 <style>
     .fed-card {margin:18px 0;padding:16px;border:1px solid #e1e8f0;border-radius:14px;background:#fbfdff;box-shadow:0 10px 24px rgba(12,50,96,0.08);max-width:100%;}
