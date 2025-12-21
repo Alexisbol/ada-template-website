@@ -1063,22 +1063,22 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "conclusion-section": {
-            text: "Hello! CONCLUSION?",
+            text: "This is now the end of the interview. Final question: Ready?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "What is a stock?",
+                        text: "How are you feeling?",
                         answers: [
                             {
-                                label: "A share of ownership in a company",
-                                comment: "Correct!",
+                                label: "Amazing! I learned so much about the fed rate and its impact on stocks!",
+                                comment: "Correct! Join us at Stratton Oakmont!",
                                 next: null
                             },
                             {
-                                label: "A type of loan",
-                                comment: "Incorrect. A stock is ownership.",
+                                label: "Amazing! I learned so much about the fed rate and its impact on stocks!",
+                                comment: "Correct! Join us at Stratton Oakmont!",
                                 next: null
                             }
                         ]
