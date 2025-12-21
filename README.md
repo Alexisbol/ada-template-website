@@ -1405,13 +1405,15 @@ So if you think you have what it takes : take a deep breath, sit up straight and
 
 <!-- ######################################################################################################################### -->
 
-<section class="content-section trigger-game" data-game="fed-policy"></section>
 
 ## Fed rates <a id="FedRates"></a>
 
 What is the Federal Reserve Interest Rate?
 
 Think of the Fed Rate as the economic thermostat for both businesses and households. While it is technically the interest rate banks charge each other, it effectively controls the cost of borrowing for everyone. This determines how much it costs a company to expand or how much a family pays for a home.
+
+<section class="content-section trigger-game" data-game="fed-policy"></section>
+
 
 **Cutting Rates** (Green Light): When the Fed "turns down the dial," borrowing becomes cheaper. This encourages companies to fund new projects and hire more workers, while also lowering monthly loan payments for people.
 
