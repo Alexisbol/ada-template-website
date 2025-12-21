@@ -1061,6 +1061,66 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             ]
         },
+
+        "conclusion-section": {
+            text: "Hello! CONCLUSION?",
+            answers: [
+                {
+                    label: "Yes",
+                    comment: "Great! Let's begin.",
+                    next: {
+                        text: "What is a stock?",
+                        answers: [
+                            {
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Come back when you're ready.",
+                    next: null
+                }
+            ]
+        },
+
+        "fed-event": {
+            text: "Ready to check your intuition on Fed events?",
+            answers: [
+                {
+                    label: "Yes!",
+                    comment: "Nice!",
+                    next: {
+                        text: "What can we call a fed event?",
+                        answers: [
+                            {
+                                label: "A substantial increase or decrease, followed by a stable phase lasting a few days",
+                                comment: "Correct!",
+                                next: null
+                            },
+                            {
+                                label: "Trump attacking Jerome Powell (fed chair)",
+                                comment: "Incorrect but you where close.",
+                                next: null
+                            }
+                        ]
+                    }
+                },
+                {
+                    label: "No",
+                    comment: "Review the section and come back 🙂",
+                    next: null
+                }
+            ]
+        }
     };
 
     let currentNode = null;
