@@ -4589,7 +4589,9 @@ This whole question gave us a good intuition on how what can first look like com
 
 ## Conclusion <a id="Conclusion"></a>
 
+In conclustion, we have seen how negative or positive fed events affect the maket from a macroeconomical perspective: how the reaction of ETFs comapre to their respective stocks and how these vary across sectors. We have studied how different sectors react to various types of fed rate changes and how the size of a company influence their robustness in comparison to others. Finally we analysed how and why firms that start from similar standpoints react to specific events in a more microeconomical analyis. 
 
+What we saw throughout this interview is that most effect are hard to characterize in a general way because stock markets have a high stochasticity. Therefore if you were to join us at Stratton Oakmont, you must be ready to be surpised by the stocks and never think that you know everything about them!
 
 
 
