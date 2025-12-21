@@ -1392,7 +1392,7 @@ h2 {
 
 <!-- ######################################################################################################################### -->
 
-This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
+This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market read you ? </i>
 
 I'll be throwing questions at you the same way the market throws curveballs alright 
 <br> <i> What do you know of the differences between sectors ? </i>
@@ -1604,17 +1604,17 @@ Our analysis highlights the impact of interest rates on markets and economic gro
 <!-- ######################################################################################################################### -->
 ## Research Questions <a id="ResearchQ"></a>
 
+In order for you to get ready for this interview I will tell you the main subject you will think about, so read them carefully and think about them for a minute!
 
 
-
-1. Sectoral Impact of Fed Rate Changes
-How do increases and decreases in Federal Reserve interest rates differently affect performance across various market sectors?
-2. Company-Level Sensitivity to Fed Policy
-Within the same sector, how does the financial performance of two comparable companies respond to changes in Federal Reserve interest rates, and what does this reveal about their stability and resilience?
-3. Firm Size and Fed Rate Reactions
-How do larger-cap companies differ from smaller-cap companies in their sensitivity to changes in Federal Reserve interest rates, and what factors drive the variance in their reactions?
-4. Individual Stocks vs. Diversified ETFs
-How does the volatility and performance of a sector-specific ETF compare to that of its largest individual constituent stocks following a Fed rate announcement?
+1. <i> Sectoral Impact of Fed Rate Changes
+How do increases and decreases in Federal Reserve interest rates differently affect performance across various market sectors? </i>
+2. <i> Company-Level Sensitivity to Fed Policy
+Within the same sector, how does the financial performance of two comparable companies respond to changes in Federal Reserve interest rates, and what does this reveal about their stability and resilience? </i>
+3. <i> Firm Size and Fed Rate Reactions
+How do larger-cap companies differ from smaller-cap companies in their sensitivity to changes in Federal Reserve interest rates, and what factors drive the variance in their reactions? </i>
+4. <i> Individual Stocks vs. Diversified ETFs
+How does the volatility and performance of a sector-specific ETF compare to that of its largest individual constituent stocks following a Fed rate announcement? </i>
 
 
 
@@ -1646,7 +1646,7 @@ To answer our research questions, the primary dataset was enriched with two key 
 ### Dataset presentation
 
 We first want to have a quick overview of the dataset, what it contains exactly and its structure. The Stock Market Dataset from kaggle, contains
-historical daily prices of Nasdaq-traded stocks and ETFs. For a given stock, we have the opening price, higest daily price, lowest daily price, closing price, volume of exchanges of the stock and the adjusted closing price. We also have, acces to the sector of each stock's corresponding company, its Nasdaq ticker name and actual name. For a more visual overview and global exploration, the following tree map displays the thirty five most valuable stocks of each sector, where the value is given in avaerage dollar volume (the average value of the total daily exchanged dollars).
+historical daily prices of Nasdaq-traded stocks and ETFs. For a given stock, we have the opening price, highest daily price, lowest daily price, closing price, volume of exchanges of the stock and the adjusted closing price. We also have, access to the sector of each stock's corresponding company, its Nasdaq ticker name and actual name. For a more visual overview and global exploration, the following tree map displays the thirty five most valuable stocks of each sector, where the value is given in avaerage dollar volume (the average value of the total daily exchanged dollars).
 
 <div id="treemap" style="width:100%; height:600px;"></div>
 
@@ -1697,7 +1697,7 @@ fetch("{{ site.baseurl }}/data/nasdaq_top35.json")
 </script> 
 
 
-The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds), which can be imagined like a grouping of stocks of the same sector. An example of this is "DBA", the Invesco DB Agriculture Fund, which groups stocks in the agricultural sector. In principle, ETF are meant to lower the investor's risk since the crash of a single stock can be counterbalanced by the remainding ones.
+The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds), which can be imagined like a grouping of stocks of the same sector. An example of this is "DBA", the Invesco DB Agriculture Fund, which groups stocks in the agricultural sector. In principle, ETF are meant to lower the investor's risk since the crash of a single stock can be counterbalanced by the remaining ones.
 
 <div id="sunburst" style="width:100%; height:700px;"></div>
 
@@ -1896,12 +1896,12 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 }
 </style>
 
-To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF contains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
+To answer this question, we can follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF contains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
 We only pair the important stocks of an ETF with the stock itself.
 
 
 Now for each ETF and one of the corresponding stocks, we compute the performance during each fed rate event.
-Then If the ETF or the stocks performs better a significant amount of time computed with a binomtest we store the result.
+Then If the ETF or the stocks performs better a significant amount of time computed with a binomial test we store the result.
 
 Finally we can display the results in a bar chart.
 
