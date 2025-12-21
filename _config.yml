@@ -1,9 +1,21 @@
 theme: jekyll-theme-minimal
-title: ADA Template Website
-description: A template website for ADA
+title: T4D4 Team Website
+description: A website for the T4D4 team, explaining FED rate impact.
 show_downloads: True
 navigation:
   - title: Home
     url: /
   - title: Example
     url: example
+  - title: About
+    url: other_page
+  - title: Game
+    url: game
+  - title: Beatrice
+    url: Beatrice
+  - title: Cyriac
+    url: Cyriac
+  - title: Lucas
+    url: Lucas
+  - title: Alexis
+    url: Alexis

@@ -749,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "etf-game": {
-            text: "Hello! Are you ready for some questions related to ETFs?",
+            text: "Hello! Are you ready for the ETF GAME?",
             answers: [
                 {
                     label: "Yes",
@@ -1063,22 +1063,22 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "conclusion-section": {
-            text: "This is now the end of the interview. Final question: Ready?",
+            text: "Hello! CONCLUSION?",
             answers: [
                 {
                     label: "Yes",
                     comment: "Great! Let's begin.",
                     next: {
-                        text: "How are you feeling?",
+                        text: "What is a stock?",
                         answers: [
                             {
-                                label: "Amazing! I learned so much about the fed rate and its impact on stocks!",
-                                comment: "Correct! Join us at Stratton Oakmont!",
+                                label: "A share of ownership in a company",
+                                comment: "Correct!",
                                 next: null
                             },
                             {
-                                label: "Amazing! I learned so much about the fed rate and its impact on stocks!",
-                                comment: "Correct! Join us at Stratton Oakmont!",
+                                label: "A type of loan",
+                                comment: "Incorrect. A stock is ownership.",
                                 next: null
                             }
                         ]
@@ -1392,7 +1392,7 @@ h2 {
 
 <!-- ######################################################################################################################### -->
 
-This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market read you ? </i>
+This isn't like any other interview, this is an exclusive interview with me, THE Jordan Belfort, aka the wolf of wallstreet. You are applying for a covoted position at Stratton Oakmont as intern stock analyst. Now you're sitting at the table across from me, applying for this real special position, and I just want to know one thing : <i> Can you read the market, or does the market reads you ? </i>
 
 I'll be throwing questions at you the same way the market throws curveballs alright 
 <br> <i> What do you know of the differences between sectors ? </i>
@@ -1405,6 +1405,7 @@ So if you think you have what it takes : take a deep breath, sit up straight and
 
 <!-- ######################################################################################################################### -->
 
+<section class="content-section trigger-game" data-game="fed-policy"></section>
 
 ## Fed rates <a id="FedRates"></a>
 
@@ -1412,14 +1413,11 @@ What is the Federal Reserve Interest Rate?
 
 Think of the Fed Rate as the economic thermostat for both businesses and households. While it is technically the interest rate banks charge each other, it effectively controls the cost of borrowing for everyone. This determines how much it costs a company to expand or how much a family pays for a home.
 
-
 **Cutting Rates** (Green Light): When the Fed "turns down the dial," borrowing becomes cheaper. This encourages companies to fund new projects and hire more workers, while also lowering monthly loan payments for people.
 
 **Raising Rates** (The Brake): When the Fed "turns up the dial" to fight inflation, borrowing becomes expensive. Businesses often tighten their belts and pause expansion, while consumers see higher interest on credit cards and mortgages.
 
 Current Status: As of December 2025, the Fed is in a "colling" phase. By cutting rates to 3.75% – 4.00%, they are lowering the cost of debt to help businesses keep their teams and help families manage their budgets.
-<section class="content-section trigger-game" data-game="fed-policy"></section>
-
 
 <style>
     .fed-card {margin:18px 0;padding:16px;border:1px solid #e1e8f0;border-radius:14px;background:#fbfdff;box-shadow:0 10px 24px rgba(12,50,96,0.08);max-width:100%;}
@@ -1606,17 +1604,17 @@ Our analysis highlights the impact of interest rates on markets and economic gro
 <!-- ######################################################################################################################### -->
 ## Research Questions <a id="ResearchQ"></a>
 
-In order for you to get ready for this interview I will tell you the main subject you will think about, so read them carefully and think about them for a minute!
 
 
-1. <i> Sectoral Impact of Fed Rate Changes
-How do increases and decreases in Federal Reserve interest rates differently affect performance across various market sectors? </i>
-2. <i> Company-Level Sensitivity to Fed Policy
-Within the same sector, how does the financial performance of two comparable companies respond to changes in Federal Reserve interest rates, and what does this reveal about their stability and resilience? </i>
-3. <i> Firm Size and Fed Rate Reactions
-How do larger-cap companies differ from smaller-cap companies in their sensitivity to changes in Federal Reserve interest rates, and what factors drive the variance in their reactions? </i>
-4. <i> Individual Stocks vs. Diversified ETFs
-How does the volatility and performance of a sector-specific ETF compare to that of its largest individual constituent stocks following a Fed rate announcement? </i>
+
+1. Sectoral Impact of Fed Rate Changes
+How do increases and decreases in Federal Reserve interest rates differently affect performance across various market sectors?
+2. Company-Level Sensitivity to Fed Policy
+Within the same sector, how does the financial performance of two comparable companies respond to changes in Federal Reserve interest rates, and what does this reveal about their stability and resilience?
+3. Firm Size and Fed Rate Reactions
+How do larger-cap companies differ from smaller-cap companies in their sensitivity to changes in Federal Reserve interest rates, and what factors drive the variance in their reactions?
+4. Individual Stocks vs. Diversified ETFs
+How does the volatility and performance of a sector-specific ETF compare to that of its largest individual constituent stocks following a Fed rate announcement?
 
 
 
@@ -1648,7 +1646,7 @@ To answer our research questions, the primary dataset was enriched with two key 
 ### Dataset presentation
 
 We first want to have a quick overview of the dataset, what it contains exactly and its structure. The Stock Market Dataset from kaggle, contains
-historical daily prices of Nasdaq-traded stocks and ETFs. For a given stock, we have the opening price, highest daily price, lowest daily price, closing price, volume of exchanges of the stock and the adjusted closing price. We also have, access to the sector of each stock's corresponding company, its Nasdaq ticker name and actual name. For a more visual overview and global exploration, the following tree map displays the thirty five most valuable stocks of each sector, where the value is given in avaerage dollar volume (the average value of the total daily exchanged dollars).
+historical daily prices of Nasdaq-traded stocks and ETFs. For a given stock, we have the opening price, higest daily price, lowest daily price, closing price, volume of exchanges of the stock and the adjusted closing price. We also have, acces to the sector of each stock's corresponding company, its Nasdaq ticker name and actual name. For a more visual overview and global exploration, the following tree map displays the thirty five most valuable stocks of each sector, where the value is given in avaerage dollar volume (the average value of the total daily exchanged dollars).
 
 <div id="treemap" style="width:100%; height:600px;"></div>
 
@@ -1699,7 +1697,7 @@ fetch("{{ site.baseurl }}/data/nasdaq_top35.json")
 </script> 
 
 
-The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds), which can be imagined like a grouping of stocks of the same sector. An example of this is "DBA", the Invesco DB Agriculture Fund, which groups stocks in the agricultural sector. In principle, ETF are meant to lower the investor's risk since the crash of a single stock can be counterbalanced by the remaining ones.
+The dataset does not only contain stocks, but also ETFs (Exchange-Traded Funds), which can be imagined like a grouping of stocks of the same sector. An example of this is "DBA", the Invesco DB Agriculture Fund, which groups stocks in the agricultural sector. In principle, ETF are meant to lower the investor's risk since the crash of a single stock can be counterbalanced by the remainding ones.
 
 <div id="sunburst" style="width:100%; height:700px;"></div>
 
@@ -1776,7 +1774,7 @@ fetch("{{ site.baseurl }}/data/nasdaq_etf_stocks.json")
 
 We want to focus our analysis on specific Federal Reserve interest rate events.
 Specifically, we aim to detect periods in which the Fed rate experiences a **substantial increase or decrease**, followed by a **stable phase lasting a few days**.  
-This allows us to study market behavior during intervals when the interest rate remains constant  ensuring that our observations are not influenced by additional policy changes occurring in the same timeframe.
+This allows us to study market behavior during intervals when the interest rate remains constant — ensuring that our observations are not influenced by additional policy changes occurring in the same timeframe.
 
 <span style="color:#d40000; font-weight:700;">Positive Fed Event (red)</span>: tightening to slow the economy or curb inflation, then stepping back to let the market absorb the change.
 
@@ -1898,12 +1896,12 @@ We can indeed see that the algorithm has indentified recession, for example in 2
 }
 </style>
 
-To answer this question, we can follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF contains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
+To answer this question, we follow these steps. First we identify fed rate signals (see previous explanation). Then we map ETF and corresponding stocks. Each ETF contains multiple stocks, for example for an ETF about the Technological sector, the ETF "XLK" includes stocks like "AAPL", "MSFT", etc.
 We only pair the important stocks of an ETF with the stock itself.
 
 
 Now for each ETF and one of the corresponding stocks, we compute the performance during each fed rate event.
-Then If the ETF or the stocks performs better a significant amount of time computed with a binomial test we store the result.
+Then If the ETF or the stocks performs better a significant amount of time computed with a binomtest we store the result.
 
 Finally we can display the results in a bar chart.
 
@@ -3318,10 +3316,10 @@ cuts, with uncertainty bands reflecting estimation variability.
 
 <p>
 Most estimates are negative, indicating that surprise rate cuts are often followed by
-short-run underperformance rather than gains. This pattern is strongest in cyclical sectors such
+short-run underperformance rather than gains. This pattern is strongest in cyclical sectors—such
 as Basic Materials and Energy, i.e. whose profits depend heavily on economic activity and global demand.
 Other sectors also tend to react negatively but with more uncertainty, and several effects are not
-statistically distinct from zero. Hence, surprise Fed cuts tend to redistribute performance
+statistically distinct from zero. In short, surprise Fed cuts tend to redistribute performance
 across sectors rather than lift the market uniformly.
 </p>
 
@@ -4359,7 +4357,7 @@ For the case studies, this pipeline is ran on the feature Dollar Volume and on a
 const pairs = {
   "ARAY vs DVA": {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
-    description: `<b> ARAY vs DVA - Healthcare sector </b> 
+    description: `<b> ARAY vs DVA — Healthcare sector </b> 
     <br> 
     <br> <i>Accuracy Inc</i> 
     <br>( pvd : 0.037 ) ( pvc : 0.008 )
@@ -4377,7 +4375,7 @@ const pairs = {
 
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
-    description: ` <b> AGX vs ARTW - Industry sector </b>
+    description: ` <b> AGX vs ARTW — Industry sector </b>
     <br> 
     <br> <i>Argan Inc</i> 
     <br>( pvd : 0.014 ) ( pvc : 0.912)
@@ -4395,7 +4393,7 @@ const pairs = {
 
   "ASTC vs ALOT": {
     json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
-    description: ` <b> ASTC vs ALOT - Technology sector </b>
+    description: ` <b> ASTC vs ALOT — Technology sector </b>
     <br> 
     <br> <i>Astrotech Corp</i> 
     <br>( pvd : 0.016 ) ( pvc : 0.0)
@@ -4413,7 +4411,7 @@ const pairs = {
 
   "DVN vs MUR": {
     json: "{{ site.baseurl }}/data/(DVN,MUR).json",
-    description: ` <b> DVN vs MUR - Energy sector </b> 
+    description: ` <b> DVN vs MUR — Energy sector </b> 
     <br> 
     <br> <i>Devon Energy Corp</i> 
     <br>( pvd : 0.005 ) ( pvc : 0.028)
@@ -4591,9 +4589,7 @@ This whole question gave us a good intuition on how what can first look like com
 
 ## Conclusion <a id="Conclusion"></a>
 
-In conclustion, we have seen how negative or positive fed events affect the maket from a macroeconomical perspective: how the reaction of ETFs comapre to their respective stocks and how these vary across sectors. We have studied how different sectors react to various types of fed rate changes and how the size of a company influence their robustness in comparison to others. Finally we analysed how and why firms that start from similar standpoints react to specific events in a more microeconomical analyis. 
 
-What we saw throughout this interview is that most effect are hard to characterize in a general way because stock markets have a high stochasticity. Therefore if you were to join us at Stratton Oakmont, you must be ready to be surpised by the stocks and never think that you know everything about them!
 
 
 

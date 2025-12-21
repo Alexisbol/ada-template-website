@@ -1,0 +1,5 @@
+[
+  { "size": "Small (0–5M$)", "value": 5.3 },
+  { "size": "Medium (5–15M$)", "value": 2.3 },
+  { "size": "Large (>15M$)", "value": 3.3 }
+]
