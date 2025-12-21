@@ -3468,7 +3468,8 @@ which relies less on the business cycle and interest rates, appears largely inse
 
 
 
-<p>In this barplot, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
+<p> Beyond marginal sensitivities, do these differences translate into meaningful performance gaps? The next bar plot compares average sector returns in high-10Y-rate versus low-10Y-rate months, to analyze which sectors have meaningfully higher average annualized returns (monthly returns mutlipied by 12 for the sake of interpretabilty).
+</p>
 
 <div class="figure-block">
   <div id="fig09" style="width:100%; height:520px;"></div>
@@ -3478,28 +3479,25 @@ which relies less on the business cycle and interest rates, appears largely inse
 <div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
   <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
   <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Right of zero:</strong> sector performs better in the “high-rate” regime.</li>
-    <li><strong>Left of zero:</strong> sector performs better in the “low-rate” regime.</li>
+    <li><strong>Right of zero:</strong> sector performs better in the high-rate regime.</li>
+    <li><strong>Left of zero:</strong> sector performs better in the low-rate regime.</li>
     <li><strong>Longer bars:</strong> larger economic difference between regimes.</li>
+    <li><strong>p-values:</strong> indicate whether the difference is statistically meaningful.</li>
   </ul>
 </div>
 
 <p>
-This figure compares average annualized sector returns between high and low 10-year yield environments. Bars show the return difference (high-rate minus low-rate), with p-values indicating statistical significance.
+Technology, Financial Services, and Healthcare tend to perform worse when long-term interest rates are high, because higher rates make future profits less attractive and borrowing more expensive. Consumer Cyclical and Real Estate also struggle in high-rate periods, as higher rates weigh on spending and housing activity.
 </p>
 
 <p>
-Technology, Financial Services, and Healthcare underperform significantly when long-term rates are high, consistent with higher discount rates and tighter financing conditions. Consumer Cyclical and Real Estate also perform worse in high-rate regimes.
-</p>
-
-<p>
-In contrast, Energy performs better when rates are high, likely reflecting stronger real activity or inflationary conditions, while Communication Services and Basic Materials show little difference across regimes.
+By contrast, Energy performs better when rates are high, often because such periods coincide with strong economic activity or higher prices. Communication Services and Basic Materials show little difference across rate environments, suggesting they are less sensitive to long-term interest rate changes.
 </p>
 
 
 <h3>Conclusion</h3>
 <p>
-This analysis shows that long-term interest rates are a key driver of sector performance. Sectors with long-duration cash flows underperform in high-rate environments, while those tied to real activity are more resilient, making long-term yields a relevant measure of monetary conditions for sector-level analysis.
+This analysis shows that long-term interest rates are a key driver of sector performance. Sectors that depend heavily on profits far in the future tend to suffer when rates are high. Ror example, technology firms often reinvest in growth rather than generating immediate profits, making them more sensitive to higher rates. By contrast, sectors tied to current economic activity, such as energy or industrials, earn profits today and are therefore more resilient, which makes long-term yields a useful lens for sector-level analysis.
 </p>
 
 
