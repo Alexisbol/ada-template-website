@@ -3230,25 +3230,20 @@ indicating that Fed actions introduce a sector-specific risk dimension beyond ma
 
 <h3>Context</h3>
 <p>
-To answer this question, it helps to separate expected moves from surprises. If a move is fully priced
-in, returns may barely react. But a surprise cut often conveys information about stress or
-deteriorating conditions. So the market reaction can reflect the signal, not only the mechanical
-impact of lower rates.
+The first thing to get right is to separate what the market expects from what truly comes as a
+surprise. When a Fed move is already priced in, prices barely move. But a surprise cut often sends
+a signal that something is wrong in the economy. In that case, markets react to the message, not
+just to lower rates.
 </p>
 
 <section class="content-section trigger-game" data-game="game-part-3"></section>
 
-
 <h3>Method</h3>
-
 <p>
-To answer this, you can use an event-study. The intuition is: instead of looking at long windows
-where many things happen, you zoom into a short window around the policy surprise and compare the
-sector to a benchmark. That reduces contamination from other slow-moving factors.
+To capture this effect, we use an event-study. Instead of looking at long periods where many things
+happen at once, we zoom in on a short window around the policy surprise and compare each sector to a
+benchmark sector, here Industrials. This lets us focus on the short-horizon reaction and filter out slower-moving forces.
 </p>
-
-We implement a short-horizon event-study framework around surprise Fed cuts. Sector performance is
-measured relative to a benchmark sector (Industrials):
 
 <blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;">
   <img
@@ -3281,15 +3276,12 @@ In this plot, we compare average abnormal performance across sectors during the 
 <div style="margin:20px 0;padding:16px;background:#f0f9ff;border-left:4px solid #0ea5e9;border-radius:4px;">
   <h4 style="margin:0 0 8px;color:#0369a1;">💡 How to Read This Chart:</h4>
   <ul style="margin:0;padding-left:20px;color:#1e293b;">
-    <li><strong>Right of zero:</strong> sector outperforms the benchmark around the event window.</li>
-    <li><strong>Left of zero:</strong> sector underperforms the benchmark around the event window.</li>
-    <li><strong>Near zero:</strong> little average abnormal reaction.</li>
+    <li><strong>Right of zero:</strong> sector outperforms the benchmark.</li>
+    <li><strong>Left of zero:</strong> sector underperforms the benchmark.</li>
+    <li><strong>Near zero:</strong> little average reaction.</li>
   </ul>
 </div>
 
-<p>
-This figure shows sector performance relative to Industrials following surprise Fed rate cuts over a three-day window. Negative values indicate underperformance, suggesting that unexpected easing is often interpreted as a negative macroeconomic signal rather than a purely supportive policy move.
-</p>
 
 <p>
 The strongest underperformance appears in Basic Materials and Energy, sectors closely tied to global demand and commodity cycles, where adverse growth signals likely dominate any financing benefits. Technology, Financial Services, and Communication Services also react negatively, consistent with a reassessment of growth expectations.
@@ -3300,7 +3292,11 @@ By contrast, Healthcare and Consumer Cyclical show more muted responses, indicat
 </p>
 
 
-<p>Then, we want to check which sector effects are clearly different from zero once uncertainty is accounted for.</p>
+<p>
+Then we want to check which sector effects are clearly different from zero once uncertainty is accounted
+for. This figure shows sector outperformance relative to Industrials following surprise Fed rate
+cuts, with uncertainty bands reflecting estimation variability.
+</p>
 
 <div class="figure-block">
   <div id="fig12" style="width:100%; height:520px;"></div>
@@ -3319,21 +3315,22 @@ By contrast, Healthcare and Consumer Cyclical show more muted responses, indicat
 </div>
 
 <p>
-This figure reports sector outperformance relative to Industrials following surprise Fed rate cuts, with uncertainty bands reflecting estimation variability. Most point estimates are negative, suggesting that unexpected easing is generally associated with short-run underperformance.
+Most estimates are negative, indicating that surprise rate cuts are often followed by
+short-run underperformance rather than gains. This pattern is strongest in cyclical sectors—such
+as Basic Materials and Energy, i.e. whose profits depend heavily on economic activity and global demand.
+Other sectors also tend to react negatively but with more uncertainty, and several effects are not
+statistically distinct from zero. In short, surprise Fed cuts tend to redistribute performance
+across sectors rather than lift the market uniformly.
 </p>
 
-<p>
-The strongest negative responses appear in Basic Materials and Energy, consistent with surprise rate cuts conveying adverse information about economic conditions. Technology, Communication Services, and Financial Services also show negative average responses, though with greater uncertainty.
-</p>
-
-<p>
-For several sectors, confidence intervals overlap zero, indicating that short-run responses are not always statistically distinct from Industrials. Overall, the figure shows that surprise Fed cuts tend to redistribute sector performance rather than produce uniform gains.
-</p>
 
 
 <h3>Conclusion</h3>
 <p>
-Taken together, these results show that sectors respond differently to surprise Fed rate cuts, and that the short-run reactions are often consistent with a signaling effect rather than a pure discount-rate channel. In many cases, unexpected easing is associated with relative underperformance, particularly in sectors closely tied to growth and demand conditions. The event-study framework helps isolate this short-run informational component of monetary policy surprises.
+Taken together, these results show that sectors respond differently to surprise Fed rate cuts, with
+short-run reactions often reflecting a signaling effect rather than a pure discount-rate channel.
+Unexpected easing is frequently associated with relative underperformance, especially in sectors
+tied to growth and demand, and the event-study framework helps isolate this informational effect.
 </p>
 
 
@@ -3346,17 +3343,20 @@ Taken together, these results show that sectors respond differently to surprise 
 
 <h2>4. Are Fed rates the right proxy for long-term monetary policy?</h2>
 
-
-
 <h3>Context</h3>
 <p>
-To move beyond short-term market reactions, it is useful to consider monetary policy at the horizon relevant for equity valuation. Stock prices reflect the discounted value of future cash flows, making them more sensitive to long-term expectations about policy and economic conditions than to short-term rate adjustments alone. This motivates distinguishing between short-term policy actions and longer-term monetary conditions when analyzing equity responses.
+To move beyond short-term market reactions, it is useful to consider monetary policy at longer
+horizons. Equity prices are shaped by expectations about future economic conditions, so measures
+that capture longer-term outlooks are more informative than day-to-day policy adjustments.
 </p>
 
 <section class="content-section trigger-game" data-game="game-part-4"></section>
 
 <p>
-We therefore compare the Federal Funds Rate, the Fed’s short-term policy instrument, with the 10-year Treasury yield, which reflects expected future policy, inflation, and term premia. The 10-year yield provides a more stable proxy for the monetary environment faced by long-horizon investors.
+We therefore compare the Federal Funds Rate, which reflects short-term policy decisions, with the
+10-year Treasury yield, the interest rate investors demand to lend to the U.S. government over ten
+years. Because it embeds expectations about inflation, growth, and future policy and evolves more
+smoothly over time, the 10-year yield offers a more forward-looking view of monetary conditions.
 </p>
 
 
@@ -3370,9 +3370,11 @@ The figure below visually compares the two series. The goal is simply to assess 
   <script>renderMplExport("fig02", "{{ site.baseurl }}/assets/fig_json/fig02.json");</script>
 </div>
 
-<h3>Conclusion</h3>
 <p>
-For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and sector analysis, the 10-year Treasury yield is a more appropriate measure, as it embeds expectations )and filters out short-term policy noise.
+For short-run policy analysis, the Federal Funds Rate is informative. For longer-horizon equity and
+sector analysis, the 10-year Treasury yield is a more appropriate measure, as it captures expectations
+and filters out short-term policy noise, better miroring the broader economic climate perceived
+by investors.
 </p>
 
 
@@ -3386,10 +3388,10 @@ For short-run policy analysis, the Federal Funds Rate is informative. For longer
 
 <h3>Context</h3>
 <p>
-To respond to that, you can think of high-rate environments as changing both discounting and the
-macro mix. Sectors with long-duration cash flows tend to be hurt more when discount rates rise,
-while sectors linked to commodities, financial intermediation, or pricing power may behave
-differently.
+As explained before, we use the 10-year Treasury yield to characterize long-run monetary
+conditions. In particular, high-rate environments change both how future profits are valued and
+the broader economic setting, which does not affect all sectors in the same way. When rates are high, investors care more about what companies earn now than what they might earn far in the future. This hurts growth-oriented sectors, while sectors tied to current activity or prices can hold up better.
+
 </p>
 
 <section class="content-section trigger-game" data-game="game-part-5"></section>
@@ -3427,20 +3429,22 @@ We estimate sector sensitivity to changes in the 10Y yield:
   <script>renderMplExport("fig08", "{{ site.baseurl }}/assets/fig_json/fig08.json");</script>
 </div>
 
-
 <p>
-This plot defines low- and high-rate environments using percentile-based thresholds of the 10-year Treasury yield, providing a simple and transparent way to compare sector performance across interest-rate regimes. The main limitation is that these thresholds are mechanical: they do not capture smooth transitions or changes in the economic meaning of yield levels over time, and observations near the cutoffs may switch regimes due to small, economically minor fluctuations.
+This plot defines low- and high-rate environments using percentile thresholds of the 10-year
+Treasury yield, offering a simple way to compare sector performance across regimes. A limitation
+is that these cutoffs are mechanical and may miss smooth transitions or shift regimes due to small,
+economically minor yield changes.
 </p>
+
 
 <h3>Results</h3>
 
 <p>
-Here, what we are trying to see is whether some sectors behave like “rate beneficiaries” while
-others behave like “rate victims”. We also want to see whether the regime differences are large in
-economic terms, not only statistically.
+Here, what we want to understand whether some sectors benefit from higher interest rates while others are harmed,
+and whether these differences are meaningful in economic terms, not just statistically. The goal
+is to identify which sectors have positive or negative sensitivity to changes in the 10-year
+Treasury yield.
 </p>
-
-<p>In Fig.3, we want to estimate which sectors have positive or negative sensitivity to changes in the 10Y yield.</p>
 
 <div class="figure-block">
   <div id="fig03" style="width:100%; height:520px;"></div>
@@ -3457,12 +3461,11 @@ economic terms, not only statistically.
 </div>
 
 <p>
-This figure reports estimated sector sensitivities to changes in the 10-year Treasury yield using both equal-weighted and liquidity-weighted specifications. For most sectors, the estimated effects are small and close to zero, indicating limited direct sensitivity of short-run returns to movements in long-term yields.
+Most sectors cluster close to zero, suggesting that moderate changes in long-term rates do not
+dramatically alter sector performance. Some differences nevertheless emerge. Energy and Industrials tend to react positively when long-term rates rise because higher yields are often associated with stronger economic activity, higher demand, and higher prices for energy and industrial output. By contrast, Basic Materials can be hurt when rates rise, as higher financing costs and slower global investment weigh on commodity-intensive sectors. Communication Services,
+which relies less on the business cycle and interest rates, appears largely insensitive to changes in long-term yields.
 </p>
 
-<p>
-Growth-oriented sectors such as Technology and Consumer Cyclical show slightly positive sensitivities, consistent with discount-rate effects, while Basic Materials and Energy display weaker or mildly negative responses, reflecting a stronger role for real activity and commodity price channels. The wide confidence interval for Healthcare highlights substantial heterogeneity and estimation uncertainty within that sector.
-</p>
 
 
 <p>In this barplot, we want to quantify economic differences: which sectors have meaningfully higher average returns in high-rate months versus low-rate months.</p>
