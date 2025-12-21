@@ -749,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         "etf-game": {
-            text: "Hello! Are you ready for the ETF GAME?",
+            text: "Hello! Are you ready for some questions related to ETFs?",
             answers: [
                 {
                     label: "Yes",
