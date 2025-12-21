@@ -1774,7 +1774,7 @@ fetch("{{ site.baseurl }}/data/nasdaq_etf_stocks.json")
 
 We want to focus our analysis on specific Federal Reserve interest rate events.
 Specifically, we aim to detect periods in which the Fed rate experiences a **substantial increase or decrease**, followed by a **stable phase lasting a few days**.  
-This allows us to study market behavior during intervals when the interest rate remains constant — ensuring that our observations are not influenced by additional policy changes occurring in the same timeframe.
+This allows us to study market behavior during intervals when the interest rate remains constant  ensuring that our observations are not influenced by additional policy changes occurring in the same timeframe.
 
 <span style="color:#d40000; font-weight:700;">Positive Fed Event (red)</span>: tightening to slow the economy or curb inflation, then stepping back to let the market absorb the change.
 
@@ -3316,10 +3316,10 @@ cuts, with uncertainty bands reflecting estimation variability.
 
 <p>
 Most estimates are negative, indicating that surprise rate cuts are often followed by
-short-run underperformance rather than gains. This pattern is strongest in cyclical sectors—such
+short-run underperformance rather than gains. This pattern is strongest in cyclical sectors such
 as Basic Materials and Energy, i.e. whose profits depend heavily on economic activity and global demand.
 Other sectors also tend to react negatively but with more uncertainty, and several effects are not
-statistically distinct from zero. In short, surprise Fed cuts tend to redistribute performance
+statistically distinct from zero. Hence, surprise Fed cuts tend to redistribute performance
 across sectors rather than lift the market uniformly.
 </p>
 
@@ -4357,7 +4357,7 @@ For the case studies, this pipeline is ran on the feature Dollar Volume and on a
 const pairs = {
   "ARAY vs DVA": {
     json: "{{ site.baseurl }}/data/(ARAY,DVA).json",
-    description: `<b> ARAY vs DVA — Healthcare sector </b> 
+    description: `<b> ARAY vs DVA - Healthcare sector </b> 
     <br> 
     <br> <i>Accuracy Inc</i> 
     <br>( pvd : 0.037 ) ( pvc : 0.008 )
@@ -4375,7 +4375,7 @@ const pairs = {
 
   "AGX vs ARTW": {
     json: "{{ site.baseurl }}/data/(AGX,ARTW).json",
-    description: ` <b> AGX vs ARTW — Industry sector </b>
+    description: ` <b> AGX vs ARTW - Industry sector </b>
     <br> 
     <br> <i>Argan Inc</i> 
     <br>( pvd : 0.014 ) ( pvc : 0.912)
@@ -4393,7 +4393,7 @@ const pairs = {
 
   "ASTC vs ALOT": {
     json: "{{ site.baseurl }}/data/(ASTC,ALOT).json",
-    description: ` <b> ASTC vs ALOT — Technology sector </b>
+    description: ` <b> ASTC vs ALOT - Technology sector </b>
     <br> 
     <br> <i>Astrotech Corp</i> 
     <br>( pvd : 0.016 ) ( pvc : 0.0)
@@ -4411,7 +4411,7 @@ const pairs = {
 
   "DVN vs MUR": {
     json: "{{ site.baseurl }}/data/(DVN,MUR).json",
-    description: ` <b> DVN vs MUR — Energy sector </b> 
+    description: ` <b> DVN vs MUR - Energy sector </b> 
     <br> 
     <br> <i>Devon Energy Corp</i> 
     <br>( pvd : 0.005 ) ( pvc : 0.028)
