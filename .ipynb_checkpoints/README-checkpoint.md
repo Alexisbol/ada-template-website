@@ -3497,7 +3497,7 @@ By contrast, Energy performs better when rates are high, often because such peri
 
 <h3>Conclusion</h3>
 <p>
-This analysis shows that long-term interest rates are a key driver of sector performance. Sectors that depend heavily on profits far in the future tend to suffer when rates are high. Ror example, technology firms often reinvest in growth rather than generating immediate profits, making them more sensitive to higher rates. By contrast, sectors tied to current economic activity, such as energy or industrials, earn profits today and are therefore more resilient, which makes long-term yields a useful lens for sector-level analysis.
+This analysis shows that long-term interest rates are a key driver of sector performance. Sectors that depend heavily on profits far in the future tend to suffer when rates are high. For example, technology firms often reinvest in growth rather than generating immediate profits, making them more sensitive to higher rates. By contrast, sectors tied to current economic activity, such as energy or industrials, earn profits today and are therefore more resilient, which makes long-term yields a useful lens for sector-level analysis.
 </p>
 
 
@@ -3869,12 +3869,18 @@ Once again, the analysis shows that most volatility is explained by macro risk a
 
 
 
-<h3> Sectors Conclusion</h3>
+<h3>Sector-level takeaways</h3>
 
 <p>
-So to respond to your question: yes, macro confounding is a major issue. A naive model overstates
-the Fed role because the Fed moves during stress. After controls, the Fed contribution is smaller
-and sector-dependent, with volatility driven mainly by macro risk and persistence.
+I hope I have convinced you that, to deserve your spot on the desk, you cannot treat the market as one big trade. Sectors react very differently to monetary policy, both in terms of returns and risk: the two core dimensions that matter when evaluating investments.
+</p>
+
+<p>
+Short-term Fed surprises often matter because of what they signal about the economy, not because of the rate change itself. Over longer horizons, sector performance is driven more by long-term interest rates than by short-term policy moves: growth-oriented sectors tend to suffer when rates are high, while sectors tied to current economic activity hold up better.
+</p>
+
+<p>
+Finally, once overall market stress is accounted for, the Fed’s direct impact on sector volatility is limited. Most of the risk investors experience comes from broader economic uncertainty, not from policy moves alone.
 </p>
 
 

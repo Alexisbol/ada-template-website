@@ -1721,7 +1721,7 @@ out that timing using VXN and persistence, so what remains is closer to an incre
 effect.
 </p>
 
-<p>In Fig.21, we want to measure how much explanatory power is added when including macro risk and volatility persistence.</p>
+<p> Then, we want to measure how much explanatory power is added when including macro risk and volatility persistence.</p>
 
 <div class="figure-block">
   <div id="fig21" style="width:100%; height:520px;"></div>
@@ -1745,7 +1745,7 @@ If ΔR² is large and common across sectors, that supports the view that volatil
 macro regime phenomenon plus persistence rather than a direct response to policy changes.
 </p>
 
-<p>In Fig.22, we want to decompose explained variance into what comes from macro risk and persistence versus what is added by the Fed on top.</p>
+<p> Finally, in this figure, we want to decompose explained variance into what comes from macro risk and persistence versus what is added by the Fed on top.</p>
 
 <div class="figure-block">
   <div id="fig22" style="width:100%; height:700px;"></div>
